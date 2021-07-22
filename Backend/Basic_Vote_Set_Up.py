@@ -13,12 +13,12 @@ algod_token = "5iDNC5wssQ2e2SWgaY1XH2FOnlQZG2v28JPUkD1L"
 #Initializes Client for node
 headers = {"X-API-Key": algod_token }
 algod_client = algod.AlgodClient(algod_token,algod_address,headers)
-fund_address = "KM2C6WPCGREBUOXZPGULM4UZV7GRF4LECL43FFG3RXNOHROBBCJ662UUBA" #Put in main fund address here
-fund_mnemonic = "lumber hair surge miss copper drip forum prepare help solve save unknown empower similar sauce cage series assume frown truck token soccer wheel absent distance" #Put in main fund receiver_mnemonic here
+fund_address = "" #Put in main fund address here
+fund_mnemonic = "" #Put in main fund receiver_mnemonic here
 fund_key = mnemonic.to_private_key(fund_mnemonic)
 choice_id = 17264161 #Official Test Asset ID for Choice Coin
-decision_one = "QFT3M37MTBY334QB6RNG5STUC343F6ZUVEGHZ2YHEHGEGWOJAIQTO43GJM"
-decision_two = "JOOXW4EXNN2RL7KU2YWXR5I443CR5ISCPBHSQ3MAVE6743FIBCDBB5GGXA"
+decision_one = ""#Put in the account address for the first decision here
+decision_two = ""#Put in the account address for the second decision here
 
 def algo_inital(sender, key, receiver,comment):
     parameters = algod_client.suggested_params()
