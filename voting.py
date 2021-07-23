@@ -132,6 +132,21 @@ def approval_voting(address,t_mnemonic):
         choice_vote(address,private_key,decision_one,100)
     elif second == 'yes':
         choice_vote(address,private_key,decision_two,100)
+        
+def check_holdings(asset_id, address):
+	"""
+	Checks the asset balance for the specific address and asset id.
+	"""
+	account_info = client.account_info(address)
+	assets = account_info.get("assets")
+	for asset in assets:
+		if asset['asset-id'] == asset_id:
+			amount = asset.get("amount")
+			print("Account {} has {}.".format(address, balance_formatter(amount, asset_id, client)))
+			return
+	print("Account {} must opt-in to Asset ID {}.".format(address, asset_id))
+    
+  
 #This is a stateful smart contract to count the number of votes each candiate recieved
 #on the Algorand Blockchain.
 def count_votes():
