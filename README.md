@@ -23,7 +23,8 @@ are recorded on the Algorand Blockchain, and are tabulated using a stateless sma
 - Finally, to test as a web-application, use the command *python index.py* in a regular terminal with the virtual environment configured. This will launch a web-application that you can interact with.
 - To learn more about the web-application, watch the Demo Video here: https://youtu.be/DWXNGDYXnIM.
 
-# Open Source License
+# Open-Source License
+Copyright Fortior Blockchain, LLLP 2021
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -36,3 +37,4 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
