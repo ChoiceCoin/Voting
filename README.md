@@ -1,6 +1,6 @@
 # Voting
 This is a repository for voting software built using Choice Coin on the Algorand Network. Our voting software is centered around Decentralized Decisions, an open-source voting software that allows organizations to make decisions in a distributed manner. The votes in Decentralized Decisions
-are recorded on the Algorand Blockchain, and are tabulated using a stateless smart contract. Post-quantum cryptography ensures that voter information is kept secure througout the entire process at all points of vunerability. This repository is meant to faciliate open-development on the Choice Coin Platform, and to serve as a starting point for developers looking to set up their own decentralized voting network. Development here can directly be used for Choice Coin's Developer Awards Program.
+are recorded on the Algorand Blockchain, and are tabulated using a stateless smart contract. Post-quantum cryptography ensures that voter information is kept secure througout the entire process at all points of vunerability. This repository is meant to faciliate open-development on the Choice Coin Platform, and to serve as a starting point for developers looking to set up their own decentralized voting network. Development here can directly be used for Choice Coin's Developer Awards Program. Developers should follow the instructions below to get started. We are looking forward to seeing all the great innovation that will come out of our community!
 
 
 
@@ -8,7 +8,7 @@ are recorded on the Algorand Blockchain, and are tabulated using a stateless sma
 - To run the code in the *Choice_Coin_Voting* Folder, you first must have Python installed. Please download the latest version of Python, and create a virutal environment specifcally for this directory. Python Download: https://www.python.org/downloads/.
 - Also be sure to have the latest version of MySQL installed. MySQl Download: https://www.mysql.com/downloads/.
 - Second, your Python virtual envrionment must have all of the packages listed in the *requirements.txt* file, which is also found in the *Choice_Coin_Voting* folder.
-- Your MySQL Database must be set up similarly to the way it is described in the *SQL_Code.sql* file under *Choice_Coin_Voting*.
+- Your MySQL Database must be set up similarly to the way it is described in the *MySQL_Code.sql* file under *Choice_Coin_Voting*.
 
 # Run Steps
 - To run the code found in the *Choice_Coin_Voting* folder, make sure to first download the dependencies as described above using *pip*.
