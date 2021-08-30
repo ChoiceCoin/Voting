@@ -1,6 +1,6 @@
 # Voting
 This is a repository for voting software built using Choice Coin on the ALgorand Network. Our voting software is centered around Decentralized Decisions, an open-source voting software that allows organizations to make decisions in a distributed manner. The votes in Decentralized Decisions
-are recorded on the Algorand Blockchain, and are tabulated using a stateless smart contract. Post-quantum cryptography ensures that voter information is kept secure througout the entire process at all points of vunerability. This repository is meant to faciliate opne-development on the Choice Coin Platform, and to serve as a starting point for developers looking to set up their own decentralized voting platform. Development here can directly be used for Choice Coin's Developer Awards Program.
+are recorded on the Algorand Blockchain, and are tabulated using a stateless smart contract. Post-quantum cryptography ensures that voter information is kept secure througout the entire process at all points of vunerability. This repository is meant to faciliate open-development on the Choice Coin Platform, and to serve as a starting point for developers looking to set up their own decentralized voting platform. Development here can directly be used for Choice Coin's Developer Awards Program.
 
 
 
