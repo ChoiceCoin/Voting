@@ -1,6 +1,6 @@
 # Open Source under Apache License
 
-# This code defines a decenteralized voting system on the Algorand Blockchain.
+# This code defines a decentralized voting system on the Algorand Blockchain.
 # It uses Choice Coin, an Algorand Standard Asset, to record votes on a distributed ledger.
 # The system makes both efficiency and security a priority. 
 # An escrow account holds the total number of Choice Coin required for the voting process, and Algorand accounts for each of the decisions are made. 
@@ -151,7 +151,7 @@ def count_votes():
         return "The Voting Process has ended. Candidate Two had the most votes!"
     else:
         # Random sample generated from adiabatic quantum computer.
-        # Generated using QunatumQuery.py.
+        # Generated using QuantumQuery.py.
         quantum_sample = [1,1,0,0,1,0,1,1,0,0,0,1,0,1,1,0,0,1,0,1,0,1,0,0,1,1,0,0,1,0]
         # Random sample from quantum sample.
         Q = random.choice(quantum_sample)
@@ -170,7 +170,7 @@ def count_corporate_votes():
         return "Decision Two had the most votes!"
     else:
         # Random sample generated from adiabatic quantum computer.
-        # Generated using QunatumQuery.py.
+        # Generated using QuantumQuery.py.
         quantum_sample = [1,1,0,0,1,0,1,1,0,0,0,1,0,1,1,0,0,1,0,1,0,1,0,0,1,1,0,0,1,0]
         # Random sample from quantum sample.
         Q = random.choice(quantum_sample)
