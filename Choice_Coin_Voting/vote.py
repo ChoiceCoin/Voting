@@ -146,9 +146,16 @@ def count_votes():
     no_count = count(decision_two)
     show_results(yes_count,no_count)
     if yes_count > no_count:
-        return "The Voting Process has ended. Candidate One had the most votes!"
+        if yes_count == 1:
+            return "The Voting Process has ended. Candidate One received the most votes with {0} vote.".format(yes_count)
+        else:
+            return "The Voting Process has ended. Candidate One received the most votes with {0} votes.".format(yes_count)
     if no_count > yes_count:
-        return "The Voting Process has ended. Candidate Two had the most votes!"
+        if no_count == 1:
+            return "The Voting Process has ended. Candidate Two received the most votes with {0} vote.".format(no_count)
+        else:
+            return "The Voting Process has ended. Candidate Two received the most votes with {0} votes.".format(no_count)
+
     else:
         # Random sample generated from adiabatic quantum computer.
         # Generated using QunatumQuery.py.
