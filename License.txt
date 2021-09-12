@@ -1,4 +1,4 @@
-
+its a nice project but it needs to be fast in all its dealings with clients.
 Copyright Fortior Blockchain, LLLP 2021
 
 Licensed under the Apache License, Version 2.0 (the "License");
