@@ -1,5 +1,7 @@
 
 Copyright Fortior Blockchain, LLLP 2021
+Nobody is permitted to copy and distribute verbatim copies 
+of this license document, but adding valuable changes is allowed.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
