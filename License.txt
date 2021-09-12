@@ -1,4 +1,5 @@
-
+We need choicecoin to bring high level of security to algorand ecosystem by building  great security network to prevent future hack!!
+Furthermore, since the ecosystem is gaining high level moment and scalability is very good, it is imperative to secure 
 Copyright Fortior Blockchain, LLLP 2021
 
 Licensed under the Apache License, Version 2.0 (the "License");
