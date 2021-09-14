@@ -42,6 +42,7 @@ def count(address):
     message = ''
     error = ''
     account_info = algod_client.account_info(address)
+    #obtain assets from the account information
     assets = account_info.get("assets")
     for asset in assets:
         if asset["asset-id"] ==  choice_id:
