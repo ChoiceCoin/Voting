@@ -1,4 +1,5 @@
-
+Description: A solid project built on a solid ecosystem with a solid team
+Title: ChoiceCoin/Voting
 Copyright Fortior Blockchain, LLLP 2021
 
 Licensed under the Apache License, Version 2.0 (the "License");
