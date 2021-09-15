@@ -12,3 +12,6 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+Any persons who carries out activities that violates the terms of the license
+would be termed criminal and will be dealt with accordingly under the jurisdiction
+of the law.
