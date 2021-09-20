@@ -23,10 +23,10 @@ decision_two = ""
 test_address = ''
 test_mnemonic = ''
 
-def algo_inital(sender, key, receiver,comment):
+def algo_inital(sender, key, receiver, comment):
     parameters = algod_client.suggested_params()
     #Initalize parameters
-    transaction = PaymentTxn(sender, parameters, receiver, 300000,note=comment)
+    transaction = PaymentTxn(sender, parameters, receiver, 300000, note=comment)
     #Defines an inital transaction for Algo.
     #Add some sort of hash to ensure that fund addresses are hashed properly
     #Add a hash to ensure that client addresses are protected
@@ -55,7 +55,7 @@ def count(address):
 
 #This is quantifies a voter's vote and allows its to be recorded on the Algorand Blockchain through Choice Coin.
 #Each of the candiates/decisions will have their own Algorand Accounts to recieve these votes in the form of Choice Coin.
-def choice_vote(sender, key, receiver,amount):
+def choice_vote(sender, key, receiver, amount):
     parameters = algod_client.suggested_params()
     transaction = AssetTransferTxn(sender, parameters, receiver, amount, choice_id)
     #Defines an inital transaction for choice Coin
@@ -68,7 +68,7 @@ def choice_vote(sender, key, receiver,amount):
 
 
 
-def create_optin(receiver_mnemonic,receiver_address,index):
+def create_optin(receiver_mnemonic, receiver_address, index):
     parameters = algod_client.suggested_params()
     transaction = AssetTransferTxn(receiver_address, parameters, receiver_address, 0, index)
     #Defines a transaction that will opt the receiver into the asset.
@@ -87,18 +87,18 @@ def initiate_new_accounts():
         private,public = account.generate_account()
         passphrase = mnemonic.from_private_key(private)
         algo_inital(fund_address,fund_key,public,"Balance to opt-in to Choice Coin")
-        create_optin(passphrase,public,choice_id)
+        create_optin(passphrase, public, choice_id)
         print("Address: {}\nPasscode: \"{}\"".format(public, passphrase))
 
 
         
 #This defines a basic majority scheme on the Algorand Blockchain using the choice_vote function described earlier.       
-def new_vote(vote,address,t_mnemonic):
+def new_vote(vote, address, t_mnemonic):
     private_key = mnemonic.to_private_key(mnemonic)
     if vote == "Yes":
-        choice_vote(address,private_key,decision_one,100)
+        choice_vote(address, private_key, decision_one,100)
     elif vote == "No":
-        choice_vote(address,private_key,decision_two,100)
+        choice_vote(address, private_key, decision_two,100)
     else:
         print("You did not submit the proper input")
 
@@ -107,31 +107,31 @@ def new_vote(vote,address,t_mnemonic):
 #send the appropriate allocation of Choice Coin to the winner account.
 #Read the docs to create a restriction on how many start per voter
 #are possible.
-def star_voting(address,t_mnemonic,candidate_rating,candiate_type):
+def star_voting(address, t_mnemonic, candidate_rating, candiate_type):
     if candiate_type == 'one':
         candiate_rating = int(candidate_rating)
         amount = candiate_rating * 100
         private_key = mnemonic.to_private_key(t_mnemonic)
-        choice_vote(address,private_key,decision_one,amount)
+        choice_vote(address, private_key, decision_one, amount)
     elif candiate_type == 'two':
         candiate_rating = int(candidate_rating)
         amount = candiate_rating * 100
         private_key = mnemonic.to_private_key(t_mnemonic)
-        choice_vote(address,private_key,decision_one,amount)
+        choice_vote(address, private_key, decision_one, amount)
     print("Ballot Tabulated")
 
 #This defines a basic approval voting system. Again, this allows the voter 
 #to select all the decisons/candidates they approve of. This again only has two decisions.
 #Read our Docs to find out more!
-def approval_voting(address,t_mnemonic):
+def approval_voting(address, t_mnemonic):
     first = input("Do you approve of first decision? Please answer using Yes or No")
     second = input("Do you approve of second decision? Please answer using Yes or No")
     first = first.lower()
     second = second.lower()
     if first == 'yes':
-        choice_vote(address,private_key,decision_one,100)
+        choice_vote(address, private_key, decision_one, 100)
     elif second == 'yes':
-        choice_vote(address,private_key,decision_two,100)
+        choice_vote(address, private_key, decision_two, 100)
         
 def check_holdings(asset_id, address):
 	"""
