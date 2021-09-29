@@ -1,6 +1,6 @@
-
+Forking for ChoiceCoin
 Copyright Fortior Blockchain, LLLP 2021
-
+This project is so swell, I feel so pumped.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
