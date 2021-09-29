@@ -22,3 +22,6 @@ This is a repository for voting software built using Choice Coin on the Algorand
 - Finally, to test as a web application, use the command *python index.py* in a regular terminal with the virtual environment configured. This will launch a web-application that you can interact with.
 - To learn more about the web application, watch the Demo Video here: https://youtu.be/DWXNGDYXnIM.
 
+# License
+
+See License.txt
