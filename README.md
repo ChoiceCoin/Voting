@@ -4,7 +4,7 @@ This is a repository for voting software built using Choice Coin on the Algorand
 
 # Dependencies
 - To run the code in the *Choice_Coin_Voting* Folder, you first must have Python installed. Please download the latest version of Python, and create a virtual environment specifically for this directory. Python Download: https://www.python.org/downloads/.
-- Also be sure to have the latest version of MySQL installed. MySQL Download: https://www.mysql.com/downloads/.
+- Also be sure to have the latest version of MySQL installed. MySQL Download: https://www.mysql.com/products/community/.
 - Second, your Python virtual environment  must have all of the packages listed in the *requirements.txt* file, which is also found in the *Choice_Coin_Voting* folder.
 - Your MySQL Database must be set up similarly to the way it is described in the *MySQL_Code.sql* file under *Choice_Coin_Voting*.
 
