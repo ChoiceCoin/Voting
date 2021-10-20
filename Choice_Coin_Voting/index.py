@@ -1,5 +1,5 @@
 # Open Source under Apache License
-#To add additional decisions/candiates, add an additional boolean at line 128.
+#To add additional decisions/candidates, add an additional boolean at line 128.
 from flask import Flask, request, render_template, redirect, url_for
 from algorand_demo import algo_trade,choice_trade,create_optin,main_exchange
 from algosdk import account, encoding, mnemonic
