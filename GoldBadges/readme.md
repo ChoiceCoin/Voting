@@ -1,1 +1,0 @@
-# Gold Badge Project Winners
