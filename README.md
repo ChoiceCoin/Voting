@@ -10,7 +10,7 @@ This is a repository for voting software built using Choice Coin on the Algorand
 
 # Run Steps
 - To run the code found in the *Choice_Coin_Voting* folder, make sure to first download the dependencies as described above using *pip*.
-- Run the *sqlite.py* function on Python Terminal with the virtual environment 
+- Run the *sqlite.py* function on Python Terminal with the virtual environment activated. Then, be sure that a new database called "voters.db" has been created.
 - First, make sure that you have an account with an adequate amount of Choice Coin. This will be used as the escrow account that contains the Choice Coin that is used for voting. It will also send this Choice Coin to the appropriate decision address as dictated by individual voters. Put the accounts' address and mnemonic under *escrow_address* and *escrow_mnemonic* in the *vote.py* file.
 - Furthermore, connect to the Algorand Network through a service such as the PureStake API or the Algorand Sandbox, the code was tested using the PureStake API, and assign your new address and token to *algod_address* and *algod_token* respectively in the *vote.py* file.
 - Configure the *keys* in *index.py* based on your own administrative key. Then, enter in the string that you want to be the main administrator key, which will be hashed by the SHA-512.
