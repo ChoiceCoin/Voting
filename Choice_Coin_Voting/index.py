@@ -11,6 +11,7 @@ import rsa
 import hashlib
 import sqlite3 as sl
 
+#Added new sqlite functionality for local devices
 con = sl.connect('voters.db', check_same_thread = False)
 cur = con.cursor()
 app = Flask(__name__)
