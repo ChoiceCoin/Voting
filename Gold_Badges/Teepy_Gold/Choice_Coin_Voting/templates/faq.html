@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Election Voting</title>
+
+    <!--link rel="stylesheet" href="/static/css/style.css?version=7">
+    <link rel = "stylesheet" href = "/static/css/mystyle.css"-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style type="text/css">
+
+    </style>
+
+  </head>
+  <body>
+    {% include 'header.html' %}
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" style="padding: 1rem;">
+          <div class="judul">
+            <h1>Frequently Asked Questions</h1>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-6" style="padding: 1rem;">
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  USE CASE
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>
+                    The codebase was used to conduct an election where there are various positions and candidates contesting for a position.
+                    We have positions and candidates added to each positions and each voter can chooose candidate from each position to vote for.
+                  </strong>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  CHANGES MADE TO THE SOFTWARE
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <li>Improved UI Forms</li>
+                  <li>Added new Database models. Positions, Candidate, Config</li>
+                  <li>Adding automatic generation of candidate algorand address and asset-optin for candidates accounts.</li>
+                  <li>Setting Voting Configs like escrow address.</li>
+                  <li>Using ChartJS to visualize voting results.</li>
+                  <li>Allows creation of multiple candidates and positions.</li>
+                  <li>Adding utility functions to generate algorand address, opt-in asset into candidate's account, send-alogrand, validating escrow address and mnemonic, check_algorand balance.</li>
+                  <!--strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code--->
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  TECHNICAL CHALLENGES FACED AND APPROACH
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <li><strong>Using ClawBack to revoke transactions:</strong> There was a problem using choice clawback address to sign transactions to send back choice token at the end of the voting process. This was solved by storing candidate's mnemonic on generation of address and using it to send back the token to the escrow's address.</li>
+                </div>
+              </div>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <li><strong>Computing and Displaying Results For Separate Positions:</strong> .</li>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+    </div>
+    {% include 'footer.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+ </body>
+</html>
