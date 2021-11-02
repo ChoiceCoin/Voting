@@ -3,7 +3,7 @@
 # This code defines a decenteralized voting system on the Algorand Blockchain.
 # It uses Choice Coin, an Algorand Standard Asset, to record votes on a distributed ledger.
 # The system makes both efficiency and security a priority. 
-# An escrow account holds the total number of Choice Coin required for the voting process, and Algorand accounts for each of the decisions are made. 
+# An escrow account holds the total number of Choice Coin required for the voting process, and Algorand accounts for each of the decisions made. 
 # Each of the individual decisions made by the voters connect back to the escrow account.
 # In turn, one Choice Coin transfers to the appropriate decision account through a stateless smart contract. 
 # Furthermore, a SHA-512 hashing algorithm is used to encrypt voter information at all stages, ensuring that private information is made secure. 
