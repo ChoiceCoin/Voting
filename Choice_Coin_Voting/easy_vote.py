@@ -1,4 +1,5 @@
 # Copyright Fortior Blockchain, LLLP 2021
+# This is a work in progress to create a simplified backend voting architecture.
 
 # Imports
 from algosdk import account, encoding, mnemonic,transaction
