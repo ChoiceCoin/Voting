@@ -34,8 +34,8 @@ algod_client = algod.AlgodClient(algod_token, algod_address, headers)
 
 
 # Escrow creation.
-#escrow_address = "DJKV6SQTY77QLCE2EPT3X4EVBOJBXWQ344PX5FH24KSPWZLQBV24EV6DDM" # Put in main fund address here
-#escrow_mnemonic = "group dice custom favorite usage stuff stable glimpse mansion call father grape engine club hawk emerge latin any gravity canal galaxy rebel acid about exotic" # Put in main fund receiver_mnemonic here
+#escrow_address = "" # Put in main fund address here
+#escrow_mnemonic = "" # Put in main fund receiver_mnemonic here
 #escrow_key = mnemonic.to_private_key(escrow_mnemonic)
 choice_id = 21364625 # Official Test Asset ID for Choice Coin
 
@@ -43,12 +43,12 @@ choice_id = 21364625 # Official Test Asset ID for Choice Coin
 #To add more decisions for the election process, add the address for the new decision here.
 #Then, add an appropriate boolean statement at line 100 of this file. Be sure to also add additional 
 #counts at line 148 of this file as well. 
-#decision_one = "5VXL2O2A4Q3766XYDS4DUQDLEDK7KWYL2TRK2AIY6L2DOKPIQIATNEYWNY"
-#decision_one_mnemonic = "crop spoon stock fame erase away lemon cheap sunset relax mouse industry daring need clock icon protect harsh exhibit hole together lobster student about awkward"
+#decision_one = ""
+#decision_one_mnemonic = ""
 #decision_one_key = mnemonic.to_private_key(decision_one_mnemonic)
 
-#decision_two = "QDPYOTTGDVHGIL7DHJXJP4MOXPBA4Z2NKCWJMGIUXTQHHZHDS72JWBMBMQ"
-#decision_two_mnemonic = "tooth cabin child plastic fabric day assume case caught winter ranch virus tide deposit bind antique canvas august rocket stairs seminar card topic able sample"
+#decision_two = ""
+#decision_two_mnemonic = ""
 #decision_two_key = mnemonic.to_private_key(decision_two_mnemonic)
 
 #corporate_decision_one = ""
@@ -57,8 +57,8 @@ choice_id = 21364625 # Official Test Asset ID for Choice Coin
 # Clawback Address required to reset accounts to start new voting process.
 # Sets up accounts for both the regular election process and the corporate decision process. 
 # Add more accounts to adjust for more decisions.
-#clawback_address = "2UM6QNIORCWQUE4R3YY2RYOQ4VHEXVVUOS3RB3OF5X5X6AQIST7CEBOFZY"
-#clawback_mnemonic = "between source bronze deliver robot wrap pull own power tank art patient slight analyst crew rotate theme liquid birth loop heart decline seven ability spread"
+#clawback_address = ""
+#clawback_mnemonic = ""
 #clawback_key = mnemonic.to_private_key(clawback_mnemonic)
 
 # OPT-IN CHOICE INTO THREE ACCOUNTS
