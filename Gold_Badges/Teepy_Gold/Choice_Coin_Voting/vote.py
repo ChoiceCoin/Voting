@@ -26,7 +26,7 @@ import base64
 matplotlib.use('TkAgg')
 matplotlib.use('agg') #or matplotlib.pyplot.switch_backend('Agg')
 algod_address = "https://testnet-algorand.api.purestake.io/ps2" # Put Algod Client address here
-algod_token = "6HrMYd5r3C59gsCd1zHip5JgDDVwGTAu61L8wQ28" # Put Algod Token here
+algod_token = "" # Put Algod Token here
 headers = {"X-API-Key": algod_token }
 # Initializes client for node.
 algod_client = algod.AlgodClient(algod_token, algod_address, headers)
@@ -71,11 +71,6 @@ choice_id = 21364625 # Official Test Asset ID for Choice Coin
 #    {"addr": escrow_address, "key": escrow_key}
 #]
 #asset_optin(algod_client, addresses, choice_id)
-
-
-
-
-
 
 
 # This function counts the number of Choice Coin in an account. 
