@@ -32,3 +32,7 @@ This is a repository for voting software built using Choice Coin on the Algorand
 - run `python index.py` in the choice_coin_voting folder to run the web app
 - To learn more about the web application, watch the Demo Video here: https://youtu.be/DWXNGDYXnIM.
 
+# Gold Badge
+Submission by: @Tee-py https://github.com/Tee-py
+YouTube: https://www.youtube.com/watch?v=U1XEEFlw3Bc
+
