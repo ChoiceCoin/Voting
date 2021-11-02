@@ -1,4 +1,4 @@
-# Gold Badge Project Winners
+# Gold Badge Project
 
 The Choice Coin Gold Badge is an open source software initiative for the development of secure voting technology on the Algorand Blockchain. 
 All projects are made open source under the MIT License.
