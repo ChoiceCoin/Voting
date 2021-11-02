@@ -34,5 +34,6 @@ This is a repository for voting software built using Choice Coin on the Algorand
 
 # Gold Badge
 Submission by: @Tee-py https://github.com/Tee-py
+
 YouTube: https://www.youtube.com/watch?v=U1XEEFlw3Bc
 
