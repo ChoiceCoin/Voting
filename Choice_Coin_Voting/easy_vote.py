@@ -9,14 +9,14 @@ from algosdk.future.transaction import AssetTransferTxn, PaymentTxn
 from algosdk.v2client import algod
 
 # Put Algod Client address here
-algod_address = "https://testnet-algorand.api.purestake.io/idx2" 
+algod_address = "https://testnet-algorand.api.purestake.io/idx2"
 # Put Algod Token here
-algod_token = "" 
+algod_token = ""
 headers = {"X-API-Key": algod_token }
 # Initializes client for node.
 algod_client = algod.AlgodClient(algod_token,algod_address,headers)
 # Choice Asset ID.
-asset = 42771692 
+asset = 42771692
 
 # VOID TEST ADDRESS
 address = "VSHR4VD3KO362VZJS3TGL7IM4Z6MYEWHXV6TUQPVCRLADRNRKQ63JHJRTM"
@@ -36,12 +36,12 @@ vote()
 def calculate():
     # Check total Choice in Address
     account_info = algod_client.account_info(address)
-    assets = account_info.get("assets") 
+    assets = account_info.get("assets")
     amount = asset.get("amount")
     option_zero = amount * 1
     total_vote = input("Total votes:", total_vote)
     option_one = total_vote - option_one
-    print("Option zero:", option_zero) 
+    print("Option zero:", option_zero)
     print("Option one:", option_one)
 calculate()
 
