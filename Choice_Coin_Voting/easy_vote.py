@@ -1,5 +1,7 @@
 # Copyright Fortior Blockchain, LLLP 2021
+# Apache License
 # This is a work in progress to create a simplified backend voting architecture.
+# This software is under construction.
 
 # Imports
 from algosdk import account, encoding, mnemonic,transaction
@@ -13,41 +15,40 @@ algod_token = ""
 headers = {"X-API-Key": algod_token }
 # Initializes client for node.
 algod_client = algod.AlgodClient(algod_token,algod_address,headers)
-# Choice TestNet Asset ID.
-asset_id = 21364625 
-
+# Choice Asset ID.
+asset = 42771692 
 
 # VOID TEST ADDRESS
-vote_address = "66PWZ4YF7MT6SRAFESWZ44KA262BLNSH6PTE7CUULPIHMNWYX4ZGPMZJMQ"
+address = "VSHR4VD3KO362VZJS3TGL7IM4Z6MYEWHXV6TUQPVCRLADRNRKQ63JHJRTM"
+# Create new address from scratch
+# Variational where each option has an address
 
 def vote():
     voter = print("Vote 0 for zeo and vote 1 for one:", input(voter))
     if voter is 1:
-        # send one choice to vote_address
+        # send one choice to address
         print ("Thanks for voting for one.")
     else:
-        # send zero choice to vote_address
+        # send zero choice to address
         print ("Thanks for voting for zero.")
 vote()
 
 def calculate():
     # Check total Choice in Address
-    
-    # Fetch account information for the address.
-    # account_info = algod_client.account_info(address) 
-
-    # Fetch asset information.
-    # assets = account_info.get("assets") 
-
-    total_votes = total_transactions/2
-    option_zero_votes = total_votes - voter
-    option_one_votes = voter
-
+    assets = account_info.get("assets") 
+    amount = asset.get("amount")
+    option_zero = amount * 1
+    option_one = total_vote - option_one
+    print("Option zero:" option_zero 
+    print("Option one:", option_one)
 calculate()
 
 def winner():
-    if option_zero_votes > option_one_votes:
+    if option_zero > option_one:
         print("Option zero wins.")
     else:
         print("Option one wins.")
 winner()
+
+
+
