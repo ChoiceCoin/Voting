@@ -24,7 +24,7 @@ address = "VSHR4VD3KO362VZJS3TGL7IM4Z6MYEWHXV6TUQPVCRLADRNRKQ63JHJRTM"
 # Variational where each option has an address
 
 def vote():
-    voter = print("Vote 0 for zeo and vote 1 for one:", input(voter))
+    voter = input("Vote 0 for zero and vote 1 for one:")
     if voter is 1:
         # send one choice to address
         print ("Thanks for voting for one.")
@@ -35,11 +35,13 @@ vote()
 
 def calculate():
     # Check total Choice in Address
+    account_info = algod_client.account_info(address)
     assets = account_info.get("assets") 
     amount = asset.get("amount")
     option_zero = amount * 1
+    total_vote = input("Total votes:", total_vote)
     option_one = total_vote - option_one
-    print("Option zero:" option_zero 
+    print("Option zero:", option_zero) 
     print("Option one:", option_one)
 calculate()
 
@@ -49,6 +51,3 @@ def winner():
     else:
         print("Option one wins.")
 winner()
-
-
-
