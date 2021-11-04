@@ -11,7 +11,7 @@ from algosdk.future.transaction import AssetConfigTxn, AssetTransferTxn, Payment
 # Put Algod Client address here
 algod_address = "https://testnet-algorand.api.purestake.io/idx2" 
 # Put Algod Token here
-algod_token = "7juTcdmLxzA0uuUyNvrG5BPj7KKRX5n1FXK9aoAa" 
+algod_token = "" 
 headers = {"X-API-Key": algod_token }
 # Initializes client for node.
 algod_client = algod.AlgodClient(algod_token,algod_address,headers)
@@ -19,12 +19,12 @@ algod_client = algod.AlgodClient(algod_token,algod_address,headers)
 asset_id = 42771692 
 
 # VOID TEST ADDRESS
-vote_address = "VSHR4VD3KO362VZJS3TGL7IM4Z6MYEWHXV6TUQPVCRLADRNRKQ63JHJRTM"
+vote_address = ""
 # Create new address from scratch
 # Variational where each option has an address
 # VOID TEST ADDRESS
-voter_address = "KM2C6WPCGREBUOXZPGULM4UZV7GRF4LECL43FFG3RXNOHROBBCJ662UUBA"
-voter_phrase = "lumber hair surge miss copper drip forum prepare help solve save unknown empower similar sauce cage series assume frown truck token soccer wheel absent distance"
+voter_address = ""
+voter_phrase = ""
 
 def vote():
     voter = input(str("Vote 0 for zero and vote 1 for one:"))
