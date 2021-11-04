@@ -5,11 +5,12 @@
 
 # Imports
 from algosdk.v2client import algod
-from algosdk import account, encoding, mnemonic,transaction 
+from algosdk import account, encoding, mnemonic, transaction 
 from algosdk.future.transaction import AssetConfigTxn, AssetTransferTxn, PaymentTxn, write_to_file
+from algosdk import mnemonic
 
 # Put Algod Client address here
-algod_address = "https://testnet-algorand.api.purestake.io/idx2" 
+algod_address = "https://testnet-algorand.api.purestake.io/ps2" 
 # Put Algod Token here
 algod_token = "" 
 headers = {"X-API-Key": algod_token }
@@ -24,25 +25,29 @@ vote_address = ""
 # Variational where each option has an address
 # VOID TEST ADDRESS
 voter_address = ""
-voter_phrase = ""
+voter_phrase = mnemonic.to_private_key("")
 
 def vote():
     voter = input(str("Vote 0 for zero and vote 1 for one:"))
     params = algod_client.suggested_params()
     if voter is str('1'):
         # send one choice to address
-        amount = 1
-        txn = AssetTransferTxn(sender=creator_address, sp=params, receiver=vote_address, amt=amount, index=asset_id)
-        signature = transaction.sign(key)
+        amount = 100
+        transaction = AssetTransferTxn(sender=voter_address, sp=params, receiver=vote_address, amt=amount, index=asset_id)
+        signature = transaction.sign(voter_phrase)
         algod_client.send_transaction(signature)
         final = transaction.get_txid()
-        return True, final
         print ("Thanks for voting for one.")
+        print(final)
+        return True, final
     else:
         # send zero choice to address
         print ("Thanks for voting for zero.")
 vote()
 
+# TXID: 5B4JC7YBRCDLAK6I2QLXOEYNRXNCHUHW5GAU7XXLMKJMN4G57OKQ
+
+# FUNCTIONS BELOW ARE NOT OPERATIONAL
 def calculate():
     # Check total Choice in Address
     account_info = algod_client.account_info(address)
