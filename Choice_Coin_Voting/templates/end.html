@@ -3,8 +3,8 @@
   <head>
     <title>Election Voting</title>
 
-    <link rel="stylesheet" href="/static/css/style.css?version=7">
-    <link rel = "stylesheet" href = "/static/css/mystyle.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel = "stylesheet" href = "{{ url_for('static', filename='css/mystyle.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style type="text/css">
@@ -16,7 +16,7 @@
     {% include 'header.html' %}
     {% if message %}
         <h3><p style="color:green">{{ message }}</p></h3>
-        <center><img src="/static/img/Figure_1.png"></img></center>
+        <center><img src="{{ url_for('static', filename='img/Figure_1.png') }}"></img></center>
 {% else %}
     	    {% if error %}
         <p style="color:red">{{ error }}</p>
