@@ -4,54 +4,44 @@
 # This software is under construction.
 
 # Imports
-from algosdk import account, encoding, mnemonic,transaction
-from algosdk.future.transaction import AssetTransferTxn, PaymentTxn
 from algosdk.v2client import algod
-
-from algosdk.v2client import algod
-from algosdk import account, mnemonic
-from algosdk.future.transaction import write_to_file
-from algosdk.future.transaction import AssetConfigTxn, AssetTransferTxn
-from algosdk.future.transaction import AssetTransferTxn
+from algosdk import account, encoding, mnemonic,transaction 
+from algosdk.future.transaction import AssetConfigTxn, AssetTransferTxn, PaymentTxn, write_to_file
 
 # Put Algod Client address here
 algod_address = "https://testnet-algorand.api.purestake.io/idx2" 
 # Put Algod Token here
-algod_token = "" 
+algod_token = "7juTcdmLxzA0uuUyNvrG5BPj7KKRX5n1FXK9aoAa" 
 headers = {"X-API-Key": algod_token }
 # Initializes client for node.
 algod_client = algod.AlgodClient(algod_token,algod_address,headers)
 # Choice Asset ID.
-asset = 42771692 
+asset_id = 42771692 
 
 # VOID TEST ADDRESS
-address = "VSHR4VD3KO362VZJS3TGL7IM4Z6MYEWHXV6TUQPVCRLADRNRKQ63JHJRTM"
+vote_address = "VSHR4VD3KO362VZJS3TGL7IM4Z6MYEWHXV6TUQPVCRLADRNRKQ63JHJRTM"
 # Create new address from scratch
 # Variational where each option has an address
 # VOID TEST ADDRESS
-voter_address = ""
-voter_phrase = ""
+voter_address = "KM2C6WPCGREBUOXZPGULM4UZV7GRF4LECL43FFG3RXNOHROBBCJ662UUBA"
+voter_phrase = "lumber hair surge miss copper drip forum prepare help solve save unknown empower similar sauce cage series assume frown truck token soccer wheel absent distance"
 
 def vote():
     voter = input(str("Vote 0 for zero and vote 1 for one:"))
     params = algod_client.suggested_params()
     if voter is str('1'):
         # send one choice to address
-        txn = AssetTransferTxn(sender=voter_address, sp=params, receiver=address, amt=1, index=asset)
+        amount = 1
+        txn = AssetTransferTxn(sender=creator_address, sp=params, receiver=vote_address, amt=amount, index=asset_id)
+        signature = transaction.sign(key)
+        algod_client.send_transaction(signature)
+        final = transaction.get_txid()
+        return True, final
         print ("Thanks for voting for one.")
     else:
         # send zero choice to address
         print ("Thanks for voting for zero.")
 vote()
-    #def make_vote(sender, key, receiver, amount, comment):
-        #"""This function is the same as the one found in `vote.py`"""
-        #parameters = algod_client.suggested_params()
-        #transaction = AssetTransferTxn(sender, parameters, receiver, amount, asset, note=comment)
-
-        #signature = transaction.sign(key)
-        #algod_client.send_transaction(signature)
-        #final = transaction.get_txid()
-        #return True, final
 
 def calculate():
     # Check total Choice in Address
@@ -64,11 +54,6 @@ def calculate():
     print("Option zero:", option_zero) 
     print("Option one:", option_one)
 #calculate()
-
-    #def get_balance(address):
-        #"""Get the balance of a wallet."""
-        #account = algod_client.account_info(address)
-        #return account["amount"]
 
 def winner():
     if option_zero > option_one:
