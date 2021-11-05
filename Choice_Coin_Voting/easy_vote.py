@@ -1,7 +1,5 @@
 # Copyright Fortior Blockchain, LLLP 2021
 # Apache License
-# This is a work in progress to create a simplified backend voting architecture.
-# This software is under construction.
 
 # Imports
 from algosdk.v2client import algod
@@ -39,30 +37,9 @@ def vote():
         final = transaction.get_txid()
         print ("Thanks for voting for one.")
         print(final)
-        return True, final
     else:
-        # send zero choice to address
+        # do not send one choice to address
         print ("Thanks for voting for zero.")
 vote()
 
-# TXID: 5B4JC7YBRCDLAK6I2QLXOEYNRXNCHUHW5GAU7XXLMKJMN4G57OKQ
-
-# FUNCTIONS BELOW ARE NOT OPERATIONAL
-def calculate():
-    # Check total Choice in Address
-    account_info = algod_client.account_info(address)
-    assets = account_info.get("assets") 
-    amount = asset.get("amount")
-    option_zero = amount * 1
-    total_vote = input("Total votes:", total_vote)
-    option_one = total_vote - option_one
-    print("Option zero:", option_zero) 
-    print("Option one:", option_one)
-#calculate()
-
-def winner():
-    if option_zero > option_one:
-        print("Option zero wins.")
-    else:
-        print("Option one wins.")
-#winner()
+# TXID: ZZX2ODLUMOG5UC2U6DG4L3NIBAEFXGYMEDDT3QW5HSZNDL6BWRAA
