@@ -1,23 +1,25 @@
 # Copyright Fortior Blockchain, LLLP 2021
 # Open Source under Apache License
    
+from re import S
 from flask import Flask, request, render_template, redirect, url_for
+from flask import current_app as app
 from algosdk import account, encoding, mnemonic
-from vote import election_voting,hashing,corporate_voting,count_votes,count_corporate_votes
-from vote import reset_votes, reset_corporate_votes
+from .vote import election_voting,hashing,corporate_voting,count_votes,count_corporate_votes
+from .vote import reset_votes, reset_corporate_votes
 from algosdk.future.transaction import AssetTransferTxn, PaymentTxn
 from algosdk.v2client import algod
-import rsa
-import hashlib
-import sqlite3 as sl
+
+
+from . import db
+from .models import User
+from os import environ
 
 #Added new sqlite functionality for local devices
-con = sl.connect('voters.db', check_same_thread = False)
-cur = con.cursor()
-app = Flask(__name__)
 finished = False
 corporate_finished = False
 validated = False
+ADMIN_KEY = environ.get("ADMIN_KEY")
 
 
 @app.route("/")
@@ -34,7 +36,7 @@ def start_voting():
 	global finished
 	if request.method == 'POST':
 		key = hashing(str(request.form.get('Key')))
-		if key == '09a1d01b5b120d321de9529369640316ddb120870df1ec03b3f2c6dd39c1ff6ecf8de5e56eb32d79c9d06240eaf5de027f6e7b9df2e2e1a4cb38dd548460b757':
+		if key == ADMIN_KEY:
 			message = reset_votes()
 			finished = False
 		else:
@@ -48,9 +50,10 @@ def create():
 		Social = hashing(str(request.form.get('Social')))
 		Drivers = hashing(str(request.form.get('Drivers')))
 		Key = hashing(str(request.form.get('Key')))
-		if str(Key) == '09a1d01b5b120d321de9529369640316ddb120870df1ec03b3f2c6dd39c1ff6ecf8de5e56eb32d79c9d06240eaf5de027f6e7b9df2e2e1a4cb38dd548460b757':
-			cur.execute("INSERT INTO USER (DL, SS) VALUES(?,?)",((Drivers,Social)))
-			con.commit()
+		if str(Key) == ADMIN_KEY:
+			user = User(social_security=Social, drivers_license = Drivers)
+			db.session.add(user)
+			db.session.commit()
 	return render_template('create.html')
 
 
@@ -62,7 +65,7 @@ def end():
 	global finished
 	if request.method == 'POST':
 		key = hashing(str(request.form.get('Key')))
-		if key == '09a1d01b5b120d321de9529369640316ddb120870df1ec03b3f2c6dd39c1ff6ecf8de5e56eb32d79c9d06240eaf5de027f6e7b9df2e2e1a4cb38dd548460b757':
+		if key == ADMIN_KEY:
 			message = count_votes()
 			finished = True
 		else:
@@ -84,11 +87,11 @@ def vote():
 	if request.method == 'POST':
 		Social = hashing(str(request.form.get('Social')))
 		Drivers = hashing(str(request.form.get('Drivers')))
-		cur.execute("SELECT * FROM USER WHERE SS = ? AND DL = ?",(Social,Drivers))
-		account = cur.fetchone()
+		account = User.query.filter_by(social_security=Social, drivers_license=Drivers).first()
 		if account:
-			cur.execute("DELETE FROM USER WHERE SS = ? and DL = ?",(Social,Drivers))
-			con.commit()
+			# cur.execute("DELETE FROM USER WHERE SS = ? and DL = ?",(Social,Drivers))
+			db.session.delete(account)
+			db.session.commit()
 			validated = True
 			return redirect(url_for('submit'))
 		else:
@@ -126,7 +129,3 @@ def about():
 	return render_template('about.html')
 
 
-
-
-if __name__ == "__main__":
-	app.run(host='127.0.0.1', debug=True)

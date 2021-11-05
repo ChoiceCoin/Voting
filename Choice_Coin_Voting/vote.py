@@ -16,18 +16,20 @@ from algosdk.v2client import algod
 import hashlib
 import matplotlib
 import matplotlib.pyplot as plt
+import random
+import os
 
 # Matplot parameters for the matplotlib function to generate a new plot.
 matplotlib.use('TkAgg')
-algod_address = "" # Put Algod Client address here
-algod_token = "" # Put Algod Token here
+algod_address = os.environ.get("algod_address","") # Put Algod Client address here
+algod_token = os.environ.get("algod_token","") # Put Algod Token here
 headers = {"X-API-Key": algod_token }
 # Initializes client for node.
 algod_client = algod.AlgodClient(algod_token,algod_address,headers)
 
 # Escrow creation.
-escrow_address = "" # Put in main fund address here
-escrow_mnemonic = "" # Put in main fund receiver_mnemonic here
+escrow_address = os.environ.get("escrow_address", "") # Put in main fund address here
+escrow_mnemonic = os.environ.get("escrow_mnemonic", "") # Put in main fund receiver_mnemonic here
 escrow_key = mnemonic.to_private_key(escrow_mnemonic)
 choice_id = 21364625 # Official Test Asset ID for Choice Coin
 
@@ -45,7 +47,7 @@ corporate_decision_two = ""
 # Add more accounts to adjust for more decisions.
 clawback_address = ""
 clawback_mnemonic = ""
-clawback_key = mnemonic.to_private_key(clawback_mnemonic)
+clawback_key = "" #mnemonic.to_private_key(clawback_mnemonic)
 
 # This function counts the number of Choice Coin in an account. 
 # It first fetches the account_info, and specifically searches among the assets that the account owns for Choice Coin.
@@ -107,8 +109,8 @@ def corporate_voting(vote,stake):
     message = ''
     stake = int(stake) # Define the ownership stake.
     amount = 100 * stake
+    comment = "Tabulated using Choice Coin"
     if vote == 'YES':
-        comment = "Tabulated using Choice Coin"
         choice_vote(escrow_address,escrow_key,corporate_decision_one,amount,comment)
         # Call the choice_vote() function that sends the appropriate number of Choice Coin based on the ownership stake.
         message = "Ballot Tabulated"
