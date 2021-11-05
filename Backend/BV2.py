@@ -1,6 +1,7 @@
 # Copyright Fortior Blockchain, LLLP 2021
 # Apache License
 
+
 # Imports
 from algosdk.v2client import algod
 from algosdk import account, encoding, mnemonic, transaction 
@@ -17,8 +18,6 @@ algod_client = algod.AlgodClient(algod_token,algod_address,headers)
 # Choice Asset ID.
 asset_id = 42771692 
 
-# VOID TEST ADDRESS
-vote_address = ""
 # Create new address from scratch
 # Variational where each option has an address
 # VOID TEST ADDRESS
@@ -31,6 +30,7 @@ def vote():
     if voter is str('1'):
         # send one choice to address
         amount = 100
+        vote_address = ""
         transaction = AssetTransferTxn(sender=voter_address, sp=params, receiver=vote_address, amt=amount, index=asset_id)
         signature = transaction.sign(voter_phrase)
         algod_client.send_transaction(signature)
@@ -39,7 +39,14 @@ def vote():
         print(final)
     else:
         # do not send one choice to address
+        amount = 100
+        vote_address = ""
+        transaction = AssetTransferTxn(sender=voter_address, sp=params, receiver=vote_address, amt=amount, index=asset_id)
+        signature = transaction.sign(voter_phrase)
+        algod_client.send_transaction(signature)
+        final = transaction.get_txid()
         print ("Thanks for voting for zero.")
+        print(final)
 vote()
 
-# TXID: ZZX2ODLUMOG5UC2U6DG4L3NIBAEFXGYMEDDT3QW5HSZNDL6BWRAA
+# TXID: EP6OMX2E7CMCXEWSZP6CZLRVCPBSQSM4G2AWL23U7J22BMTMOD5Q
