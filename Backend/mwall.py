@@ -54,7 +54,7 @@ def vote():
     id_ = input(str("Enter ID of the vote of your choice"))
     vote_address = vote_addresses[id_]
     final = transfer_choice(sender=voter_address, receiver=vote_address)
-    print("Thanks for voting for one.")
+    print(f"Thanks for voting for vote {id_}")
     print(final)
 
 
