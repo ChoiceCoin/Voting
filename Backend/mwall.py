@@ -32,11 +32,7 @@ def create_vote_address():
     private, public = account.generate_account()
     passphrase = mnemonic.from_private_key(private)
 
-    return {"vote_address": public, "mnemonic": passphrase}
-
-
-# Create a dictionary of all the vote_addresses
-vote_addresses = {"id": "vote_address"}
+    return {"address": public, "mnemonic": passphrase}
 
 
 def transfer_choice(sender, receiver):
@@ -50,12 +46,25 @@ def transfer_choice(sender, receiver):
     return txn_id
 
 
+# Create a dictionary of all the vote_addresses
+vote_addresses = {
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": "",
+}
+# Vote addresses must have opted into choice assest
+
+
 def vote():
-    id_ = input(str("Enter ID of the vote of your choice"))
-    vote_address = vote_addresses[id_]
-    final = transfer_choice(sender=voter_address, receiver=vote_address)
-    print(f"Thanks for voting for vote {id_}")
-    print(final)
+    id_ = input(str("Enter ID of the vote of your choice: "))
+    vote_address = vote_addresses.get(id_)
+    if vote_address:
+        final = transfer_choice(sender=voter_address, receiver=vote_address)
+        print(f"Thanks for voting for vote {id_}")
+        print(final)
+    else:
+        print("Vote with this ID doesn't exist")
 
 
 vote()
