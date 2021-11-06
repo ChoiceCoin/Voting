@@ -1,67 +1,74 @@
-from typing import List
 from algosdk import account, mnemonic
 from algosdk.encoding import is_valid_address
 from algosdk.account import address_from_private_key
-from algosdk.future.transaction import AssetConfigTxn, AssetTransferTxn, AssetFreezeTxn, PaymentTxn
-import base64
+from algosdk.future.transaction import AssetTransferTxn, PaymentTxn
 
 
-def asset_optin(client, account, asset_id: str, multiple=False):
+def asset_optin(client, accounts, asset_id: str):
     """
     An Utility Function to Opt-In choice into any algorand account.
     This is usefull when we need to generate addresses for registered decisions or candidates as they need to opt-in choice.
-    Can also be used for a list of algorand address
+    Can also be used for a list of algorand addresses
 
     client: alogod_client
-    account: {"addr": "address", "key": <private key>}; for multiple=True=> [{"addr": "address", "key": <private key>}]
+    accounts: [{"addr": "address", "key": <private key>}]
     asset_id: id of the asset to be opted-in
-    multiple: a boolean indicating a multiple asset opt-in
     """
     params = client.suggested_params()
-    if multiple:
-        for acct in account:
-            account_info = client.account_info(acct['addr'])
-            holding = None
-            idx = 0
-            for my_account_info in account_info['assets']:
-                scrutinized_asset = account_info['assets'][idx]
-                idx = idx + 1    
-                if (scrutinized_asset['asset-id'] == asset_id):
-                    holding = True
-                    break
-            if not holding:
-                txn = AssetTransferTxn(
-                    sender=acct['addr'],
-                    sp=params,
-                    receiver=acct['addr'],
-                    amt=0,
-                    index=asset_id)
-                stxn = txn.sign(acct['key'])
-                txid = client.send_transaction(stxn)
-                wait_for_confirmation(client, txid)
-    else:
-        account_info = client.account_info(account['addr'])
+
+    for acct in accounts:
+        account_info = client.account_info(acct['addr'])
         holding = None
         idx = 0
-
         for my_account_info in account_info['assets']:
             scrutinized_asset = account_info['assets'][idx]
             idx = idx + 1    
             if (scrutinized_asset['asset-id'] == asset_id):
                 holding = True
                 break
-
         if not holding:
             txn = AssetTransferTxn(
-                sender=account['addr'],
+                sender=acct['addr'],
                 sp=params,
-                receiver=account['addr'],
+                receiver=acct['addr'],
                 amt=0,
                 index=asset_id)
-            stxn = txn.sign(account['key'])
+            stxn = txn.sign(acct['key'])
             txid = client.send_transaction(stxn)
             wait_for_confirmation(client, txid)
+    return True
     
+def asset_transfer(payload):
+    """
+    Transfer Any Asset From One account to another
+    """
+    try:
+        client = payload['client']
+        sender = payload['sender']
+        receiver = payload['receiver']
+        amount = int(payload['amount'])*100
+        asset_id = payload['asset_id']
+        key = payload['private_key']
+    except Exception as e:
+        print(f"Error While Fetching values from payload--> {e}")
+        return False
+    try:
+        params = client.suggested_params()
+        txn = AssetTransferTxn(
+            sender=sender,
+            sp=params,
+            receiver=receiver,
+            amt=amount,
+            index=asset_id)
+        stxn = txn.sign(key)
+        txid = client.send_transaction(stxn)
+        wait_for_confirmation(client, txid)
+        print(f"View Transaction At https://testnet.algoexplorer.io/tx/{txid}")
+        return True
+    except Exception as e:
+        print(f"Error While sending Asset---> {e}")
+        return False
+
 def validate_address(addr):
     """
     Check if the string address is a valid Algorand address.
@@ -106,9 +113,6 @@ def generate_algorand_keypair():
     """
     private_key, address = account.generate_account()
     phrase = mnemonic.from_private_key(private_key)
-    print("Generated address: {}".format(address))
-    print("Generated private key: {}".format(private_key))
-    print("Generated mnemonic: {}".format(phrase))
     return address, phrase
 
 def wait_for_confirmation(client, txid):
@@ -126,14 +130,18 @@ def wait_for_confirmation(client, txid):
     print("Transaction {} confirmed in round {}.".format(txid, txinfo.get('confirmed-round')))
     return txinfo
 
-def holding_asset(client, account, asset_id):
+def holding_asset(payload):
     """
     Function To check if an address as opted-in an asset
 
-    account: wallet_address
-    cleint: algod_client
-    asset_id: 
+    payload: contains required arguments
     """
+
+    #fETCH REQUIRED VALUES FROM PAYLOAD
+    client = payload["client"]
+    account = payload['account']
+    asset_id = payload['asset_id']
+   
     params = client.suggested_params()
     account_info = client.account_info(account)
     holding = False
@@ -146,16 +154,23 @@ def holding_asset(client, account, asset_id):
             break
     return holding
 
-def send_algo(client, sender, receiver, phrase, amount):
+def send_algo(payload):
     """
     Function to send algo from one address to another
-
-    client: algod_client
-    sender: sender wallet address
-    receiver: receiver wallet address
-    phrase: sender mnemonic
-    amount: amount to be sent
     """
+
+    #Fetch required values from payload
+
+    try:
+        client = payload['client']
+        sender = payload['sender']
+        receiver = payload['receiver']
+        amount = int(payload['amount'])*100
+        phrase= payload['private_key']
+    except Exception as e:
+        print(f"Error While Fetching values from payload--> {e}")
+        return False
+
     #send algorand
     params = client.suggested_params()
     unsigned_txn = PaymentTxn(sender, params, receiver, amount, None, "Candidate Creation For Choice Voting")
@@ -163,13 +178,9 @@ def send_algo(client, sender, receiver, phrase, amount):
     txid = client.send_transaction(signed_txn)
     
     #wait for confirmation
-    try:
-        wait_for_confirmation(client, txid)  
-    except Exception as err:
-        print(err)
-        return True
+    wait_for_confirmation(client, txid)  
     print(f"View Transaction At https://testnet.algoexplorer.io/tx/{txid}")
-    return False
+    return True
 
 
 
