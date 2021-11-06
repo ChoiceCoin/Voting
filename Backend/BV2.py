@@ -1,7 +1,6 @@
 # Copyright Fortior Blockchain, LLLP 2021
 # Apache License
 
-
 # Imports
 from algosdk.v2client import algod
 from algosdk import account, encoding, mnemonic, transaction 
