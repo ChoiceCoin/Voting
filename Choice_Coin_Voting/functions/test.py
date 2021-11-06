@@ -22,17 +22,17 @@ class Test(unittest.TestCase):
 
     def setUp(self):
         algod_address = "https://testnet-algorand.api.purestake.io/ps2" # Put Algod Client address here
-        algod_token = "6HrMYd5r3C59gsCd1zHip5JgDDVwGTAu61L8wQ28" # Put Algod Token here
+        algod_token = "" # Put Algod Token here
         headers = {"X-API-Key": algod_token }
         self.client = algod.AlgodClient(algod_token, algod_address, headers)
         self.asset_id = 21364625
 
         #SetUp test Addresses and Private Keys
-        self.test_address1 = "NOUD53W72DZG26WLSLOCVX7I25MWEUVSUCJW25OQLH43K5YXU3RV2YK75E"
-        self.test_key1 = mnemonic.to_private_key("heart regret oblige trade door coyote lizard confirm prevent idea mean bless table engine park develop dice title swallow funny flee club harvest above pool")
-        self.test_address2 = "BPOAORMTLMOJEIVKBA6IXOFXFLU4OU5YNNSLK3PD5FFRI4WN4BHYAKF2PA"
-        self.test_key2 = mnemonic.to_private_key("oak bracket theme virtual coyote know stool erosion rate patrol kingdom chunk frown divert over toy day prize amazing creek ride spirit ocean absorb resource")
-        self.test_address3 = "DEX47IBLKOUKF6ZSGAGWCYORYVAFECE723FWL3PX2FBT4AY35NZFKKS6SQ"
+        self.test_address1 = ""
+        self.test_key1 = mnemonic.to_private_key("")
+        self.test_address2 = ""
+        self.test_key2 = mnemonic.to_private_key("")
+        self.test_address3 = ""
         self.accounts = [ {'addr': self.test_address1, 'key': self.test_key1}, { 'addr': self.test_address2, 'key': self.test_key2 }]
     
     def test_holding_asset(self):
