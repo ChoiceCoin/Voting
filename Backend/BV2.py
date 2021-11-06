@@ -38,7 +38,7 @@ def vote():
         print ("Thanks for voting for one.")
         print(final)
     else:
-        # do not send one choice to address
+        # send one choice to address
         amount = 100
         vote_address = ""
         transaction = AssetTransferTxn(sender=voter_address, sp=params, receiver=vote_address, amt=amount, index=asset_id)
