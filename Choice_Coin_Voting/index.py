@@ -25,8 +25,6 @@ def start():
 	""" Start page """
 	return render_template('index.html')
 
-
-
 @app.route('/start', methods = ['POST', 'GET'])
 def start_voting():
 	error = ''
@@ -41,7 +39,6 @@ def start_voting():
 			error = "Incorrect admin key"
 	return render_template("start.html", message = message, error = error)
 
-
 @app.route('/create', methods = ['POST','GET'])
 def create():
 	if request.method == 'POST':
@@ -52,8 +49,6 @@ def create():
 			cur.execute("INSERT INTO USER (DL, SS) VALUES(?,?)",((Drivers,Social)))
 			con.commit()
 	return render_template('create.html')
-
-
 
 @app.route('/end', methods = ['POST','GET'])
 def end():
@@ -68,12 +63,6 @@ def end():
 		else:
 			error = "Incorrect admin key"
 	return render_template("end.html", message = message, error = error)
-
-
-
-
-
-
 
 @app.route('/vote', methods = ['POST','GET'])
 def vote():
@@ -98,7 +87,6 @@ def vote():
 		return render_template("end.html", message = message, error = error)
 	return render_template('vote.html', message = message, error = error)
 
-
 @app.route('/submit', methods = ['POST', 'GET'])
 def submit():
 	error = ''
@@ -119,14 +107,10 @@ def submit():
 				 error = "You did not enter a vote"
 	return render_template('submit.html', message = message, error = error)
 
-
 @app.route('/about/')
 def about():
 	"""about"""
 	return render_template('about.html')
-
-
-
 
 if __name__ == "__main__":
 	app.run(host='127.0.0.1', debug=True)
