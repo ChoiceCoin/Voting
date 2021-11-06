@@ -98,6 +98,10 @@ def start():
 	""" Start page """
 	return render_template('index.html')
 
+@app.route("/connect")
+def connect_wallet_page():
+	return render_template('vote.html')
+
 @app.route("/config", methods = ["GET", "POST"])
 def set_config():
 	error = ""
