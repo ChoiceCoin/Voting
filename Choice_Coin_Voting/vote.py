@@ -3,7 +3,7 @@
 # This code defines a decenteralized voting system on the Algorand Blockchain.
 # It uses Choice Coin, an Algorand Standard Asset, to record votes on a distributed ledger.
 # The system makes both efficiency and security a priority. 
-# An escrow account holds the total number of Choice Coin required for the voting process, and Algorand accounts for each of the decisions made. 
+# An escrow account holds the total number of Choice Coin required for the voting process, and Algorand accounts for each of the decisions are made. 
 # Each of the individual decisions made by the voters connect back to the escrow account.
 # In turn, one Choice Coin transfers to the appropriate decision account through a stateless smart contract. 
 # Furthermore, a SHA-512 hashing algorithm is used to encrypt voter information at all stages, ensuring that private information is made secure. 
@@ -16,18 +16,20 @@ from algosdk.v2client import algod
 import hashlib
 import matplotlib
 import matplotlib.pyplot as plt
+import random
+'''
 
 # Matplot parameters for the matplotlib function to generate a new plot.
 matplotlib.use('TkAgg')
-algod_address = "" # Put Algod Client address here
-algod_token = "" # Put Algod Token here
+algod_address = "https://testnet-algorand.api.purestake.io/ps2" # Put Algod Client address here
+algod_token = "ZloIZBz6Za5z1rTKSewfJ7xwZ4EdTNTA1mA4Rczw" # Put Algod Token here
 headers = {"X-API-Key": algod_token }
 # Initializes client for node.
 algod_client = algod.AlgodClient(algod_token,algod_address,headers)
 
 # Escrow creation.
-escrow_address = "" # Put in main fund address here
-escrow_mnemonic = "" # Put in main fund receiver_mnemonic here
+escrow_address = "R3DD27GVY6ZXTF5CZPYLHBL5GRS5LAFII42LIXGSU6I3WOWEOM6F77T3CU" # Put in main fund address here
+escrow_mnemonic = 'unaware square chunk engine warm walk shoulder guard pair disease law source retire alarm slice owner car pilot outer strike true convince kitten abstract alarm' # Put in main fund receiver_mnemonic here
 escrow_key = mnemonic.to_private_key(escrow_mnemonic)
 choice_id = 21364625 # Official Test Asset ID for Choice Coin
 
@@ -35,21 +37,31 @@ choice_id = 21364625 # Official Test Asset ID for Choice Coin
 #To add more decisions for the election process, add the address for the new decision here.
 #Then, add an appropriate boolean statement at line 100 of this file. Be sure to also add additional 
 #counts at line 148 of this file as well. 
-decision_one = ""
-decision_two = ""
+decision_one = "C4OKA7XB5KB4Y5RK4OB2DXB5X3PNVPEO275HVKDIXUDOE3AHBIEI2D2DMM"
+decision_two = "BOHUVFV5GJTPFZSBPR6A7YIAYSTTC2PETY5JZZZORMVX2ARE4V5AZUHGGA"
 corporate_decision_one = ""
 corporate_decision_two = ""
 
+decision_two_mnemonic ="split churn estate raise chase size armor robot estate vapor soup round human barrel minute poem portion squeeze image dwarf kangaroo body just about moon"
+decision_two_key = mnemonic.to_private_key(decision_two_mnemonic)
 # Clawback Address required to reset accounts to start new voting process.
 # Sets up accounts for both the regular election process and the corporate decision process. 
 # Add more accounts to adjust for more decisions.
-clawback_address = ""
-clawback_mnemonic = ""
+clawback_address = "C4OKA7XB5KB4Y5RK4OB2DXB5X3PNVPEO275HVKDIXUDOE3AHBIEI2D2DMM"
+clawback_mnemonic = "acquire dentist stumble response civil slide pole enemy wave obscure eye cliff collect shaft second lizard hundred gloom security popular soon process lift absorb impulse"
 clawback_key = mnemonic.to_private_key(clawback_mnemonic)
+
+decision_one_mnemonic = clawback_mnemonic
+
+decision_one_key = mnemonic.to_private_key(decision_one_mnemonic)
+
+'''
 
 # This function counts the number of Choice Coin in an account. 
 # It first fetches the account_info, and specifically searches among the assets that the account owns for Choice Coin.
 # It then returns the number of Choice Coin that the account owns.
+
+'''
 def count(address):
     message = ''
     error = ''
@@ -63,7 +75,7 @@ def count(address):
             return message
     error = 'The account has not opted-in to the asset yet.'
     return error
-
+'''
 # This function hashes a string using the SHA-512 cryptographic scheme. 
 # SHA-512 is a post-quantum cryptographic scheme, thus ensuring that private information is made secure from malicious attackers. 
 def hashing(item):
@@ -73,7 +85,7 @@ def hashing(item):
     return item
 
 # This function defines a stateless smart contract on the Algorand Network. 
-# It sends Choice Coin to the appropriate destination address based on user input.
+'''# It sends Choice Coin to the appropriate destination address based on user input.
 def choice_vote(sender, key, receiver,amount,comment):
     parameters = algod_client.suggested_params() # Sets suggested parameters
     transaction = AssetTransferTxn(sender, parameters, receiver, amount, choice_id,note=comment)
@@ -91,11 +103,11 @@ def choice_vote(sender, key, receiver,amount,comment):
 def election_voting(vote):
     message = ''
     if vote == 'YES': # Add more boolean statements for more decisions or candidates.
-        TX_ID = choice_vote(escrow_address,escrow_key,decision_one,100,"Tabulated using Choice Coin") # choice_vote() function called for "YES". 
+        TX_ID = choice_vote(escrow_address,escrow_key,decision_one,2,"Tabulated using Choice Coin") # choice_vote() function called for "YES". 
         message = "Ballot Tabulated. \n You can validate that your vote was counted correctly at https://testnet.algoexplorer.io/tx/" + TX_ID[1] + "."
         # AlgoExplorer returned for validation.
     elif vote == 'NO':
-        TX_ID = choice_vote(escrow_address,escrow_key,decision_two,100,"Tabulated using Choice Coin")
+        TX_ID = choice_vote(escrow_address,escrow_key,decision_two,2,"Tabulated using Choice Coin")
         message = "Ballot Tabulated. \n You can validate that your vote was counted correctly at https://testnet.algoexplorer.io/tx/" + TX_ID[1] + "." 
     return message
 
@@ -120,14 +132,14 @@ def corporate_voting(vote,stake):
 # Returns a dynamic bar-graph showing the results of the vote. 
 # Uses PyPlot for both corporate and electoral voting.
 def show_results(yes_count,no_count):
-    names = ['Candidate 1', 'Candidate 2'] # Define the two decisions.
+    names = ['Tom', 'Dick'] # Define the two decisions.
     values = [yes_count,no_count] # Fetch the total number of votes for each decision.
     # Define a new pyplot
     plt.figure(figsize=(9, 3))
     plt.subplot(131)
     plt.bar(names, values)
     plt.suptitle('Election Results')
-    plt.savefig('/home/archie/Inital_Demo/static/img/Figure_1.png')
+    plt.savefig('/home/eff-emm/Documents/My Projects/Choice/Choice_Coin_Voting/static/img/Figure_1.png')
     # Return the results.
 
 def show_corporate_results(yes_count,no_count):
@@ -147,9 +159,9 @@ def count_votes():
     show_results(yes_count,no_count)
     if yes_count > no_count:
         if yes_count == 1:
-            return "The Voting Process has ended. Candidate One received the most votes with {0} vote.".format(yes_count)
+            return "The Voting Process has ended. Tom received the most votes with {0} vote.".format(yes_count)
         else:
-            return "The Voting Process has ended. Candidate One received the most votes with {0} votes.".format(yes_count)
+            return "The Voting Process has ended. Dick received the most votes with {0} votes.".format(yes_count)
     if no_count > yes_count:
         if no_count == 1:
             return "The Voting Process has ended. Candidate Two received the most votes with {0} vote.".format(no_count)
@@ -191,18 +203,22 @@ def count_corporate_votes():
 def reset_votes():
     message = ''
     params = algod_client.suggested_params()
-    yes_count = count(decision_one)
-    no_count = count(decision_two)
+    yes_count = int(count(decision_one))
+    no_count = int(count(decision_two))
     # Fetches the total number of Choice Coin in each account.
     if yes_count > 0:
-        transaction_2 = AssetTransferTxn(clawback_address,params,escrow_address,yes_count,choice_id,revocation_target = decision_one)
-        signature_2 = transaction_2.sign(clawback_key)
+        transaction_2 = AssetTransferTxn(decision_one,params,escrow_address,yes_count,choice_id)
+        signature_2 = transaction_2.sign(decision_one_key)
         algod_client.send_transaction(signature_2)
         # Defines a clawback transaction to send Choice Coin back to the escrow account if the number of Choice Coin in the account exceeds zero.
+    
     if no_count > 0:
-        transaction_3 = AssetTransferTxn(clawback_address,params,escrow_address,no_count,choice_id,revocation_target = decision_two)
-        signature_3 = transaction_3.sign(clawback_key)
+        transaction_3 = AssetTransferTxn(decision_two,params,escrow_address,no_count,choice_id)
+        signature_3 = transaction_3.sign(decision_two_key)
         algod_client.send_transaction(signature_3)
+    message = 'Vote accounts reset. New Voting Process started.'
+    return message
+
     message = 'Vote accounts reset. New Voting Process started.'
     return message
 
@@ -221,3 +237,4 @@ def reset_corporate_votes():
         algod_client.send_transaction(signature_3)
     message = 'Vote accounts reset. New Voting Process started.'
     return message
+'''
