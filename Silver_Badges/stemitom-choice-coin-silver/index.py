@@ -7,14 +7,23 @@ from vote import election_voting,hashing,corporate_voting,count_votes,count_corp
 from vote import reset_votes, reset_corporate_votes
 from algosdk.future.transaction import AssetTransferTxn, PaymentTxn
 from algosdk.v2client import algod
+from utils import hashing, check_secret_authentication
+from decouple import config
+import locale
 import rsa
 import hashlib
 import sqlite3 as sl
 
+#Use the system default's default encoding to prevent issues
+config.encoding = locale.getpreferredencoding(False)
+SECRET_KEY = config('SECRET_KEY')
+MYSQL_DB = config('VOTERS_DB')
+
 #Added new sqlite functionality for local devices
-con = sl.connect('voters.db', check_same_thread = False)
+con = sl.connect(MYSQL_DB, check_same_thread = False)
 cur = con.cursor()
 app = Flask(__name__)
+
 finished = False
 corporate_finished = False
 validated = False
@@ -31,8 +40,7 @@ def start_voting():
 	message = ''
 	global finished
 	if request.method == 'POST':
-		key = hashing(str(request.form.get('Key')))
-		if key == '09a1d01b5b120d321de9529369640316ddb120870df1ec03b3f2c6dd39c1ff6ecf8de5e56eb32d79c9d06240eaf5de027f6e7b9df2e2e1a4cb38dd548460b757':
+		if check_secret_authentication(request.form.get('Key')):
 			message = reset_votes()
 			finished = False
 		else:
@@ -44,8 +52,7 @@ def create():
 	if request.method == 'POST':
 		Social = hashing(str(request.form.get('Social')))
 		Drivers = hashing(str(request.form.get('Drivers')))
-		Key = hashing(str(request.form.get('Key')))
-		if str(Key) == '09a1d01b5b120d321de9529369640316ddb120870df1ec03b3f2c6dd39c1ff6ecf8de5e56eb32d79c9d06240eaf5de027f6e7b9df2e2e1a4cb38dd548460b757':
+		if check_secret_authentication(request.form.get('Key')):
 			cur.execute("INSERT INTO USER (DL, SS) VALUES(?,?)",((Drivers,Social)))
 			con.commit()
 	return render_template('create.html')
@@ -57,7 +64,7 @@ def end():
 	global finished
 	if request.method == 'POST':
 		key = hashing(str(request.form.get('Key')))
-		if key == '09a1d01b5b120d321de9529369640316ddb120870df1ec03b3f2c6dd39c1ff6ecf8de5e56eb32d79c9d06240eaf5de027f6e7b9df2e2e1a4cb38dd548460b757':
+		if key == SECRET_KEY:
 			message = count_votes()
 			finished = True
 		else:
