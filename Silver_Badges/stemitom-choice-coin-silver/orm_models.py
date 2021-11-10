@@ -4,11 +4,18 @@ from enum import unique, Enum
 from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
+# This is what the orm modeling looks like
+# app = Flask(__name__)
+# app.config["SQLALCHEMY_DATABASE_URI"] = config('MYSQL_DB')
+# app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+# app.config['SECRET_KEY'] = config("FLASK_KEY")
+# db.init_app(app)
+
 @unique
 class VoterLevel(Enum):
-    EMPLOYEE = 1
-    CTO = 5
-    CEO = 10
+    JUNIOR = 2
+    MID_LEVEL = 5
+    SENIOR = 10
 
 class Voter(db.Model):
     __tablename__ = "voter"

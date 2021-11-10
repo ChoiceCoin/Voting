@@ -20,8 +20,12 @@ This is a repository for voting software built using Choice Coin on the Algorand
 - This protocol also supports corporate or organizational voting. To add additional decisions, follow the same steps as above, except editing the functions and files with *corporate* in the name.
 - Create a new MySQL database with the appropriate credentials as described in the *SQL_Code.sql* file. Be sure to enter in your MySQL credentials at the appropriate points at lines *15-20* in *index.py*. Specifically, create a new MySQL user with root privileges that can easily access and change the database.  
 - Finally, to test as a web application, use the command *python index.py* in a regular terminal with the virtual environment configured. This will launch a web-application that you can interact with.
+- To test an implementation of the corporate/stackholder's meeting through the command line, run `python corporate_cli.py`
 - To learn more about the web application, watch the Demo Video here: https://youtu.be/DWXNGDYXnIM.
 
-# Wasp's Addition
+# Addition by [stemitom](https://github.com/stemitom)
 - Enabled Corporate Voting through the cli interface
-- 
+- Implementation of corporate voting can be seen through the `orm_models.py` and `corporate_cli.py`
+- Implemented decoupling of secret and configuration variables
+- Implemented option for ORM modeling for stackholder voting integration with sqlite
+- Refactored routes and voting functions

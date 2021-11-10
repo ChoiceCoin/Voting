@@ -122,9 +122,9 @@ def conclude_vote(addrs: list):
     opt_zero_count, opt_one_count = results
 
     if opt_zero_count > opt_one_count:
-        print("Option zero wins.")
+        print("[+] Option zero wins.")
     else:
-        print("Option one wins.")
+        print("[+] Option one wins.")
 
 def main():
     escrow_addr = str(input("Enter escrow wallet address: "))
@@ -132,12 +132,18 @@ def main():
     position = str(input("Enter your stakeholder's position: "))
 
     if not validate_wallet(escrow_addr, escrow_phrase):
-        print("Wallet details are not valid. Please do try again")
+        print("[-] Wallet details are not valid. Please do try again")
         return
     else:
         escrow_key = mnemonic.to_private_key(escrow_phrase)
+    
+    if position not in ['SENIOR', 'MID', 'ENTRY']:
+        print("[-] Position is not valid. Please do try again")
 
     opt_one_acct = create_account(escrow_key, escrow_addr)
     opt_two_acct = create_account(escrow_key, escrow_addr)
     corporate_vote(escrow_key, escrow_addr, opt_one_acct, opt_two_acct)
     conclude_vote[opt_one_acct, opt_two_acct]
+
+if __name__ == '__main__':
+    main()
