@@ -8,7 +8,9 @@ from vote import reset_votes, reset_corporate_votes
 from algosdk.future.transaction import AssetTransferTxn, PaymentTxn
 from algosdk.v2client import algod
 from utils import hashing, check_secret_authentication
+from queries import create_query, vote_select_query, vote_delete_query
 from decouple import config
+from db import cursor, conn
 import locale
 import rsa
 import hashlib
@@ -20,8 +22,8 @@ SECRET_KEY = config('SECRET_KEY')
 MYSQL_DB = config('VOTERS_DB')
 
 #Added new sqlite functionality for local devices
-con = sl.connect(MYSQL_DB, check_same_thread = False)
-cur = con.cursor()
+# conn = sl.connect(MYSQL_DB, check_same_thread = False)
+# cursor = conn.cursor()
 app = Flask(__name__)
 
 finished = False
@@ -50,11 +52,11 @@ def start_voting():
 @app.route('/create', methods = ['POST','GET'])
 def create():
 	if request.method == 'POST':
-		Social = hashing(str(request.form.get('Social')))
-		Drivers = hashing(str(request.form.get('Drivers')))
+		social = hashing(str(request.form.get('Social')))
+		drivers = hashing(str(request.form.get('Drivers')))
 		if check_secret_authentication(request.form.get('Key')):
-			cur.execute("INSERT INTO USER (DL, SS) VALUES(?,?)",((Drivers,Social)))
-			con.commit()
+			cursor.execute(create_query, ((drivers, social)))
+			conn.commit()
 	return render_template('create.html')
 
 @app.route('/end', methods = ['POST','GET'])
@@ -78,13 +80,13 @@ def vote():
 	global validated
 	validated = False
 	if request.method == 'POST':
-		Social = hashing(str(request.form.get('Social')))
-		Drivers = hashing(str(request.form.get('Drivers')))
-		cur.execute("SELECT * FROM USER WHERE SS = ? AND DL = ?",(Social,Drivers))
-		account = cur.fetchone()
+		social = hashing(str(request.form.get('Social')))
+		drivers = hashing(str(request.form.get('Drivers')))
+		cursor.execute(vote_select_query, (social, drivers))
+		account = cursor.fetchone()
 		if account:
-			cur.execute("DELETE FROM USER WHERE SS = ? and DL = ?",(Social,Drivers))
-			con.commit()
+			cursor.execute(vote_delete_query,(social,drivers))
+			conn.commit()
 			validated = True
 			return redirect(url_for('submit'))
 		else:
