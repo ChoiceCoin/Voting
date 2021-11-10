@@ -129,6 +129,7 @@ def conclude_vote(addrs: list):
 def main():
     escrow_addr = str(input("Enter escrow wallet address: "))
     escrow_phrase = str(input("Enter escrow wallet phrase: "))
+    position = str(input("Enter your stakeholder's position: "))
 
     if not validate_wallet(escrow_addr, escrow_phrase):
         print("Wallet details are not valid. Please do try again")
@@ -138,5 +139,5 @@ def main():
 
     opt_one_acct = create_account(escrow_key, escrow_addr)
     opt_two_acct = create_account(escrow_key, escrow_addr)
+    corporate_vote(escrow_key, escrow_addr, opt_one_acct, opt_two_acct)
     conclude_vote[opt_one_acct, opt_two_acct]
-    
