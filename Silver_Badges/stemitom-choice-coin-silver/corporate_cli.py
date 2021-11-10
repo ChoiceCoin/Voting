@@ -138,3 +138,5 @@ def main():
 
     opt_one_acct = create_account(escrow_key, escrow_addr)
     opt_two_acct = create_account(escrow_key, escrow_addr)
+    conclude_vote[opt_one_acct, opt_two_acct]
+    
