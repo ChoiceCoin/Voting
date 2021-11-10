@@ -78,7 +78,7 @@ def vote():
         print ("Thanks for voting for zero.")
         print(final)
 vote()
-`
+
 # Here, the two `vote_address` variables refer to the respective choices available, so they should each be set to different addresses. 
 # In turn, the respective addresses may correspond with any two choices which may be voted upon and more addresses may be added to accommodate additional selection options. 
 
