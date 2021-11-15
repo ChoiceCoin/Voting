@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only nav-item">Toggle navigation</span>
+        <span class="icon-bar nav-item"></span>
+        <span class="icon-bar nav-item"></span>
+        <span class="icon-bar nav-item"></span>
+      </button>
+      <a class="navbar-brand nav-link" href="/">Choice Coin</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('add_voter') }}" class="nav-link">Add Voter</a></li>
+        <li><a href="{{ url_for('elections') }}" class="nav-link">Manage Voting Process</a></li>
+        <li><a href="{{ url_for('participate') }}" class="nav-link">Participate In Voting Process</a></li>
+
+        <li><a href="{{ url_for('admin_login') }}" class="nav-link">Administrator Login</a></li>
+        <li><a href="{{ url_for('admin_signup') }}" class="nav-link">Administrator Sign Up</a></li>
+        <li><a href="{{ url_for('admin_logout') }}" class="nav-link">Administrator Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
