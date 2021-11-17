@@ -3,7 +3,7 @@ This is a repository for voting software built using Choice Coin on the Algorand
 
 # OSS Rewards for Contributions
 
-Currently, there are two OSS reward structures for contributions, the Gold Badge and the Silver Badge. The Silver Badge rewards substantial contributions to the Voting Repository on the Choice Coin GitHub.  The Gold Badge rewards deployment of the Decentralized Decisions software for real world use cases. 
+There are two OSS reward structures for contributions, the Gold Badge and the Silver Badge. The Silver Badge rewards substantial contributions to the Voting Repository on the Choice Coin GitHub.  The Gold Badge rewards deployment of the Decentralized Decisions software for real world use cases. 
 
 Gold Badge Information: https://forum.algorand.org/t/choice-coin-gold-badge/4817
 
