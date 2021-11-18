@@ -19,10 +19,9 @@ finished = False
 corporate_finished = False
 validated = False
 
-
+#Start page
 @app.route("/")
 def start():
-	""" Start page """
 	return render_template('index.html')
 
 @app.route('/start', methods = ['POST', 'GET'])
