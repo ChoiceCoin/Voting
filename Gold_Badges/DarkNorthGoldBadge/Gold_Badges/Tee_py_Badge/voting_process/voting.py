@@ -9,20 +9,20 @@ from algosdk import account, encoding, mnemonic,transaction
 from algosdk.future.transaction import AssetTransferTxn, PaymentTxn
 from algosdk.v2client import algod
 from algorand_demo import choice_trade
-aalgod_address = "https://testnet-algorand.api.purestake.io/ps2"
-algod_token = "ti4RqMynth6ecRMzEDRI414YbBppr4ociEOFKkLi"
 
-headers = {"X-API-Key": algod_token}
-algod_client = algod.AlgodClient(algod_token, algod_address, headers)
-escrow_address = "6KCOIOQB77UTHE67QUVJJ3NDGQCIBGO67KGOEYZZATIGK7KBU34EWG52AE"
-escrow_mnemonic = "left later pencil gospel coast eight agree spatial raccoon absorb victory tell pioneer actor mouse " \
-                  "refuse suggest help pledge tape oil drop gym absent raise "
-fund_address = "WHNTB5KQTGKBQSZAJ5VX745SGYJTCKSQ2PX7KA3MVCXV7FNAEGLIGOKOZE"
-fund_mnemonic = "foam fault power empty bulb usage round guard evoke city wish screen logic express assume extra " \
-                "copper kind prize table math wheat bargain absorb like "
-choice_id = 17264161
+algod_address = ""
+algod_token = ""
+#Initializes Client for node
+headers = {"X-API-Key": algod_token }
+algod_client = algod.AlgodClient(algod_token,algod_address,headers)
+fund_address = "" #Put in main fund address here
+fund_mnemonic = "" #Put in main fund receiver_mnemonic here
 fund_key = mnemonic.to_private_key(fund_mnemonic)
-
+choice_id = 17264161 #Official Test Asset ID for Choice Coin
+decision_one = ""
+decision_two = ""
+test_address = ''
+test_mnemonic = ''
 
 def algo_inital(sender, key, receiver,comment):
     parameters = algod_client.suggested_params()

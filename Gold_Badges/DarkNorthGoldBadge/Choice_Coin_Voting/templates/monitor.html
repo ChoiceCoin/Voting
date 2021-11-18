@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Election Voting</title>
+
+    <link rel="stylesheet" href="/static/css/style.css?version=7">
+    <link rel = "stylesheet" href = "/static/css/mystyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style type="text/css">
+
+    </style>
+
+  </head>
+  <body>
+    {% include 'header.html' %}
+
+    <div class="container">
+      <div class="judul">
+        <h1>Voting with Choice Coin</h1>
+      </div>
+
+      <h2>Current Standings</h2>
+        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+
+
+
+
+
+    </div>
+    {% include 'footer.html' %}
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+      <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+
+    <script>
+
+          var xValues = ["Decision1", "Decision2"]
+          var yValues = [{{ yes_count }}, {{ no_count }}]
+          var barColors = ["red", "blue"]
+          chart = new Chart("myChart", {
+          type: "bar",
+          data: {
+            labels: xValues,
+            datasets: [{
+              backgroundColor: barColors,
+              data: yValues
+            }]
+          },
+
+        });
+
+          function updateChart(chart, message){
+            chart.data.datasets.forEach((dataset)=>{
+                if (message === "Decision1"){
+                dataset.data[0]= dataset.data[0] +100
+                dataset.data[1]= dataset.data[1]
+                }
+                else if (message === "Decision2"){
+                    dataset.data[1]= dataset.data[1] +100
+                    dataset.data[0]= dataset.data[0]
+                }
+            })
+              chart.update();
+          }
+
+
+
+          </script>
+    <script>
+        $(document).ready(function(){
+         var socket = io();
+         socket.on('connect', function (){console.log('connected!!!')})
+          socket.on('vote', function (msg) {
+              updateChart(chart, msg.data)
+
+          })})
+
+    </script>
+
+ </body>
+</html>

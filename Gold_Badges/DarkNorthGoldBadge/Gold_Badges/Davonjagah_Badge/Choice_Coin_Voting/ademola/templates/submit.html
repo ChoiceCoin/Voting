@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Election Voting</title>
+
+    <link rel="stylesheet" href="/static/css/style.css?version=7">
+    <link rel = "stylesheet" href = "/static/css/mystyle.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style type="text/css">
+
+    </style>
+
+  </head>
+  <body>
+    {% include 'header.html' %}
+    {% if message %}
+        <h3><p style="color:green">{{ message }}</p></h3>
+{% else %}
+    	    {% if error %}
+        <p style="color:red">{{ error }}</p>
+    		{% endif %}
+    <div class="container">
+      <div class="judul">
+        <h1>Nigerian Presidential Voting with Choice Coin</h1>
+      </div>
+
+      <p>Your identity has been validated, Review Each Candidates Biography and Manifestos and then go ahead to Cast your vote:</p>
+
+<form action="" method = "post">
+  <div class="container form-group">
+    <label for = "main_3">Presidential Candidates:</label>
+    <div class="row">
+      <div class="col-sm">
+        <img src="../static/img/osinbajo.jpg" height="250px"/><br>
+        Oluyemi Oluleke "Yemi" Osinbajo GCON (born 8 March 1957), is a Nigerian lawyer and politician who is currently serving as the Vice President of Nigeria, since 29 May 2015.
+        <br>
+        <br>
+       
+        <a href="https://wiki.com"><button type="button" class="btn btn-link">Continue</button></a>
+        <br>
+        <input type="radio" name="options" id="option1" value="option1">Professor Yemi Osinbajo</input>
+      </div>
+      <div class="col-sm">
+        <img src="../static/img/obi.jpg" height="250px"/>
+        <br>
+        Peter Gregory Obi (born on 19 July 1961) is a Nigerian politician and businessman who was the vice presidential candidate in the 2019 Nigerian general election under the People's Democratic Party. He was the former governor of Anambra State for 2 tenures
+        <br>
+        
+        <a href="https://wiki.com"><button type="button" class="btn btn-link">Continue</button></a>
+        <br>
+        <input type="radio" name="options" id="option2" value="option2">Peter Gregory Obi</input>
+       
+      </div>
+    </div>
+  </div>
+
+  <input  class="button btn btn-primary" type="submit" value="Submit Ballot">
+</form>
+{% endif %}
+    </div>
+    {% include 'footer.html' %}
+ </body>
+</html>
