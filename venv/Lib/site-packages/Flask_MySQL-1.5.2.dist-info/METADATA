@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: Flask-MySQL
+Version: 1.5.2
+Summary: Flask simple mysql client
+Home-page: https://github.com/cyberdelia/flask-mysql/
+Author: Timothee Peignier
+Author-email: timothee.peignier@tryphon.org
+License: BSD
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: Flask
+Requires-Dist: PyMySQL
+
+UNKNOWN
+
+

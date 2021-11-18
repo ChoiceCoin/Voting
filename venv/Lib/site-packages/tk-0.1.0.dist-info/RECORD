@@ -1,0 +1,14 @@
+tk-0.1.0.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+tk-0.1.0.dist-info/LICENSE,sha256=MH9HhyfBy9HZBpz_T8Tq5FQg8vxyqh7PPbJVd5efsgU,1063
+tk-0.1.0.dist-info/METADATA,sha256=jN6gCFOYnMRb5d6SPF8Wbb-Fj-bPXIm_NOqkkqlRluY,693
+tk-0.1.0.dist-info/RECORD,,
+tk-0.1.0.dist-info/WHEEL,sha256=U88EhGIw8Sj2_phqajeu_EAi3RAo8-C6zV3REsWbWbs,92
+tk-0.1.0.dist-info/top_level.txt,sha256=JeUv2teCAcHSOK73Cj0C_bKyZfgzp6-ycI7zkFfXOLc,3
+tk/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tk/__pycache__/__init__.cpython-38.pyc,,
+tk/structure/Tensor.py,sha256=s5OD2dL6qAcMeDMxUD0ZO7jMun9X0J-KSP_LYH-C49c,2703
+tk/structure/TensorMap.py,sha256=9z76_XV8hCxqjyd3W9xUyNoiOISKHNJlzUCRUKhRFA0,2029
+tk/structure/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tk/structure/__pycache__/Tensor.cpython-38.pyc,,
+tk/structure/__pycache__/TensorMap.cpython-38.pyc,,
+tk/structure/__pycache__/__init__.cpython-38.pyc,,
