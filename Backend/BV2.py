@@ -1,7 +1,6 @@
 # Copyright Fortior Blockchain, LLLP 2021
 # Apache License
 
-
 # Imports
 from algosdk.v2client import algod
 from algosdk import account, encoding, mnemonic, transaction 
@@ -38,7 +37,7 @@ def vote():
         print ("Thanks for voting for one.")
         print(final)
     else:
-        # do not send one choice to address
+        # send one choice to address
         amount = 100
         vote_address = ""
         transaction = AssetTransferTxn(sender=voter_address, sp=params, receiver=vote_address, amt=amount, index=asset_id)

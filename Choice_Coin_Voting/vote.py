@@ -38,8 +38,8 @@ fund_key = mnemonic.to_private_key(fund_mnemonic)
 escrow_key = mnemonic.to_private_key(escrow_mnemonic)
 choice_id = 21364625  # Official Test Asset ID for Choice Coin
 
-decision_one = "6AUYU6PGNASDUIAKTITR3MGF4OHUXREF4WULWDZMZY2O4R2SBTVAKVQFHM"
-decision_two = "F7QDMLMTNFZ7ECU7SLIMIJOHIH2DR64REPF2364AF6RM7WHROELVLXTTRM"
+decision_one = "ZRX65ZPPCINUCLM5OHORW4INH6OKRODZKAJZOFGDXCFLMWPF7F3PDSB3VE"
+decision_two = "K5QBRUXAJMUDMD33XHEOPOWZZBWQGLQ6FVUA5GC7USQRC46DWFLYGCCGG4"
 
 
 # # Decisions.

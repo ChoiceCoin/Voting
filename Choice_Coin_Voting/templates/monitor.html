@@ -57,10 +57,12 @@
           function updateChart(chart, message){
             chart.data.datasets.forEach((dataset)=>{
                 if (message === "Decision1"){
-                dataset.data[0]= dataset.data[0] +1
+                dataset.data[0]= dataset.data[0] +100
+                dataset.data[1]= dataset.data[1]
                 }
                 else if (message === "Decision2"){
-                    dataset.data[1]= dataset.data[1] +1
+                    dataset.data[1]= dataset.data[1] +100
+                    dataset.data[0]= dataset.data[0]
                 }
             })
               chart.update();
@@ -73,7 +75,10 @@
         $(document).ready(function(){
          var socket = io();
          socket.on('connect', function (){console.log('connected!!!')})
-          socket.on('vote', updateChart(chart, msg.data))})
+          socket.on('vote', function (msg) {
+              updateChart(chart, msg.data)
+
+          })})
 
     </script>
 

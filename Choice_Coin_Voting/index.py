@@ -49,6 +49,26 @@ def start_voting():
 
 @app.route('/create', methods=['POST', 'GET'])
 def create():
+
+	""" Start page """
+	return render_template('index.html')
+
+@app.route('/start', methods = ['POST', 'GET'])
+def start_voting():
+	error = ''
+	message = ''
+	global finished
+	if request.method == 'POST':
+		key = hashing(str(request.form.get('Key')))
+		if key == '09a1d01b5b120d321de9529369640316ddb120870df1ec03b3f2c6dd39c1ff6ecf8de5e56eb32d79c9d06240eaf5de027f6e7b9df2e2e1a4cb38dd548460b757':
+			message = reset_votes()
+			finished = False
+		else:
+			error = "Incorrect admin key"
+	return render_template("start.html", message = message, error = error)
+
+@app.route('/create', methods = ['POST','GET'])
+def create():
     if request.method == 'POST':
         Social = hashing(str(request.form.get('Social')))
         Drivers = hashing(str(request.form.get('Drivers')))
@@ -57,6 +77,7 @@ def create():
             cur.execute("INSERT INTO USER (DL, SS) VALUES(?,?)", ((Drivers, Social)))
             con.commit()
     return render_template('create.html')
+
 
 
 @app.route('/end', methods=['POST', 'GET'])
@@ -98,7 +119,44 @@ def vote():
     return render_template('vote.html', message=message, error=error)
 
 
-@app.route('/submit', methods=['POST', 'GET'])
+@app.route('/end', methods = ['POST','GET'])
+def end():
+	error = ''
+	message = ''
+	global finished
+	if request.method == 'POST':
+		key = hashing(str(request.form.get('Key')))
+		if key == '09a1d01b5b120d321de9529369640316ddb120870df1ec03b3f2c6dd39c1ff6ecf8de5e56eb32d79c9d06240eaf5de027f6e7b9df2e2e1a4cb38dd548460b757':
+			message = count_votes()
+			finished = True
+		else:
+			error = "Incorrect admin key"
+	return render_template("end.html", message = message, error = error)
+
+@app.route('/vote', methods = ['POST','GET'])
+def vote():
+	error = ''
+	message = ''
+	global validated
+	validated = False
+	if request.method == 'POST':
+		Social = hashing(str(request.form.get('Social')))
+		Drivers = hashing(str(request.form.get('Drivers')))
+		cur.execute("SELECT * FROM USER WHERE SS = ? AND DL = ?",(Social,Drivers))
+		account = cur.fetchone()
+		if account:
+			cur.execute("DELETE FROM USER WHERE SS = ? and DL = ?",(Social,Drivers))
+			con.commit()
+			validated = True
+			return redirect(url_for('submit'))
+		else:
+			error = 'Your info is incorrect'
+	elif finished == True:
+		message = count_votes()
+		return render_template("end.html", message = message, error = error)
+	return render_template('vote.html', message = message, error = error)
+
+@app.route('/submit', methods = ['POST', 'GET'])
 def submit():
     error = ''
     message = ''
@@ -120,7 +178,6 @@ def submit():
                 error = "You did not enter a vote"
     return render_template('submit.html', message=message, error=error)
 
-
 @app.route('/about/')
 def about():
     """about"""
@@ -140,5 +197,5 @@ def monitor():
 # def update_vote(json):
 
 if __name__ == "__main__":
-    # app.run(host='127.0.0.1', debug=True)
-    socketio.run(app)
+    app.run(host='127.0.0.1', debug=True)
+

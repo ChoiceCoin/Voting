@@ -11,3 +11,6 @@ Gold Badge Task Description: https://forum.algorand.org/t/choice-coin-gold-badge
 1. Oldmajor19
 2. Tee-py
 3. Davonjagah
+4. ScMofeoluwa
+5. Johnkayode
+6. prettyirrelevant
