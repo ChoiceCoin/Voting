@@ -23,15 +23,16 @@ import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 # Matplot parameters for the matplotlib function to generate a new plot.
 matplotlib.use('TkAgg')
-algod_address = "https://testnet-algorand.api.purestake.io/ps2"
-algod_token = "iSusnJg4L15ucSz2c73tq3HS5hitxZY71ye84MVh"
+algod_address = ""
+algod_token = ""
 
 headers = {"X-API-Key": algod_token}
 algod_client = algod.AlgodClient(algod_token, algod_address, headers)
-escrow_address = "HSN2JCICFMCB2XX3PP5L2DSHZDXEJSXL2UHVWRIZQSD6WDX5IBGAZRVRAY"
-escrow_mnemonic = "clutch force volume chicken other double choose intact bounce elbow viable make horn upgrade hope neutral ladder core police scout foam damp buddy able adjust"
-fund_address = "WHNTB5KQTGKBQSZAJ5VX745SGYJTCKSQ2PX7KA3MVCXV7FNAEGLIGOKOZE"
-fund_mnemonic = "foam fault power empty bulb usage round guard evoke city wish screen logic express assume extra copper kind prize table math wheat bargain absorb like"
+escrow_address = ""
+escrow_mnemonic = ""
+fund_address = ""
+fund_mnemonic = ""
+
 choice_id = 17264161
 fund_key = mnemonic.to_private_key(fund_mnemonic)
   # Put in main fund receiver_mnemonic here
