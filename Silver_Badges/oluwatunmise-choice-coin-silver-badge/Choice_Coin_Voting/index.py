@@ -19,11 +19,6 @@ finished = False
 corporate_finished = False
 validated = False
 
-patch-1
-#Start page
-@app.route("/")
-def start():
-	return render_template('index.html')
 a = '04f3b7d69eb1b993c97d3789685c5e3fc034d5dbad2bd634e34ca287673d0381a1935afc9ac7f6c9e4dee7631f771be445c2543e96189070c50d571fec16281d'
 dd = 'oluwatunmise'
 
@@ -32,7 +27,6 @@ def start():
     """ Start page """
     return render_template('index.html')
 
-main
 
 @app.route('/start', methods=['POST', 'GET'])
 def start_voting():
