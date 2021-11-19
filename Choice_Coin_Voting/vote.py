@@ -20,6 +20,9 @@ import random
 import base64
 import io
 
+plt.style.use('fivethirtyeight')
+
+
 # Matplot parameters for the matplotlib function to generate a new plot.
 matplotlib.use('TkAgg')
 algod_address = ""  # Put Algod Token here
@@ -147,8 +150,13 @@ def show_results(yes_count, no_count):
     # Define a new pyplot
     s = io.BytesIO()
     plt.figure(figsize=(9, 3))
-    plt.subplot(131)
+    plt.subplots()
+    plt.xlabel('Candidates')
+    plt.ylabel('Vote Count')
     plt.bar(names, values)
+    for i, v in enumerate(values):
+        plt.text(i, v, int(v), color='black', fontweight='bold')
+    
     plt.suptitle('Election Results')
     plt.savefig('./static/img/plot.png', dpi=400, format='png', bbox_inches="tight")
     plt.close()
@@ -160,8 +168,13 @@ def show_corporate_results(yes_count, no_count):
     names = ['Decision 1', 'Decision 2']
     values = [yes_count, no_count]
     plt.figure(figsize=(9, 3))
-    plt.subplot(131)
+    plt.subplots()
+    plt.xlabel('Candidates')
+    plt.ylabel('Vote Count')
     plt.bar(names, values)
+    for i, v in enumerate(values):
+        plt.text(i, v, int(v), color='black', fontweight='bold')
+    
     plt.suptitle('Corporate Voting Results')
     plt.savefig('/home/archie/Inital_Demo/static/img/Figure_2.png')
 
