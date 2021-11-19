@@ -17,3 +17,5 @@ Gold Badge Task Description: https://forum.algorand.org/t/choice-coin-gold-badge
 7. davonjagah
 8. stemitom
 9. Olu-wafemi
+10. Xekhai
+11. gwumex
