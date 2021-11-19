@@ -33,7 +33,7 @@ choice_id = 21364625 # Official Test Asset ID for Choice Coin
 
 # Decisions.
 #To add more decisions for the election process, add the address for the new decision here.
-#Then, add an appropriate boolean statement at line 100 of this file. Be sure to also add additional 
+
 #counts at line 148 of this file as well. 
 decision_one = ""
 decision_two = ""
