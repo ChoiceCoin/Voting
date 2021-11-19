@@ -14,3 +14,5 @@ Gold Badge Task Description: https://forum.algorand.org/t/choice-coin-gold-badge
 4. ScMofeoluwa
 5. Johnkayode
 6. prettyirrelevant
+7. davonjagah
+8. stemitom
