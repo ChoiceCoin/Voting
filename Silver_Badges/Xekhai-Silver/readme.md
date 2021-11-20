@@ -1,4 +1,4 @@
-Steps
+# Steps
 
 Installed and setup Flask-Mail(index.py)
 
@@ -15,13 +15,14 @@ On submit, An email is sent with the transaction reference
 When the vote is ended, All saved email are sent a notication and results of the election.
 
 
-Screenshots of Emails
+# Screenshots of Emails
 http://imgur.com/a/C9HMtDS
 
-Notable code changes and additions
+## Notable code changes and additions
 
 Index.py
 
+```
 from flask_mail import Mail,Message
 
 #only update MAIL_USERNAME and MAIL_PASSWORD if gmail
@@ -35,6 +36,7 @@ app.config['MAIL_USE_SSL'] = True
 mail=Mail(app)
 
 #Same logic for @app.route /end, edit message.
+
 
 @app.route('/start', methods=['POST', 'GET'])
 def start_voting():
@@ -96,3 +98,4 @@ def submit():
             else:
                 error = "You did not enter a vote"
     return render_template('submit.html', message=message, error=error)
+```
