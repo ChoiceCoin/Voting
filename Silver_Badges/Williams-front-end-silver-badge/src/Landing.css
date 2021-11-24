@@ -1,0 +1,85 @@
+.landing {
+  width: 100%;
+  height: 100vh;
+  min-height: 70vh;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: 0vh 5vw 0vh 5vw;
+  font-family: pangram;
+  /* justify-content: center; */
+  align-items: center;
+  font-weight: 500;
+  font-family: "Raleway", sans-serif;
+}
+
+.land_inn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.land_item1 {
+  width: 400px;
+  max-width: 80vw;
+  margin-bottom: calc(10vmin - 20px);
+}
+.land_item1 .hdy {
+  line-height: 122%;
+  font-size: 31px;
+  color: #3a4be8;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.land_item1 .suby {
+  font-size: 14px;
+  color: #999;
+  line-height: 150%;
+  font-weight: 600;
+}
+
+.land_butt {
+  display: flex;
+  height: auto;
+  flex-direction: row;
+}
+
+.land_butt button {
+  height: 34px;
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 18px;
+  margin-right: 20px;
+  border-radius: 20px;
+  white-space: nowrap;
+  background: #3a4be8;
+  margin-bottom: 20px;
+
+  font-weight: 600;
+  font-family: "Raleway", sans-serif;
+}
+
+/* 
+================ */
+
+canvas {
+  left: 0px;
+  height: 0px;
+  position: absolute;
+  width: 100vw !important;
+}
+
+@media (max-width: 850px) {
+  .landing {
+    margin-top: -50px;
+    margin-bottom: 20vh;
+    padding: 0vh 8vw 0vh 8vw;
+    flex-direction: column-reverse;
+  }
+  .land_inn {
+    width: 100%;
+    margin-top: -220px;
+
+    /* background: red; */
+  }
+}
