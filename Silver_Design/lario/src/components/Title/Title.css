@@ -1,0 +1,44 @@
+.section__title{
+    color: #ffffff;
+    font-size: 3rem;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.section__title::before{
+    position: absolute;
+    content: "";
+    width: 70px;
+    height: .3rem;
+    background-color: #f00;
+    border-radius: 10px;
+    left: 0;
+    bottom: 0;
+}
+
+.section__title::after{
+    position: absolute;
+    content: "";
+    width: 40px;
+    height: .3rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    left: 0;
+    bottom: 0;
+}
+
+
+@media screen and (max-width: 700px){
+    .section__title{
+        font-size: 1.8rem;
+    }
+
+    .section__title::before{
+        height: .2rem;
+        width: 43px;
+    }
+    .section__title::after{
+        height: .2rem;
+        width: 25px;
+    }
+}
