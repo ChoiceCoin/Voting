@@ -9,8 +9,8 @@
 ////////////////////////////////////////////////////////////////////
 // All requirements for this Tutorial can be found in the [package.json](https://github.com/ChoiceCoin/Voting/blob/main/package.json) file on the Choice Coin GitHub.
 // To install the requirements run:
-npm install
-npm install algosdk@1.11.0
+//npm install
+//npm install algosdk@1.11.0
 // Background
 ////////////////////////////////////////////////////////////////////
 // Collective decision making is an important and essential part of groups across the world.
