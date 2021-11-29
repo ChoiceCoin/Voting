@@ -1,37 +1,40 @@
-{% extends 'base.html' %}
-{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Election Voting</title>
 
-<div class="head">
-  <h1>End Voting process</h1>
-</div>
+    <link rel="stylesheet" href="/static/css/style.css?version=7">
+    <link rel = "stylesheet" href = "/static/css/mystyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!--HERO SECTION -->
-<p class="info">End voting here <span  font-weight: bold;">(Administrative Priveleges Required)</span></p>
+    <style type="text/css">
 
-{% if message %}
-  <div class="result-cont">
-    <p class="closer" onclick="closer()">&times;</p>
-    <h3><p style="color:#222222; font-size: .8em; font-weight:400; ">{{ message }}</p></h3>
-  </div>
-  <div class="img-wrapper">
-    <img src="/static/img/plot.png" width="100%">
-  </div>
+    </style>
+
+  </head>
+  <body>
+    {% include 'header.html' %}
+    {% if message %}
+        <h3><p style="color:green">{{ message }}</p></h3>
+        <center><img src="/static/img/Figure_1.png"></img></center>
 {% else %}
-{% if error %}
-  <div class="result-cont">
-    <p class="closer" onclick="closer()">&times;</p>
-    <p style="color:red">{{ error }}</p>
-  </div>
-{% endif %}
-{% endif %}
+    	    {% if error %}
+        <p style="color:red">{{ error }}</p>
+    		{% endif %}
+    <div class="container">
+      <div class="judul">
+        <h1>Voting with Choice Coin</h1>
+      </div>
 
-  <!-- CONTENT -->
-  <form action="" method = "post">
-    <div class="generic-form">
-      <label for = "main">Administrative Key:</label>
-      <input id = "main" type="password" name="Key" placeholder="Administrative Key"><br>
+      <p>End voting here (Administrative Priveleges Required)</p>
+
+<form action="" method = "post">
+  <label for = "main">Administrative Key:</label>
+  <input id = "main" type="password" name="Key" placeholder="SS #"><br>
+  <input class="button" type="submit" value="End Voting">
+</form>
+{% endif %}
     </div>
-    <input class="button" type="submit" value="End Voting">
-  </form>
-
-{% endblock content %}
+    {% include 'footer.html' %}
+ </body>
+</html>
