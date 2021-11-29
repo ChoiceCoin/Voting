@@ -118,7 +118,7 @@ def check_results_zero():
             print("Account {} has {}.".format(address, balance_formatter(amount, asset_id, client)))
             return
         print("Account {} must opt-in to Asset ID {}.".format(address, asset_id))
-check_results_zero()`
+check_results_zero()
 
 # 6. Build the Best Voting Technology
 # The Choice Coin Open Source Software (OSS) Program rewards developers for building Choice Coin software on GitHub.

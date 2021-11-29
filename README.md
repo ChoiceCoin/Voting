@@ -1,14 +1,26 @@
 # Voting
 This is a repository for voting software built using Choice Coin on the Algorand Network. Our voting software is centered around Decentralized Decisions, an open-source voting software that allows organizations to make decisions in a distributed manner. The votes in Decentralized Decisions are recorded on the Algorand Blockchain and are tabulated using a stateless smart contract. Post-quantum cryptography ensures that voter information is kept secure throughout the entire process at all points of vulnerability. This repository is meant to facilitate open-development on the Choice Coin Platform and to serve as a starting point for developers looking to set up their own decentralized voting network. Development here can directly be used for Choice Coin's Developer Awards Program. Developers should follow the instructions below to get started. We are looking forward to seeing all the great innovations that will come out of our community!
 
+# OSS Rewards for Contributions
+
+There are two OSS reward structures for contributions, the Gold Badge and the Silver Badge. The Silver Badge rewards substantial contributions to the Voting Repository on the Choice Coin GitHub.  The Gold Badge rewards deployment of the Decentralized Decisions software for real world use cases. The Gold_Badges and Silver_Badges folders include contributions from reward winners. As of November 19, 2021 11 Gold Badges have been awarded and the program is currently closed, but may open again in the future. Silver Badge awards are still available. 
+
+Choice Coin Participation: https://choice-coin.com/participation.html
+
+Developer Docs: https://choice-coin.gitbook.io/choice-coin-docs/getting-started/introduction
+
+Gold Badge Information: https://forum.algorand.org/t/choice-coin-gold-badge/4817
 
 # Dependencies
 - To run the code in the *Choice_Coin_Voting* Folder, you first must have Python installed. Please download the latest version of Python, and create a virtual environment specifically for this directory. Python Download: https://www.python.org/downloads/.
 - Second, your Python virtual environment  must have all of the packages listed in the *requirements.txt* file, which is also found in the *Choice_Coin_Voting* folder.
 - Decentralized Decisions now runs sqlite instead of SQL.
 
+# Voting Tutorial
 
-# Run Steps
+For an easy startup, check the Voting_Tutorial folder for a step by step guide to getting started building voting software with Choice Coin on Algorand.
+
+# Demo Run Steps
 - To run the code found in the *Choice_Coin_Voting* folder, make sure to first download the dependencies as described above using *pip*.
 - Run the *sqlite.py* function on Python Terminal with the virtual environment activated. Then, be sure that a new database called "voters.db" has been created.
 - First, make sure that you have an account with an adequate amount of Choice Coin. This will be used as the escrow account that contains the Choice Coin that is used for voting. It will also send this Choice Coin to the appropriate decision address as dictated by individual voters. Put the accounts' address and mnemonic under *escrow_address* and *escrow_mnemonic* in the *vote.py* file.
@@ -21,4 +33,3 @@ This is a repository for voting software built using Choice Coin on the Algorand
 - Create a new MySQL database with the appropriate credentials as described in the *SQL_Code.sql* file. Be sure to enter in your MySQL credentials at the appropriate points at lines *15-20* in *index.py*. Specifically, create a new MySQL user with root privileges that can easily access and change the database.  
 - Finally, to test as a web application, use the command *python index.py* in a regular terminal with the virtual environment configured. This will launch a web-application that you can interact with.
 - To learn more about the web application, watch the Demo Video here: https://youtu.be/DWXNGDYXnIM.
-
