@@ -1,34 +1,39 @@
-{% extends 'base.html' %}
-{% block content %}
-    <div class="head">
-      <h1>Start voting process with Choice Coin</h1>
-    </div>
-    
-    <!--HERO SECTION -->
-    <p class="info">Start the voting process here <span style="font-weight: bold;">(Administrative Priveleges Required)</span></p>
-    
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Election Voting</title>
+
+    <link rel="stylesheet" href="/static/css/style.css?version=7">
+    <link rel = "stylesheet" href = "/static/css/mystyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style type="text/css">
+
+    </style>
+
+  </head>
+  <body>
+    {% include 'header.html' %}
     {% if message %}
-    <div class="result-cont">
-      <p class="closer" onclick="closer()">&times;</p>
-      <h3><p style="color:green" class="message">{{ message }}</p></h3>
-    </div>
-      {% else %}
-      {% if error %}
-      <div class="result-cont">
-        <p class="closer" data-status="error" onclick="closer()">&times;</p>
-        <p style="color:red" data-status="error" class="message">{{ error }}</p>
+        <h3><p style="color:green">{{ message }}</p></h3>
+{% else %}
+    	    {% if error %}
+        <p style="color:red">{{ error }}</p>
+    		{% endif %}
+    <div class="container">
+      <div class="judul">
+        <h1>Voting with Choice Coin</h1>
       </div>
-      {% endif %}
-      {% endif %}
 
-    <!-- CONTENT -->
-  <form action="" method = "post">
-    <div class="generic-form">      
-      <label for = "main">Administrative Key:</label>
-      <input id = "main" type="password" name="Key" placeholder="Administrative Key"><br>
+      <p>Start the voting process here (Administrative Priveleges Required)</p>
+
+<form action="" method = "post">
+  <label for = "main">Administrative Key:</label>
+  <input id = "main" type="password" name="Key" placeholder="SS #"><br>
+  <input class="button" type="submit" value="Start Voting">
+</form>
+{% endif %}
     </div>
-
-    <input class="button" type="submit" value="Start Voting">
-  </form>
-
-{% endblock content %}
+    {% include 'footer.html' %}
+ </body>
+</html>
