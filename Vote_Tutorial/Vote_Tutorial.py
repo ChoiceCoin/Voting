@@ -4,13 +4,16 @@ from algosdk import account, encoding, mnemonic, transaction
 from algosdk.future.transaction import AssetConfigTxn, AssetTransferTxn, PaymentTxn, write_to_file
 from utils import choice_balance
 
+#The algod_token variable can be changed to your api key on purestake
+
 algod_address = "https://testnet-algorand.api.purestake.io/ps2" 
-algod_token = "6HrMYd5r3C59gsCd1zHip5JgDDVwGTAu61L8wQ28" 
+algod_token = "6HrMYd5r3C59gsCd1zHip5JgDDVwGTAu61L8wQ28"
 headers = {"X-API-Key": algod_token }
 client = algod.AlgodClient(algod_token,algod_address,headers)
 
 asset_id = 21364625
 
+#You can generate address and mnemonics for each of the variables and edit appropriately. Function to generate key_pair can be found in the utils file
 one_address = "TR7QWZCPOBD65PG4UB76XMKCKIFIQZPQOANHPI67NT6UBWNZH6DB5I6D6Y"
 one_key = mnemonic.to_private_key("toward label truly episode text oak walk fragile student staff time captain repeat pet lonely slab used affair high power burst object place above build")
 two_address = "4SRGIIKJPAGH2YBPBCPNGLQMG5FN72BQKKTZ3SZUXNKGGJLJN75NIRC26Q"
@@ -28,6 +31,7 @@ def start():
 def results():
     data = [choice_balance(client, one_address)/100, choice_balance(client, two_address)/100]
 
+    #Can Edit labels to the name of candidates matching the addresses
     result = {"labels": ["WizKid", "Davido"], "data": data}
     return render_template('results.html', result=result)
 
