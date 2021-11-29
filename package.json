@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "algosdk": "^1.12.0",
+    "inquirer": "^8.2.0"
+  }
+}

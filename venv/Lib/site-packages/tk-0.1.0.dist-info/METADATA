@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: tk
+Version: 0.1.0
+Summary: TensorKit is a deep learning helper between Python and C++.
+Home-page: https://github.com/atranitell/TensorKit
+Author: Kai Jin
+Author-email: atranitell@gmail.com
+License: Apache 2.0 Licence
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Description-Content-Type: text/markdown
+
+UNKNOWN
+
+
