@@ -1,0 +1,186 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Using Choice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;500&family=Roboto:ital,wght@1,300&family=Rubik:ital,wght@0,300;1,300;1,500&display=swap" rel="stylesheet">
+
+    <style>
+        table{
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+        }
+        td,
+        th {
+         border: 1px solid #cccccc;
+         padding: 11px;}
+         th{
+             font-weight: bold;
+             text-transform: uppercase;
+         }
+         tr:nth-child(even){
+             background-color: #dddddd;
+         }
+         tr:hover{
+             color: white;
+             background-color: #202731;
+         }
+         tr{
+            transition: all  1s ease;
+        }
+
+    </style>
+    <body style="background-image: linear-gradient(white,#5F6ADA); overflow-y: scroll; ">
+    <section style="height: max-content;">
+      <nav style="position: absolute; top: 0px; width: 100%; background-color: #533AFE;" class="nav">
+        <a style="color: white; font-size: 20px; margin-left: 250px; font-weight: 500; font-family: 'Raleway', sans-serif; " class="nav-link" aria-current="page" href="#"> <img style="height: 30px; align-self: center;" src="/img/choice2.png"alt=""> Choice</a>
+        <a style="color: white; margin-left: 50%; font-family: 'Raleway', sans-serif; " class="nav-link" href="/">Home</a>
+        <a style="color: white; font-family: 'Raleway', sans-serif;" class="nav-link " href="#">About</a>
+      </nav>
+        
+        <div style="width: 90%; margin-top: 50px; margin-bottom: 50px; padding-right: 0;background-repeat: no-repeat; background-image:url('/img/blockchain2.png') ;" class="container">
+            <div class="election">
+                <h3 style="font-family: 'Rubik', sans-serif;">ELECTION PROPERTIES</h3>
+                <ul style="font-size: 17px; padding: 0; font-weight: 400; font-family: Georgia, 'Times New Roman', Times, serif;">
+                    <li>
+                        Title:<%= election.title %> 
+                    </li>
+                    
+                    
+                    <li>
+                        Escrow Wallet Address:<%= election.escrowWalletAddress %> 
+                    </li>
+
+                    <li id="status">
+                        Completed:<%= election.status %> 
+                    </li>
+                    <li>
+                        Date Created:<%= election.dateCreated %> 
+                    </li>
+                    <li>
+                        Choice per Vote:<%= election.choice_per_vote %> 
+                    </li>
+                    <li>
+                        voterId:<%= voterId %> 
+                    </li>
+                    
+
+                    <li>
+                        <form id="form" method="post" action="/vote/<%= election._id %>/<%= voterId %> ">
+                            <div class="col-md-4">
+                                <label style="margin-bottom: 15px;" for="inputState" class="form-label"> Candidates:</label>
+                                <select  name="voted_for" required id="inputState" class="form-select">
+                                <% election.candidates.forEach((element)=>{ %>
+                                    <option  value="<%= element.candidate %>"><%= element.candidate %></option>
+                                <%})%>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="inputmnemonic" class="form-label">Escrow Wallet Mnemonic</label>
+                                <input id="form-input" name="mnemonic" required type="text" class="form-control" id="inputmnemonic" >
+                              </div>
+                            <div style=" margin-top: 15px;" class="col-md-8">
+                                <button style="width: 160px; height: 50px; font-weight: 500; background-color: #3ECF8E; margin-bottom: 12px; " type="submit" class="btn btn-primary">VOTE</button>
+                              </div>
+                        </form>
+                            
+                    </li>
+
+                </ul>
+            </div>
+            <div class="leaderboard">
+
+                <h3  style="font-family: 'Rubik', sans-serif;" >
+                    LEADERBOARD
+                </h3>
+
+                <table style="margin-top: 10px;">
+                    <thead>
+                        <tr style="font-family: 'Raleway', sans-serif; ">
+                            <th>Candidates</th>
+                            <th>Wallet</th>
+                            <th>Balance</th>
+                          </tr>
+                    </thead>
+                    <tbody id="tableData">
+                        <% results.forEach((element)=>{ %>
+                        <tr class="vote-data">
+                                <td><%= element.option %> </td>
+                                <td><%= element.address %> </td>
+                                <td><%= element.amount %> </td>
+                            <%})%> 
+                            
+                          </tr>
+                          
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+
+
+    </section>
+
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+const socket = io();
+const election_id="<%= election._id %>"
+const voter_id="<%= voterId %>"
+const form=$("#form")//gets the id "form" element
+const status=$('#status')
+const form_input=$("#form-input")//gets the form-input element
+var select_box = document.getElementById("inputState");
+const table_body=$("#tableData")
+socket.on("connect",(io)=>{
+            console.log("the socket is connected")
+           
+        })
+socket.emit("join_vote_info",election_id)
+form.submit((event)=>{
+                event.preventDefault()
+                const escrowWalletMnemonic=form_input.val()
+                if(escrowWalletMnemonic){
+                    var data={
+                        "escrowWalletMnemonic":escrowWalletMnemonic,
+                        'election_id':election_id,
+                        "voter_id":voter_id,
+                        "voted_for":select_box.value
+                    }
+                    console.log(data)
+                    socket.emit("vote",data)
+                    form.html("")
+                }
+        
+        }) 
+socket.on("voted",(data)=>{
+    form.html(`<h6 style="font-family: 'Rubik', sans-serif;">Vote Successfully </h6>`)
+    rearrange_table(data)
+    status.html(`Completed: ${data.status}`)
+
+})
+function rearrange_table(data){
+    table_body.html("")
+    data.results.forEach((element)=>{
+        table_body.prepend(`
+        <tr class="vote-data">
+        <td> ${element.option}  </td>
+        <td> ${element.address} </td>
+        <td> ${element.amount} </td>
+    </tr>
+        `)
+    })
+}
+
+</script>
