@@ -7,5 +7,3 @@
 - then input your addresses for red, blue and button variables
 
 - npm start to start the node server 
-
-
