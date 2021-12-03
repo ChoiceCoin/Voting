@@ -4,7 +4,7 @@ import { Modal } from "native-base";
 import { useState } from "react";
 import { Center } from "native-base";
 import { Box, Heading, AspectRatio, HStack, Stack } from "native-base";
-import { vote } from "../../functions/vote";
+//import { vote } from "../../functions/vote";
 
 export function Vote(props) {
     const [showModal, setShowModal] = useState(false);
