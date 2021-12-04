@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+ 
+<div class ="card text-center">
+    <div class ="card-body">
+        <h1>A Decentralized Voting System</h1>
+         
+<p>The purpose of Choice Coin is to allow decentralized organizations to govern themselves and control digital assets in an equitable fashion. As the decentralized Intranet evolves, more and more organizations operating in and working on projects in Decentralized Finance (DeFi), Non-Fungible Tokens (NFTs), and blockchain networks need a way to govern. Contrary to centralized systems, which are inherently hierarchical and pyramid like in nature, decentralized systems distribute power and decision making across global networks in a fair fashion. But, building decentralized systems is difficult, complex, and time consuming. The Decentralized Decisions software solves this problem with a secure, easy to use, and flexible governance software.</p>
+ 
+        <a class ="btn btn-dark" href ="{% url 'polls:index' %}">
+            Click here to Vote</a>
+    </div>
+</div>
+{% endblock %}

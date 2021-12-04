@@ -1,0 +1,17 @@
+{
+  "name": "algod",
+  "version": "1.0.0",
+  "description": "",
+  "main": "algod.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "algosdk": "^1.12.0",
+    "express.js": "^1.0.0"
+  }
+}

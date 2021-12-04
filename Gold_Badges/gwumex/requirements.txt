@@ -1,0 +1,3 @@
+Flask==2.0.1
+py_algorand_sdk==1.5.0
+rsa==4.7.2

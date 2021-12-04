@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choice Voting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!--link rel="stylesheet" href="/static/css/loader.css" /-->
+  </head>
+  <body>
+    <main>
+      <div class="big-wrapper">
+        <!--img src="/static/img/shape.png" alt="" class="shape" /-->
+        <header>
+          <div class="container">
+            <div class="logo">
+              <!--img src="./img/logo.png" alt="Logo" /-->
+              <h3>Choice Coin</h3>
+            </div>
+
+            <div class="overlay"></div>
+
+            <!--div class="hamburger-menu">
+              <div class="bar"></div>
+            </div-->
+          </div>
+        </header>
+        <div class="contianer">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div style="margin-top: 3rem;">
+                        <canvas id="res"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-area">
+          <div class="container">
+            <!--button class="toggle-btn">
+              <i class="far fa-moon"></i>
+              <i class="far fa-sun"></i>
+            </button-->
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </main>
+
+    <!-- JavaScript Files -->
+
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/myalgo.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/algosdk@1.13.0-beta.1/dist/browser/algosdk.min.js"
+      integrity="sha384-w9fodN00YjvWxdNoiyT+W6CqaATkXlfid9tnzBlToDqZWepVWLjI5wO7jNL4+aNs"
+      crossorigin="anonymous"
+    ></script>
+    <!--script src="static/js/vote.js"></script>
+    <script src="static/js/connect.js"></script>
+    <script src="static/js/app.js"></script-->
+
+    <script>
+        // === include 'setup' then 'config' above ===
+        let res = JSON.parse('{{ result | tojson }}');
+        const labels = res.labels;
+        const data = {
+            labels: labels,
+            datasets: [{
+              label: "Election Results",
+              data: res.data,
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 205, 86, 0.2)',
+              ],
+              borderWidth: 1
+            }]
+          };
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            },
+        };
+        const myChart = new Chart(
+            document.getElementById(`res`), config
+        )
+      </script>
+  </body>
+</html>
