@@ -122,6 +122,3 @@ check_results_zero()`
 
 # 6. Build the Best Voting Technology
 # The Choice Coin Open Source Software (OSS) Program rewards developers for building Choice Coin software on GitHub.
-# Currently, there are two OSS reward structures, the Gold Badge and the Silver Badge. 
-# The Silver Badge rewards substantial contributions to the Voting Repository on the Choice Coin GitHub. 
-# The Gold Badge rewards deployment of the Decentralized Decisions software for real world use cases.
