@@ -4,7 +4,24 @@ import { Modal } from "native-base";
 import { useState } from "react";
 import { Center } from "native-base";
 import { Box, Heading, AspectRatio, HStack, Stack } from "native-base";
-//import { vote } from "../../functions/vote";
+import { vote } from "../../functions/vote";
+import axios from 'axios';
+
+//heroku api link tested and work so far
+const baseUrl = '';
+
+async function go(id){
+
+ await  axios({
+      method: 'get',
+      url: `${baseUrl}/vote1?id=${id}`
+    }).then((response) => {
+      console.log(response.data);
+    }).finally(console.log('Done'));
+   
+}
+// Passing configuration object to axios
+
 
 export function Vote(props) {
     const [showModal, setShowModal] = useState(false);
@@ -117,6 +134,7 @@ export function Vote(props) {
                          <Button
                             onPress={() => {
                                setShowModal(false);
+                               go(props.id)
                                props.navigation.navigate("Nfinal");
                             }}
                          >

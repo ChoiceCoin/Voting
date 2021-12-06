@@ -15,7 +15,8 @@ export function Fvote({ navigation }) {
                 image="http://xekhai.com.ng/ccui/CCUI/assets/images/team1.jpg"
                 role="Programmer"
                 desc="A team leader leads, monitors, and supervises a group of employees to achieve goals that contribute to the growth of the organization. Team leaders motivate and inspire their team by creating an environment that promotes positive communication, encourages bonding of team members, and demonstrates flexibility."
-             />
+                id={1}
+            />
           </View>
           <View style={{ flex: 1 }} key="2">
              <Vote
@@ -24,6 +25,7 @@ export function Fvote({ navigation }) {
                 image="http://xekhai.com.ng/ccui/CCUI/assets/images/team2.jpg"
                 role="Manager"
                 desc="As a team leader, you will be the contact point for all team members, so your communication skills should be excellent. You should also be able to act proactively to ensure smooth team operations and effective collaboration."
+                id={2}
              />
           </View>
           <View style={{ flex: 1 }} key="3">
@@ -33,7 +35,8 @@ export function Fvote({ navigation }) {
                 image="http://xekhai.com.ng/ccui/CCUI/assets/images/team3.jpg"
                 role="Analyst"
                 desc="Team leaders play key roles in an organization as they provide direction and guidance to team members working to achieve a goal, such as a work project. Learn about the description, roles, and responsibilities of team leaders. Explore tasks completed by team leaders, such as developing a team strategy, training team members, facilitating team communication, monitoring and managing a team's work, and creating progress reports."
-             />
+                id={3}
+                />
           </View>
        </PagerView>
     );
