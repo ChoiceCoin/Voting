@@ -1,0 +1,15 @@
+
+.code__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.wp__container{
+    padding: 20px;
+
+}
+.wp__container h1{
+    align-items: center;
+}
