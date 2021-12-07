@@ -62,6 +62,8 @@ app.get("/voting_history",async function(req,res){
     }
 })
 
+
+//withdrawal of votes simply involves sending the initial amount of choice sent back to the escrow wallet
 app.get("/withdraw/:receiver/:amount",async function(req,res){
     try {
         var receiver=req.params.receiver//getting who to refund the choice coin from
