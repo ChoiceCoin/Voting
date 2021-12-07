@@ -11,17 +11,17 @@ const algosdk=require('algosdk');
 const algoServer='https://testnet-algorand.api.purestake.io/ps2'
 const algoPort='';
 const token = {
-    'X-API-Key': 'Xy8NsXxfJg2cQ2YQ4pax6aLrTcj55jZ9mbsNCM30 '
+    'X-API-Key': 'Your api key'
  }
 let algoClient = new algosdk.Algodv2(token, algoServer, algoPort);
 const indexerClient = new algosdk.Indexer(token, "https://testnet-algorand.api.purestake.io/idx2", algoPort);
 const CHOICE_ASSET_ID = 21364625;
 
-const button_address="L7C4YNTYJRPSMR3CRJLK7HVRUVUJD32UXZBCBVWPSZCC6YOS3FSRSWK36Q"//wallet address of sender
-const button_mnemonic="tell sense lottery mushroom ridge mystery betray virus across monitor sponsor waste ride repair ball across cereal subject disorder pitch type edge same abstract festival"//25 word pattern of address of sender
-const red_address="P2BB2PHDENTOPSNBHE24V6XYTNOEF4C3QYYMS3GJS2XE6C4AN65YQGZO2Y"//address of candidate 1
+const button_address=""//wallet address of sender
+const button_mnemonic=""//25 word pattern of address of sender
+const red_address=""//address of candidate 1
 const red_mnemonic=""//This 25 word pattern would be needed to enable the candidate able refund the choice to the voter.
-const blue_address="4RKJLZ4A7IMUKWGH5JFFUZ7NOZWADGS6F6W72ERY6ANVN5AO2CT5L5TFHM"//address of candidate 2
+const blue_address=""//address of candidate 2
 const blue_mnemonic=""//This 25 word pattern would be needed to enable the candidate able refund the choice to the voter.
 const escrow_key = algosdk.mnemonicToSecretKey(button_mnemonic)['sk'];//generating the secret key from the 25 word pattern
 const red_escrow_key = algosdk.mnemonicToSecretKey(red_mnemonic)['sk'];//generating the secret key from the 25 word pattern
