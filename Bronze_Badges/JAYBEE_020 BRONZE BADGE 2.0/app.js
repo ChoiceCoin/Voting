@@ -102,7 +102,7 @@ io.on("connection",(socket)=>{
     socket.on('vote',async (data)=>{
         let enc=new TextEncoder()
         const note=enc.encode("Voting using Choice Coin")
-        const choice_per_vote=Number(data.choice_per_vote);
+        const choice_per_vote=Number(data.choice_for_vote);
         //red address maps to 0 and blue address maps to 1 in this data sent from frontend
         const voter_input=data.voted_for
         console.log(voter_input)
