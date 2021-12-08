@@ -13,31 +13,50 @@ const address_one =
 const address_two =
   "MYTNPFZCPLBE7K6OWK4UY3FO3ZML7KJLTCWJWOJ2GJION2HR2CNMUDFS2A";
 
-let option = document.getElementsByTagName("input");
-
 const Connect = async () => {
   let response = await AlgoSigner.connect();
   window.location.href = "/algosigner";
 };
 
+const blueInput = document.getElementById("blue"); //blue checkbox
+const redInput = document.getElementById("red"); // red checkbox
+
 const algoSigner = async () => {
-  let walletAddress = document.getElementById("wallet-address").value;
-  for (let i = 0; i < option.length; i++) {
-    if (option[i].checked) {
-      let value = option[i].value;
-      try {
-        let response = await AlgoSignerSend(value, walletAddress);
-        if (response) {
-          window.location.href = "/";
-        }
-      } catch (error) {
-        console.error(error);
+  const blueInput = document.getElementById("blue"); //blue checkbox
+  const redInput = document.getElementById("red"); // red checkbox
+
+  //Check if blue address checked
+  if (blueInput.checked) {
+    const wallet = document.getElementById("wallet-address").value;
+    let value = blueInput.value;
+    let blueAmount = Number(document.getElementById("blue-input").value); // blue choice amount
+    try {
+      let response = await AlgoSignerSend(value, wallet, blueAmount);
+      if (response) {
+        window.location.href = "/";
       }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  // Check if red address checked
+  if (redInput.checked) {
+    const walletAddress = document.getElementById("wallet-address").value;
+    let value = redInput.value;
+    let redAmount = Number(document.getElementById("red-input").value);
+    try {
+      let response = await AlgoSignerSend(value, wallet, redAmount);
+      if (response) {
+        window.location.href = "/";
+      }
+    } catch (error) {
+      console.error(error);
     }
   }
 };
 
-const AlgoSignerSend = async (opt, walletAddress) => {
+const AlgoSignerSend = async (opt, walletAddress, amount) => {
   let params = await algodclient.getTransactionParams().do();
   let encoder = new TextEncoder();
 
@@ -48,7 +67,7 @@ const AlgoSignerSend = async (opt, walletAddress) => {
         address_one,
         undefined,
         undefined,
-        100,
+        amount * 100,
         encoder.encode("Vote with Choice coin"),
         ASSET_ID,
         params
@@ -75,7 +94,7 @@ const AlgoSignerSend = async (opt, walletAddress) => {
         address_two,
         undefined,
         undefined,
-        100,
+        amount * 100,
         encoder.encode("Vote with Choice coin"),
         ASSET_ID,
         params

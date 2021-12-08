@@ -13,22 +13,27 @@
   <label class="text-primary vote--section">
     Blue Address
     <input type="radio" name="input" value="blue" id="blue" />
+    <input
+      id="blue-input"
+      class="blue"
+      type="text"
+      placeholder="Enter Amount"
+    />
+
     <span class="checkmark"></span>
   </label>
 
   <label class="text-danger vote--section"
     >Red Address
     <input type="radio" name="input" id="red" value="red" />
+    <input id="red-input" class="red" type="text" placeholder="Enter Amount" />
     <span class="checkmark"></span>
   </label>
   <br />
 </div>
 
 <span class="d-flex justify-content-center" style="display: block">
-  <button class="btn btn-primary btn-lg" id="drop" onclick="dropDownMenu()">
-    Submit
-  </button>
-  <span style="display: block" class="form-group d-none" id="show">
+  <span style="display: block" class="form-group" id="show">
     <label for="wallet-address">Enter Your Wallet Address: </label><br />
     <input
       class="inputt"
@@ -39,7 +44,7 @@
       placeholder="Input your wallet address"
     />
     <button class="btn btn-primary btn-lg" onclick="myAlgoWalletSign()">
-      Vote
+      Submit
     </button>
   </span>
 </span>

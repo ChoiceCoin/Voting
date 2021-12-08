@@ -82,7 +82,15 @@ hr {
 .inputt,
 .inputt:active,
 .inputt:focus,
-.inputt:focus:active {
+.inputt:focus:active,
+.red,
+.blue,
+.red:active,
+.blue:active,
+.red:focus,
+.blue:focus,
+.red:focus:active,
+.blue:focus:active {
   background-color: #f0f0f0 !important;
   border: none;
   color: #000;
@@ -92,6 +100,7 @@ hr {
   width: 20rem;
   border-radius: 3px;
 }
+
 @keyframes moveInRight {
   0% {
     transform: translate(10rem);

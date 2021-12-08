@@ -11,7 +11,8 @@ const CHOICE_ID = 21364625;
 const address_1 = "IHFYDNOXHI5GOMVUYGWL6WBG6C3PLNWHH22GJKJMV6JKLUJX5YAD6EEHPY";
 const address_2 = "MYTNPFZCPLBE7K6OWK4UY3FO3ZML7KJLTCWJWOJ2GJION2HR2CNMUDFS2A";
 
-let input = document.getElementsByTagName("input");
+const redInput_2 = document.getElementById("red"); // get the red checkbox
+const blueInput_2 = document.getElementById("blue"); //get the blue checkbox
 
 const myAlgoConnect = new MyAlgoConnect();
 
@@ -26,23 +27,40 @@ const myAlgoWalletConnect = async () => {
 };
 
 const myAlgoWalletSign = async () => {
-  let from = document.getElementById("wallet-address").value;
-  for (let i = 0; i < input.length; i++) {
-    if (input[i].checked) {
-      let value = input[i].value;
-      try {
-        let response = await algoWalletSend(value, from);
-        if (response) {
-          window.location.href = "/";
-        }
-      } catch (error) {
-        console.error(error);
+  const redInput_2 = document.getElementById("red"); // get the red checkbox
+  const blueInput_2 = document.getElementById("blue"); //get the blue checkbox
+  //Check if blue address checked
+  if (blueInput_2.checked) {
+    const wallet = document.getElementById("wallet-address").value; //get blue wallet address
+    let value = blueInput_2.value;
+    let blueAmount = Number(document.getElementById("blue-input").value); // blue choice amount
+    try {
+      let response = await algoWalletSend(value, wallet, blueAmount);
+      if (response) {
+        window.location.href = "/";
       }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  // Check if red address checked
+  if (redInput_2.checked) {
+    const walletAddress = document.getElementById("wallet-address").value;
+    let value = redInput_2.value;
+    let redAmount = Number(document.getElementById("red-input").value);
+    try {
+      let response = await algoWalletSend(value, wallet, redAmount);
+      if (response) {
+        window.location.href = "/";
+      }
+    } catch (error) {
+      console.error(error);
     }
   }
 };
 
-const algoWalletSend = async (input, from) => {
+const algoWalletSend = async (input, from, amount) => {
   let params = await algoClient.getTransactionParams().do();
   let encoder = new TextEncoder();
   if (input == "blue") {
@@ -52,7 +70,7 @@ const algoWalletSend = async (input, from) => {
         address_1,
         undefined,
         undefined,
-        100,
+        amount * 100,
         encoder.encode("Vote with Choice coin"),
         CHOICE_ID,
         params
@@ -70,7 +88,7 @@ const algoWalletSend = async (input, from) => {
         address_2,
         undefined,
         undefined,
-        100,
+        amount * 100,
         encoder.encode("Vote with Choice coin"),
         CHOICE_ID,
         params
