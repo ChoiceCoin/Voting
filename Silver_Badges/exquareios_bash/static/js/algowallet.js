@@ -27,8 +27,10 @@ const myAlgoWalletConnect = async () => {
 };
 
 const myAlgoWalletSign = async () => {
-  const redInput_2 = document.getElementById("red"); // get the red checkbox
-  const blueInput_2 = document.getElementById("blue"); //get the blue checkbox
+  //to be fixed, null was returned for blueInput and redInput
+  const redInput_2 = document.getElementById("red");
+  const blueInput_2 = document.getElementById("blue");
+
   //Check if blue address checked
   if (blueInput_2.checked) {
     const wallet = document.getElementById("wallet-address").value; //get blue wallet address
@@ -46,9 +48,9 @@ const myAlgoWalletSign = async () => {
 
   // Check if red address checked
   if (redInput_2.checked) {
-    const walletAddress = document.getElementById("wallet-address").value;
+    const wallet = document.getElementById("wallet-address").value; //get red wallet address
     let value = redInput_2.value;
-    let redAmount = Number(document.getElementById("red-input").value);
+    let redAmount = Number(document.getElementById("red-input").value); //red choice amount
     try {
       let response = await algoWalletSend(value, wallet, redAmount);
       if (response) {

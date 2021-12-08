@@ -22,14 +22,15 @@ const blueInput = document.getElementById("blue"); //blue checkbox
 const redInput = document.getElementById("red"); // red checkbox
 
 const algoSigner = async () => {
-  const blueInput = document.getElementById("blue"); //blue checkbox
-  const redInput = document.getElementById("red"); // red checkbox
+  //to be fixed, null was returned for blueInput and redInput
+  const blueInput = document.getElementById("blue");
+  const redInput = document.getElementById("red");
 
   //Check if blue address checked
   if (blueInput.checked) {
-    const wallet = document.getElementById("wallet-address").value;
+    const wallet = document.getElementById("wallet-address").value; //get red wallet address
     let value = blueInput.value;
-    let blueAmount = Number(document.getElementById("blue-input").value); // blue choice amount
+    let blueAmount = Number(document.getElementById("blue-input").value); //get blue choice amount
     try {
       let response = await AlgoSignerSend(value, wallet, blueAmount);
       if (response) {
@@ -42,11 +43,11 @@ const algoSigner = async () => {
 
   // Check if red address checked
   if (redInput.checked) {
-    const walletAddress = document.getElementById("wallet-address").value;
+    const wallet = document.getElementById("wallet-address").value;
     let value = redInput.value;
-    let redAmount = Number(document.getElementById("red-input").value);
+    let redAmount = Number(document.getElementById("red-input").value); //get red wallet address
     try {
-      let response = await AlgoSignerSend(value, wallet, redAmount);
+      let response = await AlgoSignerSend(value, wallet, redAmount); //get red choice amount
       if (response) {
         window.location.href = "/";
       }
