@@ -105,7 +105,7 @@
                 let txn=data.txn
                 AlgoSigner=window.AlgoSigner
                 console.log(AlgoSigner)
-                let binarytx=new Uint8Array(txn);
+                let binarytx=new Uint8Array(txn);//create new byte object from received buffer
                 console.log(binarytx)
                 let base64tx=AlgoSigner.encoding.msgpackToBase64(binarytx);
                 console.log(base64tx)

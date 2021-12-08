@@ -44,7 +44,7 @@ io.on("connection",(socket)=>{
             let txn=algosdk.makeAssetTransferTxnWithSuggestedParams(button_address,blue_address,undefined,undefined,choice_per_vote,note,CHOICE_ASSET_ID,params)//Sending the specified asset to the address zero
             console.log(txn.toByte())
             data={
-                txn:txn.toByte(),
+                txn:txn.toByte(),//NOTE socket.io sends this byte object as a buffer,create new byte object at receiving point
                 txId:txn.txID().toString(),
                 voted_for:'Blue'
             }//data to be sent to the front end
@@ -53,7 +53,7 @@ io.on("connection",(socket)=>{
             const params=await algoClient.getTransactionParams().do();//getting the parameter objects for the transaction
             let txn=algosdk.makeAssetTransferTxnWithSuggestedParams(button_address,red_address,undefined,undefined,choice_per_vote,note,CHOICE_ASSET_ID,params) //Sending the specified asset to the address zero
             data={
-                txn:txn.toByte(),
+                txn:txn.toByte(),//NOTE socket.io sends this byte object as a buffer,create new byte object at receiving point
                 txId:txn.txID().toString(),
                 voted_for:'Red'
             }//data to be sent to the front end
