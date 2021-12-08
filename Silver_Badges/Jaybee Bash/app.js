@@ -11,7 +11,7 @@ const algosdk=require('algosdk');
 const algoServer='https://testnet-algorand.api.purestake.io/ps2'
 const algoPort='';
 const token = {
-    'X-API-Key': 'Xy8NsXxfJg2cQ2YQ4pax6aLrTcj55jZ9mbsNCM30 '
+    'X-API-Key': ''
  }
 let algoClient = new algosdk.Algodv2(token, algoServer, algoPort);
 const CHOICE_ASSET_ID = 21364625;
