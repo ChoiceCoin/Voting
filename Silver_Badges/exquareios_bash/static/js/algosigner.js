@@ -41,7 +41,7 @@ const AlgoSignerSend = async (opt, walletAddress) => {
   let params = await algodclient.getTransactionParams().do();
   let encoder = new TextEncoder();
 
-  if (opt == "zero") {
+  if (opt == "blue") {
     try {
       let txn = await algosdk.makeAssetTransferTxnWithSuggestedParams(
         walletAddress,
