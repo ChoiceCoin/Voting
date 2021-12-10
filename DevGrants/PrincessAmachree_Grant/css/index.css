@@ -1,0 +1,104 @@
+:root{
+    --shadow: 5px 4px 1px #333;
+}
+nav{
+    font-family: 'Source Code Pro',
+    monospace;
+
+}
+.btn {
+    border-radius: 0px;
+        font-size: 1.2rem;
+        box-shadow: 4px 4px 1px #333;
+        transition: transform 300ms ease-in-out,
+
+}
+.btn:hover{
+    color: white;
+
+}
+
+.connect {
+    font-size: 1.2rem;
+    box-shadow: 4px 4px 1px #333;
+    transition: transform 300ms ease-in-out, box-shadow 300ms ease-in-out;
+    color: white;
+}
+.connect:hover{
+    color: white;
+    transform: translate(2px, -2px);
+    box-shadow: 5px 4px 1px #333;
+
+}
+.ball{
+    opacity: .7                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+}
+.one{
+    width: 5rem;
+    height: 5rem;
+    left: 83%;
+    top:10%
+}
+.two{
+    left:73%;
+    top:55%;
+}
+.three{
+       left:30%;
+       top:70%;
+       z-index:1;
+}
+.four{
+    top:50%;
+    width: 10rem;
+    height: 10rem;
+    z-index: -1;
+}
+
+main{
+    /* background: #9145B6; */
+    color:#B958A5;
+    /* border: 3px solid #B958A5; */
+    box-shadow: var(--shadow);
+
+}
+
+.statement{
+    border-radius: 0;
+    box-shadow: 4px 4px 1px #333;
+}
+ input[type=radio]{
+    display:none;
+
+ }
+  input[type=radio] + ::before{
+      content: "";
+      display: inline-block;
+      /* vertical-align: ; */
+      width: 1rem;
+      height: 1rem;
+      margin-right: 0.3rem;
+      border-radius: 50%;
+      border-style: solid;
+      border-width: 0.1rem;
+      border-color: gray;
+  }
+  label{
+      color: rgb(61, 60, 60)
+  }
+  .yes:checked+*::before {
+      background: radial-gradient(teal 0%, teal 40%, transparent 50%, transparent);
+      border-color: teal;
+  }
+
+  .yes:checked+* {
+      color: teal;
+  }
+ .no:checked+*::before {
+      background: radial-gradient(rgb(216, 61, 77) 0%, rgb(216, 61, 77) 40%, transparent 50%, transparent);
+      border-color: rgb(216, 61, 77);
+  }
+
+  .no:checked+* {
+      color: rgb(216, 61, 77);
+  }
