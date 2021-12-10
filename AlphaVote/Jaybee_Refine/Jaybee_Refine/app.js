@@ -9,14 +9,14 @@ const algosdk=require('algosdk');
 const algoServer='https://testnet-algorand.api.purestake.io/ps2'
 const algoPort='';
 const token = {
-    'X-API-Key': 'Xy8NsXxfJg2cQ2YQ4pax6aLrTcj55jZ9mbsNCM30 '
+    'X-API-Key': ''
  }
 let algoClient = new algosdk.Algodv2(token, algoServer, algoPort);
 const indexerClient = new algosdk.Indexer(token, "https://testnet-algorand.api.purestake.io/idx2", algoPort);
 const CHOICE_ASSET_ID = 21364625;
 
-const red_address="P2BB2PHDENTOPSNBHE24V6XYTNOEF4C3QYYMS3GJS2XE6C4AN65YQGZO2Y"//address of candidate 1
-const blue_address="4RKJLZ4A7IMUKWGH5JFFUZ7NOZWADGS6F6W72ERY6ANVN5AO2CT5L5TFHM"//address of candidate 2
+const red_address=""//address of candidate 1
+const blue_address=""//address of candidate 2
 app.use(express.static(__dirname+"/public"))//setting the public directory you want to use
 
 
