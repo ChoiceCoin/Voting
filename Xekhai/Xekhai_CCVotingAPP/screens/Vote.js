@@ -28,16 +28,6 @@ export function Fvote({ navigation }) {
                 id={2}
              />
           </View>
-          <View style={{ flex: 1 }} key="3">
-             <Vote
-                navigation={navigation}
-                name="Jessica Swift"
-                image="http://xekhai.com.ng/ccui/CCUI/assets/images/team3.jpg"
-                role="Analyst"
-                desc="Team leaders play key roles in an organization as they provide direction and guidance to team members working to achieve a goal, such as a work project. Learn about the description, roles, and responsibilities of team leaders. Explore tasks completed by team leaders, such as developing a team strategy, training team members, facilitating team communication, monitoring and managing a team's work, and creating progress reports."
-                id={3}
-                />
-          </View>
        </PagerView>
     );
  }
