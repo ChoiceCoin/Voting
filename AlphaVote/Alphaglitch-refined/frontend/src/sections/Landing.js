@@ -21,18 +21,22 @@ const Landing = () => {
       <ScrollTextLand
         word={"Join our discord channel and help grow our codebase"}
       />
-      <div
-        style={{
-          width: "100%",
-          height: "20px",
-          fontSize: "13px",
-          fontWeight: "500",
-          marginTop: "10px",
-          textTransform: "uppercase",
-        }}
-      >
-        Amount committed to Governance: {!isLoading && !error && data.amount}
-      </div>
+
+      {walletAddress && (
+        <div
+          style={{
+            width: "100%",
+            height: "20px",
+            fontSize: "13px",
+            fontWeight: "500",
+            marginTop: "10px",
+            textTransform: "uppercase",
+          }}
+        >
+          Amount committed to Governance: {!isLoading && !error && data.amount}{" "}
+          $Choice
+        </div>
+      )}
 
       <div className="land_cov">
         <div className="land_item1">
