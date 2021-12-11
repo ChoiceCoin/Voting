@@ -5,7 +5,7 @@ This is a repository for voting software built using Choice Coin on the Algorand
 
 As the largest OSS project on Algorand Choice Coin strives to excel in open source innovation. Choice Coin is currently focusing on rewarding contributions to this Repository and especially encouraging women to contribute. We recently made 6,000,000.00 Choice available specifically to women to build on Algorand. Additioanlly, Choice Coin commonly hosts bash style hackathons to reward developers and makes Bronze Badge awards available to developers for making significant contributions to the Choice Coin Voting Repository. If you would like to get started building with us, please join our Discord, open a pull request, or post an issue here. To make a pull request please place all of your files in a single folder and add the folder to the Bronze_Badges folder in this repository. Please also add a description regarding the contribution.
 
-For all contributions. Please add all of your files in a seperate folder with titled: UserName_Program. For example, ChoiceCoin_Bronze or ChoiceCoin_Grants. Then, add your folder to the appropriate folder in this Repository. If you have questions, please reach out by posting an issue. Below are some links to developer resources.
+For all contributions. Please add all of your files in a seperate folder with titled: UserName_Program. For example, ChoiceCoin_Bronze or ChoiceCoin_Grants. Then, add your folder to the appropriate folder in this Repository. If you already have a fork, please be sure to merge upstream before making a PR. If you have questions, please reach out by posting an issue. Below are some links to developer resources.
 
 Choice Coin Participation: https://choice-coin.com/participation.html
 

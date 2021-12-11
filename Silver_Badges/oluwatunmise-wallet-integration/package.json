@@ -1,0 +1,23 @@
+{
+  "name": "wallet-connect",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "wake": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "algosdk": "^1.12.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "tslib": "^2.3.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15"
+  }
+}
