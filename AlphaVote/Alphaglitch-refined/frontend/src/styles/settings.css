@@ -1,0 +1,91 @@
+.settings {
+  width: 100%;
+  min-height: 50vh;
+  position: relative;
+  display: flex;
+  color: var(--txt-alt);
+  padding: 15vh 5vw 0vh;
+  flex-direction: column;
+
+  font-weight: 400;
+
+  align-items: center;
+}
+
+.settings_inn {
+  width: 420px;
+  max-width: 88vw;
+}
+.settings_hd {
+  display: flex;
+  font-size: 15px;
+  color: var(--wht);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px 0px 16px;
+  font-family: "Barlow", sans-serif;
+
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 2;
+  margin-bottom: 20px;
+  background: var(--background);
+  top: calc(var(--sm-hd-height) + 20px);
+}
+
+.toggleDarkTheme {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.togglyButt {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  color: var(--wht);
+  border-radius: 8px;
+  padding: 8px 10px 10px 15px;
+  background: var(--back-1);
+  border: 1px solid var(--border-default);
+}
+.light_theme .togglyButt {
+  font-weight: 500;
+}
+
+.react-switch {
+  margin: 4px 10px 0px;
+  border: 1px solid var(--wht);
+}
+.react-switch-handle div {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.react-switch-bg {
+  background: transparent !important;
+}
+.theme_tog {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 2px;
+}
+
+/*  */
+
+.logOutButt {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  flex-direction: row;
+  color: var(--wht);
+  border-radius: 8px;
+  padding: 13px 18px;
+  background: var(--back-1);
+  border: 1px solid var(--border-default);
+}
+.light_theme .logOutButt {
+  font-weight: 500;
+}
