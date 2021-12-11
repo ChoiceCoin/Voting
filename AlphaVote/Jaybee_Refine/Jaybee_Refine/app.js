@@ -140,6 +140,16 @@ io.on("connection",async (socket)=>{
         }
         
     })
+    //is triggered when you use my algowallet to connect
+    socket.on('send_raw-await_confirmation',async(data)=>{
+        try {
+            const response = await algoClient.sendRawTransaction(data.signedTxn.blob).do();
+            let confirmedTxn=await waitForConfirmation(algoClient,data.txId,4)
+            socket.emit("voted",`Voted for ${data.voted_for} with txID ${data.txId}`)
+        } catch (error) {
+            console.log(error)    
+        }
+    })
 })
 
 

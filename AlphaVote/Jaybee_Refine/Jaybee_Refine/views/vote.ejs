@@ -15,9 +15,10 @@
     <section style="height: max-content;">
       <nav style="position: absolute; top: 0px; width: 100%; background-color: #533AFE;" class="nav">
         <a style="color: white; font-size: 20px; margin-left: 200px; font-weight: 500; font-family: 'Raleway', sans-serif; " class="nav-link" aria-current="page" href="#"> <img style="height: 30px; align-self: center;" src="/img/choice2.png"alt=""> Choice</a>
-        <a id="home-link" style="color: white; margin-left: 40%; font-family: 'Raleway', sans-serif; " class="nav-link" href="/">Home</a>
-        <a style="color: white; font-family: 'Raleway', sans-serif; margin-right: 40px;" class="nav-link" href="#">About</a>
+        <a id="home-link" style="color: white; margin-left: 30%; font-family: 'Raleway', sans-serif; " class="nav-link" href="/">Home</a>
+        <a style="color: white; font-family: 'Raleway', sans-serif; margin-right: 20px;" class="nav-link" href="#">About</a>
         <button id="connect_algosigner"   style="  font-family: 'Raleway', sans-serif; float: right; color: white; font-weight: 500;  margin-right: 20px; background-color: #3ECF8E;;" class="nav-link btn btn-primary">Connect Via Algosigner</button>
+        <button id="connect_algowallet"   style="  font-family: 'Raleway', sans-serif; float: right; color: white; font-weight: 500;  margin-right: 20px; background-color: #3ECF8E;;" class="nav-link btn btn-primary">Connect Via AlgoWallet</button>
         <a>
           <div id="wallet" style="font-family: 'Rubik',sans-serif;  float: right; display: none;">
             <label style=" font-size: 12px; margin-bottom: 1px; font-weight: 600;" for="inputState" class="form-label"> Wallet Address:</label>
@@ -28,16 +29,13 @@
         <small id="balance" style="font-size: 12px; display: none;  font-weight: 500; margin-top: 18px;">Algo Balance: <span id="algo_balance"></span>    Choice Balance: <span id="choice_balance"></span></small>
       </nav>
 
-      <div id="total_choice_sent" style="margin-top: 70px; display: none;  font-weight: 400; font-family: Georgia, 'Times New Roman', Times, serif;"" class="alert alert-success" role="alert">
+      <div id="total_choice_sent" style="margin-top: 70px; display: none;  font-weight: 400; font-family: Georgia, 'Times New Roman', Times, serif;" class="alert alert-success" role="alert">
         You have successfully sent 50 choice over the last 20 transactions
       </div>
 
         <div style="width: 90%; margin-top: 100px; margin-bottom: 70px;  padding-right: 0;background-repeat: no-repeat;  ;" class="container">
             <div class="election">
                 <h3 style="font-family: 'Rubik', sans-serif; margin-left: 5%; font-weight: 500; display: inline-block;">VOTING USING CHOICE COIN</h3>
-                
-                
-                
                 <div class="issue">
                   <h3 style="font-family: 'Rubik', sans-serif; margin-top: 50px; font-weight: 600; letter-spacing: 1.2px  ; margin-left: 10%; display: inline-block;">ISSUE 002 (Capitalism)</h3>
                   <p style="font-size: 18px; padding: 0; margin-top: 10px;  margin-left: 70px; letter-spacing: 1.75px;  font-weight: 400; font-family: Georgia, 'Times New Roman', Times, serif;">Capitalism is an economic and political system in which a country's trade and industry are controlled by private owners for profit, rather than by the state. While capitalism does lead to innovation and improved efficiency while providing consumers with choice, the world still seems divided on whether this economic system is suitable for optimum living conditions as it breeds competition, ignores people's needs, and creates inequality.</p>
@@ -80,8 +78,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
+<!-- gets the js file required for MyAlgoWallet connection to occur -->
+<script src="/js/myalgo.min.js"></script>/
 <script src="/js/index.js"></script>
 <script>
+  console.log(MyAlgoConnect)
     const socket = io();
     const voted_out=$('#voted_success')
     const algo_balance=document.getElementById("algo_balance")
@@ -120,23 +121,26 @@
 
     //transaction is completed with algosigner
     socket.on("txn",async(data)=>{
-
-              console.log(data)
+              const myAlgoWallet = new MyAlgoConnect();
                 let txn=data.txn
                 AlgoSigner=window.AlgoSigner
-                console.log(AlgoSigner)
                 let binarytx=new Uint8Array(txn);
                 console.log(binarytx)
-                let base64tx=AlgoSigner.encoding.msgpackToBase64(binarytx);
+                const mode_connect=wallet_select.value.split("-")[1]
+                //check the mode of connection if it was via signer and wallet before proceeding to sign transaction
+                if(mode_connect=='signer'){
+                  let base64tx=AlgoSigner.encoding.msgpackToBase64(binarytx);
                 console.log(base64tx)
                 let signedtxn=await AlgoSigner.signTxn([{txn: base64tx}])
-              
-                console.log(signedtxn)
                 await AlgoSigner.send({
                     ledger: 'TestNet',
                     tx: signedtxn[0].blob,
                   });
                 socket.emit("await_confirmation",{'txId':data.txId,'voted_for':data.voted_for})
+                }else if(mode_connect=='mywallet'){
+                  const signedTxn = await myAlgoWallet.signTransaction(binarytx); 
+                  socket.emit("send_raw-await_confirmation",{signedTxn:signedTxn,'txId':data.txId,'voted_for':data.voted_for})
+                }
             })
 
             socket.on("voted",(data)=>{
@@ -145,3 +149,30 @@
 
 </script>
 
+<script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
+  
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  // When the user clicks the button, open the modal 
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  </script>
