@@ -28,13 +28,20 @@ export function Home({ navigation }) {
              <Text mb="30" fontSize="24">
                 Algorand Voting Software
              </Text>
-             <Text mb="130">
+             <Text mb="110">
                 This program is a free software that allows people to vote on and
                 track decisions in order to encourage robust public participation
                 and empower people to build a more inclusive, collaborative, and
                 open political system.
              </Text>
-             <Button variant="link" size="lg" colorScheme="dark" my="5">
+             <Button variant="link" size="lg" colorScheme="light" my="5" onPress={()=>{
+                navigation.navigate('Results')
+             }}>
+                View Results
+             </Button>
+              <Button variant="link" size="lg" colorScheme="dark" mb={5} onPress={()=>{
+                navigation.navigate('ViewCandidates')
+             }}>
                 View Candidate Details
              </Button>
              <Button

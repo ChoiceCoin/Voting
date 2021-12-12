@@ -1,24 +1,35 @@
 ## Youtube demo
-> https://www.youtube.com/watch?v=2V3FxSTnhqY
+
+> https://youtu.be/GiHODFmTrpQ
 
 ## To RUN
 
-
 ### requirements
+
 expo cli
 
 npm - node package manager
 
-
 ### This is a blank expo project, to run it;
 
 > npm install
-> 
+>
 This installs the dependencies
 
 > expo start
-> 
+>
 Starts the development server
+
+##Important Information
+
+Get your Purestake API
+
+In the Xekhai API Folder, Fill in the api field with your purestake credentials, then deploy to heroku or any host.
+
+This Project was Tested on Heroku.
+
+###After Deploying...
+Fill in the commented info in the codes. Mostly the /component/info.js and /result.js
 
 ## Other packages used
 
