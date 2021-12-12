@@ -1,0 +1,225 @@
+*{
+    margin:0; padding:0;
+    font-family: Arial, Helvetica, sans-serif;
+    border:none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.container{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:#f39c12;
+}
+
+.container .card{
+    height:350px;
+    width: 450px;
+    background:#eee;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    position: relative;
+    transition: transform .3s ease;
+    z-index: 0;
+}
+
+.container .card .letter form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    background:#fff;
+    border-radius: 5px;
+    position: absolute;
+    top:15px; left:50%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding:20px;
+    z-index: -1;
+    width:80%;
+}
+
+.container .card h2 {
+    position: absolute;
+    top:50%; left:50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    text-align: center;
+    font-size: 23px;
+    color:rgb(242, 171, 19);
+}
+
+
+.container .card .letter form h4{
+    font-size: 17px;
+    color:#999;
+    padding:10px;
+    /* text-transform: uppercase; */
+}
+
+.container .card .letter form input[type=text] {
+    border: none;
+    height:40px;
+    width: 100%;
+    border-bottom: 4px solid #78d542;  
+}
+/* .container .card .letter form input[type="submit"]{ */
+  .container .card .letter form .connect{
+    font-size: 17px;
+    text-align: center;
+    color:#fff;
+    background:#f39c12;
+    height:35px;
+    width:120px;
+    padding: 5px;
+    /* margin-bottom: 10px; */
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.container .card::before,
+.container .card::after{
+    content: '';
+    position: absolute;
+    top:0; left:0;
+    height:100%;
+    width:100%;
+}
+
+.container .card::before{
+    background:#f9f9f9;
+    clip-path: polygon(50% 50%, 100% 0, 100% 100%, 0 100%, 0 0);
+}
+
+.container .card::after{
+    background:#ccc;
+    clip-path: polygon(0 0, 50% 50%, 100% 0);
+    transition: transform .2s ease-out;
+    transition-delay: .3s;
+    transform-origin: top;
+}
+
+.container .card:hover::after{
+    transform: rotateX(180deg);
+    transition-delay: .0s;
+    z-index: -2;
+}
+
+.container .card:hover .letter form{
+    top:-175px;
+    transition: top .2s linear;
+    transition-delay: .3s;
+}
+
+.container .card:hover{
+    transform: translateY(70px);
+}
+
+
+/* <<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>> */
+
+textarea{
+    width: 100%;
+    resize: none;
+    height: 59px;
+    outline: none;
+    padding: 15px;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+    max-height: 330px;
+    caret-color: #4671EA;
+    border: 1px solid #bfbfbf;
+  }
+  textarea::placeholder{
+    color: #b3b3b3;
+  }
+  textarea:is(:focus, :valid){
+    padding: 14px;
+    border: 2px solid #4671EA;
+  }
+  textarea::-webkit-scrollbar{
+    width: 0px;
+  }
+
+   form .category{
+     display: flex;
+     width: 80%;
+     margin: 14px 0 ;
+     justify-content: space-evenly;
+   }
+   form .category label{
+     display: flex;
+     align-items: center;
+     cursor: pointer;
+   }
+   form .category label .dot{
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background: #d9d9d9;
+    border: 5px solid transparent;
+    transition: all 0.3s ease;
+  }
+   #dot-1:checked ~ .category label .one,
+   #dot-2:checked ~ .category label .two{
+     background: #9b59b6;
+     border-color: #d9d9d9;
+   }
+   form input[type="radio"]{
+     display: none;
+   }
+
+   button{
+    position: relative;
+    padding: 10px;
+    margin: 0 35px;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    background: #111;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.5s;
+  }
+  button:last-child:hover{
+    background: linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199);
+    background-size: 400%;
+  }
+  button:last-child:before{
+    content: '';
+    position: absolute;
+    background: inherit;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    left: -5px;
+    border-radius: 50px;
+    filter: blur(20px);
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  button:last-child:hover:before{
+    opacity: 1;
+    z-index: -1;
+  }
+  button:hover{
+    z-index: 1;
+    animation: glow 8s linear infinite;
+  }
+  @keyframes glow {
+    0%{
+      background-position: 0%;
+    }
+    100%{
+      background-position: 400%;
+    }
+  }
+  
