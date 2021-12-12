@@ -1,10 +1,22 @@
 import React from "react";
-import { Image, NativeBaseProvider, Button, VStack, Text } from "native-base";
+import {Image, NativeBaseProvider, Button, VStack, Text, TextArea, ScrollView, KeyboardAvoidingView, useBreakpointValue} from "native-base";
+import {Platform} from "react-native";
 
-export function Nfinal({ navigation }) {
+export function Nfinal({ route, navigation }) {
+
+    console.log(route.params.data)
     return (
        <NativeBaseProvider>
-          <VStack p="5" pb="10" h="full" justifyContent="flex-end">
+
+           <ScrollView>
+               <KeyboardAvoidingView
+                   h={{
+                   base: "400px",
+                   lg: "auto",
+                      }}
+                   behavior={Platform.OS === "ios" ? "padding" : "height"}
+               >
+          <VStack p="5" pb="10" pt='100' h="full" justifyContent="flex-end">
              <Image
                 size="200"
                 resizeMode="cover"
@@ -23,7 +35,8 @@ export function Nfinal({ navigation }) {
              <Text fontSize="10" mb="30" color="green.300">
                 Success
              </Text>
-             <Text mb="130">Verify the Authencity of your decision.</Text>
+             <Text mb="5">Verify the Authencity of your decision.</Text>
+              <TextArea>{route.params.data}</TextArea>
              <Button
                 variant="link"
                 size="lg"
@@ -41,7 +54,10 @@ export function Nfinal({ navigation }) {
                 Home
              </Button>
           </VStack>
-       </NativeBaseProvider>
+               </KeyboardAvoidingView>
+           </ScrollView>
+
+</NativeBaseProvider>
     );
  }
  
