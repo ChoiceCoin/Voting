@@ -1,9 +1,8 @@
 .landing {
   width: 100vw;
   overflow: hidden;
-  min-height: 90vh;
   position: relative;
-  padding: var(--sm-hd-height) 5vw 0px;
+  padding: var(--sm-hd-height) 0vw 0px;
   color: var(--txt-alt);
 
   display: flex;
@@ -67,60 +66,124 @@
   /* background: var(--back-1); */
 }
 
-/* ****************** */
+/* ************************* */
 
-.svg_back {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.svg_back_svg {
-  position: absolute;
-  top: -90px;
-  width: 100%;
-  height: 100%;
-  height: 2000px;
-  min-width: 1920px;
-
-  min-width: 250%;
-  height: 1500px;
-}
-
-.svg_back_svg #path-2,
-.svg_back_svg #path-1 {
-  fill: transparent;
-  stroke: var(--txt-alt);
-}
-.svg_back_svg #path-3 {
-  fill: var(--main-col);
-  fill: var(--back-1);
-}
-
-.land_butts {
+.Marquee__Wrapper {
   display: flex;
-  margin-top: 50px;
-  align-items: center;
+  width: 100%;
+  padding: 10px 0px;
+  margin: 0px 0px 15vh;
   flex-direction: row;
+  overflow: hidden;
   white-space: nowrap;
-  justify-content: space-between;
+  position: relative;
+}
+.Marquee__TextHolder {
+  display: flex;
+  flex-direction: row;
 }
 
-.ld_butt {
-  display: flex;
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 14px;
-  border-radius: 8px;
-  padding: 14px 18px;
-  letter-spacing: 1px;
-  color: var(--white);
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
+.Marquee__TextGroup {
+  animation: 20s linear 0s infinite normal none running marquee;
+  display: inline-block;
+}
+.Marquee__Word {
+  display: inline-block;
+  font-size: 16px;
+  /* opacity: 0.8; */
+}
+.Marquee__Dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
   background: var(--main-col);
-  color: var(--main-col-inv);
+  vertical-align: middle;
+  margin: 0px 30px;
+}
+
+@media screen and (max-width: 850px) {
+  .Marquee__Dot {
+    width: 4px;
+    height: 4px;
+    margin-top: -4px;
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0px, 0px, 0px);
+  }
+  100% {
+    transform: translate3d(-100%, 0px, 0px);
+  }
+}
+
+@media (max-width: 1020px) {
+  .ft_hfr_1 {
+    width: 70%;
+    margin-right: 20%;
+  }
+
+  .ft_hfr_1 p:first-child {
+    font-size: 28px;
+  }
+
+  .ft_hdr {
+    margin-bottom: 7vh;
+  }
+  .Marquee__Wrapper {
+    margin: 5vh 0px 5vh;
+  }
+
+  .get_inv {
+    display: none;
+  }
+
+  .ft_r1 ul {
+    align-items: center;
+  }
+}
+@media (max-width: 760px) {
+  .ft_inn ul li a p {
+    width: 0px;
+    overflow: hidden;
+  }
+  .ft_cont {
+    font-size: 13px;
+  }
+  .ft_r3 {
+    margin-top: 30px;
+    font-size: 12px;
+  }
+  .ft_inn {
+    margin-bottom: 7vh;
+  }
+}
+
+@media (max-width: 700px) {
+  .ft_hfr_1 {
+    margin-right: 0px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .Marquee__Word {
+    display: inline-block;
+    font-size: 15px;
+  }
+
+  .hm_ft {
+    padding-top: 0px;
+    padding: 5vh 5vw 0px;
+  }
+  .ft_hfr_1 {
+    width: 90%;
+  }
+  .ft_hfr_1 p:nth-child(2) {
+    font-size: 16px;
+  }
 }

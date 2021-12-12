@@ -5,7 +5,6 @@ import loadable from "@loadable/component";
 import { useQuery } from "react-query";
 import axios from "axios";
 import { URL } from "../constants";
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import BarLoader from "react-spinners/BarLoader";
@@ -91,7 +90,14 @@ const ElectionList = () => {
               <div className="card_cont" key={index}>
                 <div className="card_r1">
                   <div className="card_elt_img">
-                    <img src={slug.process_image} alt="" />
+                    {slug.process_image ? (
+                      <img src={slug.process_image} alt="" />
+                    ) : (
+                      <i
+                        className="uil uil-asterisk"
+                        style={{ paddingLeft: "2px", paddingBottom: "2px" }}
+                      />
+                    )}
                   </div>
                   <div className="card_elt_tit">{slug.title}</div>
                 </div>
