@@ -1,0 +1,11 @@
+{
+  "name": "sashabanky",
+  "version": "1.0.0",
+  "description": "wallet integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sasha banky",
+  "license": "ISC"
+}
