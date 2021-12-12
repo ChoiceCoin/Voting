@@ -9,14 +9,17 @@ import axios from 'axios';
 
 //heroku api link tested and work so far
 const baseUrl = '';
-
+let roku
 async function go(id){
 
  await  axios({
       method: 'get',
-      url: `${baseUrl}/vote1?id=${id}`
+      url: `${baseUrl}/vote?id=${id}`
     }).then((response) => {
       console.log(response.data);
+
+      roku = response.data
+
     }).finally(console.log('Done'));
    
 }
@@ -25,7 +28,8 @@ async function go(id){
 
 export function Vote(props) {
     const [showModal, setShowModal] = useState(false);
- 
+    const [loading, setLoading] = useState(false);
+
     return (
        <NativeBaseProvider>
           <VStack h="full" justifyContent="center" alignItems="center">
@@ -123,7 +127,8 @@ export function Vote(props) {
                    <Modal.Footer>
                       <Button.Group space={2}>
                          <Button
-                            variant="ghost"
+                             isLoading={loading}
+                             variant="ghost"
                             colorScheme="blueGray"
                             onPress={() => {
                                setShowModal(false);
@@ -132,10 +137,13 @@ export function Vote(props) {
                             Cancel
                          </Button>
                          <Button
+                             isLoading={loading}
                             onPress={() => {
-                               setShowModal(false);
-                               go(props.id)
-                               props.navigation.navigate("Nfinal");
+                                setLoading(true)
+                               go(props.id).finally((res)=>{props.navigation.navigate("Nfinal", {
+                                   data: roku
+                               }
+                               )})
                             }}
                          >
                             Vote
