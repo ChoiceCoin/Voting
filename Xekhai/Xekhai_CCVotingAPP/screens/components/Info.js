@@ -4,11 +4,13 @@ import { Modal } from "native-base";
 import { useState } from "react";
 import { Center } from "native-base";
 import { Box, Heading, AspectRatio, HStack, Stack } from "native-base";
-import { vote } from "../../functions/vote";
 import axios from 'axios';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-//heroku api link tested and work so far
+//heroku api link tested and work so far///////////////////////
 const baseUrl = '';
+///////////////////////////////////////////////////////////////
+//HEROKU BASE URL NOT PURESTAKE!!!!
 let roku
 async function go(id){
 
@@ -29,6 +31,42 @@ async function go(id){
 export function Vote(props) {
     const [showModal, setShowModal] = useState(false);
     const [loading, setLoading] = useState(false);
+
+
+    const [isDisabled, setDisabled] = useState(false);
+
+    const getData = async () => {
+        try {
+            const value = await AsyncStorage.getItem('HasVoted')
+            if(value !== null) {
+                console.log(value)
+
+                return(value)
+            }
+            return('null')
+
+        } catch(e) {
+            // error reading value
+        }
+    }
+
+    const HasVoted = getData().value;
+
+console.log(HasVoted)
+    if(isDisabled){
+
+    }else{
+        if(HasVoted === 'null'){
+        }else{
+            setDisabled(true)
+        }
+    }
+
+
+
+
+
+
 
     return (
        <NativeBaseProvider>
@@ -109,6 +147,7 @@ export function Vote(props) {
                             size="lg"
                             colorScheme="teal"
                             onPress={() => setShowModal(true)}
+                            isDisabled={isDisabled}
                          >
                             Vote
                          </Button>
@@ -142,8 +181,14 @@ export function Vote(props) {
                                 setLoading(true)
                                go(props.id).finally((res)=>{props.navigation.navigate("Nfinal", {
                                    data: roku
-                               }
-                               )})
+                               })
+                                   try {
+                                    AsyncStorage.setItem('HasVoted', 'yeah')
+                                   } catch (e) {
+                                       // saving error
+                                   }
+
+                               })
                             }}
                          >
                             Vote

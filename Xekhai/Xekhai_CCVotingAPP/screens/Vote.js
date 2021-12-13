@@ -4,6 +4,8 @@ import { View } from "react-native";
 
 
 import { Vote } from "./components/Info";
+import {Button} from "native-base";
+import {NativeBaseProvider} from "native-base/src/core/NativeBaseProvider";
 
 export function Fvote({ navigation }) {
     return (
@@ -27,7 +29,11 @@ export function Fvote({ navigation }) {
                 desc="As a team leader, you will be the contact point for all team members, so your communication skills should be excellent. You should also be able to act proactively to ensure smooth team operations and effective collaboration."
                 id={2}
              />
-          </View>
+          </View><NativeBaseProvider>
+          <View style={{ flex: 1, justifyContent:'center', alignItems:'center'}} key="3">
+
+             <Button onPress={()=>{navigation.goBack()}}>{'<< Go Back'}</Button>
+          </View></NativeBaseProvider>
        </PagerView>
     );
  }
