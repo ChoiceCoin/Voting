@@ -2,6 +2,10 @@
 
 > https://youtu.be/GiHODFmTrpQ
 
+## Android APK
+
+> https://docs.google.com/uc?export=download&id=1fgHJoJnxEmD9VOWf-Gmq5nLZ4frSgkRshttps://youtu.be/GiHODFmTrpQ
+
 ## To RUN
 
 ### requirements
