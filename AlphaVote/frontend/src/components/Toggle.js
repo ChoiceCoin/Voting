@@ -1,6 +1,24 @@
+import styled, {css} from "styled-components";
 import Switch from "react-switch";
 import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
+
+const iconWrapperSharedStyles = css`
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  padding: 2px 4px;
+`
+
+const IconWrapperLeft = styled.div`
+  ${iconWrapperSharedStyles}
+  justify-content: flex-start;
+`
+
+const IconWrapperRight = styled.div`
+  ${iconWrapperSharedStyles}
+  justify-content: flex-end;
+`
 
 const Toggle = ({ darkTheme }) => {
   const dispatch = useDispatch();
@@ -35,19 +53,18 @@ const Toggle = ({ darkTheme }) => {
       <Switch
         checked={checked}
         onChange={handleChange}
-        handleDiameter={12}
-        offColor="#1a1a1a"
+        handleDiameter={20}
+        offColor="#222"
         onColor="#eee"
-        offHandleColor="#0038ff"
-        onHandleColor="#222"
-        height={16}
-        width={46}
-        borderRadius={50}
-        activeBoxShadow="0px 0px 1px 2px transparent"
-        uncheckedIcon={<></>}
-        checkedIcon={<></>}
-        uncheckedHandleIcon={<> </>}
-        checkedHandleIcon={<></>}
+        offHandleColor="#eee"
+        onHandleColor="#444"
+        width={44}
+        height={20}
+        borderRadius={90}
+        boxShadow="0px 1px 4px rgba(0, 0, 0, 0.6)"
+        activeBoxShadow="0px 0px 1px 6px rgba(0, 0, 0, 0.2)"
+        checkedIcon={<IconWrapperLeft><i className="fas fa-sun"></i></IconWrapperLeft>}
+        uncheckedIcon={<IconWrapperRight><i class="far fa-moon"></i></IconWrapperRight>}
         className="react-switch"
         id="small-radius-switch"
       />
