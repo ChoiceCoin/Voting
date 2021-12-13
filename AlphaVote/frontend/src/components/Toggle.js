@@ -8,7 +8,7 @@ const Toggle = ({ darkTheme }) => {
   const [checked, setChecked] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem("mode") == "light") {
+    if (localStorage.getItem("mode") === "light") {
       setChecked(true);
     }
   }, []);

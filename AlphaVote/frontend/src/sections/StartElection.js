@@ -4,7 +4,7 @@ import { URL } from "../constants";
 import { useQuery } from "react-query";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const StartElection = () => {
   // wallet-type & address
