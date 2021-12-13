@@ -1,7 +1,7 @@
-import "./electionlist.css";
 import styled from "styled-components";
 import { useQuery } from "react-query";
 import axios from "axios";
+import "./electionlist.css";
 import { URL } from "../constants";
 import ElectionCard from "./ElectionCard";
 import Loader from "../components/Loader";
@@ -25,7 +25,8 @@ const Participate = () => {
       </Wrapper>
     );
 
-  if (error) return "An error has occurred: " + (error as ErrorEvent).message;
+  if (error)
+    return <>An error has occurred: ${(error as ErrorEvent).message}</>;
   return (
     <div className="ptt_elt">
       <div className="ptt_elt_inn">
