@@ -13,7 +13,7 @@ const StartElection = () => {
   const headers = { "X-Wallet-Address": walletAddress };
   const [myData, setMyData] = useState([]);
 
-  const { isLoading, error, data } = useQuery("elections", () => {
+  const { isLoading, error } = useQuery("elections", () => {
     if (walletAddress) {
       axios.get(`${URL}/elections/mine`, { headers }).then((response) => {
         setMyData(response.data.data);
