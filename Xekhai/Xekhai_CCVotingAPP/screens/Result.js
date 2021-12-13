@@ -1,15 +1,9 @@
 import React from "react";
 import {View, NativeBaseProvider, Button, VStack, Text, HStack} from "native-base";
-import { Modal } from "native-base";
 import { useState } from "react";
 import { ScrollView, Box, Center } from "native-base";
 import {
-    LineChart,
     BarChart,
-    PieChart,
-    ProgressChart,
-    ContributionGraph,
-    StackedBarChart
 } from "react-native-chart-kit";
 import {Dimensions} from "react-native";
 import axios from "axios";

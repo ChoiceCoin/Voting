@@ -25,7 +25,9 @@
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.8.0",
     "react-native-svg": "12.1.1",
-    "react-native-web": "0.17.1"
+    "react-native-web": "0.17.1",
+    "expo-linking": "~2.4.2",
+    "@react-native-async-storage/async-storage": "~1.15.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
