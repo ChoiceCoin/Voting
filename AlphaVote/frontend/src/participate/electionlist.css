@@ -179,38 +179,8 @@
   font-weight: 500;
 }
 
-/* Candidates Percentages */
-.cand_percent {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin: 3px 0px 3px;
-  padding-left: 5px;
-  align-items: center;
-  justify-content: center;
-}
-.cand_percent li {
-  font-size: 10px;
-  color: var(--wht);
-  margin-right: 10px;
-  opacity: 0.5;
-}
-
 /* Chart Collap
 ================== */
-.chart_collap {
-  width: 100%;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-}
-
-.vote_collap {
-  width: 100%;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-}
 .rec_vote_cont {
   display: flex;
   margin: 20px 0px 10px;
@@ -229,21 +199,6 @@
   text-transform: uppercase;
   background: var(--main-col);
 }
-
-.vote_now_list {
-  display: flex;
-
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.vote_now_list li {
-  margin: 5px 0px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  width: 50%;
-}
 .vote_img_cont {
   width: 16px;
   height: 16px;
@@ -260,36 +215,4 @@
   height: 100%;
   object-fit: cover;
   border-radius: 100%;
-}
-.vote_now_list li p {
-  font-size: 12px;
-  color: var(--wht);
-  opacity: 0.7;
-  margin-left: 5px;
-}
-
-.vote_now_list input[type="radio"] {
-  margin: 0;
-  width: 16px;
-  height: 16px;
-  display: grid;
-  appearance: none;
-  margin-right: 10px;
-  border-radius: 100%;
-  place-content: center;
-  -webkit-appearance: none;
-  background-color: transparent;
-  border: 2px solid var(--bord-dark);
-}
-.vote_now_list input[type="radio"]::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 100%;
-  transform: scale(0);
-  background-color: var(--main-col);
-  transition: 120ms transform ease-in-out;
-}
-.vote_now_list input[type="radio"]:checked::before {
-  transform: scale(1);
 }
