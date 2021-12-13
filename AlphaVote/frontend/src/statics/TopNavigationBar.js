@@ -5,6 +5,7 @@ import { useWindowSize } from "@react-hook/window-size";
 const TopNavigationBar = ({ darkTheme }) => {
   const dispatch = useDispatch();
   const [width] = useWindowSize();
+  const announcement = "///// This site is not responsive yet. Large screen view coming soon."
 
   return (
     <header className="small_header">
@@ -12,9 +13,7 @@ const TopNavigationBar = ({ darkTheme }) => {
         className="notResponsiveWarning"
         style={{ display: width > 800 ? "flex" : "none" }}
       >
-        <p>
-          ///// This site is not responsive yet. Large screen view coming soon.
-        </p>
+        <p>{announcement}</p>
       </div>
 
       <div className="small_header_inn">
