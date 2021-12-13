@@ -92,6 +92,7 @@ const PopFromBottomModalToVote = () => {
 
       // alert success
       alert("You have successfully placed your vote for this election");
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }

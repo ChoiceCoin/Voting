@@ -5,13 +5,15 @@ import loadable from "@loadable/component";
 import { useQuery } from "react-query";
 import axios from "axios";
 import { URL } from "../constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import BarLoader from "react-spinners/BarLoader";
 
 const Chart = loadable(() => import("../components/Chart"));
 
 const ElectionList = () => {
+  const darkTheme = useSelector((state) => state.status.darkTheme);
+
   const dispatch = useDispatch();
 
   const { isLoading, error, data } = useQuery("elections", () =>
@@ -56,7 +58,7 @@ const ElectionList = () => {
               </p>
 
               <BarLoader
-                color={"#eee"}
+                color={darkTheme ? "#eee" : "#555"}
                 loading={true}
                 size={10}
                 speedMultiplier={0.5}
@@ -89,17 +91,27 @@ const ElectionList = () => {
             return (
               <div className="card_cont" key={index}>
                 <div className="card_r1">
-                  <div className="card_elt_img">
-                    {slug.process_image ? (
-                      <img src={slug.process_image} alt="" />
-                    ) : (
-                      <i
-                        className="uil uil-asterisk"
-                        style={{ paddingLeft: "2px", paddingBottom: "2px" }}
-                      />
-                    )}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div className="card_elt_img">
+                      {slug.process_image ? (
+                        <img src={slug.process_image} alt="" />
+                      ) : (
+                        <i
+                          className="uil uil-asterisk"
+                          style={{ paddingLeft: "2px", paddingBottom: "2px" }}
+                        />
+                      )}
+                    </div>
+                    <div className="card_elt_tit">{slug.title}</div>
                   </div>
-                  <div className="card_elt_tit">{slug.title}</div>
+
+                  {/* <div className="electionEndTime">Ends on:</div> */}
                 </div>
 
                 <div className="card_elt_desc">{slug?.card_desc}</div>

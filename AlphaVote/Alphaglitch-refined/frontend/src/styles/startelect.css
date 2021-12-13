@@ -57,10 +57,10 @@
   flex-direction: row;
   padding: 12px 18px 12px 16px;
 
-  border-top: var(--list-border);
+  border-bottom: var(--list-border);
 }
-.elt_item:first-child {
-  border-top: none;
+.elt_item:last-child {
+  border-bottom: none;
 }
 .elt_img_cont {
   margin-right: 20px;

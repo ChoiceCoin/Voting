@@ -2,35 +2,25 @@ import axios from "axios";
 import "../styles/startelect.css";
 import { URL } from "../constants";
 import { useQuery } from "react-query";
-import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { BarLoader } from "react-spinners";
+import { useDispatch, useSelector } from "react-redux";
 
 const StartElection = () => {
+  const darkTheme = useSelector((state) => state.status.darkTheme);
+
   // wallet-type & address
   const walletAddress = localStorage.getItem("address");
-
   const headers = { "X-Wallet-Address": walletAddress };
-  const [myData, setMyData] = useState([]);
-
-  const { isLoading, error, data } = useQuery("elections", () => {
-    if (walletAddress) {
-      axios.get(`${URL}/elections/mine`, { headers }).then((response) => {
-        setMyData(response.data.data);
-        return response.data;
-      });
-    } else {
-      return null;
-    }
-  });
+  const { isLoading, error, data } = useQuery("elections", () =>
+    axios
+      .get(`${URL}/elections/mine`, { headers })
+      .then((response) => response.data.data)
+  );
 
   const isWalletConnected =
     localStorage.getItem("wallet-type") === null ? false : true;
   const dispatch = useDispatch();
-
-  if (isLoading) return <></>;
-
-  if (error) return console.log("An error has occurred: " + error?.message);
 
   return (
     <div className="stt_elt">
@@ -38,8 +28,33 @@ const StartElection = () => {
         <div className="stt_hd">Recently Created Elections</div>
 
         <ul className="on_elt">
-          {!!(myData.length > 0) ? (
-            myData?.map((item, index) => {
+          {isLoading && !error ? (
+            <div
+              style={{
+                width: "100%",
+                height: "100px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                fontWeight: "500",
+                color: "var(--wht)",
+                justifyContent: "center",
+                textTransform: "uppercase",
+              }}
+            >
+              <p style={{ opacity: 0.5, marginBottom: "30px" }}>
+                Retrieving your Elections
+              </p>
+
+              <BarLoader
+                color={darkTheme ? "#eee" : "#555"}
+                loading={true}
+                size={10}
+                speedMultiplier={0.5}
+              />
+            </div>
+          ) : !!(data?.length > 0) ? (
+            data?.map((item, index) => {
               return (
                 <li
                   key={`${index}`}
@@ -47,6 +62,9 @@ const StartElection = () => {
                   onClick={() =>
                     dispatch({ type: "popupElection", payload: item })
                   }
+                  style={{
+                    borderBottom: index === 0 && "var(--list-border)",
+                  }}
                 >
                   <div className="elt_img_cont">
                     <img src={item.process_image} alt="" />

@@ -54,7 +54,7 @@ const BottomNavigationBar = ({ NavLink, darkTheme }) => {
             to={`/elections`}
             key={"elections"}
           >
-            <i class="uil uil-mailbox"></i>
+            <i className="uil uil-mailbox"></i>
           </NavLink>
         </li>
 
@@ -99,7 +99,7 @@ const BottomNavigationBar = ({ NavLink, darkTheme }) => {
           >
             {darkTheme ? (
               <i
-                class="uil uil-brightness-low"
+                className="uil uil-brightness-low"
                 style={{ fontSize: "21px" }}
               ></i>
             ) : (

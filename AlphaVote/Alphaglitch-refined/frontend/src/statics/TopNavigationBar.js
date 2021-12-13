@@ -147,7 +147,7 @@ const TopNavigationBar = ({ darkTheme }) => {
                 <CopyToClipboard text={walletAddress}>
                   <div className="addressTxt">
                     <p>{walletAddress}</p>
-                    <i class="uil uil-copy"></i>
+                    <i className="uil uil-copy"></i>
                   </div>
                 </CopyToClipboard>
               </div>
@@ -159,7 +159,7 @@ const TopNavigationBar = ({ darkTheme }) => {
                   <p>
                     Connect Wallet
                     <i
-                      class="uil uil-angle-down"
+                      className="uil uil-angle-down"
                       style={{ fontSize: "18px" }}
                     />
                   </p>
@@ -199,59 +199,57 @@ const TopNavigationBar = ({ darkTheme }) => {
         {/*  */}
       </div>
 
-      {walletAddress && (
-        <div
-          style={{
-            width: "100%",
-            display: "flex",
-            fontSize: "13px",
-            fontWeight: "500",
-            wordSpacing: "1px",
-            alignItems: "center",
-            color: "#fff",
-            padding: "0px 5vw",
-            letterSpacing: "0.5px",
-            textTransform: "uppercase",
-            background: "var(--main-col)",
-            height: "var(--sm-hd-height-half)",
-            justifyContent: "space-between",
-            borderBottom: "1px solid var(--border-default)",
-          }}
-        >
-          <p style={{ opacity: "0.9" }}>
-            Amount committed to Governance:&nbsp;
-            {!isLoading && !error && data.amount} $Choice
-          </p>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          fontSize: "13px",
+          fontWeight: "500",
+          wordSpacing: "1px",
+          alignItems: "center",
+          color: walletAddress ? "#fff" : "var(--wht)",
+          padding: "0px 5vw",
+          letterSpacing: "0.5px",
+          textTransform: "uppercase",
+          background: walletAddress ? "var(--main-col)" : "var(--background)",
+          height: "var(--sm-hd-height-half)",
+          justifyContent: "space-between",
+          borderTop: "1px solid var(--border-default)",
+        }}
+      >
+        <p style={{ opacity: "0.9" }}>
+          Amount committed to Governance:&nbsp;
+          {!isLoading && !error ? data?.amount : 0} $Choice
+        </p>
 
-          {width > 850 && (
-            <ul className="listNavBig">
-              <li>
-                H<i className="uil uil-estate" />
-                me
-              </li>
-              <li>
-                Elect<i class="uil uil-mailbox"></i>ons
-              </li>
-              <li>
-                Tr<i className="uil uil-exchange"></i>nsfer
-              </li>
-              <li onClick={setMode}>
-                M
-                {darkTheme ? (
-                  <i class="uil uil-brightness-low"></i>
-                ) : (
-                  <i className="uil uil-moon"></i>
-                )}
-                de
-              </li>
-              <li onClick={LogOut}>
-                Sign Ou
-                <i className="uil uil-signout"></i>
-              </li>
-            </ul>
-          )}
-        </div>
-      )}
+        {width > 850 && (
+          <ul className="listNavBig">
+            <li>
+              H<i className="uil uil-estate" />
+              me
+            </li>
+            <li>
+              Elect<i className="uil uil-mailbox"></i>ons
+            </li>
+            <li>
+              Tr<i className="uil uil-exchange"></i>nsfer
+            </li>
+            <li onClick={setMode}>
+              M
+              {darkTheme ? (
+                <i className="uil uil-brightness-low"></i>
+              ) : (
+                <i className="uil uil-moon"></i>
+              )}
+              de
+            </li>
+            <li onClick={LogOut}>
+              Sign Ou
+              <i className="uil uil-signout"></i>
+            </li>
+          </ul>
+        )}
+      </div>
     </header>
   );
 };

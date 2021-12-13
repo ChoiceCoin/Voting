@@ -68,7 +68,7 @@
   border: 1px solid var(--back-1);
 }
 .vote_hd_img img {
-  width: 100%;
+  width: 50px;
 }
 
 .vote_add_img {
@@ -163,7 +163,7 @@
   border: 1px solid var(--back-1);
 }
 .item_img_preview img {
-  width: 100%;
+  width: 40px;
 }
 
 .addItemButt {
@@ -239,7 +239,7 @@
   border: 1px solid var(--back-1);
 }
 .item_list_img img {
-  width: 100%;
+  width: 40px;
 }
 
 .rm_butt,
@@ -264,7 +264,14 @@
 }
 .item_list_name {
   flex: 1;
+  max-width: 47%;
   margin-right: 15px;
+}
+.item_list_name p {
+  width: 100%;
+  overflow: hidden;
+  text-align: start;
+  text-overflow: ellipsis;
 }
 
 /* ************ */

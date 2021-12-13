@@ -170,6 +170,8 @@ const CreateElection = () => {
       const { _, sk } = algosdk.mnemonicToSecretKey(candidate.private_key);
       const signedTxn = txn.signTxn(sk);
 
+      console.log(_);
+
       // send the transactions to the net.
       await algodClient.sendRawTransaction(signedTxn).do();
     }
@@ -235,7 +237,10 @@ const CreateElection = () => {
               },
               { headers }
             )
-            .then((response) => alert(response.data.message));
+            .then((response) => {
+              alert(response.data.message);
+              window.location.reload();
+            });
         });
       }
     });
