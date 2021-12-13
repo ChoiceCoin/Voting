@@ -11,12 +11,13 @@ import React, {
 } from "react";
 import {
   CandidatePercentage,
+  ChoiceCoinAmountRow,
   CollapsedChart,
+  LabelRow,
   VoteListWrapper,
   VoteNowList,
 } from "./ElectionCard.styles";
 import { collapseOrExpandElement } from "../utils/animation";
-import { title } from "process";
 const Chart = loadable(() => import("../components/Chart"));
 
 // TODO: need to pull out the types
@@ -46,6 +47,7 @@ const ElectionCard: React.FC<{
   const [isVoteListCollapsed, setIsVoteListCollapsed] = useState(true);
   const [isChartCollapsed, setIsChartCollapsed] = useState(true);
   const [voteOptionChosen, setVoteOptionChosen] = useState("");
+  const [voteChoiceAmount, setVoteChoiceAmount] = useState("0");
 
   const voteListWrapperRef = useRef() as MutableRefObject<HTMLInputElement>;
   const collapsedChartRef = useRef() as MutableRefObject<HTMLInputElement>;
@@ -61,16 +63,20 @@ const ElectionCard: React.FC<{
     }
 
     console.log("address: ", voteOptionChosen);
-    console.log("amount: ", slug.choice_per_vote);
+    console.log("amount: ", voteChoiceAmount);
 
     dispatch({
       type: "modal_connect_vote",
       voteData: {
         address: voteOptionChosen,
-        amount: slug.choice_per_vote,
+        amount: voteChoiceAmount,
         election: slug,
       },
     });
+  };
+
+  const choiceAmountChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    setVoteChoiceAmount(event.target.value);
   };
 
   const voteClickHandler = () => {
@@ -158,9 +164,11 @@ const ElectionCard: React.FC<{
           <div className="card_cand_hd">Options</div>
           <VoteNowList>
             {slug?.candidates?.map((item, index) => {
-              const id = title.slice(
+              const id = item.address.slice(
                 0,
-                title.length > 16 ? title.length / 2 : title.length
+                item.address.length > 16
+                  ? item.address.length / 2
+                  : item.address.length
               );
               return (
                 <li key={index}>
@@ -172,18 +180,28 @@ const ElectionCard: React.FC<{
                     onChange={onVoteOptionChosen}
                   />
 
-                  <label className="vote_img_cont" htmlFor={id}>
-                    {!!item.image ? (
-                      <img src={item.image} alt="" />
-                    ) : (
-                      <i className="uil uil-asterisk"></i>
-                    )}
-                  </label>
-                  <p>{item.name}</p>
+                  <LabelRow htmlFor={id}>
+                    <div className="vote_img_cont">
+                      {!!item.image ? (
+                        <img src={item.image} alt="" />
+                      ) : (
+                        <i className="uil uil-asterisk"></i>
+                      )}
+                    </div>
+                    <p>{item.name}</p>
+                  </LabelRow>
                 </li>
               );
             })}
           </VoteNowList>
+          <ChoiceCoinAmountRow>
+            <span className="card_cand_hd">Choice Coin Amount</span>
+            <input
+              type="number"
+              value={voteChoiceAmount}
+              onChange={choiceAmountChangeHandler}
+            ></input>
+          </ChoiceCoinAmountRow>
 
           <div className="rec_vote_cont">
             <button className="record_vote" onClick={submitVoteHandler}>

@@ -10,7 +10,6 @@ export const VoteListWrapper = styled.div<{
   overflow: hidden;
   transition: max-height 0.2s ease-out, margin 0.2s ease-out;
 `;
-  
 export const VoteNowList = styled.ul`
   display: flex;
   flex-direction: row;
@@ -58,7 +57,6 @@ export const VoteNowList = styled.ul`
     }
   }
 `;
-  
 export const CollapsedChart = styled.div<{ isChartCollapsed: boolean }>`
   width: 100%;
   max-height: 0;
@@ -66,7 +64,6 @@ export const CollapsedChart = styled.div<{ isChartCollapsed: boolean }>`
   overflow: hidden;
   transition: max-height 0.2s ease-out, margin-top 0.2s ease-out;
 `;
-
 export const CandidatePercentage = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -82,3 +79,19 @@ export const CandidatePercentage = styled.div`
     opacity: 0.5;
   }
 `;
+export const LabelRow = styled.label`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+`
+export const ChoiceCoinAmountRow = styled.label`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+
+  input {
+    text-align: right;
+    border-bottom: 1px solid;
+  }
+`
