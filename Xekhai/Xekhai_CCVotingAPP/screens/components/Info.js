@@ -31,32 +31,36 @@ async function go(id){
 export function Vote(props) {
     const [showModal, setShowModal] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [nullStatus, setnullStatus] = useState('null')
 
 
     const [isDisabled, setDisabled] = useState(false);
 
-    const getData = async () => {
-        try {
+    let HasVoted
+
+    async function getData () {
+
             const value = await AsyncStorage.getItem('HasVoted')
+
             if(value !== null) {
                 console.log(value)
-
+                setnullStatus(value)
                 return(value)
+            }else{
+                HasVoted = 'null'
+                setnullStatus('null')
+                console.log(HasVoted)
+                return('null')
             }
-            return('null')
-
-        } catch(e) {
-            // error reading value
-        }
     }
 
-    const HasVoted = getData().value;
+getData()
 
 console.log(HasVoted)
     if(isDisabled){
 
     }else{
-        if(HasVoted === 'null'){
+        if(nullStatus === 'null'){
         }else{
             setDisabled(true)
         }
@@ -179,15 +183,15 @@ console.log(HasVoted)
                              isLoading={loading}
                             onPress={() => {
                                 setLoading(true)
-                               go(props.id).finally((res)=>{props.navigation.navigate("Nfinal", {
-                                   data: roku
-                               })
+                               go(props.id).finally((res)=>{
                                    try {
                                     AsyncStorage.setItem('HasVoted', 'yeah')
                                    } catch (e) {
                                        // saving error
                                    }
-
+                                   props.navigation.navigate("Nfinal", {
+                                       data: roku
+                                   })
                                })
                             }}
                          >

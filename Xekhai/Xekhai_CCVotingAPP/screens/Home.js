@@ -1,8 +1,8 @@
 import React from "react";
-import { Image, NativeBaseProvider, Button, VStack, Text } from "native-base";
+import {Image, NativeBaseProvider, Button, VStack, Text, Pressable} from "native-base";
 import { Modal } from "native-base";
 import { useState } from "react";
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export function Home({ navigation }) {
     const [showModal, setShowModal] = useState(false);
@@ -11,6 +11,19 @@ export function Home({ navigation }) {
     return (
        <NativeBaseProvider>
           <VStack p="5" pb="10" h="full" justifyContent="flex-end">
+              <Pressable
+
+                  onPress={()=>{
+                  try {
+                      AsyncStorage.removeItem('HasVoted')
+                  } catch(e) {
+                      // remove error
+                  }
+
+                  console.log('Done.')
+              }}
+
+              >
              <Image
                 size="200"
                 resizeMode="cover"
@@ -21,7 +34,7 @@ export function Home({ navigation }) {
                 alignSelf="center"
                 mb="5"
                 alt="logo"
-             />
+             /></Pressable>
              <Text mb="11" fontWeight="bold">
                 Choice Coin Voting
              </Text>
