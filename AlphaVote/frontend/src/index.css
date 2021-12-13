@@ -151,14 +151,6 @@ main {
   align-items: center !important;
   justify-content: center !important;
 }
-.theme_tog {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding-bottom: 2px;
-  margin-right: 15px;
-}
-
 /* Navbar Mobile */
 .ft_sm {
   bottom: 0;
@@ -300,7 +292,7 @@ main {
   cursor: pointer;
   border-bottom: 1px solid var(--l1);
 }
-.connect_butt:nth-child(3) {
+.connect_butt:nth-child(4) {
   margin-bottom: 20px;
   border-bottom: none;
 }
