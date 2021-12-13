@@ -1,7 +1,14 @@
-import { createStore } from "redux";
+import { configureStore } from '@reduxjs/toolkit'
 import rootReducer from "./reducers";
 
 let initialState = {};
 
-const store = createStore(rootReducer, initialState);
+const store = configureStore({
+  reducer: rootReducer,
+  preloadedState: initialState,
+  middleware: (getDefaultMiddleware) => 
+    getDefaultMiddleware({
+      serializableCheck: false,
+    })
+});
 export default store;
