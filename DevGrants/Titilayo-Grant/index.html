@@ -8,6 +8,8 @@
     integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
     crossorigin="anonymous" />
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" ></script>
+    <script src="myalgo.min.js"></script>
     <title>Choice Coin</title>
 </head>
 <body>
@@ -19,7 +21,7 @@
 
   <form action="" class="login_form">
     <h3 class="login_form_"> <span> Choice Coin</span></h3>
-    <h3 class="right"> <span style="border: solid 1px rgb(19, 56, 73); border-radius: 10%; background-color: rgb(19, 56, 73); color: whitesmoke">Connect wallet </span></h3>
+    <h3 class="right"> <span style="border: solid 1px rgb(19, 56, 73); border-radius: 10%; background-color: rgb(19, 56, 73); color: whitesmoke; cursor: pointer"  onclick="connectToMyAlgo()" >Connect wallet </span></h3>
 
     <div class="group">
       <input type="text" name="" required >
@@ -50,7 +52,7 @@
     </div>
    
     <button type="submit">Submit</button>
-
+  
   
   </form>
 </div>
