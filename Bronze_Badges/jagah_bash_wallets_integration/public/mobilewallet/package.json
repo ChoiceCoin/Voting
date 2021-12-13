@@ -1,0 +1,28 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@json-rpc-tools/utils": "^1.7.6",
+    "@walletconnect/client": "^1.6.6",
+    "algorand-walletconnect-qrcode-modal": "^1.6.1",
+    "algosdk": "^1.12.0",
+    "crypto-browserify": "^3.12.0",
+    "crypto-js": "^4.1.1",
+    "stream-browserify": "^3.0.0",
+    "tslib": "^2.3.1",
+    "webpack": "^5.64.2",
+    "webpack-cli": "^4.9.1"
+  },
+  "devDependencies": {
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.2"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
