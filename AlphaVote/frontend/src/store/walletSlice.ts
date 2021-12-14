@@ -58,6 +58,7 @@ export const walletSlice = createSlice({
         state.fetching = action.payload;
       },
       setWalletType(state, action) {
+        localStorage.setItem("walletType", action.payload);
         state.walletType = action.payload;
       },
       switchChain(state, action) {
@@ -79,10 +80,13 @@ export const walletSlice = createSlice({
         state.connected = action.payload;
       },
       setAccounts: (state, action) => {
+        const walletTypeSaved = localStorage.getItem("walletType") || "walletConnect";
         state.accounts = action.payload;
-        if (state.walletType === "walletConnect") {
+        state.walletType = walletTypeSaved;
+
+        if (walletTypeSaved === "walletConnect") {
           state.address = action.payload[0];
-        } else if (state.walletType === "myAlgo" || state.walletType === "algoSigner") {
+        } else if (walletTypeSaved === "myAlgo" || walletTypeSaved === "algoSigner") {
           state.address = action.payload[0].address;
         }
       },
@@ -92,10 +96,12 @@ export const walletSlice = createSlice({
       killSession: state => {
         if (state.connected) {
           if (state.walletType === "walletConnect") {
-            (state.connector as WalletConnect).killSession();
+              (state.connector as WalletConnect).killSession().catch(error => {
+                console.error(error);
+              })
           }
-          walletSlice.caseReducers.reset(state);
         }
+        walletSlice.caseReducers.reset(state);
       }
     },
     extraReducers(builder) {

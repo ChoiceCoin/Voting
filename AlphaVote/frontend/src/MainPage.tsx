@@ -38,14 +38,16 @@ const MainPage = () => {
   useEffect(() => {
     // auto-detect is user has connected their wallet to the app
     if (window.localStorage.getItem("walletconnect") != null) {
+      localStorage.setItem("walletType", "walletConnect");
       dispatch(setWalletType("walletConnect"));
     } else if (typeof (window as any).AlgoSigner !== "undefined") {
+      localStorage.setItem("walletType", "algoSigner");
       dispatch(setWalletType("algoSigner"));
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    if (walletType.length > 0) {
+    if (walletType && walletType.length > 0) {
       let connector;
       switch (walletType) {
         case "walletConnect":

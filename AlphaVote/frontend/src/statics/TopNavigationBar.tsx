@@ -4,7 +4,7 @@ import { useWindowSize } from "@react-hook/window-size";
 import Toggle from "../components/Toggle";
 import ConnectWalletButton from "../components/ConnectWalletButton";
 import AccountInfo from "../components/AccountInfo";
-import { selectConnected } from "../store/walletSlice";
+import { selectAddress, selectConnected } from "../store/walletSlice";
 import TotalCommittedChoice from "../components/TotalCommittedChoice";
 
 const RightMenuWrapper = styled.div`
@@ -63,6 +63,7 @@ const TopNavigationBar: React.FC<{
   darkTheme: boolean;
 }> = ({ darkTheme }) => {
   const connected = useSelector(selectConnected);
+  const address = useSelector(selectAddress);
   const dispatch = useDispatch();
   const [width] = useWindowSize();
   const announcement =
@@ -102,7 +103,7 @@ const TopNavigationBar: React.FC<{
             <p style={{ paddingBottom: "2px" }}>menu</p>
           </MenuButton>
           {connected && <TotalCommittedChoice />}
-          {connected ? <AccountInfo /> : <ConnectWalletButton />}
+          {address ? <AccountInfo /> : <ConnectWalletButton />}
           <Toggle darkTheme={darkTheme} />
         </RightMenuWrapper>
       </SmallHeaderInner>

@@ -209,7 +209,10 @@ const ElectionCard: React.FC<{
           ))}
         </ul>
 
-        <CollapsedChart isChartCollapsed={isChartCollapsed}>
+        <CollapsedChart
+          isChartCollapsed={isChartCollapsed}
+          ref={collapsedChartRef}
+        >
           <Chart scores={scores} options={options} />
           <CandidatePercentage>
             {election?.card_cand?.map((item, index) => (
