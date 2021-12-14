@@ -1,4 +1,5 @@
 
+import MyAlgoConnect from "@randlabs/myalgo-connect";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import WalletConnect from "@walletconnect/client";
 import { apiGetAccountAssets } from "../utils/api";
@@ -27,7 +28,7 @@ export interface WalletState {
   address: string,
   assets: IAssetData[],
   connected: boolean,
-  connector: any,
+  connector: WalletConnect | MyAlgoConnect | any,
   fetching: boolean,
 }
 
