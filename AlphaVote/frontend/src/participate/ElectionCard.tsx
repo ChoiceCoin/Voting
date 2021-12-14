@@ -79,10 +79,6 @@ const ElectionCard: React.FC<{
 
   const totalScore = _.sum(scores);
 
-  console.log(scores);
-  console.log(totalScore);
-  console.log("election: ", election);
-
   const submitVoteHandler = async () => {
     if (!voteOptionChosen) {
       alert("Select an option to vote!!");
@@ -96,8 +92,6 @@ const ElectionCard: React.FC<{
       return;
     }
 
-    console.log("amount: ", voteChoiceAmount);
-    console.log("assets: ", assets);
     // check if the voter address has Choice
     const containsChoice = assets
       ? assets.some((element: any) => element["id"] === ASSET_ID)
@@ -112,8 +106,6 @@ const ElectionCard: React.FC<{
     const choiceCoin =
       assets &&
       assets.find((asset: IAssetData) => asset && asset.id === ASSET_ID);
-    console.log("input:", Number(voteChoiceAmount) * 100);
-    console.log("i have amount: ", choiceCoin && choiceCoin.amount);
 
     if (choiceCoin && Number(voteChoiceAmount) * 100 > choiceCoin.amount) {
       alert("You do not have sufficient balance to make this transaction.");
