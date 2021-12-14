@@ -79,21 +79,6 @@ main {
   --sm-hd-height: 120px;
 }
 
-/* Header Mobile */
-.small_header {
-  top: 0;
-  left: 0;
-  z-index: 90;
-  width: 100vw;
-  display: flex;
-  font-size: 13px;
-  color: var(--wht);
-  position: fixed;
-  flex-direction: column;
-  background-color: var(--background);
-  border-bottom: 1px solid var(--border-default);
-}
-
 /* Coming Soon
 ================= */
 .notResponsiveWarning {
@@ -116,32 +101,6 @@ main {
   text-align: center;
 }
 
-.small_header_inn {
-  width: 100%;
-  display: flex;
-  font-size: 13px;
-  flex-direction: row;
-  height: var(--sm-hd-height-half);
-  justify-content: space-between;
-}
-
-.small_header_inn p {
-  opacity: 0.8;
-}
-
-.light_theme .small_header_inn {
-  font-weight: 500;
-}
-
-.sm_act_menu_butt {
-  height: 60px;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: center;
-  padding-bottom: 2px;
-  margin-right: 20px;
-}
 .react-switch {
   margin: 0px 10px;
   border: 1px solid var(--wht);
@@ -295,23 +254,6 @@ main {
 .connect_butt:nth-child(4) {
   margin-bottom: 20px;
   border-bottom: none;
-}
-.connect_wallet_img {
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-  overflow: hidden;
-  display: flex;
-  font-size: 14px;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #aaa;
-}
-.connect_wallet_img img {
-  width: 20px;
-  height: 20px;
-  object-fit: cover;
-  border-radius: 100%;
 }
 .connect_wallet_txt {
   font-size: 14px;

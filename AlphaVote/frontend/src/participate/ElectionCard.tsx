@@ -79,6 +79,10 @@ const ElectionCard: React.FC<{
 
   const totalScore = _.sum(scores);
 
+  console.log(scores);
+  console.log(totalScore);
+  console.log("election: ", election);
+
   const submitVoteHandler = async () => {
     if (!voteOptionChosen) {
       alert("Select an option to vote!!");
