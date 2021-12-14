@@ -2,6 +2,10 @@
 
 > https://youtu.be/GiHODFmTrpQ
 
+## Android APK
+
+> https://github.com/Xekhai/Voting/tree/main/Xekhai/APK%20Builds
+
 ## To RUN
 
 ### requirements

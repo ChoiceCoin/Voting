@@ -167,7 +167,7 @@ const CreateElection = () => {
           transactionOptions
         );
 
-      const { _, sk } = algosdk.mnemonicToSecretKey(candidate.private_key);
+      const { sk } = algosdk.mnemonicToSecretKey(candidate.private_key);
       const signedTxn = txn.signTxn(sk);
 
       // send the transactions to the net.

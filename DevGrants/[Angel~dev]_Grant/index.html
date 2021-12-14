@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choice Coin</title>
+    <style>
+        *,*::after,*::before{
+            box-sizing: border-box;
+        }
+        body {
+            background: #f4f7fa;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .wrapper {
+            position: relative;
+        }
+        .card {
+            position: relative;
+            width: 500px;
+            background-color: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 2px 3px 5px rgba(0,0,0,0.8);
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0px;
+        }
+        #logo-header span {
+            font-weight: 800;
+            font-size: 30px;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card-content h3 {
+            text-align: center;
+            font-weight: bolder;
+            font-size: 20px;
+        }
+        .form-control {
+            margin: 20px 0px;
+        }
+        .form-control label {
+            font-weight: bolder;
+            font-size: 18px;
+        }
+        .form-control input, .form-control textarea {
+            width: 100%;
+            font-size: 18px;
+            padding: 10px;
+            margin: 10px 0px;
+        }
+        .form-control input {
+            padding: 10px;
+        }
+        textarea {
+            height: 100px;
+        }
+        form .inner_foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        form button {
+            margin-top: 20px;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .card-bg .r:first-child {
+            top: -100px;
+            right: -100px;
+            background: linear-gradient(-135deg, #1de9b6 0%, #1dc4e9 100%);
+        }
+
+        .card-bg .r.s:nth-child(2) {
+            top: 150px;
+            right: -150px;
+            background: #04a9f5;
+        }
+
+        .card-bg .r.s:nth-child(3) {
+            left: -150px;
+            bottom: 150px;
+            background: #1de9b6;
+        }
+
+        .card-bg .r:last-child {
+            left: -100px;
+            bottom: -100px;
+            background: linear-gradient(-135deg, #899FD4 0%, #A389D4 100%);
+        }
+
+        .card-bg .r.s {
+            width: 20px;
+            height: 20px;
+        }
+
+        .card-bg .r {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+        }
+        .card-bg .r:nth-child(odd) {
+            -webkit-animation: floating 7s infinite;
+            animation: floating 7s infinite;
+        }
+
+        .card-bg .r:nth-child(even) {
+            -webkit-animation: floating 9s infinite;
+            animation: floating 9s infinite;
+        }
+
+        .btn-primary {
+            padding: 2px 10px;
+            height: 40px;
+            outline: none;
+            border-radius: 10px;
+            border: 0px;
+            font-weight: bolder;
+            cursor: pointer;
+            transition: 1s ease;
+        }
+        .btn-primary:hover {
+            color: #fff;
+            background-color: green;
+            border-color: green;
+        }
+        .big_C {
+            position: absolute;
+            top: -140px;
+            left: -150px;
+        }
+        .big_C img {
+            -webkit-animation: floating 9s infinite;
+            animation: floating 9s infinite;
+        }
+        @-webkit-keyframes floating {
+            from {
+                -webkit-transform: rotate(0deg) translate(-10px) rotate(0deg);
+                transform: rotate(0deg) translate(-10px) rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(360deg) translate(-10px) rotate(-360deg);
+                transform: rotate(360deg) translate(-10px) rotate(-360deg);
+            }
+        }
+            @keyframes floating {
+            from {
+                -webkit-transform: rotate(0deg) translate(-10px) rotate(0deg);
+                transform: rotate(0deg) translate(-10px) rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(360deg) translate(-10px) rotate(-360deg);
+                transform: rotate(360deg) translate(-10px) rotate(-360deg);
+            }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="big_C">
+                <img src="./andys industry help work.png" alt="logo" style="width: 450px;">
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-header">
+                        <div id="logo-header">
+                            <img src="./andys industry help work.png" alt="logo" style="width: 50px">
+                            <span>hoice Coin</span>
+                        </div>
+                        <button onclick="connectWallet()" class="btn-primary">Connect Wallet</button>
+                    </div>
+                    <div class="card-content">
+                        <form id="form">
+                            <h3>Choice Coin Voting</h3>
+                            <div class="form-control">
+                                <label for="">Issue Number</label>
+                                <input type="text" placeholder="*************">
+                            </div>
+                            <div class="form-control">
+                                <label for="">Statement</label>
+                                <textarea placeholder="Statement of the issue to be voted on"></textarea>
+                            </div>
+                            <div class="inner_foot">
+                                <div class="form">
+                                    <label for="yes">
+                                        <input id="yes" type="radio">Yes
+                                    </label>
+
+                                    <label for=""></label>
+                                    <input type="radio">
+                                    No
+                                </div>
+                                    <button type="submit" class="btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById('form');
+        const connectWallet = (e)=> {
+            alert("Connecting Wallet!!")
+        }
+        form.addEventListener('submit', (e)=> {
+            e.preventDefault()
+            alert('Submitting...')
+        })
+    </script>
+</body>
+</html>
