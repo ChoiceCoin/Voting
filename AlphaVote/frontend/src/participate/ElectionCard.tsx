@@ -38,6 +38,10 @@ export interface Candidate {
   image: string;
   address: string;
 }
+export interface CandidateCard {
+  cand_score: number;
+  cand_det: string;
+}
 export interface Election {
   candidates: Candidate[];
   wallet: {
@@ -48,12 +52,7 @@ export interface Election {
   slug: string;
   card_desc: string;
   choice_per_vote: number;
-  card_cand: [
-    {
-      cand_score: number;
-      cand_det: string;
-    }
-  ];
+  card_cand: CandidateCard[];
 }
 
 // TODO: need to pull out the types
@@ -209,7 +208,10 @@ const ElectionCard: React.FC<{
           ))}
         </ul>
 
-        <CollapsedChart isChartCollapsed={isChartCollapsed}>
+        <CollapsedChart
+          isChartCollapsed={isChartCollapsed}
+          ref={collapsedChartRef}
+        >
           <Chart scores={scores} options={options} />
           <CandidatePercentage>
             {election?.card_cand?.map((item, index) => (
