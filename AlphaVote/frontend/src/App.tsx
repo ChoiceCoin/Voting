@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 const MainPage = loadable(() => import("./MainPage"));
+const MenuModal = loadable(() => import("./statics/MenuModal"));
 const PopFromBottomModal = loadable(
   () => import("./statics/PopFromBottomModal")
 );
@@ -26,6 +27,7 @@ const App = () => {
             <MainPage />
             <OverlayElectionModal />
             <PopFromBottomModal />
+            <MenuModal />
           </Router>
         </QueryClientProvider>
       </ReduxProvider>

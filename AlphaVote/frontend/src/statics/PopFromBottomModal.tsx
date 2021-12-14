@@ -17,6 +17,25 @@ import {
   setWalletType,
 } from "../store/walletSlice";
 import WalletConnect from "@walletconnect/client";
+import styled from "styled-components";
+
+const ConnectWalletImageWrapper = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  overflow: hidden;
+  display: flex;
+  font-size: 14px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #aaa;
+  img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    border-radius: 100%;
+  }
+`;
 
 const chain = ChainType.TestNet;
 
@@ -171,27 +190,27 @@ const PopFromBottomModal = () => {
               className="connect_butt"
               onClick={() => chooseWallet("walletConnect")}
             >
-              <div className="connect_wallet_img">
+              <ConnectWalletImageWrapper>
                 <img src={algowallet} alt="" />
-              </div>
+              </ConnectWalletImageWrapper>
               <p className="connect_wallet_txt">Algorand Wallet</p>
             </div>
             <div
               className="connect_butt"
               onClick={() => chooseWallet("myAlgo")}
             >
-              <div className="connect_wallet_img">
+              <ConnectWalletImageWrapper>
                 <img src={myalgo} alt="" />
-              </div>
+              </ConnectWalletImageWrapper>
               <p className="connect_wallet_txt">My Algo Wallet</p>
             </div>
             <div
               className="connect_butt"
               onClick={() => chooseWallet("algoSigner")}
             >
-              <div className="connect_wallet_img">
+              <ConnectWalletImageWrapper>
                 <img src={algosigner} alt="" />
-              </div>
+              </ConnectWalletImageWrapper>
               <p className="connect_wallet_txt">
                 {typeof (window as any).AlgoSigner === undefined
                   ? "Install AlgoSigner"

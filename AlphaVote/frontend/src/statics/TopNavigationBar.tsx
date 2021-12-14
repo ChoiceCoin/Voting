@@ -13,6 +13,52 @@ const RightMenuWrapper = styled.div`
   align-items: center;
 `;
 
+const MenuButton = styled.div`
+  height: 60px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 2px;
+  margin-right: 20px;
+  cursor: pointer;
+`;
+
+const SmallHeader = styled.header`
+  top: 0;
+  left: 0;
+  z-index: 90;
+  width: 100vw;
+  display: flex;
+  font-size: 13px;
+  color: var(--wht);
+  position: fixed;
+  flex-direction: column;
+  background-color: var(--background);
+  border-bottom: 1px solid var(--border-default);
+`;
+
+const SmallHeaderInner = styled.div<{ darkTheme: boolean }>`
+  width: 100%;
+  display: flex;
+  font-size: 13px;
+  flex-direction: row;
+  height: var(--sm-hd-height-half);
+  justify-content: space-between;
+  font-weight: ${({ darkTheme }) => (darkTheme ? "normal" : 500)};
+  p {
+    opacity: 0.8;
+  }
+`;
+
+const SiteTitle = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 6vw;
+  text-transform: uppercase;
+`;
+
 const TopNavigationBar: React.FC<{
   darkTheme: boolean;
 }> = ({ darkTheme }) => {
@@ -23,7 +69,7 @@ const TopNavigationBar: React.FC<{
     "///// This site is not responsive yet. Large screen view coming soon.";
 
   return (
-    <header className="small_header">
+    <SmallHeader>
       <div
         className="notResponsiveWarning"
         style={{ display: width > 800 ? "flex" : "none" }}
@@ -31,24 +77,14 @@ const TopNavigationBar: React.FC<{
         <p>{announcement}</p>
       </div>
 
-      <div className="small_header_inn">
-        <div
-          style={{
-            marginLeft: "6vw",
-            // width: "20px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            textTransform: "uppercase",
-          }}
-        >
+      <SmallHeaderInner darkTheme={darkTheme}>
+        <SiteTitle>
           {/* <img src="" alt="" /> */}
           Choice Coin
-        </div>
+        </SiteTitle>
 
         <RightMenuWrapper>
-          <div
-            className="sm_act_menu_butt"
+          <MenuButton
             onClick={() => {
               dispatch({ type: "modal_menu" });
             }}
@@ -64,13 +100,13 @@ const TopNavigationBar: React.FC<{
               />
             </p>
             <p style={{ paddingBottom: "2px" }}>menu</p>
-          </div>
+          </MenuButton>
           {connected && <TotalCommittedChoice />}
           {connected ? <AccountInfo /> : <ConnectWalletButton />}
           <Toggle darkTheme={darkTheme} />
         </RightMenuWrapper>
-      </div>
-    </header>
+      </SmallHeaderInner>
+    </SmallHeader>
   );
 };
 
