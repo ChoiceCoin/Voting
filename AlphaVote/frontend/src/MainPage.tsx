@@ -1,8 +1,4 @@
 import { NavLink, Route, Routes } from "react-router-dom";
-import WalletConnect from "@walletconnect/client";
-import QRCodeModal from "algorand-walletconnect-qrcode-modal";
-import MyAlgo from "@randlabs/myalgo-connect";
-
 import Faq from "./faq";
 import Home from "./Home";
 import Elections from "./elections";
@@ -18,16 +14,11 @@ import { useWindowSize } from "@react-hook/window-size";
 import { useEffect } from "react";
 import { State } from "./store/reducers";
 import { setConnector, setWalletType } from "./store/walletSlice";
-
-const getWalletConnect = () =>
-  new WalletConnect({
-    bridge: "https://bridge.walletconnect.org",
-    qrcodeModal: QRCodeModal,
-  });
-
-const getMyAlgo = () => new MyAlgo();
-
-const getAlgoSigner = () => (window as any).AlgoSigner;
+import {
+  getAlgoSigner,
+  getMyAlgo,
+  getWalletConnect,
+} from "./utils/walletUtils";
 
 const MainPage = () => {
   const [width] = useWindowSize();

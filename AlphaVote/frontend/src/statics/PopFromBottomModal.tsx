@@ -7,7 +7,6 @@ import ScrollText from "../components/ScrollText";
 import {
   ChainType,
   getAccountAssets,
-  reset,
   selectAddress,
   selectConnected,
   selectConnector,
@@ -16,8 +15,8 @@ import {
   setConnected,
   setWalletType,
 } from "../store/walletSlice";
-import WalletConnect from "@walletconnect/client";
 import styled from "styled-components";
+import { subscribeToEvents } from "../utils/walletUtils";
 
 const ConnectWalletImageWrapper = styled.div`
   width: 20px;
@@ -58,39 +57,6 @@ const PopFromBottomModal = () => {
     }
   };
 
-  const subscribeToEvents = useCallback(() => {
-    if (!walletConnector) {
-      return;
-    }
-    const _walletConnector = walletConnector as WalletConnect;
-    // Subscribe to connection events
-    _walletConnector.on("connect", (error, payload) => {
-      console.log("%cOn connect", "background: yellow");
-      if (error) {
-        throw error;
-      }
-      const { accounts } = payload.params[0];
-      dispatch(setAccounts(accounts));
-    });
-
-    _walletConnector.on("session_update", (error, payload) => {
-      console.log("%cOn session_update", "background: yellow");
-      if (error) {
-        throw error;
-      }
-      const { accounts } = payload.params[0];
-      dispatch(setAccounts(accounts));
-    });
-
-    _walletConnector.on("disconnect", (error, payload) => {
-      console.log("%cOn disconnect", "background: yellow");
-      if (error) {
-        throw error;
-      }
-      dispatch(reset());
-    });
-  }, [dispatch, walletConnector]);
-
   const setAccountsAtConnection = useCallback(
     (accounts: []) => {
       dispatch(setAccounts(accounts));
@@ -118,7 +84,7 @@ const PopFromBottomModal = () => {
         return;
       }
       if (walletType === "walletConnect") {
-        subscribeToEvents();
+        subscribeToEvents(dispatch)(walletConnector);
         if (!walletConnector.connected) {
           walletConnector.createSession();
         }
@@ -136,11 +102,9 @@ const PopFromBottomModal = () => {
         } else {
           (window as any).AlgoSigner.connect()
             .then((results: any) => {
-              console.log("results? ", results);
               setAlgoSignerAccounts();
             })
             .catch((error: ErrorEvent) => {
-              console.log("here?");
               console.error(error);
             });
         }
