@@ -1,16 +1,18 @@
-import { useEffect, useState } from "react";
-import { ASSET_ID } from "../constants";
 import algosdk from "algosdk";
-import { useDispatch } from "react-redux";
-import { URL } from "../constants";
+import { ASSET_ID } from "../constants";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import MyAlgoConnect from "@randlabs/myalgo-connect";
 import { useWindowSize } from "@react-hook/window-size";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { useQuery } from "react-query";
-import axios from "axios";
+import GetCommittedAmount from "../GetCommittedAmount";
 
 const TopNavigationBar = ({ darkTheme }) => {
   const dispatch = useDispatch();
+
+  const addressNum = useSelector((state) => state.status.addressNum);
+  const isWalletConnected =
+    localStorage.getItem("wallet-type") === null ? false : true;
 
   const LogOut = () => {
     localStorage.removeItem("address");
@@ -30,7 +32,7 @@ const TopNavigationBar = ({ darkTheme }) => {
   };
 
   const [width] = useWindowSize();
-  const [balance, setBalance] = useState(0);
+  const [balance, setBalance] = useState([]);
 
   const algodClient = new algosdk.Algodv2(
     {
@@ -41,24 +43,24 @@ const TopNavigationBar = ({ darkTheme }) => {
   );
 
   const walletAddress = localStorage.getItem("address");
+  const addresses = localStorage.getItem("addresses").split(",");
+
+  let addrArr = [];
 
   useEffect(() => {
-    const setMyBalance = async () => {
-      const myAccountInfo = await algodClient
-        .accountInformation(walletAddress)
-        .do();
+    addresses.forEach(async (item) => {
+      const myAccountInfo = await algodClient.accountInformation(item).do();
+      const bal =
+        myAccountInfo.assets.find((element) => element["asset-id"] === ASSET_ID)
+          ?.amount / 100;
 
-      const b = myAccountInfo.assets
-        ? myAccountInfo.assets.find(
-            (element) => element["asset-id"] === ASSET_ID
-          ).amount / 100
-        : 0;
+      addrArr.push({ balance: !!bal ? bal : 0, address: item });
 
-      setBalance(b);
-    };
-
-    setMyBalance();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+      if (addrArr?.length === addresses?.length) {
+        console.log(addrArr);
+        setBalance(addrArr);
+      }
+    });
   }, []);
 
   const myAlgoConnect = async () => {
@@ -68,11 +70,14 @@ const TopNavigationBar = ({ darkTheme }) => {
       const accounts = await myAlgoWallet.connect({
         shouldSelectOneAccount: true,
       });
+
+      const addresses = accounts.map((item) => item?.address);
       const address = accounts[0].address;
 
       // close modal.
       localStorage.setItem("wallet-type", "my-algo");
       localStorage.setItem("address", address);
+      localStorage.setItem("addresses", addresses);
 
       window.location.reload();
     } catch (error) {
@@ -88,7 +93,6 @@ const TopNavigationBar = ({ darkTheme }) => {
           "_blank"
         );
       } else {
-        console.log(window.AlgoSigner.accounts);
         await window.AlgoSigner.connect({
           ledger: "TestNet",
         });
@@ -96,11 +100,13 @@ const TopNavigationBar = ({ darkTheme }) => {
           ledger: "TestNet",
         });
 
+        const addresses = accounts.map((item) => item?.address);
         const address = accounts[0].address;
 
         // close modal.
         localStorage.setItem("wallet-type", "algosigner");
         localStorage.setItem("address", address);
+        localStorage.setItem("addresses", addresses);
 
         window.location.reload();
       }
@@ -108,15 +114,6 @@ const TopNavigationBar = ({ darkTheme }) => {
       alert("AlgoSigner not set up yet!");
     }
   };
-
-  const isWalletConnected =
-    localStorage.getItem("wallet-type") === null ? false : true;
-
-  const { isLoading, error, data } = useQuery("committed", () =>
-    axios
-      .get(`${URL}/committed/${walletAddress}`)
-      .then((response) => response.data.data)
-  );
 
   return (
     <header className="small_header">
@@ -140,18 +137,46 @@ const TopNavigationBar = ({ darkTheme }) => {
           }}
         >
           {!!isWalletConnected ? (
-            <div className="addrDisplay">
-              <div className="addrDisplayInn">
-                <div className="addrBalance">{balance} Choice</div>
+            <>
+              <div className="addrDisplay">
+                <div className="addrDispMain">
+                  <div className="addrDisplayInn">
+                    <div className="addrBalance">
+                      {balance[addressNum]?.balance} Choice
+                    </div>
 
-                <CopyToClipboard text={walletAddress}>
-                  <div className="addressTxt">
-                    <p>{walletAddress}</p>
-                    <i className="uil uil-copy"></i>
+                    <CopyToClipboard text={balance[addressNum]?.address}>
+                      <div className="addressTxt">
+                        <p>{balance[addressNum]?.address}</p>
+                        <i className="uil uil-copy"></i>
+                      </div>
+                    </CopyToClipboard>
                   </div>
-                </CopyToClipboard>
+                </div>
+
+                <div className="dropDownConnect_items">
+                  {balance?.map((item, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className="dropDownConnect_item"
+                        onClick={() => {
+                          dispatch({
+                            type: "setAlgoAddress",
+                            addressIndex: index,
+                            addr: item.address,
+                          });
+                        }}
+                      >
+                        <p className="dropDownConnect_item_txt">
+                          {item.address}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            </>
           ) : (
             <div className="dropDownConnect">
               <div className="dropDownConnect_button">
@@ -219,21 +244,11 @@ const TopNavigationBar = ({ darkTheme }) => {
       >
         <p style={{ opacity: "0.9" }}>
           Amount committed to Governance:&nbsp;
-          {!isLoading && !error ? data?.amount : 0} $Choice
+          {!!walletAddress && <GetCommittedAmount />} $Choice
         </p>
 
         {width > 850 && (
           <ul className="listNavBig">
-            <li>
-              H<i className="uil uil-estate" />
-              me
-            </li>
-            <li>
-              Elect<i className="uil uil-mailbox"></i>ons
-            </li>
-            <li>
-              Tr<i className="uil uil-exchange"></i>nsfer
-            </li>
             <li onClick={setMode}>
               M
               {darkTheme ? (
@@ -243,10 +258,7 @@ const TopNavigationBar = ({ darkTheme }) => {
               )}
               de
             </li>
-            <li onClick={LogOut}>
-              Sign Ou
-              <i className="uil uil-signout"></i>
-            </li>
+            <li onClick={LogOut}>Sign Out</li>
           </ul>
         )}
       </div>

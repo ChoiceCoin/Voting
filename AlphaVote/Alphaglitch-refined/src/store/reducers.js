@@ -2,14 +2,20 @@ import { combineReducers } from "redux";
 
 const status = (
   state = {
-    darkTheme: localStorage.getItem("mode") === "dark" ? true : false,
+    darkTheme: localStorage.getItem("mode") === "light" ? false : true,
     modalMenu: { openModal: false, modalType: "menu" },
     electModal: { openElectModal: false, modalData: null },
     voteModal: { openModalVote: false, voteData: null },
+    addressNum: 0,
+    address: null,
   },
   action
 ) => {
   switch (action.type) {
+    case "setAlgoAddress":
+      localStorage.setItem("address", `${action?.addr}`);
+      return { ...state, addressNum: action.addressIndex };
+
     case "light_mode":
       return { ...state, darkTheme: false };
     case "dark_mode":

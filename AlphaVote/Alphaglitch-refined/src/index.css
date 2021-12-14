@@ -1,4 +1,4 @@
-@import "reset.css";
+@import "./styles/reset.css";
 
 html,
 body {
@@ -136,19 +136,50 @@ main {
   border-bottom: 1px solid var(--wht);
 }
 
-/* ****************** */
+/* Addresses 
+****************** */
+.addrDisplay {
+  position: relative;
+  z-index: 9999;
+}
+.addrDispMain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--sm-hd-height-half);
+}
+.addrDisplay .dropDownConnect_items {
+  right: 0;
+  position: absolute;
+  flex-direction: column;
+  background: var(--back-1);
+  border-radius: 8px;
+  display: none;
+  border: 1px solid var(--border-default);
+}
+.addrDisplay .dropDownConnect_item {
+  padding: 15px 20px;
+}
 
+.addrDisplay:hover .dropDownConnect_items {
+  display: flex;
+}
+
+.addrDisplay .dropDownConnect_item_txt {
+  width: 200px;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* *************** */
 .dropDownConnect {
   position: relative;
   z-index: 99999999;
 }
 
 /*  */
-.addrDisplay {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-}
+
 .addrDisplayInn {
   color: var(--wht);
   font-size: 12px;
@@ -213,8 +244,11 @@ main {
   padding-right: 40px;
   cursor: pointer;
 }
-.dropDownConnect_item:nth-child(1) {
+.dropDownConnect_item {
   border-bottom: 1px solid var(--border-default);
+}
+.dropDownConnect_item:last-child {
+  border-bottom: none;
 }
 .dropDownConnect_img {
   width: 20px;
@@ -312,7 +346,7 @@ main {
   max-width: 350px;
   margin: auto;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .ft_sm_li {
   display: flex;

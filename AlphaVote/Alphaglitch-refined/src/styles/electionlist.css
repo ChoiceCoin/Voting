@@ -198,7 +198,7 @@
   margin: 10px 0px;
   align-items: center;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 }
 .card_butts button {
   font-size: 13px;
@@ -241,7 +241,6 @@
 
 .vote_collap {
   width: 100%;
-  max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }

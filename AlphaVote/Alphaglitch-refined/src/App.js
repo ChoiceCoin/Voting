@@ -6,15 +6,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 const MainPage = loadable(() => import("./MainPage"));
-const PopFromBottomModal = loadable(() =>
-  import("./statics/PopFromBottomModal")
-);
-const PopFromBottomModalToVote = loadable(() =>
-  import("./statics/PopFromBottomModalToVote")
-);
-const OverlayElectionModal = loadable(() =>
-  import("./statics/OverlayElectionModal")
-);
 
 const renderLoader = () => <p></p>;
 
@@ -26,9 +17,6 @@ const App = () => {
         <QueryClientProvider client={queryClient}>
           <Router>
             <MainPage />
-            <PopFromBottomModal />
-            <OverlayElectionModal />
-            <PopFromBottomModalToVote />
           </Router>
         </QueryClientProvider>
       </ReduxProvider>
