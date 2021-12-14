@@ -8,11 +8,7 @@ import {
   selectAssets,
   selectChain,
 } from "../store/walletSlice";
-import {
-  ellipseAddress,
-  formatAlgoWithDecimals,
-  formatBigNumWithDecimals,
-} from "../utils/stringUtils";
+import { ellipseAddress, formatBigNumWithDecimals } from "../utils/stringUtils";
 import { ASSET_ID } from "../constants";
 
 const AccountInfoWrapper = styled.div`
@@ -76,6 +72,7 @@ const AccountInfo = () => {
   const address = useSelector(selectAddress);
   const assets = useSelector(selectAssets);
   const chain = useSelector(selectChain);
+  // eslint-disable-next-line
   const nativeCurrency = getAlgoAssetData(assets);
   const choiceCoin = getChoiceCoinData(assets, chain);
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {
   ChainType,
   IAssetData,
@@ -48,7 +48,6 @@ const TotalCommittedChoice = () => {
     userTotalCommittedChoiceToVoting,
     setUserTotalCommittedChoiceToVoting,
   ] = useState<bigint>(BigInt(0));
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!data) {
@@ -91,7 +90,7 @@ const TotalCommittedChoice = () => {
           );
         setUserTotalCommittedChoiceToVoting(BigInt(_totalCommittedChoice));
       });
-  }, [chain, data]);
+  }, [chain, data, address]);
 
   if (!data || isLoading || !address || !choiceCoin) return <></>;
 

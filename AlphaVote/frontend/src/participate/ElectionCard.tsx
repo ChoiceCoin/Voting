@@ -28,7 +28,7 @@ import {
   selectWalletType,
 } from "../store/walletSlice";
 import { ASSET_ID } from "../constants";
-import { apiGetTxnParams, apiSubmitTransactions } from "../utils/api";
+import { apiGetTxnParams } from "../utils/api";
 import algosdk from "algosdk";
 import { sendWait, sign } from "../utils/walletUtils";
 const Chart = loadable(() => import("../components/Chart"));

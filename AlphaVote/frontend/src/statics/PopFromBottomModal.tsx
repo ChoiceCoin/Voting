@@ -1,9 +1,6 @@
-import react, { Dispatch, useEffect } from "react";
-import algosdk from "algosdk";
+import { Dispatch, useCallback, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import MyAlgoConnect from "@randlabs/myalgo-connect";
 import WalletConnect from "@walletconnect/client";
-import { ASSET_ID } from "../constants";
 import algowallet from "../assets/algorandwallet.svg";
 import myalgo from "../assets/myalgo.svg";
 import algosigner from "../assets/algosigner.svg";
@@ -17,7 +14,6 @@ import {
   selectWalletType,
   setAccounts,
   setConnected,
-  setConnector,
   setWalletType,
 } from "../store/walletSlice";
 
@@ -74,12 +70,15 @@ const PopFromBottomModal = () => {
     }
   };
 
-  const setAccountsAtConnection = (accounts: []) => {
-    dispatch(setAccounts(accounts));
-    dispatch(setConnected(true));
-  };
+  const setAccountsAtConnection = useCallback(
+    (accounts: []) => {
+      dispatch(setAccounts(accounts));
+      dispatch(setConnected(true));
+    },
+    [dispatch]
+  );
 
-  const setAlgoSignerAccounts = () => {
+  const setAlgoSignerAccounts = useCallback(() => {
     connector
       .accounts({ ledger: "TestNet" })
       .then((accounts: []) => {
@@ -88,9 +87,9 @@ const PopFromBottomModal = () => {
       .catch((error: ErrorEvent) => {
         console.error(error);
       });
-  };
+  }, [connector, setAccountsAtConnection]);
 
-  const connectWallet = () => {
+  const connectWallet = useCallback(() => {
     if (walletType && connector && !address) {
       // Check if connection is already established
       // Connect wallet
@@ -127,11 +126,19 @@ const PopFromBottomModal = () => {
       }
       dispatch({ type: "close_vote_modal" });
     }
-  };
+  }, [
+    connector,
+    address,
+    connected,
+    dispatch,
+    setAccountsAtConnection,
+    setAlgoSignerAccounts,
+    walletType,
+  ]);
 
   useEffect(() => {
     connectWallet();
-  }, [connector]);
+  }, [connectWallet]);
 
   useEffect(() => {
     // Check if connection is already established
