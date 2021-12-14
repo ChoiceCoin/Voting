@@ -1,10 +1,26 @@
-import Toggle from "../components/Toggle";
-import { useDispatch } from "react-redux";
+import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
 import { useWindowSize } from "@react-hook/window-size";
+import Toggle from "../components/Toggle";
+import ConnectWalletButton from "../components/ConnectWalletButton";
+import AccountInfo from "../components/AccountInfo";
+import { selectConnected } from "../store/walletSlice";
+import TotalCommittedChoice from "../components/TotalCommittedChoice";
 
-const TopNavigationBar = ({ darkTheme }) => {
+const RightMenuWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+const TopNavigationBar: React.FC<{
+  darkTheme: boolean;
+}> = ({ darkTheme }) => {
+  const connected = useSelector(selectConnected);
   const dispatch = useDispatch();
   const [width] = useWindowSize();
+  const announcement =
+    "///// This site is not responsive yet. Large screen view coming soon.";
 
   return (
     <header className="small_header">
@@ -12,9 +28,7 @@ const TopNavigationBar = ({ darkTheme }) => {
         className="notResponsiveWarning"
         style={{ display: width > 800 ? "flex" : "none" }}
       >
-        <p>
-          ///// This site is not responsive yet. Large screen view coming soon.
-        </p>
+        <p>{announcement}</p>
       </div>
 
       <div className="small_header_inn">
@@ -32,7 +46,7 @@ const TopNavigationBar = ({ darkTheme }) => {
           Choice Coin
         </div>
 
-        <div style={{ display: "flex", flexDirection: "row" }}>
+        <RightMenuWrapper>
           <div
             className="sm_act_menu_butt"
             onClick={() => {
@@ -51,10 +65,10 @@ const TopNavigationBar = ({ darkTheme }) => {
             </p>
             <p style={{ paddingBottom: "2px" }}>menu</p>
           </div>
-          <div className="theme_tog">
-            <Toggle darkTheme={darkTheme} />
-          </div>
-        </div>
+          {connected && <TotalCommittedChoice />}
+          {connected ? <AccountInfo /> : <ConnectWalletButton />}
+          <Toggle darkTheme={darkTheme} />
+        </RightMenuWrapper>
       </div>
     </header>
   );

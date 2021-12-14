@@ -1,14 +1,18 @@
-import { combineReducers } from "redux";
+export interface AppState {
+  darkTheme: boolean,
+  modalMenu: { openModal: boolean, modalType: string },
+  electModal: { openElectModal: boolean, modalData: [] | null },
+  voteModal: { openModalVote: boolean, voteData: [] | null },
+}
 
-const status = (
-  state = {
-    darkTheme: localStorage.getItem("mode") === "light" ? false : true,
-    modalMenu: { openModal: false, modalType: "menu" },
-    electModal: { openElectModal: false, modalData: null },
-    voteModal: { openModalVote: false, voteData: null },
-  },
-  action
-) => {
+const initialState = {
+  darkTheme: localStorage.getItem("mode") === "light" ? false : true,
+  modalMenu: { openModal: false, modalType: "menu" },
+  electModal: { openElectModal: false, modalData: null },
+  voteModal: { openModalVote: false, voteData: null },
+} as AppState;
+
+export default function appSlice(state = initialState, action: {type: string, payload: any}) {
   switch (action.type) {
     case "light_mode":
       return { ...state, darkTheme: false };
@@ -26,7 +30,7 @@ const status = (
     case "modal_connect_vote":
       return {
         ...state,
-        voteModal: { openModalVote: true, voteData: action.voteData },
+        voteModal: { openModalVote: true, voteData: action.payload },
       };
     case "close_vote_modal":
       return { ...state, voteModal: { openModalVote: false, voteData: null } };
@@ -48,6 +52,4 @@ const status = (
     default:
       return state;
   }
-};
-
-export default combineReducers({ status });
+}
