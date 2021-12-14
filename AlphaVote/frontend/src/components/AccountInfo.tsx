@@ -2,14 +2,17 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import {
   ChainType,
+  getAccountAssets,
   IAssetData,
   killSession,
   selectAddress,
   selectAssets,
   selectChain,
+  selectConnector,
 } from "../store/walletSlice";
 import { ellipseAddress, formatBigNumWithDecimals } from "../utils/stringUtils";
 import { ASSET_ID } from "../constants";
+import { useEffect } from "react";
 
 const AccountInfoWrapper = styled.div`
   display: flex;
@@ -69,6 +72,7 @@ export const getAlgoAssetData = (assets: IAssetData[]) => {
 };
 
 const AccountInfo = () => {
+  const connector = useSelector(selectConnector);
   const address = useSelector(selectAddress);
   const assets = useSelector(selectAssets);
   const chain = useSelector(selectChain);
@@ -76,7 +80,17 @@ const AccountInfo = () => {
   const nativeCurrency = getAlgoAssetData(assets);
   const choiceCoin = getChoiceCoinData(assets, chain);
   const dispatch = useDispatch();
-  if (!address) return <></>;
+
+  useEffect(() => {
+    // Check if connection is already established
+    console.log("address: ", address);
+    if (connector && address && address.length > 0) {
+      dispatch(getAccountAssets({ chain, address }));
+    }
+  }, [address]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  if (!(connector && address)) return <></>;
+
   return (
     <AccountInfoWrapper>
       {choiceCoin && (

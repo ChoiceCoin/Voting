@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import _ from "lodash";
 import loadable from "@loadable/component";
 import React, {
   ChangeEvent,
@@ -37,10 +38,6 @@ export interface Candidate {
   image: string;
   address: string;
 }
-export interface CandidateCard {
-  cand_score: number;
-  cand_det: string;
-}
 export interface Election {
   candidates: Candidate[];
   wallet: {
@@ -51,12 +48,17 @@ export interface Election {
   slug: string;
   card_desc: string;
   choice_per_vote: number;
-  card_cand: CandidateCard[];
+  card_cand: [
+    {
+      cand_score: number;
+      cand_det: string;
+    }
+  ];
 }
 
 // TODO: need to pull out the types
 const ElectionCard: React.FC<{
-  scores: number[];
+  scores: [];
   options: [];
   election: Election;
 }> = ({ scores, options, election }) => {
@@ -75,9 +77,7 @@ const ElectionCard: React.FC<{
 
   const dispatch = useDispatch();
 
-  const totalScore: number = scores.reduce(
-    (prev: number, curr: number) => prev + curr
-  );
+  const totalScore = _.sum(scores);
 
   const submitVoteHandler = async () => {
     if (!voteOptionChosen) {

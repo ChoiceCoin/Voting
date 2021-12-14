@@ -1,12 +1,6 @@
 import algosdk, { Transaction } from "algosdk";
 import { formatJsonRpcRequest } from "@json-rpc-tools/utils";
-import WalletConnect from "@walletconnect/client";
-import QRCodeModal from "algorand-walletconnect-qrcode-modal";
-import MyAlgo from "@randlabs/myalgo-connect";
-
 import { ChainType, clientForChain } from "./api";
-import { reset, setAccounts } from "../store/walletSlice";
-import { Dispatch } from "react";
 
 export interface SignedTxn {
   txID: string
@@ -101,48 +95,3 @@ async function waitForConfirmation(txId: string, timeout: number, chain: ChainTy
   /* eslint-enable no-await-in-loop */
   throw new Error(`Transaction not confirmed after ${timeout} rounds!`);
 }
-
-
-// eslint-disable-next-line
-export const subscribeToEvents = (dispatch: Dispatch<any>) => (_walletConnector: WalletConnect) => {
-  if (!_walletConnector) {
-    return;
-  }
-  // Subscribe to connection events
-  _walletConnector.on("connect", (error, payload) => {
-    console.log("%cOn connect", "background: yellow");
-    if (error) {
-      throw error;
-    }
-    const { accounts } = payload.params[0];
-    dispatch(setAccounts(accounts));
-  });
-
-  _walletConnector.on("session_update", (error, payload) => {
-    console.log("%cOn session_update", "background: yellow");
-    if (error) {
-      throw error;
-    }
-    const { accounts } = payload.params[0];
-    dispatch(setAccounts(accounts));
-  });
-
-  _walletConnector.on("disconnect", (error, payload) => {
-    console.log("%cOn disconnect", "background: yellow");
-    if (error) {
-      throw error;
-    }
-    dispatch(reset());
-  });
-};
-
-  
-export const getWalletConnect = () =>
-  new WalletConnect({
-    bridge: "https://bridge.walletconnect.org",
-    qrcodeModal: QRCodeModal,
-  });
-
-export const getMyAlgo = () => new MyAlgo();
-
-export const getAlgoSigner = () => (window as any).AlgoSigner;
