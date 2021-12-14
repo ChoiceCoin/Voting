@@ -1,13 +1,15 @@
 import React from "react";
-import {HStack, NativeBaseProvider, Button, VStack, Text, Avatar, ScrollView} from "native-base";
+import {HStack, NativeBaseProvider, Button, VStack, Text, Avatar, ScrollView, Pressable} from "native-base";
 import { Icon } from 'native-base';
-import { Ionicons, FontAwesome } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import * as Linking from 'expo-linking';
+import {TouchableOpacity} from "react-native";
 
 // Use ReactNative Linking for linking to websites
 // Convert to components ;-)
 
 
-export  function ViewCandidates({ navigation }){
+export function ViewCandidates({ navigation }){
 
 
     return(
@@ -30,9 +32,11 @@ export  function ViewCandidates({ navigation }){
                     </Text>
                 </VStack>
                 <HStack space={4}>
-                    <Icon as={Ionicons} name="logo-facebook" />
-                    <Icon as={Ionicons} name="logo-github" />
-                    <Icon as={Ionicons} name="information-circle" />
+
+                    <TouchableOpacity onPress={()=>{Linking.openURL('https://facebook.com/anessixDesigns');}}><Icon as={Ionicons} name="logo-facebook" /></TouchableOpacity>
+                    <TouchableOpacity onPress={()=>{Linking.openURL('https://github.com');}}><Icon as={Ionicons} name="logo-github" /></TouchableOpacity>
+                    <TouchableOpacity onPress={()=>{Linking.openURL('https://Xekhai.com.ng');}}><Icon as={Ionicons} name="information-circle" /></TouchableOpacity>
+
                 </HStack>
             </VStack>
             <VStack shadow={2} bg={'red.100'} justifyContent={'center'} alignItems={'center'} p={5} space={4} m={5} rounded={'md'}>
@@ -46,28 +50,14 @@ export  function ViewCandidates({ navigation }){
                     </Text>
                 </VStack>
                 <HStack space={4}>
-                    <Icon as={Ionicons} name="logo-facebook" />
-                    <Icon as={Ionicons} name="logo-github" />
-                    <Icon as={Ionicons} name="information-circle" />
+
+                    <TouchableOpacity onPress={()=>{Linking.openURL('https://facebook.com/');}}><Icon as={Ionicons} name="logo-facebook" /></TouchableOpacity>
+                    <TouchableOpacity onPress={()=>{Linking.openURL('https://github.com/Xekhai');}}><Icon as={Ionicons} name="logo-github" /></TouchableOpacity>
+                    <TouchableOpacity onPress={()=>{Linking.openURL('https://dribble.com');}}><Icon as={Ionicons} name="information-circle" /></TouchableOpacity>
+
                 </HStack>
             </VStack>
-            <VStack shadow={2} bg={'yellow.100'} justifyContent={'center'} alignItems={'center'} p={5} space={4} m={5} rounded={'md'}>
-                <Avatar borderWidth={3}  source={{uri:'http://xekhai.com.ng/ccui/CCUI/assets/images/team3.jpg'}} size={'2xl'}>PP</Avatar>
-                <VStack w={'100%'}>
-                    <Text alignSelf={'center'}>
-                        Jessica Swift
-                    </Text>
-                    <Text alignSelf={'center'}>
-                        Analyst
-                    </Text>
-                </VStack>
-                <HStack space={4}>
-                    <Icon as={Ionicons} name="logo-facebook" />
-                    <Icon as={Ionicons} name="logo-github" />
-                    <Icon as={Ionicons} name="information-circle" />
-                </HStack>
-            </VStack>
-        </VStack>
+                    </VStack>
             </ScrollView>
         </NativeBaseProvider>
     )

@@ -1,6 +1,7 @@
 import React from "react";
 import {Image, NativeBaseProvider, Button, VStack, Text, TextArea, ScrollView, KeyboardAvoidingView, useBreakpointValue} from "native-base";
 import {Platform} from "react-native";
+import * as Linking from 'expo-linking';
 
 export function Nfinal({ route, navigation }) {
 
@@ -9,14 +10,14 @@ export function Nfinal({ route, navigation }) {
        <NativeBaseProvider>
 
            <ScrollView>
-               <KeyboardAvoidingView
-                   h={{
-                   base: "400px",
-                   lg: "auto",
-                      }}
-                   behavior={Platform.OS === "ios" ? "padding" : "height"}
-               >
-          <VStack p="5" pb="10" pt='100' h="full" justifyContent="flex-end">
+
+          <VStack p="5" pb="10" pt='100' h="full" justifyContent="flex-end"><KeyboardAvoidingView
+              h={{
+                  base: "400px",
+                  lg: "auto",
+              }}
+              behavior={Platform.OS === "ios" ? "padding" : "height"}
+          >
              <Image
                 size="200"
                 resizeMode="cover"
@@ -35,14 +36,13 @@ export function Nfinal({ route, navigation }) {
              <Text fontSize="10" mb="30" color="green.300">
                 Success
              </Text>
-             <Text mb="5">Verify the Authencity of your decision.</Text>
-              <TextArea>{route.params.data}</TextArea>
+             <Text mb="100">{'Verify the Authencity of your decision.'}</Text>
              <Button
                 variant="link"
                 size="lg"
                 colorScheme="dark"
                 my="5"
-                onPress={() => navigation.navigate('Home')}
+                onPress={() => {Linking.openURL(`https://testnet.algoexplorer.io/tx/${route.params.data}`)}}
              >
                 Verify now
              </Button>
@@ -53,8 +53,9 @@ export function Nfinal({ route, navigation }) {
              >
                 Home
              </Button>
+          </KeyboardAvoidingView>
+
           </VStack>
-               </KeyboardAvoidingView>
            </ScrollView>
 
 </NativeBaseProvider>

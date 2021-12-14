@@ -4,7 +4,7 @@
 
 ## Android APK
 
-> https://docs.google.com/uc?export=download&id=1fgHJoJnxEmD9VOWf-Gmq5nLZ4frSgkRshttps://youtu.be/GiHODFmTrpQ
+> https://github.com/Xekhai/Voting/tree/main/Xekhai/APK%20Builds
 
 ## To RUN
 
