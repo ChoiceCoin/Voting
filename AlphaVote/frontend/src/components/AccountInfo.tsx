@@ -84,14 +84,16 @@ const AccountInfo = () => {
     <AccountInfoWrapper>
       {choiceCoin && (
         <AssetInfo>
+          Balance:{" "}
           {formatBigNumWithDecimals(choiceCoin.amount, choiceCoin.decimals)}{" "}
           {choiceCoin.unitName || "units"}
         </AssetInfo>
       )}
-      <AssetInfo>
+      {/* Hide Algo balance on header for now */}
+      {/* <AssetInfo>
         {formatAlgoWithDecimals(nativeCurrency.amount, nativeCurrency.decimals)}{" "}
         {nativeCurrency.unitName || "units"}
-      </AssetInfo>
+      </AssetInfo> */}
       <ConnectedAddressWrapper>
         <Address>
           {ellipseAddress(address)}

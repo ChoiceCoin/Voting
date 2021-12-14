@@ -34,17 +34,17 @@ const Participate = () => {
           <p>Participate in Ongoing Elections</p>
         </div>
         <ul className="card_list">
-          {data?.map((slug: any, index: any) => {
-            const scores = slug?.candidates.map((data: any) =>
+          {data?.map((election: any, index: any) => {
+            const scores = election?.candidates.map((data: any) =>
               data?.votes ? data?.votes : 0
             );
-            const options = slug?.candidates.map((data: any) => data?.name);
+            const options = election?.candidates.map((data: any) => data?.name);
 
             return (
               <ElectionCard
                 scores={scores}
                 options={options}
-                slug={slug}
+                election={election}
                 key={index}
               />
             );

@@ -7,7 +7,9 @@ export enum ChainType {
 }
 
 const mainNetClient = new algosdk.Algodv2("", "https://algoexplorerapi.io", "");
-export const testNetClient = new algosdk.Algodv2("", "https://testnet.algoexplorerapi.io", "");
+const testNetClient = new algosdk.Algodv2("", "https://testnet.algoexplorerapi.io", "");
+const mainNetIndexer = new algosdk.Indexer("", "https://algoexplorerapi.io/idx2", "");
+const testNetIndexer = new algosdk.Indexer("", "https://testnet.algoexplorerapi.io/idx2", "");
 
 export function clientForChain(chain: ChainType): algosdk.Algodv2 {
   switch (chain) {
@@ -15,6 +17,17 @@ export function clientForChain(chain: ChainType): algosdk.Algodv2 {
       return mainNetClient;
     case ChainType.TestNet:
       return testNetClient;
+    default:
+      throw new Error(`Unknown chain type: ${chain}`);
+  }
+}
+
+export function indexerForChain(chain: ChainType): algosdk.Indexer {
+  switch (chain) {
+    case ChainType.MainNet:
+      return mainNetIndexer;
+    case ChainType.TestNet:
+      return testNetIndexer;
     default:
       throw new Error(`Unknown chain type: ${chain}`);
   }

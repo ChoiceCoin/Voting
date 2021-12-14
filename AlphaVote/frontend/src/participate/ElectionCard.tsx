@@ -33,33 +33,35 @@ import algosdk from "algosdk";
 import { sendWait, sign } from "../utils/walletUtils";
 const Chart = loadable(() => import("../components/Chart"));
 
+export interface Candidate {
+  name: string;
+  image: string;
+  address: string;
+}
+export interface Election {
+  candidates: Candidate[];
+  wallet: {
+    address: "";
+  };
+  process_image: string;
+  title: string;
+  slug: string;
+  card_desc: string;
+  choice_per_vote: number;
+  card_cand: [
+    {
+      cand_score: number;
+      cand_det: string;
+    }
+  ];
+}
+
 // TODO: need to pull out the types
 const ElectionCard: React.FC<{
   scores: [];
   options: [];
-  slug: {
-    candidates: [
-      {
-        name: string;
-        image: string;
-        address: string;
-      }
-    ];
-    wallet: {
-      address: "";
-    };
-    process_image: string;
-    title: string;
-    card_desc: string;
-    choice_per_vote: number;
-    card_cand: [
-      {
-        cand_score: number;
-        cand_det: string;
-      }
-    ];
-  };
-}> = ({ scores, options, slug }) => {
+  election: Election;
+}> = ({ scores, options, election }) => {
   const [isVoteListCollapsed, setIsVoteListCollapsed] = useState(true);
   const [isChartCollapsed, setIsChartCollapsed] = useState(true);
   const [voteOptionChosen, setVoteOptionChosen] = useState("");
@@ -84,7 +86,7 @@ const ElectionCard: React.FC<{
     }
 
     // if the address trying to vote is the same as the election creator
-    if (address === slug.wallet.address) {
+    if (address === election.wallet.address) {
       alert("You cannot vote in an election you created");
       dispatch({ type: "close_vote_modal" });
       return;
@@ -175,7 +177,7 @@ const ElectionCard: React.FC<{
   useEffect(() => collapseOrExpandVoteList(), [collapseOrExpandVoteList]);
   useEffect(() => collapseOrExpandChart(), [collapseOrExpandChart]);
 
-  if (!slug) {
+  if (!election) {
     return null;
   }
 
@@ -183,21 +185,21 @@ const ElectionCard: React.FC<{
     <div className="card_cont">
       <div className="card_r1">
         <div className="card_elt_img">
-          <img src={slug.process_image} alt="" />
+          <img src={election.process_image} alt="" />
         </div>
-        <div className="card_elt_tit">{slug.title}</div>
+        <div className="card_elt_tit">{election.title}</div>
       </div>
 
-      <div className="card_elt_desc">{slug?.card_desc}</div>
+      <div className="card_elt_desc">{election?.card_desc}</div>
 
       <div className="card_cand">
         <div className="card_cand_hd">
           <p>Candidates</p>
-          <p>Amt:&nbsp;{slug?.choice_per_vote}</p>
+          <p>Amt:&nbsp;{election?.choice_per_vote}</p>
         </div>
 
         <ul className="card_cand_list">
-          {slug?.candidates?.map((item, index) => (
+          {election?.candidates?.map((item, index) => (
             <li className="cand_item" key={index}>
               <div className="cand_img_cont">
                 {!!item.image ? (
@@ -214,7 +216,7 @@ const ElectionCard: React.FC<{
         <CollapsedChart isChartCollapsed={isChartCollapsed}>
           <Chart scores={scores} options={options} />
           <CandidatePercentage>
-            {slug?.card_cand?.map((item, index) => (
+            {election?.card_cand?.map((item, index) => (
               <li key={index}>
                 {Math.floor((item.cand_score / totalScore) * 100)}
                 %&nbsp;
@@ -230,24 +232,18 @@ const ElectionCard: React.FC<{
         >
           <div className="card_cand_hd">Options</div>
           <VoteNowList>
-            {slug?.candidates?.map((item, index) => {
-              const id = item.address.slice(
-                0,
-                item.address.length > 16
-                  ? item.address.length / 2
-                  : item.address.length
-              );
+            {election?.candidates?.map((item, index) => {
               return (
                 <li key={index}>
                   <input
                     type="radio"
-                    id={id}
+                    id={election.slug}
                     name="options"
                     value={item.address}
                     onChange={onVoteOptionChosen}
                   />
 
-                  <LabelRow htmlFor={id}>
+                  <LabelRow htmlFor={election.slug}>
                     <div className="vote_img_cont">
                       {!!item.image ? (
                         <img src={item.image} alt="" />

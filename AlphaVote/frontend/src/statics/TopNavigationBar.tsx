@@ -5,6 +5,7 @@ import Toggle from "../components/Toggle";
 import ConnectWalletButton from "../components/ConnectWalletButton";
 import AccountInfo from "../components/AccountInfo";
 import { selectConnected } from "../store/walletSlice";
+import TotalCommittedChoice from "../components/TotalCommittedChoice";
 
 const RightMenuWrapper = styled.div`
   display: flex;
@@ -64,6 +65,7 @@ const TopNavigationBar: React.FC<{
             </p>
             <p style={{ paddingBottom: "2px" }}>menu</p>
           </div>
+          {connected && <TotalCommittedChoice />}
           {connected ? <AccountInfo /> : <ConnectWalletButton />}
           <Toggle darkTheme={darkTheme} />
         </RightMenuWrapper>
