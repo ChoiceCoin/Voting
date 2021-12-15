@@ -153,6 +153,7 @@
   font-size: 15px;
   padding: 7px 12px;
   border-radius: 12px;
+  background: transparent;
   border: 1px solid var(--bord-dark);
 }
 

@@ -10,7 +10,10 @@ const indexerClient = new algosdk.Indexer(token, indexerAddress, port);
 
 const GetCommittedAmount = () => {
   const addressNum = useSelector((state) => state.status.addressNum);
-  const userAddress = localStorage.getItem("addresses").split(",")[addressNum];
+  const walletAddress = localStorage.getItem("address");
+  const userAddress = !!walletAddress
+    ? walletAddress
+    : localStorage.getItem("addresses").split(",")[addressNum];
 
   // const userAddress = localStorage.getItem("address");
 

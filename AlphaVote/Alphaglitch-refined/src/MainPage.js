@@ -4,6 +4,7 @@ import { useWindowSize } from "@react-hook/window-size";
 import { NavLink, Route, Routes } from "react-router-dom";
 import TopNavigationBar from "./statics/TopNavigationBar";
 import BottomNavigationBar from "./statics/BottomNavigationBar";
+import Test from "./statics/Test";
 
 const MainPage = () => {
   const [width] = useWindowSize();
@@ -17,6 +18,8 @@ const MainPage = () => {
       id="main_main"
     >
       <TopNavigationBar darkTheme={darkTheme} />
+
+      {/* <Test /> */}
 
       <Routes>
         <Route path="/" element={<ElectionList />} />

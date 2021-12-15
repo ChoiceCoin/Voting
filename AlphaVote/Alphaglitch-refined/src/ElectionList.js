@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import algosdk from "algosdk";
 import { ASSET_ID } from "./constants";
 import MyAlgoConnect from "@randlabs/myalgo-connect";
+import { formatJsonRpcRequest } from "@json-rpc-tools/utils";
+import WalletConnect from "@walletconnect/client";
+import QRCodeModal from "algorand-walletconnect-qrcode-modal";
 
 const ElectionList = () => {
   const dispatch = useDispatch();
@@ -22,7 +25,7 @@ const ElectionList = () => {
   const walletAddress = localStorage.getItem("address");
   const walletType = localStorage.getItem("wallet-type");
 
-  const addresses = localStorage.getItem("addresses").split(",");
+  const addresses = localStorage.getItem("addresses")?.split(",");
 
   const isThereAddress = localStorage.getItem("address");
 
@@ -41,7 +44,7 @@ const ElectionList = () => {
           name: "No",
         },
       ],
-      choice_per_vote: 3,
+      choice_per_vote: 1,
       created_at: "2021-12-08T10:32:15.878473",
       description: "Lorem ipsum",
       is_finished: false,
@@ -123,6 +126,7 @@ const ElectionList = () => {
       alert("You have successfully placed your vote for this election");
       window.location.reload();
     } catch (error) {
+      alert("An error occured the during transaction process");
       console.log(error);
     }
   };
@@ -210,7 +214,86 @@ const ElectionList = () => {
         window.location.reload();
       }
     } catch (error) {
-      alert("An error occured while trying to connect AlgoSigner");
+      alert("An error occured the during transaction process");
+      console.log(error);
+    }
+  };
+
+  const algoMobileConnect = async (voteData) => {
+    const connector = new WalletConnect({
+      bridge: "https://bridge.walletconnect.org",
+      qrcodeModal: QRCodeModal,
+    });
+
+    try {
+      const address = !!isThereAddress ? isThereAddress : "";
+
+      const myAccountInfo = await algodClient.accountInformation(address).do();
+
+      const balance = myAccountInfo.assets
+        ? myAccountInfo.assets.find(
+            (element) => element["asset-id"] === ASSET_ID
+          ).amount / 100
+        : 0;
+
+      const containsChoice = myAccountInfo.assets
+        ? myAccountInfo.assets.some(
+            (element) => element["asset-id"] === ASSET_ID
+          )
+        : false;
+
+      if (myAccountInfo.assets.length === 0) {
+        alert("You need to optin to Choice Coin");
+        return;
+      }
+
+      if (!containsChoice) {
+        alert("You need to optin to Choice Coin");
+        return;
+      }
+
+      if (voteData.amount > balance) {
+        alert("You do not have sufficient balance to make this transaction.");
+        return;
+      }
+
+      const suggestedParams = await algodClient.getTransactionParams().do();
+      const amountToSend = voteData.amount * 100;
+
+      const txn = algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
+        from: address,
+        to: voteData.address,
+        amount: amountToSend,
+        assetIndex: ASSET_ID,
+        suggestedParams,
+      });
+
+      const txnsToSign = [
+        {
+          txn: Buffer.from(algosdk.encodeUnsignedTransaction(txn)).toString(
+            "base64"
+          ),
+          message: "Transaction using Mobile Wallet",
+        },
+      ];
+
+      const requestParams = [txnsToSign];
+
+      const request = formatJsonRpcRequest("algo_signTxn", requestParams);
+      const result = await connector.sendCustomRequest(request);
+
+      const decodedResult = result.map((element) => {
+        return element ? new Uint8Array(Buffer.from(element, "base64")) : null;
+      });
+
+      console.log(decodedResult);
+
+      await algodClient.sendRawTransaction(decodedResult).do();
+
+      alert("You have successfully placed your vote for this election");
+      window.location.reload();
+    } catch (error) {
+      alert("An error occured the during transaction process");
       console.log(error);
     }
   };
@@ -225,6 +308,8 @@ const ElectionList = () => {
       myAlgoConnect({ address, amount, election });
     } else if (walletType === "algosigner") {
       algoSignerConnect({ address, amount, election });
+    } else if (walletType === "walletconnect") {
+      algoMobileConnect({ address, amount, election });
     }
   };
 

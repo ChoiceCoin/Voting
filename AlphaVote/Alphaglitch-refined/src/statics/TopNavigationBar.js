@@ -7,6 +7,9 @@ import { useWindowSize } from "@react-hook/window-size";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import GetCommittedAmount from "../GetCommittedAmount";
 
+import WalletConnect from "@walletconnect/client";
+import QRCodeModal from "algorand-walletconnect-qrcode-modal";
+
 const TopNavigationBar = ({ darkTheme }) => {
   const dispatch = useDispatch();
 
@@ -16,7 +19,9 @@ const TopNavigationBar = ({ darkTheme }) => {
 
   const LogOut = () => {
     localStorage.removeItem("address");
+    localStorage.removeItem("addresses");
     localStorage.removeItem("wallet-type");
+    localStorage.removeItem("walletconnect");
     window.location.reload();
     console.log("data");
   };
@@ -43,12 +48,12 @@ const TopNavigationBar = ({ darkTheme }) => {
   );
 
   const walletAddress = localStorage.getItem("address");
-  const addresses = localStorage.getItem("addresses").split(",");
+  const addresses = localStorage.getItem("addresses")?.split(",");
 
   let addrArr = [];
 
   useEffect(() => {
-    addresses.forEach(async (item) => {
+    addresses?.forEach(async (item) => {
       const myAccountInfo = await algodClient.accountInformation(item).do();
       const bal =
         myAccountInfo.assets.find((element) => element["asset-id"] === ASSET_ID)
@@ -58,6 +63,11 @@ const TopNavigationBar = ({ darkTheme }) => {
 
       if (addrArr?.length === addresses?.length) {
         console.log(addrArr);
+        dispatch({
+          type: "setAlgoAddress",
+          addressIndex: 0,
+          addr: addrArr[0]?.address,
+        });
         setBalance(addrArr);
       }
     });
@@ -83,6 +93,57 @@ const TopNavigationBar = ({ darkTheme }) => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const connectWallet = () => {
+    const connector = new WalletConnect({
+      bridge: "https://bridge.walletconnect.org",
+      qrcodeModal: QRCodeModal,
+    });
+
+    if (!connector.connected) {
+      connector.createSession();
+    }
+
+    connector.on("connect", (error, payload) => {
+      if (error) {
+        throw error;
+      }
+
+      const { accounts } = payload.params[0];
+
+      const addresses = accounts.map((item) => item);
+      const address = accounts[0];
+
+      localStorage.setItem("wallet-type", "walletconnect");
+      localStorage.setItem("address", address);
+      localStorage.setItem("addresses", addresses);
+
+      window.location.reload();
+    });
+
+    connector.on("session_update", (error, payload) => {
+      if (error) {
+        throw error;
+      }
+
+      const { accounts } = payload.params[0];
+
+      const addresses = accounts.map((item) => item);
+      const address = accounts[0];
+
+      localStorage.setItem("wallet-type", "walletconnect");
+      localStorage.setItem("address", address);
+      localStorage.setItem("addresses", addresses);
+
+      window.location.reload();
+    });
+
+    connector.on("disconnect", (error, payload) => {
+      if (error) {
+        console.log(error);
+      }
+    });
   };
 
   const algoSignerConnect = async () => {
@@ -201,6 +262,7 @@ const TopNavigationBar = ({ darkTheme }) => {
                   </div>
                   <p className="dropDownConnect_item_txt">My Algo Wallet</p>
                 </div>
+
                 <div
                   className="dropDownConnect_item"
                   onClick={algoSignerConnect}
@@ -215,6 +277,18 @@ const TopNavigationBar = ({ darkTheme }) => {
                     {typeof window.AlgoSigner === undefined
                       ? "Install AlgoSigner"
                       : "AlgoSigner"}
+                  </p>
+                </div>
+
+                <div className="dropDownConnect_item" onClick={connectWallet}>
+                  <div className="dropDownConnect_img">
+                    <img
+                      src="https://i.postimg.cc/J7JZ4cFb/icon-37675b59-1.png"
+                      alt=""
+                    />
+                  </div>
+                  <p className="dropDownConnect_item_txt">
+                    Algorand Mobile Wallet
                   </p>
                 </div>
               </div>

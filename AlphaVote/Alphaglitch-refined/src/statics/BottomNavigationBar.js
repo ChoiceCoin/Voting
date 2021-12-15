@@ -5,9 +5,10 @@ const BottomNavigationBar = ({ NavLink, darkTheme }) => {
 
   const LogOut = () => {
     localStorage.removeItem("address");
+    localStorage.removeItem("addresses");
     localStorage.removeItem("wallet-type");
+    localStorage.removeItem("walletconnect");
     window.location.reload();
-    console.log("data");
   };
 
   const setMode = () => {

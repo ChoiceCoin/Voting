@@ -740,3 +740,8 @@ main {
     font-size: 16px;
   }
 }
+
+/* My Algo Wallet */
+#walletconnect-wrapper {
+  transform: scale(0.75) !important;
+}
