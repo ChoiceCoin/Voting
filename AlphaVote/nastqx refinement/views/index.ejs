@@ -1,5 +1,5 @@
 <%- include("./partials/header"); %>
- <div class="form p-4 mt-4 h-auto ">
+<div class="form p-4 mt-4 h-auto ">
   <div class="container mb-5">
     <h3 class="text-center header">
       <span style="display: block"> Commence Voting </span>
@@ -38,22 +38,104 @@
           <button
             class="btn btn-primary btn-md mt-3"
             id="submit"
-            onclick="myAlgoWalletConnect()"
+              data-toggle="modal"
+            data-target="#exampleModalCenter"
+         
           >
-            Connect Wallet
+            Connect a Wallet
           </button>
+          <!-- Modal -->
+          <div
+            class="modal fade text-secondary"
+            id="exampleModalCenter"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true"
+            style="z-index: 10000"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">
+                    Connect a Wallet
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="p-2 mode border-bottom">
+                    <img
+                      src="/image/Myalgo.svg"
+                      height="20px"
+                      alt="My Algo Wallet"
+                      class="mr-2"
+                    />
+                    <span
+                      id="algowallet"
+                      class="mode"
+                      onclick="myAlgoWalletConnect()"
+                      >My Algo Wallet</span
+                    >
+                  </div>
+                  <div id="algosigner" class="p-3 border-bottom">
+                    <img
+                      src="/image/Algo Signer.svg"
+                      class="mr-2"
+                      height="20px"
+                      alt="AlgoSigner"
+                    /><span
+                      id="algowallet"
+                      class="mode"
+                      onclick="myAlgoSignerConnect()"
+                    >
+                      AlgoSigner</span
+                    >
+                  </div>
+                  
+
+                  <div class="mt-4 mode">
+                    <a
+                      href="https://choice-coin.com/"
+                      target="_blank"
+                      role="button"
+                      >Learn More about Choicecoin...</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>      
     </div>
   </div>
 </div>
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/algosdk@1.13.0-beta.1/dist/browser/algosdk.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/js/script.js"></script>
     <script src="/js/algo.js"></script>
     <script src="/js/algowallet.js"></script>
+    <script src="/js/algosigner.js"></script>
+
+    <script>
+      $(document).ready(function () {
+    // Close modal on button click
+    $(".mode").click(function () {
+    $("#exampleModalCenter").modal("hide");
+  });
+});
+
+    </script>
 
   </body>
 </html>

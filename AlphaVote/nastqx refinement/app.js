@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-// Listening to port 3002
-const port = process.env.PORT || 3002;
+// Listening to port 3001
+const port = process.env.PORT || 3001;
 
 app.listen(port, () => console.log(`Server is listening on port ${port}`));

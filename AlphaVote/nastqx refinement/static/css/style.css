@@ -11,7 +11,7 @@ body {
 
 .navbar {
   display: fixed !important;
-  z-index: 100;
+  /* z-index: 100; */
 }
 
 .btn,
@@ -166,10 +166,7 @@ input[type="radio"] {
     font-size: 8px !important;
     width: auto;
   }
-  .navbar {
-    display: fixed !important;
-    z-index: 100;
-  }
+
   .navigation {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
@@ -194,4 +191,22 @@ input[type="radio"] {
     border-left: 1px solid #fff;
     height: 12px;
   }
+
+  .mode {
+    font-size: 13px;
+  }
+  .modal {
+    width: 300px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+#algowallet:hover,
+#algosigner:hover,
+#algomobile:hover {
+  cursor: pointer;
+  color: rgb(53, 53, 241);
+  text-decoration: underline;
 }

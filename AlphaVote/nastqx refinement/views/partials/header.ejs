@@ -8,27 +8,43 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&family=Poppins:ital,wght@0,400;0,500;0,700;1,600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
-
     <title>Choice Voting App</title>
   </head>
   <body>
-    <nav class="navbar navbar-light justify-content-between align-items-center bg-primary">
+    <nav
+      class="
+        navbar navbar-light
+        justify-content-between
+        align-items-center
+        bg-primary
+      "
+    >
       <a class="navbar-brand fw-bold"
         ><h3 class="navigation">CHOICE COIN</h3></a
       >
       <div class="form-inline">
         <div style="display: flex" class="d-none" id="notify">
           <div class="d-flex flex-column wallet_center">
-            <span class="textinput2" id="wallet_value" >MZCCA5XFC3ROCWZGUVFVXJDVOYRXT7HZSF2TLZVIL3CPT3K3DKRY3ZM2IQ</span>
+            <span class="textinput2" id="wallet_value"
+              >MZCCA5XFC3ROCWZGUVFVXJDVOYRXT7HZSF2TLZVIL3CPT3K3DKRY3ZM2IQ</span
+            >
           </div>
-          <i style="font-size: 10px; margin-right: 3px; cursor: pointer;" onclick="myFunction()" class="fa">&#xf0c5;</i>
+          <i
+            style="font-size: 10px; margin-right: 3px; cursor: pointer"
+            onclick="myFunction()"
+            class="fa"
+            >&#xf0c5;</i
+          >
           <span class="vertical_line"></span>
           <div class="d-flex flex-column">
             <span class="textinput2" id="choice_value"></span>
@@ -36,13 +52,83 @@
         </div>
 
         <div class="text-center b-3" id="connect_wallet">
+          <!-- Button trigger modal -->
           <button
-            class="btn btn-primary connect_wallet"
             type="button"
-            onclick="myAlgoWalletConnect()"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#exampleModalCenter"
           >
-            Connect Wallet
+            Connect a Wallet
           </button>
+
+          <!-- Modal -->
+          <div
+            class="modal fade text-secondary"
+            id="exampleModalCenter"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true"
+            style="z-index: 10000"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">
+                    Connect a Wallet
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="p-2 mode border-bottom">
+                    <img
+                      src="/image/Myalgo.svg"
+                      height="20px"
+                      alt="My Algo Wallet"
+                      class="mr-2"
+                    />
+                    <span
+                      id="algowallet"
+                      class="mode"
+                      onclick="myAlgoWalletConnect()"
+                      >My Algo Wallet</span
+                    >
+                  </div>
+                  <div id="algosigner" class="p-3 border-bottom">
+                    <img
+                      src="/image/Algo Signer.svg"
+                      class="mr-2"
+                      height="20px"
+                      alt="AlgoSigner"
+                    /><span
+                      id="algowallet"
+                      class="mode"
+                      onclick="myAlgoSignerConnect()"
+                    >
+                      AlgoSigner</span
+                    >
+                  </div>
+
+                  <div class="mt-4 mode">
+                    <a
+                      href="https://choice-coin.com/"
+                      target="_blank"
+                      role="button"
+                      >Learn More about Choicecoin...</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
