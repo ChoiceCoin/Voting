@@ -37,7 +37,7 @@
         <div class="text-center b-3 mb-2" id="submit">
           <button
             class="btn btn-primary btn-md mt-3"
-            id="submit"
+            id="submit2"
               data-toggle="modal"
             data-target="#exampleModalCenter"
          
@@ -79,7 +79,7 @@
                     />
                     <span
                       id="algowallet"
-                      class="mode"
+                      class="mode algowallet"
                       onclick="myAlgoWalletConnect()"
                       >My Algo Wallet</span
                     >
@@ -98,7 +98,18 @@
                       AlgoSigner</span
                     >
                   </div>
-                  
+                  <div id="algomobile" class="p-3 border-bottom">
+                    <img
+                      src="/image/Mobile.svg"
+                      height="20px"
+                      class="mr-2"
+                      alt="Algorand Mobile Wallet"
+                    /><span
+                      id="connect"
+                      class="mode"
+                      >Algorand Mobile Wallet</span
+                    >
+                  </div>
 
                   <div class="mt-4 mode">
                     <a
@@ -112,20 +123,28 @@
               </div>
             </div>
           </div>
-
         </div>      
     </div>
   </div>
+  <div class="disconnect" style="cursor: pointer; font-size: 10px; text-align:center; width: 100%;"> <span
+            id="disconnect"
+
+          ></span>
+     </div>
 </div>
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/algosdk@1.13.0-beta.1/dist/browser/algosdk.min.js"></script>
+    
+
+    <script src="/public/bundle.js"></script>
     <script src="/js/script.js"></script>
     <script src="/js/algo.js"></script>
     <script src="/js/algowallet.js"></script>
     <script src="/js/algosigner.js"></script>
+    <!-- <script src="/js/algomobile.js"></script> -->
 
     <script>
       $(document).ready(function () {
@@ -134,8 +153,7 @@
     $("#exampleModalCenter").modal("hide");
   });
 });
-
-    </script>
+</script>
 
   </body>
 </html>

@@ -81,7 +81,7 @@ body {
 }
 
 body {
-  background-color: #192e3a;
+  /* background-color: #192e3a; */
   color: #eeeeee;
   /* background-image: radial-gradient(#000565 0.65px, #192e3a 0.65px); */
   /* background-size: 13px 13px; */
@@ -145,10 +145,6 @@ body {
   box-shadow: 0 1px 10px #888888;
 }
 
-input[type="radio"] {
-  display: none;
-}
-
 @media screen and (max-width: 900px) {
   .navigation {
     font-size: 14px;
@@ -209,4 +205,8 @@ input[type="radio"] {
   cursor: pointer;
   color: rgb(53, 53, 241);
   text-decoration: underline;
+}
+
+.disconnect {
+  margin-right: 100px;
 }
