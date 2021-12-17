@@ -215,11 +215,11 @@ const ElectionCard: React.FC<{
         >
           <Chart scores={scores} options={options} />
           <CandidatePercentage>
-            {election?.card_cand?.map((item, index) => (
+            {election?.candidates?.map((item, index) => (
               <li key={index}>
-                {Math.floor((item.cand_score / totalScore) * 100)}
+                {Math.floor((item.votes / totalScore) * 100)}
                 %&nbsp;
-                {item.cand_det}
+                {item.name}
               </li>
             ))}
           </CandidatePercentage>
