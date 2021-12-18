@@ -68,51 +68,36 @@ const SiteTitle = styled.div`
   }
 `;
 
-const NavBarContent = () => {
-  const connected = useSelector(selectConnected);
-  const address = useSelector(selectAddress);
-  return (
-    <AccountDetailsRow>
-      {connected && <TotalCommittedChoice />}
-      {address ? <AccountInfo /> : <ConnectWalletButton />}
-    </AccountDetailsRow>
-  );
-};
-
 const TopNavigationBar: React.FC<{
   darkTheme: boolean;
 }> = ({ darkTheme }) => {
   const [width] = useWindowSize();
-  // const announcement =
-  //   "///// This site is not responsive yet. Large screen view coming soon.";
 
+  const connected = useSelector(selectConnected);
+  const address = useSelector(selectAddress);
+
+  const NavBarContent = () => {
+    return (
+      <AccountDetailsRow>
+        {connected && <TotalCommittedChoice />}
+        {address ? <AccountInfo /> : <ConnectWalletButton />}
+      </AccountDetailsRow>
+    );
+  };
   return (
     <SmallHeader>
-      {/* <div
-        className="notResponsiveWarning"
-        style={{ display: width > 800 ? "flex" : "none" }}
-      >
-        <p>{announcement}</p>
-      </div> */}
-
       <SmallHeaderInner darkTheme={darkTheme}>
         {width < 768 ? (
           <>
             <MobileRow>
-              <SiteTitle>
-                {/* <img src="" alt="" /> */}
-                Choice Coin
-              </SiteTitle>
+              <SiteTitle>Choice Coin</SiteTitle>
               <Toggle darkTheme={darkTheme} />
             </MobileRow>
             <NavBarContent />
           </>
         ) : (
           <>
-            <SiteTitle>
-              {/* <img src="" alt="" /> */}
-              Choice Coin
-            </SiteTitle>
+            <SiteTitle>Choice Coin</SiteTitle>
             <RightMenuWrapper>
               <NavBarContent />
               <Toggle darkTheme={darkTheme} />

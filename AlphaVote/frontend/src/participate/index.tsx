@@ -50,19 +50,6 @@ const vote0ElectionDetails: Election = {
 };
 
 const Participate = () => {
-  // const { isLoading, error, data } = useQuery("elections", () =>
-  //   axios.get(`${URL}/elections`).then((response) => response.data.data)
-  // );
-
-  // if (isLoading)
-  //   return (
-  //     <Wrapper>
-  //       <Loader />
-  //     </Wrapper>
-  //   );
-
-  // if (error)
-  //   return <>An error has occurred: ${(error as ErrorEvent).message}</>;
   return (
     <div className="ptt_elt">
       <div className="ptt_elt_inn">
@@ -97,21 +84,6 @@ const Participate = () => {
             options={[]}
             election={vote0ElectionDetails}
           />
-          {/* {data?.map((election: any, index: any) => {
-            const scores = election?.candidates.map((data: any) =>
-              data?.votes ? data?.votes : 0
-            );
-            const options = election?.candidates.map((data: any) => data?.name);
-
-            return (
-              <ElectionCard
-                scores={scores}
-                options={options}
-                election={election}
-                key={index}
-              />
-            );
-          })} */}
         </ul>
       </div>
     </div>

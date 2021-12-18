@@ -182,15 +182,6 @@ const ElectionCard: React.FC<{
 
   return (
     <div className="card_cont">
-      {/* <div className="card_r1">
-        <div className="card_elt_img">
-          <img src={election.process_image} alt="" />
-        </div>
-        <div className="card_elt_tit">{election.title}</div>
-      </div> */}
-
-      {/* <div className="card_elt_desc">{election?.card_desc}</div> */}
-
       <div>
         <CollapsedChart
           isChartCollapsed={isChartCollapsed}

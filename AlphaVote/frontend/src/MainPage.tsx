@@ -5,7 +5,6 @@ import MyAlgo from "@randlabs/myalgo-connect";
 
 import Faq from "./faq";
 import Home from "./Home";
-import Elections from "./elections";
 import Participate from "./participate";
 
 import TopNavigationBar from "./statics/TopNavigationBar";
@@ -82,9 +81,6 @@ const MainPage = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/elections" element={<Elections />} />
-        {/* <Route path="/transfer" element={<Transfer />} /> */}
-        {/* <Route path="/elections/create" element={<CreateElection />} /> */}
         <Route path="/participate" element={<Participate />} />
         <Route path="/faq" element={<Faq />} />
       </Routes>

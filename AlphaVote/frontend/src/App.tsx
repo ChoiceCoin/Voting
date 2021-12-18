@@ -1,18 +1,12 @@
 import { Suspense } from "react";
 import stores from "./store/stores";
-import loadable from "@loadable/component";
 import { Provider as ReduxProvider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
-
-const MainPage = loadable(() => import("./MainPage"));
-const MenuModal = loadable(() => import("./statics/MenuModal"));
-const PopFromBottomModal = loadable(
-  () => import("./statics/PopFromBottomModal")
-);
-const OverlayElectionModal = loadable(
-  () => import("./statics/OverlayElectionModal")
-);
+import MainPage from "./MainPage";
+import OverlayElectionModal from "./statics/OverlayElectionModal";
+import PopFromBottomModal from "./statics/PopFromBottomModal";
+import MenuModal from "./statics/MenuModal";
 
 const renderLoader = () => <p></p>;
 
