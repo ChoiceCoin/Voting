@@ -14,6 +14,10 @@ expo cli
 
 npm - node package manager
 
+### Youtube Tutorial
+
+> https://youtu.be/r8Ja47_m4u8
+
 ### This is a blank expo project, to run it;
 
 > npm install
