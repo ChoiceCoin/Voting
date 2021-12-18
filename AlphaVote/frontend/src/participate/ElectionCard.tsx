@@ -37,6 +37,7 @@ export interface Candidate {
   name: string;
   image: string;
   address: string;
+  votes: number;
 }
 export interface Election {
   candidates: Candidate[];
