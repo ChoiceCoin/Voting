@@ -85,13 +85,13 @@ const MainPage = () => {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/elections" element={<Elections />} />
-        <Route path="/transfer" element={<Transfer />} />
-        <Route path="/elections/create" element={<CreateElection />} />
+        {/* <Route path="/transfer" element={<Transfer />} /> */}
+        {/* <Route path="/elections/create" element={<CreateElection />} /> */}
         <Route path="/participate" element={<Participate />} />
         <Route path="/faq" element={<Faq />} />
       </Routes>
 
-      <BottomNavigationBar NavLink={NavLink} darkTheme={darkTheme} />
+      <BottomNavigationBar darkTheme={darkTheme} />
     </main>
   );
 };
