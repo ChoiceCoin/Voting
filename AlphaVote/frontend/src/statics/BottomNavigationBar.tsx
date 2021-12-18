@@ -1,3 +1,4 @@
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 
@@ -32,13 +33,33 @@ const MainNavLink = styled(NavLink)<{ isActive?: boolean; darkTheme: boolean }>`
       : "none"};
   `};
 `;
+const MenuButton = styled.div`
+  height: 60px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  cursor: pointer;
+`;
 
 type BottomNavigationBarPropType = { darkTheme: boolean };
 
 const BottomNavigationBar = ({ darkTheme }: BottomNavigationBarPropType) => {
+  const dispatch = useDispatch();
   return (
     <footer className="ft_sm">
       <ul className="ft_sm_inn">
+        <li className="ft_sm_li">
+          <MenuButton
+            onClick={() => {
+              dispatch({ type: "modal_menu" });
+            }}
+          >
+            <StyledNavLink to={"#"}>
+              <i className="uil uil-bars" />
+            </StyledNavLink>
+          </MenuButton>
+        </li>
         <li className="ft_sm_li">
           <StyledNavLink to={`/`} key={"home"}>
             <i className="uil uil-estate"></i>

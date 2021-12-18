@@ -35,13 +35,13 @@ const vote0ElectionDetails: Election = {
     {
       name: "Option 0",
       image: "", // url
-      address: "", // wallet address for option 1
+      address: "ENTER AN ADDRESS HERE", // wallet address for option 1
       votes: 0,
     },
     {
       name: "Option 1",
       image: "", // url
-      address: "", // wallet address for option 1
+      address: "ENTER AN ADDRESS HERE", // wallet address for option 1
       votes: 0,
     },
   ],
