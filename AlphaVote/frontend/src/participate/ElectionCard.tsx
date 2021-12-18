@@ -44,12 +44,12 @@ export interface Election {
   wallet: {
     address: "";
   };
-  process_image: string;
+  process_image?: string;
   title: string;
-  slug: string;
+  slug?: string;
   card_desc: string;
-  choice_per_vote: number;
-  card_cand: [
+  choice_per_vote?: number;
+  card_cand?: [
     {
       cand_score: number;
       cand_det: string;
@@ -59,11 +59,11 @@ export interface Election {
 
 // TODO: need to pull out the types
 const ElectionCard: React.FC<{
-  scores: [];
+  scores: number[];
   options: [];
   election: Election;
 }> = ({ scores, options, election }) => {
-  const [isVoteListCollapsed, setIsVoteListCollapsed] = useState(true);
+  const [isVoteListCollapsed, setIsVoteListCollapsed] = useState(false); // show vote list by default
   const [isChartCollapsed, setIsChartCollapsed] = useState(true);
   const [voteOptionChosen, setVoteOptionChosen] = useState("");
   const [voteChoiceAmount, setVoteChoiceAmount] = useState("0");
@@ -272,8 +272,9 @@ const ElectionCard: React.FC<{
             </button>
           </div>
         </VoteListWrapper>
-
-        <div className="card_butts">
+        {/* Hide Vtte Now button */}
+        {/* Hide View Result until voting is over */}
+        {/* <div className="card_butts">
           <button onClick={voteClickHandler}>
             Vote now
             <i
@@ -290,7 +291,7 @@ const ElectionCard: React.FC<{
               }`}
             ></i>
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
