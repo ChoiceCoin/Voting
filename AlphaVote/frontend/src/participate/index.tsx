@@ -15,11 +15,19 @@ export const Wrapper = styled.div`
 
 const Details = styled.div`
   margin-bottom: 48px;
+  line-height: 1.3;
+`;
+
+const IssueContent = styled.div`
+  margin-bottom: 24px;
 `;
 
 const OptionTitle = styled.h4`
+  display: inline-flex;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--border-default);
   margin-top: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 `;
 
 const vote0ElectionDetails: Election = {
@@ -41,8 +49,7 @@ const vote0ElectionDetails: Election = {
     address: "", // Election creator address
   },
   title: "Choice Coin Governance: Vote 0",
-  card_desc:
-    "This Issue addresses Choice tokenomics. The reserve address for Choice Coin is currently 750 million Choice. Vote 0 will determine the release distribution for the reserve address. Choice will be released from the reserve address on the first day of each year according to the vote result. This Issue has two options.",
+  card_desc: "",
 };
 
 const Participate = () => {
@@ -67,6 +74,13 @@ const Participate = () => {
           {/* <p>Participate in Ongoing Elections</p> */}
         </div>
         <Details>
+          <IssueContent>
+            This Issue addresses Choice tokenomics. The reserve address for
+            Choice Coin is currently 750 million Choice. Vote 0 will determine
+            the release distribution for the reserve address. Choice will be
+            released from the reserve address on the first day of each year
+            according to the vote result.
+          </IssueContent>
           <OptionTitle>Option 0</OptionTitle>
           <p>
             The reserve address will dispense 75 million Choice each year for

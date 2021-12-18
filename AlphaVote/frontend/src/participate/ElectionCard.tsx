@@ -187,12 +187,12 @@ const ElectionCard: React.FC<{
         <div className="card_elt_tit">{election.title}</div>
       </div>
 
-      <div className="card_elt_desc">{election?.card_desc}</div>
+      {/* <div className="card_elt_desc">{election?.card_desc}</div> */}
 
       <div className="card_cand">
         <div className="card_cand_hd">
-          <p>Candidates</p>
-          <p>Amt:&nbsp;{election?.choice_per_vote}</p>
+          <p>Options</p>
+          {/* <p>Amt:&nbsp;{election?.choice_per_vote}</p> */}
         </div>
 
         <ul className="card_cand_list">
