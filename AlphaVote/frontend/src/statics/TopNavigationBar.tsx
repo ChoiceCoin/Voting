@@ -71,12 +71,12 @@ const TopNavigationBar: React.FC<{
 
   return (
     <SmallHeader>
-      <div
+      {/* <div
         className="notResponsiveWarning"
         style={{ display: width > 800 ? "flex" : "none" }}
       >
         <p>{announcement}</p>
-      </div>
+      </div> */}
 
       <SmallHeaderInner darkTheme={darkTheme}>
         <SiteTitle>

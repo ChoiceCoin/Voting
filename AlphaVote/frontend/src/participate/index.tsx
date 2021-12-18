@@ -50,6 +50,7 @@ const vote0ElectionDetails: Election = {
   },
   title: "Choice Coin Governance: Vote 0",
   card_desc: "",
+  slug: "vote0",
 };
 
 const Participate = () => {

@@ -46,7 +46,7 @@ export interface Election {
   };
   process_image?: string;
   title: string;
-  slug?: string;
+  slug: string;
   card_desc: string;
   choice_per_vote?: number;
   card_cand?: [
@@ -180,36 +180,16 @@ const ElectionCard: React.FC<{
 
   return (
     <div className="card_cont">
-      <div className="card_r1">
+      {/* <div className="card_r1">
         <div className="card_elt_img">
           <img src={election.process_image} alt="" />
         </div>
         <div className="card_elt_tit">{election.title}</div>
-      </div>
+      </div> */}
 
       {/* <div className="card_elt_desc">{election?.card_desc}</div> */}
 
-      <div className="card_cand">
-        <div className="card_cand_hd">
-          <p>Options</p>
-          {/* <p>Amt:&nbsp;{election?.choice_per_vote}</p> */}
-        </div>
-
-        <ul className="card_cand_list">
-          {election?.candidates?.map((item, index) => (
-            <li className="cand_item" key={index}>
-              <div className="cand_img_cont">
-                {!!item.image ? (
-                  <img src={item.image} alt="" />
-                ) : (
-                  <i className="uil uil-asterisk"></i>
-                )}
-              </div>
-              <p className="cand_det">{item.name}</p>
-            </li>
-          ))}
-        </ul>
-
+      <div>
         <CollapsedChart
           isChartCollapsed={isChartCollapsed}
           ref={collapsedChartRef}
@@ -237,13 +217,13 @@ const ElectionCard: React.FC<{
                 <li key={index}>
                   <input
                     type="radio"
-                    id={election.slug}
+                    id={election.slug + "-option-" + index}
                     name="options"
                     value={item.address}
                     onChange={onVoteOptionChosen}
                   />
 
-                  <LabelRow htmlFor={election.slug}>
+                  <LabelRow htmlFor={election.slug + "-option-" + index}>
                     <div className="vote_img_cont">
                       {!!item.image ? (
                         <img src={item.image} alt="" />
