@@ -83,8 +83,8 @@ const TopNavigationBar: React.FC<{
   darkTheme: boolean;
 }> = ({ darkTheme }) => {
   const [width] = useWindowSize();
-  const announcement =
-    "///// This site is not responsive yet. Large screen view coming soon.";
+  // const announcement =
+  //   "///// This site is not responsive yet. Large screen view coming soon.";
 
   return (
     <SmallHeader>

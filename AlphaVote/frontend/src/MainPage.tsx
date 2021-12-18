@@ -1,4 +1,4 @@
-import { NavLink, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import WalletConnect from "@walletconnect/client";
 import QRCodeModal from "algorand-walletconnect-qrcode-modal";
 import MyAlgo from "@randlabs/myalgo-connect";
@@ -7,8 +7,6 @@ import Faq from "./faq";
 import Home from "./Home";
 import Elections from "./elections";
 import Participate from "./participate";
-import Transfer from "./transfer";
-import CreateElection from "./elections/create";
 
 import TopNavigationBar from "./statics/TopNavigationBar";
 import BottomNavigationBar from "./statics/BottomNavigationBar";

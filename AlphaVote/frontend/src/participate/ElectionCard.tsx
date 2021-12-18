@@ -63,8 +63,10 @@ const ElectionCard: React.FC<{
   options: [];
   election: Election;
 }> = ({ scores, options, election }) => {
-  const [isVoteListCollapsed, setIsVoteListCollapsed] = useState(false); // show vote list by default
-  const [isChartCollapsed, setIsChartCollapsed] = useState(true);
+  // const [isVoteListCollapsed, setIsVoteListCollapsed] = useState(false); // show vote list by default
+  // const [isChartCollapsed, setIsChartCollapsed] = useState(true);
+  const isVoteListCollapsed = false; // show vote list by default
+  const isChartCollapsed = true;
   const [voteOptionChosen, setVoteOptionChosen] = useState("");
   const [voteChoiceAmount, setVoteChoiceAmount] = useState("0");
   const assets = useSelector(selectAssets);
@@ -145,13 +147,13 @@ const ElectionCard: React.FC<{
     setVoteChoiceAmount(event.target.value);
   };
 
-  const voteClickHandler = () => {
-    setIsVoteListCollapsed(!isVoteListCollapsed);
-  };
+  // const voteClickHandler = () => {
+  //   setIsVoteListCollapsed(!isVoteListCollapsed);
+  // };
 
-  const viewResultClickHandler = () => {
-    setIsChartCollapsed(!isChartCollapsed);
-  };
+  // const viewResultClickHandler = () => {
+  //   setIsChartCollapsed(!isChartCollapsed);
+  // };
 
   const onVoteOptionChosen = (event: ChangeEvent<HTMLInputElement>) => {
     setVoteOptionChosen(event.target.value);
