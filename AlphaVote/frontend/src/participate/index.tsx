@@ -1,10 +1,6 @@
 import styled from "styled-components";
-// import { useQuery } from "react-query";
-// import axios from "axios";
 import "./electionlist.css";
-// import { URL } from "../constants";
 import ElectionCard, { Election } from "./ElectionCard";
-// import Loader from "../components/Loader";
 
 export const Wrapper = styled.div`
   display: flex;
