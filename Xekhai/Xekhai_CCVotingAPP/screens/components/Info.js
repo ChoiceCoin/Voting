@@ -4,19 +4,24 @@ import { Modal } from "native-base";
 import { useState } from "react";
 import { Center } from "native-base";
 import { Box, Heading, AspectRatio, HStack, Stack } from "native-base";
-import { vote } from "../../functions/vote";
 import axios from 'axios';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-//heroku api link tested and work so far
+//heroku api link tested and work so far///////////////////////
 const baseUrl = '';
-
+///////////////////////////////////////////////////////////////
+//HEROKU BASE URL NOT PURESTAKE!!!!
+let roku
 async function go(id){
 
  await  axios({
       method: 'get',
-      url: `${baseUrl}/vote1?id=${id}`
+      url: `${baseUrl}/vote?id=${id}`
     }).then((response) => {
       console.log(response.data);
+
+      roku = response.data
+
     }).finally(console.log('Done'));
    
 }
@@ -25,7 +30,48 @@ async function go(id){
 
 export function Vote(props) {
     const [showModal, setShowModal] = useState(false);
- 
+    const [loading, setLoading] = useState(false);
+    const [nullStatus, setnullStatus] = useState('null')
+
+
+    const [isDisabled, setDisabled] = useState(false);
+
+    let HasVoted
+
+    async function getData () {
+
+            const value = await AsyncStorage.getItem('HasVoted')
+
+            if(value !== null) {
+                console.log(value)
+                setnullStatus(value)
+                return(value)
+            }else{
+                HasVoted = 'null'
+                setnullStatus('null')
+                console.log(HasVoted)
+                return('null')
+            }
+    }
+
+getData()
+
+console.log(HasVoted)
+    if(isDisabled){
+
+    }else{
+        if(nullStatus === 'null'){
+        }else{
+            setDisabled(true)
+        }
+    }
+
+
+
+
+
+
+
     return (
        <NativeBaseProvider>
           <VStack h="full" justifyContent="center" alignItems="center">
@@ -105,6 +151,7 @@ export function Vote(props) {
                             size="lg"
                             colorScheme="teal"
                             onPress={() => setShowModal(true)}
+                            isDisabled={isDisabled}
                          >
                             Vote
                          </Button>
@@ -123,7 +170,8 @@ export function Vote(props) {
                    <Modal.Footer>
                       <Button.Group space={2}>
                          <Button
-                            variant="ghost"
+                             isLoading={loading}
+                             variant="ghost"
                             colorScheme="blueGray"
                             onPress={() => {
                                setShowModal(false);
@@ -132,10 +180,19 @@ export function Vote(props) {
                             Cancel
                          </Button>
                          <Button
+                             isLoading={loading}
                             onPress={() => {
-                               setShowModal(false);
-                               go(props.id)
-                               props.navigation.navigate("Nfinal");
+                                setLoading(true)
+                               go(props.id).finally((res)=>{
+                                   try {
+                                    AsyncStorage.setItem('HasVoted', 'yeah')
+                                   } catch (e) {
+                                       // saving error
+                                   }
+                                   props.navigation.navigate("Nfinal", {
+                                       data: roku
+                                   })
+                               })
                             }}
                          >
                             Vote

@@ -1,10 +1,23 @@
 import React from "react";
-import { Image, NativeBaseProvider, Button, VStack, Text } from "native-base";
+import {Image, NativeBaseProvider, Button, VStack, Text, TextArea, ScrollView, KeyboardAvoidingView, useBreakpointValue} from "native-base";
+import {Platform} from "react-native";
+import * as Linking from 'expo-linking';
 
-export function Nfinal({ navigation }) {
+export function Nfinal({ route, navigation }) {
+
+    console.log(route.params.data)
     return (
        <NativeBaseProvider>
-          <VStack p="5" pb="10" h="full" justifyContent="flex-end">
+
+           <ScrollView>
+
+          <VStack p="5" pb="10" pt='100' h="full" justifyContent="flex-end"><KeyboardAvoidingView
+              h={{
+                  base: "400px",
+                  lg: "auto",
+              }}
+              behavior={Platform.OS === "ios" ? "padding" : "height"}
+          >
              <Image
                 size="200"
                 resizeMode="cover"
@@ -23,13 +36,13 @@ export function Nfinal({ navigation }) {
              <Text fontSize="10" mb="30" color="green.300">
                 Success
              </Text>
-             <Text mb="130">Verify the Authencity of your decision.</Text>
+             <Text mb="100">{'Verify the Authencity of your decision.'}</Text>
              <Button
                 variant="link"
                 size="lg"
                 colorScheme="dark"
                 my="5"
-                onPress={() => navigation.navigate('Home')}
+                onPress={() => {Linking.openURL(`https://testnet.algoexplorer.io/tx/${route.params.data}`)}}
              >
                 Verify now
              </Button>
@@ -40,8 +53,12 @@ export function Nfinal({ navigation }) {
              >
                 Home
              </Button>
+          </KeyboardAvoidingView>
+
           </VStack>
-       </NativeBaseProvider>
+           </ScrollView>
+
+</NativeBaseProvider>
     );
  }
  
