@@ -49,7 +49,7 @@
 .card_list {
   display: flex;
   flex-direction: column;
-  padding-bottom: 100px;
+  padding-bottom: 24px;
 }
 .card_cont {
   width: 420px;
@@ -106,9 +106,6 @@
 }
 
 /*  */
-.card_cand {
-  margin-top: 20px;
-}
 .card_cand_hd {
   display: flex;
   font-size: 13px;
