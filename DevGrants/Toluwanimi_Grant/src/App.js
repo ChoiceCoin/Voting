@@ -135,7 +135,7 @@ function vote() // used for voting
         const port = "";
 
         const token = {
-          'X-API-key' : 'B3SU4KcVKi94Jap2VXkK83xx38bsv95K5UZm2lab',
+          'X-API-key' : '',
         }
         let algodClient = new algosdk.Algodv2(token, baseServer, port);
         
@@ -143,7 +143,7 @@ function vote() // used for voting
         { 
           (async() => {              
               let params = await algodClient.getTransactionParams().do();              
-              const zero_address = 'XAQP4RP2XG47VIZ7HM32MVOPQADXPRJYIQGB3RTMBPFS725TWRLAQXUURM'
+              const zero_address = ''
               let txn = {
                 fee: 1000,
                 type: 'axfer',
@@ -190,7 +190,7 @@ function vote() // used for voting
           // if user picks no, the coin is sent to the one address
           (async() => {
             let params = await algodClient.getTransactionParams().do();
-            const one_address = '77CO5D6NCWN675CXVEVE6DWT54V6R7JRXSV4PAZ553ZSLGHPFLUU5EIIYQ'
+            const one_address = ''
             let txn = {
               fee: 1000,
                 type: 'axfer',
