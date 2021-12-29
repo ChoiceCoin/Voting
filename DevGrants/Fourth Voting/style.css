@@ -1,0 +1,12 @@
+.yes:hover {
+  background-color: rgb(71, 160, 71);
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
+.no:hover {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
