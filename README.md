@@ -1,4 +1,4 @@
-# Voting
+# Voting 
 This is a repository for voting software built using Choice Coin on the Algorand Network. Our voting software is centered around Decentralized Decisions, an open-source voting software that allows organizations to make decisions in a distributed manner. The votes in Decentralized Decisions are recorded on the Algorand Blockchain and are tabulated using a stateless smart contract. Post-quantum cryptography ensures that voter information is kept secure throughout the entire process at all points of vulnerability. This repository is meant to facilitate open-development on the Choice Coin Platform and to serve as a starting point for developers looking to set up their own decentralized voting network. Development here can directly be used for Choice Coin's Developer Awards Program. Developers should follow the instructions below to get started. We are looking forward to seeing all the great innovations that will come out of our community!
 
 # OSS Rewards for Contributions
@@ -43,4 +43,6 @@ Gold Badge Information: https://forum.algorand.org/t/choice-coin-gold-badge/4817
 - This protocol also supports corporate or organizational voting. To add additional decisions, follow the same steps as above, except editing the functions and files with *corporate* in the name.
 - Create a new MySQL database with the appropriate credentials as described in the *SQL_Code.sql* file. Be sure to enter in your MySQL credentials at the appropriate points at lines *15-20* in *index.py*. Specifically, create a new MySQL user with root privileges that can easily access and change the database.  
 - Finally, to test as a web application, use the command *python index.py* in a regular terminal with the virtual environment configured. This will launch a web-application that you can interact with.
-- To learn more about the web application, watch the Demo Video here: https://youtu.be/DWXNGDYXnIM.
+- To learn more about the web application, watch the Demo Video via the link below.
+- 
+- https://youtu.be/DWXNGDYXnIM.
