@@ -166,7 +166,7 @@ function vote() // used for voting
                 .then((txn) => {
                   // success message displaying transaction ID
                   id_container.innerHTML="Transaction ID: "+ signedTxn.txID
-                  result.innerHTML = amount+" choice coin sent to one address"
+                  result.innerHTML = amount+" choice coin sent to zero address"
                   var element = document.getElementById("wallet");
                   element.classList.add("d-none");
                   var element2 = document.getElementById("success");
