@@ -18,10 +18,8 @@ let usersAddress = "";
 // stores vote, either yes or no
 let vote = "";
 
-const one_address =
-  "V6O5YY4QHHHJYLIS7P7SISDVFQW664UJXRAXMX5ZHGZRW6G2JUUICMYTSA";
-const zero_address =
-  "V6O5YY4QHHHJYLIS7P7SISDVFQW664UJXRAXMX5ZHGZRW6G2JUUICMYTSA";
+const one_address = "";
+const zero_address = "";
 
 // connects to user's wallet
 window.connectToWallet = function () {
