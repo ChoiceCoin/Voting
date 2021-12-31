@@ -1,0 +1,29 @@
+{
+  "name": "moyosore_grant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moyosore1/moyosore_v.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moyosore1/moyosore_v/issues"
+  },
+  "homepage": "https://github.com/moyosore1/moyosore_v#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.12.5"
+  },
+  "browserslist": ["last 1 chrome versions"]
+  
+
+}

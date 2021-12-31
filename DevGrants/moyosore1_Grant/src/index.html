@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voting Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://unpkg.com/algosdk@1.13.0-beta.1/dist/browser/algosdk.min.js"
+      integrity="sha384-w9fodN00YjvWxdNoiyT+W6CqaATkXlfid9tnzBlToDqZWepVWLjI5wO7jNL4+aNs"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <div
+      class="
+        w-full
+        px-4
+        md:px-20 md:w-3/4
+        mx-auto
+        min-h-full
+        font-sans
+        text-base
+        font-medium
+      "
+    >
+      <div class="flex flex-row w-full justify-between mt-10 md:mt-20">
+        <div class="w-10 h-10">
+          <img src="assets/choice-logo.png" class="" alt="logo" />
+        </div>
+        <div>
+          <button
+            class="
+              bg-blue-600
+              p-2
+              text-white
+              rounded
+              duration-100
+              hover:opacity-75
+            "
+            onclick="connectToWallet()"
+          >
+            Connect Wallet
+          </button>
+        </div>
+      </div>
+      <div class="mt-20">
+        <h5>Issue Number</h5>
+      </div>
+      <div
+        class="mt-16 m:w-3/4 p-3 mx-auto text-justify border-2 rounded min-h-20"
+      >
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Non earum
+          omnis unde aliquid repellendus error excepturi autem saepe, fugit, id
+          dignissimos. Commodi obcaecati earum alias officiis nam dignissimos.
+          Incidunt, quidem!
+        </p>
+      </div>
+      <form name="votingForm" onsubmit="return validateVote()" class="my-10">
+        <div class="flex justify-between w-1/2 md:w-1/4 mx-auto mb-8">
+          <div class="">
+            <label for="yes">Yes</label>
+            <input type="radio" name="vote" id="yes" value="yes" />
+          </div>
+          <div>
+            <label for="no">No</label>
+            <input type="radio" name="vote" id="no" value="no" />
+          </div>
+        </div>
+        <div class="mx-auto mt-10 mb-14 text-center w-2/3">
+          <label for="amount" class="block mb-4">Enter Number of Coins:</label>
+          <input
+            type="number"
+            name="amount"
+            id="amount"
+            class="
+              m:w-3/4
+              p-2
+              mx-auto
+              text-justify
+              border-2
+              rounded
+              focus:outline-blue-400
+            "
+          />
+        </div>
+        <div class="w-full text-center">
+          <input
+            type="submit"
+            class="
+              bg-blue-600
+              mx-auto
+              p-2
+              text-white
+              rounded
+              duration-100
+              hover:opacity-75
+            "
+          />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
