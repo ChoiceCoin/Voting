@@ -5,6 +5,9 @@ import { useState, useEffect } from "react";
 
 const ToggleWrapper = styled.div`
   margin-right: 15px;
+  @media (max-width: 768px) {
+    margin-right: 0;
+  }
 `
 
 const iconWrapperSharedStyles = css`

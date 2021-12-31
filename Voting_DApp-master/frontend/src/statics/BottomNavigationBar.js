@@ -1,4 +1,26 @@
+import { useDispatch } from "react-redux";
+
 const BottomNavigationBar = ({ NavLink, darkTheme }) => {
+  const dispatch = useDispatch();
+
+  const LogOut = () => {
+    localStorage.removeItem("address");
+    localStorage.removeItem("addresses");
+    localStorage.removeItem("wallet-type");
+    localStorage.removeItem("walletconnect");
+    window.location.reload();
+  };
+
+  const setMode = () => {
+    if (!darkTheme) {
+      localStorage.setItem("mode", "dark");
+      dispatch({ type: "dark_mode" });
+    } else {
+      localStorage.setItem("mode", "light");
+      dispatch({ type: "light_mode" });
+    }
+  };
+
   return (
     <footer className="ft_sm">
       <ul className="ft_sm_inn">
@@ -18,9 +40,9 @@ const BottomNavigationBar = ({ NavLink, darkTheme }) => {
             key={"home"}
           >
             <i className="uil uil-estate"></i>
-            {/* <p> Home</p> */}
           </NavLink>
         </li>
+
         <li className="ft_sm_li">
           <NavLink
             style={({ isActive }) => {
@@ -33,15 +55,14 @@ const BottomNavigationBar = ({ NavLink, darkTheme }) => {
                 flexDirection: "column",
               };
             }}
-            to={`/elections`}
-            key={"elections"}
+            to={`/faq`}
+            key={"faq"}
           >
-            <i className="uil uil-plus-square"></i>
-            {/* <p> Elections</p> */}
+            {/* <i className="uil uil-question-circle"></i> */}
+            <i className="uil uil-list-ui-alt"></i>
           </NavLink>
         </li>
 
-        {/* Transfer Section */}
         <li className="ft_sm_li">
           <NavLink
             style={({ isActive }) => {
@@ -63,53 +84,49 @@ const BottomNavigationBar = ({ NavLink, darkTheme }) => {
                 fontSize: isActive ? "14px" : "13px",
               };
             }}
-            to={`/transfer`}
-            key={"transfer"}
-          >
-            <i className="uil uil-exchange"></i>
-          </NavLink>
-        </li>
-
-        <li className="ft_sm_li">
-          <NavLink
-            style={({ isActive }) => {
-              return {
-                display: "flex",
-                fontSize: isActive ? "14px" : "13px",
-                fontWeight: isActive && "600",
-                opacity: isActive ? "1" : "0.6",
-                alignItems: "center",
-                flexDirection: "column",
-              };
-            }}
             to={`/participate`}
             key={"participate"}
           >
-            <i className="uil uil-check-square"></i>
-            {/* <p>Participate</p> */}
+            <i className="uil uil-check"></i>
           </NavLink>
         </li>
-        <li className="ft_sm_li">
-          <NavLink
-            style={({ isActive }) => {
-              return {
-                display: "flex",
-                fontSize: isActive ? "14px" : "13px",
-                fontWeight: isActive && "600",
-                opacity: isActive ? "1" : "0.6",
-                alignItems: "center",
-                flexDirection: "column",
-              };
+
+        <li className="ft_sm_li" onClick={setMode}>
+          <div
+            style={{
+              display: "flex",
+              fontSize: "13px",
+              opacity: "0.65",
+              cursor: "pointer",
+              alignItems: "center",
+              flexDirection: "column",
             }}
-            to={`/faq`}
-            key={"faq"}
           >
-            <i
-              className="uil uil-shield-question"
-              style={{ fontSize: "21px" }}
-            ></i>
-            {/* <p>FAQ</p> */}
-          </NavLink>
+            {darkTheme ? (
+              <i
+                className="uil uil-brightness-low"
+                style={{ fontSize: "21px" }}
+              ></i>
+            ) : (
+              <i className="uil uil-moon" style={{ fontSize: "21px" }}></i>
+            )}
+          </div>
+        </li>
+
+        <li className="ft_sm_li">
+          <div
+            style={{
+              display: "flex",
+              fontSize: "13px",
+              opacity: "0.65",
+              cursor: "pointer",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+            onClick={LogOut}
+          >
+            <i className="uil uil-signout" style={{ fontSize: "21px" }}></i>
+          </div>
         </li>
       </ul>
     </footer>

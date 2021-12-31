@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useWindowSize } from "@react-hook/window-size";
 import Toggle from "../components/Toggle";
 import ConnectWalletButton from "../components/ConnectWalletButton";
@@ -11,19 +11,10 @@ const RightMenuWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
-
-const MenuButton = styled.div`
-  height: 60px;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: center;
-  padding-bottom: 2px;
-  margin-right: 20px;
-  cursor: pointer;
-`;
-
 const SmallHeader = styled.header`
   top: 0;
   left: 0;
@@ -43,69 +34,76 @@ const SmallHeaderInner = styled.div<{ darkTheme: boolean }>`
   display: flex;
   font-size: 13px;
   flex-direction: row;
-  height: var(--sm-hd-height-half);
+  padding: 8px 0;
   justify-content: space-between;
   font-weight: ${({ darkTheme }) => (darkTheme ? "normal" : 500)};
   p {
     opacity: 0.8;
   }
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const MobileRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const AccountDetailsRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px;
 `;
 
 const SiteTitle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 6vw;
   text-transform: uppercase;
+  margin-left: 6vw;
+  @media (max-width: 768px) {
+    margin-left: 8px;
+  }
 `;
 
 const TopNavigationBar: React.FC<{
   darkTheme: boolean;
 }> = ({ darkTheme }) => {
+  const [width] = useWindowSize();
+
   const connected = useSelector(selectConnected);
   const address = useSelector(selectAddress);
-  const dispatch = useDispatch();
-  const [width] = useWindowSize();
-  const announcement =
-    "///// This site is not responsive yet. Large screen view coming soon.";
 
+  const NavBarContent = () => {
+    return (
+      <AccountDetailsRow>
+        {connected && <TotalCommittedChoice />}
+        {address ? <AccountInfo /> : <ConnectWalletButton />}
+      </AccountDetailsRow>
+    );
+  };
   return (
     <SmallHeader>
-      <div
-        className="notResponsiveWarning"
-        style={{ display: width > 800 ? "flex" : "none" }}
-      >
-        <p>{announcement}</p>
-      </div>
-
       <SmallHeaderInner darkTheme={darkTheme}>
-        <SiteTitle>
-          {/* <img src="" alt="" /> */}
-          Choice Coin
-        </SiteTitle>
-
-        <RightMenuWrapper>
-          <MenuButton
-            onClick={() => {
-              dispatch({ type: "modal_menu" });
-            }}
-          >
-            <p>
-              <i
-                style={{
-                  fontSize: "20px",
-                  paddingBottom: "2px",
-                  marginRight: "10px",
-                }}
-                className="uil uil-bars"
-              />
-            </p>
-            <p style={{ paddingBottom: "2px" }}>menu</p>
-          </MenuButton>
-          {connected && <TotalCommittedChoice />}
-          {address ? <AccountInfo /> : <ConnectWalletButton />}
-          <Toggle darkTheme={darkTheme} />
-        </RightMenuWrapper>
+        {width < 768 ? (
+          <>
+            <MobileRow>
+              <SiteTitle>Choice Coin</SiteTitle>
+              <Toggle darkTheme={darkTheme} />
+            </MobileRow>
+            <NavBarContent />
+          </>
+        ) : (
+          <>
+            <SiteTitle>Choice Coin</SiteTitle>
+            <RightMenuWrapper>
+              <NavBarContent />
+              <Toggle darkTheme={darkTheme} />
+            </RightMenuWrapper>
+          </>
+        )}
       </SmallHeaderInner>
     </SmallHeader>
   );

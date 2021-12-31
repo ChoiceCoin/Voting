@@ -37,18 +37,19 @@ export interface Candidate {
   name: string;
   image: string;
   address: string;
+  votes: number;
 }
 export interface Election {
   candidates: Candidate[];
   wallet: {
     address: "";
   };
-  process_image: string;
+  process_image?: string;
   title: string;
   slug: string;
   card_desc: string;
-  choice_per_vote: number;
-  card_cand: [
+  choice_per_vote?: number;
+  card_cand?: [
     {
       cand_score: number;
       cand_det: string;
@@ -58,12 +59,14 @@ export interface Election {
 
 // TODO: need to pull out the types
 const ElectionCard: React.FC<{
-  scores: [];
+  scores: number[];
   options: [];
   election: Election;
 }> = ({ scores, options, election }) => {
-  const [isVoteListCollapsed, setIsVoteListCollapsed] = useState(true);
-  const [isChartCollapsed, setIsChartCollapsed] = useState(true);
+  // const [isVoteListCollapsed, setIsVoteListCollapsed] = useState(false); // show vote list by default
+  // const [isChartCollapsed, setIsChartCollapsed] = useState(true);
+  const isVoteListCollapsed = false; // show vote list by default
+  const isChartCollapsed = true;
   const [voteOptionChosen, setVoteOptionChosen] = useState("");
   const [voteChoiceAmount, setVoteChoiceAmount] = useState("0");
   const assets = useSelector(selectAssets);
@@ -144,13 +147,13 @@ const ElectionCard: React.FC<{
     setVoteChoiceAmount(event.target.value);
   };
 
-  const voteClickHandler = () => {
-    setIsVoteListCollapsed(!isVoteListCollapsed);
-  };
+  // const voteClickHandler = () => {
+  //   setIsVoteListCollapsed(!isVoteListCollapsed);
+  // };
 
-  const viewResultClickHandler = () => {
-    setIsChartCollapsed(!isChartCollapsed);
-  };
+  // const viewResultClickHandler = () => {
+  //   setIsChartCollapsed(!isChartCollapsed);
+  // };
 
   const onVoteOptionChosen = (event: ChangeEvent<HTMLInputElement>) => {
     setVoteOptionChosen(event.target.value);
@@ -179,36 +182,7 @@ const ElectionCard: React.FC<{
 
   return (
     <div className="card_cont">
-      <div className="card_r1">
-        <div className="card_elt_img">
-          <img src={election.process_image} alt="" />
-        </div>
-        <div className="card_elt_tit">{election.title}</div>
-      </div>
-
-      <div className="card_elt_desc">{election?.card_desc}</div>
-
-      <div className="card_cand">
-        <div className="card_cand_hd">
-          <p>Candidates</p>
-          <p>Amt:&nbsp;{election?.choice_per_vote}</p>
-        </div>
-
-        <ul className="card_cand_list">
-          {election?.candidates?.map((item, index) => (
-            <li className="cand_item" key={index}>
-              <div className="cand_img_cont">
-                {!!item.image ? (
-                  <img src={item.image} alt="" />
-                ) : (
-                  <i className="uil uil-asterisk"></i>
-                )}
-              </div>
-              <p className="cand_det">{item.name}</p>
-            </li>
-          ))}
-        </ul>
-
+      <div>
         <CollapsedChart
           isChartCollapsed={isChartCollapsed}
           ref={collapsedChartRef}
@@ -236,13 +210,13 @@ const ElectionCard: React.FC<{
                 <li key={index}>
                   <input
                     type="radio"
-                    id={election.slug}
+                    id={election.slug + "-option-" + index}
                     name="options"
                     value={item.address}
                     onChange={onVoteOptionChosen}
                   />
 
-                  <LabelRow htmlFor={election.slug}>
+                  <LabelRow htmlFor={election.slug + "-option-" + index}>
                     <div className="vote_img_cont">
                       {!!item.image ? (
                         <img src={item.image} alt="" />
@@ -271,8 +245,9 @@ const ElectionCard: React.FC<{
             </button>
           </div>
         </VoteListWrapper>
-
-        <div className="card_butts">
+        {/* Hide Vtte Now button */}
+        {/* Hide View Result until voting is over */}
+        {/* <div className="card_butts">
           <button onClick={voteClickHandler}>
             Vote now
             <i
@@ -289,7 +264,7 @@ const ElectionCard: React.FC<{
               }`}
             ></i>
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

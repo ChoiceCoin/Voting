@@ -12,7 +12,8 @@ import {
 } from "../store/walletSlice";
 import { ellipseAddress, formatBigNumWithDecimals } from "../utils/stringUtils";
 import { ASSET_ID } from "../constants";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useWindowSize } from "@react-hook/window-size";
 
 const AccountInfoWrapper = styled.div`
   display: flex;
@@ -20,8 +21,12 @@ const AccountInfoWrapper = styled.div`
   align-self: center;
   line-height: 1;
   font-size: 13px;
+
+  @media (max-width: 768px) {
+    font-size: 10px;
+  }
 `;
-const AssetInfo = styled.div`
+const AssetInfo = styled.div<{ isMobile: boolean }>`
   margin-right: 8px;
   padding: 2.5px 4px;
   border: 1px solid;
@@ -79,6 +84,8 @@ const AccountInfo = () => {
   // eslint-disable-next-line
   const nativeCurrency = getAlgoAssetData(assets);
   const choiceCoin = getChoiceCoinData(assets, chain);
+  const [width] = useWindowSize();
+  const [isMobile, setIsMobile] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -89,13 +96,17 @@ const AccountInfo = () => {
     }
   }, [address]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  useEffect(() => {
+    setIsMobile(width < 768);
+  }, [width]);
+
   if (!(connector && address)) return <></>;
 
   return (
     <AccountInfoWrapper>
       {choiceCoin && (
-        <AssetInfo>
-          Balance:{" "}
+        <AssetInfo isMobile={isMobile}>
+          <span>Balance:</span>{" "}
           {formatBigNumWithDecimals(choiceCoin.amount, choiceCoin.decimals)}{" "}
           {choiceCoin.unitName || "units"}
         </AssetInfo>
