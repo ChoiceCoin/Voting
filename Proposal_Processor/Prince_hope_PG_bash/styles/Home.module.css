@@ -1,5 +1,6 @@
+
 .container {
-  padding: 0 2rem;
+  /* padding: 0 2rem; */
   position: relative;
 }
 
@@ -12,6 +13,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0  2rem;
+  font-family: monospace;
 }
 
 .footer {
@@ -31,7 +34,8 @@
 }
 
 .title a {
-  color: #0070f3;
+  /* color: #0070f3; */
+  /* color:#eaeaea; */
   text-decoration: none;
 }
 
@@ -39,6 +43,8 @@
 .title a:focus,
 .title a:active {
   text-decoration: underline;
+  color: #0070f3;
+
 }
 
 .title {
@@ -53,13 +59,13 @@
 }
 
 .description {
-  margin: 4rem 0;
+  margin: 3rem 0;
   line-height: 1.5;
   font-size: 1.5rem;
 }
 
 .code {
-  background: #fafafa;
+  /* background: #fafafa; */
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
@@ -68,24 +74,28 @@
 }
 
 .grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  place-items: center;
+  gap: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .card {
   margin: 1rem;
   padding: 1.5rem;
   text-align: left;
-  color: inherit;
+  color: rgb(65, 61, 61);
   text-decoration: none;
+  background: rgb(255, 255, 255);
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease,
   border-color 0.15s ease;
   width: clamp(80px, 70%, 450px);
+  min-height: 100%;
+  transition: transform 300ms ease-in-out;
 }
 
 .card:hover,

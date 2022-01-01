@@ -8,23 +8,28 @@ const md = new MarkdownIt()
 
 const Proposal = ()=>{
   const router =useRouter()
-    const reference = useRef(null)
     const { propsObj, markdown, setMarkdown, setPropsObj, title,setTitle } = useGlobalContext();
     const handleSubmit =(e)=>{
         e.preventDefault()
         const length = propsObj.length
         const id = (propsObj.filter((props)=>props.id ==id).length > 0 )? length+1:length;
         setPropsObj([...propsObj, {name:title, desc:markdown, id:id, }])
-        localStorage.setItem("proposals",JSON.stringify( [
+        localStorage.setItem(
+          "proposals",
+          JSON.stringify([
+            { name: title, desc: markdown, id: Date.now() },
+            ...propsObj,
+          ])
+        );
+        setPropsObj([
+          {
+            name: title,
+            desc: markdown,
+            id: Date.now(),
+          },
           ...propsObj,
-          { name: title, desc: markdown, id: Date.now() },
-        ]));
-        setPropsObj(...propsObj, {
-          name: title,
-          desc: markdown,
-          id: Date.now(),
-        });
-        alert("Successfully created Proposal \nYou can edit You Propsal in the Hom or Proposals Page")
+        ]);
+        alert("Successfully created Proposal \nYou can edit You Propsal in the Home or Proposals Page")
         console.log(title, markdown)
         router.push("/")
         
@@ -35,11 +40,9 @@ const Proposal = ()=>{
     }
     const handleTitleChange =(e)=>{
         setTitle(e.target.value)
-        
-
     }
-    // const result = md.render("# Markdown it rules")
     return (
+      
       <form className="p-0 border-2 border-gray-500 rounded outline-none min-h-min">
         <div className="bg-blue-400 px-2 text-gray-50">
           This is a Markdown Editor So any Valid MarkDown will be valid
