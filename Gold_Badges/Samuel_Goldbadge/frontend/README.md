@@ -1,4 +1,4 @@
-# Frontend
+# Choice-Proposal
 
 ## RUN ON YOUR LOCAL MACHINE 
 - After `git cloning` the repository
@@ -13,7 +13,7 @@
  
 - live at - https://choice-coin-proposal.netlify.app/
 
-- video at - https://www.youtube.com/watch?v=S4awTDNybBM
+- video at - https://www.youtube.com/watch?v=Zo7I-V1qNic
 
 ## Functionalities
 - [x] User can add proposal and vote on the proposal.
