@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="tailwind.css" />
+    <link rel="stylesheet" href="style.css" />
+ <script
+        src="https://cdn.jsdelivr.net/npm/algosdk@1.13.0-beta.1/dist/browser/algosdk.min.js"
+        integrity="sha384-w9fodN00YjvWxdNoiyT+W6CqaATkXlfid9tnzBlToDqZWepVWLjI5wO7jNL4+aNs"
+        crossorigin="anonymous"
+    ></script>
+<script src="script.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Choice Coin</title>
+  </head>
+  <body>
+    <section
+      class="h-full text-white bg-white flex items-center justify-center p-6"
+    >
+      <div class="max-w-2xl container backdrop-blur-sm p-14 space-y-10 m-auto backdrop-blur-sm bg-green-300 rounded-3xl  ">
+        <div class="flex justify-between">
+          <p class="header text-4xl font-bold">Choice Coin</p>
+          <div
+            class="
+            connect 
+            font-bold
+            bg-gradient-to-r 
+             hover:from-purple-500
+              hover:to-pink-500
+              transition-all
+              hover:text-white
+              p-3
+              rounded-full
+              bg-white
+              text-gray-900
+              cursor-pointer
+            "
+          >
+            CONNECT WALLET
+          </div>
+        </div>
+        <div class="issue flex max-w-sm text-xl m-auto bg-green-400 p-3 rounded-2xl ">
+          Issue Number: #12
+        </div>
+        <div
+          class="
+          
+            w-full
+            h-60
+            bg-purple-100
+            text-purple-700
+            p-8 
+            text-lg
+            flex
+            flex-col
+            justify-between
+            rounded-3xl
+          "
+        >
+          <p>The proposal To Issue Afiniki Mhya the Female Dev Grant Award.</p>
+          <br>
+           <p>Please deposit a certain amount into your address of choice</p>
+          <hr>
+          <hr>
+          <hr>
+          <hr>
+    
+        </div>
+        <div class="votingAmount flex items-center gap-5">
+          <p class="text-lg">Input Voting Amount:</p>
+          <input
+            type="number"
+            min="1" 
+            class="rounded-2xl p-3  outline-none text-purple-700 amount"
+          />
+        </div>
+        <div class="buttons flex justify-around px-10 text-xl">
+          <div
+            class="
+              yes
+              rounded-full
+              p-2
+              px-5
+              bg-white 
+              text-gray-900
+              hover:bg-blue-500 hover:border-purple-300 hover:text-white
+              transition
+            "
+          >YES</div>
+           <div
+            class="
+              no
+              rounded-full
+              p-2
+              px-5
+              bg-white 
+              text-gray-900 
+              hover:bg-red-400 hover:border-purple-700 hover:text-white
+              transition
+            "
+          >NO</div>
+
+        </div>
+        <div class="button submit-btn m-auto w-40 flex justify-center    p-3
+              rounded-full
+              bg-gradient-to-r
+              from-purple-500
+              to-pink-500 border-2  cursor-pointer submitBtn">
+            SUBMIT VOTE
+        </div>
+      </div>
+    </section>
+</body>
+  </body>
+</html>

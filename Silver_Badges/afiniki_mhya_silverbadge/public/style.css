@@ -1,0 +1,26 @@
+.issue{
+    position: relative;
+    color: black;
+    background: white;
+}
+.issue:before{
+    position: absolute;
+    content:" ";
+    width: 57%;
+    background: #000;
+    height: 1px;
+    bottom:14px; 
+    right: 14px;
+}
+hr{
+    background: #000;
+    height: 2px;
+
+}
+.connect{
+    transition: all 100ms ease;
+}
+.yes, .no{
+    cursor: pointer;
+}
+    
