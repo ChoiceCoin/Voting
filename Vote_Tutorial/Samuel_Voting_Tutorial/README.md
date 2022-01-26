@@ -47,9 +47,9 @@ $ npm start
 
 
 ## Tutorial Links
-
-
+* [Algorand developer doc](https://developer.algorand.org/tutorials/build-a-decentralized-voting-app-with-choice-coin-and-javascript-sdk/)
+* [coins bench](https://coinsbench.com/build-a-decentralized-voting-app-with-choice-coin-and-javascript-algorand-sdk-using-nodejs-1a0101ec0d75)
 * [Medium](https://samuel-tosin.medium.com/build-a-decentralized-voting-app-with-choice-coin-and-javascript-algorand-sdk-using-nodejs-1a0101ec0d75)
 * [HashNode](https://hashnode.com/post/build-a-decentralized-voting-app-with-choice-coin-and-javascript-algorand-sdk-using-nodejs-ckynmu5n304yhfms11ib9dv7q)
 * [Dev](https://dev.to/samuellyworld/build-a-decentralized-voting-app-with-choice-coin-and-javascript-algorand-sdk-using-nodejs-43j3)
-* [Algorand developer doc]()
+
