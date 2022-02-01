@@ -21,87 +21,85 @@ const recoveredAccount = algosdk.mnemonicToSecretKey(mnemonic);
 const ASSET_ID = 21364625
 
 // voting address
-const voting_address = '' //input a voting address wallet you can send choice to, make sure choice is opt-in to receive votes
+const voting_address_0 = ""; //input a voting address wallet you can send choice to, make sure choice is opt-in to receive votes
+const voting_address_1 = ""; //input the second voting address wallet you can send choice to, make sure choice is opt-in to receive votes
 
 //Press '1' to vote for candidate 'one' and '0' to vote for candidate 'Zero"
-const chooseVotingOption = async () => {
-    const candidateOption = prompt("Press 0 for candidate Zero or Press 1 for candidate One:") //please vote for a candidate
-     const amount = prompt("Please enter Amount to commit to voting:");
+const chooseVotingOption = async (voting_address_0, voting_address_1) => {
+  const candidateOption = prompt(
+    "Press 0 for candidate Zero or Press 1 for candidate One:"
+  ); //please vote for a candidate
+  const amount = prompt("Please enter Amount to commit to voting:");
 
+  const params = await algodClient.getTransactionParams().do(); //get params
+  const encoder = new TextEncoder(); //message encoder
 
-    const params =  await algodClient.getTransactionParams().do(); //get params
-    const encoder = new TextEncoder();  //message encoder
-
-    // if there is no valid option 
-     if (!(candidateOption)) {
-         console.log('Please select a valid candidate option');
-     } else if (!Number(amount)) {
-         console.log("Please Enter A valid Choice token amount to vote")
-     }
-     // if your option is candidate zero
-      else  if (candidateOption == "0") {
-            try {
-                let txn = algosdk.makeAssetTransferTxnWithSuggestedParams(
-                    recoveredAccount.addr,
-                    voting_address,
-                    undefined,
-                    undefined,
-                    Number(amount),
-                    encoder.encode("Voting with Choice coin"),
-                    ASSET_ID,
-                    params
-
-                )
-
-            let signedTxn = txn.signTxn(recoveredAccount.sk);
-            const response =  await algodClient.sendRawTransaction(signedTxn).do();
-            if(response) {
-                console.log(`You just voted for candidate Zero,Your voting ID: ${response.txId}`);
-                // wait for confirmation
-                waitForConfirmation(algodClient, response.txId);
-            } else {
-                console.log('error voting for candidate Zero, try again later')
-            }
-     
-        }
-        catch(error) {
-            console.log("error voting for candidate Zero, Try again later");
-        }
-        
- } 
- // if your option is candidate one
-
- else  if(candidateOption == "1"){
+  // if there is no valid option
+  if (!candidateOption) {
+    console.log("Please select a valid candidate option");
+  } else if (!Number(amount)) {
+    console.log("Please Enter A valid Choice token amount to vote");
+  }
+  // if your option is candidate zero
+  else if (candidateOption == "0") {
     try {
-        let txn = algosdk.makeAssetTransferTxnWithSuggestedParams(
-            recoveredAccount.addr,
-            voting_address,
-            undefined,
-            undefined,
-            Number(amount),
-            encoder.encode("Voting with Choice coin"),
-            ASSET_ID,
-            params
-        )
-        let signedTxn = txn.signTxn(recoveredAccount.sk);
-        const response =  await algodClient.sendRawTransaction(signedTxn).do();
-        if(response) {
-            console.log(`You just voted for candidate One,Your voting ID: ${response.txId}`);
-            // wait for confirmation
-            waitForConfirmation(algodClient, response.txId);
-        } else {
-            console.log('error voting for candidate one, try again later')
-        }
-    
-    }
-    catch(error) {
-        console.log("Error voting for candidate One, Try again later");
-    }
+      let txn = algosdk.makeAssetTransferTxnWithSuggestedParams(
+        recoveredAccount.addr,
+        voting_address_0,
+        undefined,
+        undefined,
+        Number(amount),
+        encoder.encode("Voting with Choice coin"),
+        ASSET_ID,
+        params
+      );
 
+      let signedTxn = txn.signTxn(recoveredAccount.sk);
+      const response = await algodClient.sendRawTransaction(signedTxn).do();
+      if (response) {
+        console.log(
+          `You just voted for candidate Zero,Your voting ID: ${response.txId}`
+        );
+        // wait for confirmation
+        waitForConfirmation(algodClient, response.txId);
+      } else {
+        console.log("error voting for candidate Zero, try again later");
+      }
+    } catch (error) {
+      console.log("error voting for candidate Zero, Try again later");
     }
+  }
+  // if your option is candidate one
+  else if (candidateOption == "1") {
+    try {
+      let txn = algosdk.makeAssetTransferTxnWithSuggestedParams(
+        recoveredAccount.addr,
+        voting_address_1,
+        undefined,
+        undefined,
+        Number(amount),
+        encoder.encode("Voting with Choice coin"),
+        ASSET_ID,
+        params
+      );
+      let signedTxn = txn.signTxn(recoveredAccount.sk);
+      const response = await algodClient.sendRawTransaction(signedTxn).do();
+      if (response) {
+        console.log(
+          `You just voted for candidate One,Your voting ID: ${response.txId}`
+        );
+        // wait for confirmation
+        waitForConfirmation(algodClient, response.txId);
+      } else {
+        console.log("error voting for candidate one, try again later");
+      }
+    } catch (error) {
+      console.log("Error voting for candidate One, Try again later");
     }
+  }
+};
 
-chooseVotingOption();
+chooseVotingOption(voting_address_0, voting_address_1);
 
 //verification function
 const waitForConfirmation = async function (algodClient, txId) {
@@ -144,3 +142,39 @@ const checkBalance = async () => {
   };
 
 checkBalance();
+
+
+// Calculate the result of a voting process.
+const calculateVotes = async (addresses) => {
+  const results = [];
+  for (var i = 0; i < addresses.length; i++) {
+    const optionAccountInfo = await algodClient
+      .accountInformation(addresses[i])
+      .do();
+    //get the account information
+    const assets = optionAccountInfo["assets"];
+
+    //Check if choice coin is opted in
+    assets.map((asset) => {
+      if (asset["asset-id"] != CHOICE_ASSET_ID) return false;
+      else {
+        const amount = asset["amount"];
+        const choiceAmount = amount / 100;
+        results.push(choiceAmount);
+      }
+    });
+  }
+  console.log(results);
+  return results;
+};
+
+// Selects a winner based on the result.
+const winner = (voting_address_zero_count, voting_address_one_count) => {
+  if (voting_address_zero_count > voting_address_one_count)
+    console.log("Option zero wins.");
+  else if (voting_address_zero_count < voting_address_one_count)
+    console.log("Option one wins.");
+};
+
+const results = calculateVotes([voting_address_0, voting_address_1]);
+winner(results[0], results[1]);
