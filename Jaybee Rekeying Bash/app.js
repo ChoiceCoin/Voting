@@ -53,7 +53,7 @@ async function rekeytosingle(address,mnemonic,new_wallet=undefined){
         const params=await algoClient.getTransactionParams().do()//getting transaction parameters
         let enc=new TextEncoder()
         const note=enc.encode("Rekey")
-        const newkey_account=new_wallet||account['addr']
+        const newkey_account=new_wallet['addr']||account['addr']
         let txn=algosdk.makePaymentTxnWithSuggestedParams(address,address,0,undefined,note,params,newkey_account)//creating the rekey transaction
         console.log(txn)
         const main_key=algosdk.mnemonicToSecretKey(mnemonic)['sk']
@@ -62,9 +62,13 @@ async function rekeytosingle(address,mnemonic,new_wallet=undefined){
         let txnId=txn.txID().toString()
         console.log(txnId)
         let confirmedTxn=await waitForConfirmation(algoClient,txn.txID(),5)  
+        var mnemonics=undefined
+        if(!new_wallet){
+            mnemonics=sig_accounts.map(account=>algosdk.secretKeyToMnemonic(account['sk']))
+        }
         return {
             'sk':account['sk'],
-            'mnemonic':algosdk.secretKeyToMnemonic(account['sk'])
+            'mnemonic':mnemonics||account['mnemonic']
         }
     } catch (error) {
         console.log("Rekeying Failed")
@@ -112,7 +116,7 @@ async function rekeytomultisig(address,mnemonic,no_of_accounts,accounts=undefine
         }
         return {
             'sk':sig_accounts.map(account=>account['sk']),
-            'mnemonic':sig_accounts.map(account=>mnemonics||account['sk'])
+            'mnemonic':sig_accounts.map(account=>mnemonics||account['mnemonic'])
         }
     } catch (error) {
         console.log("Rekeying Failed")
