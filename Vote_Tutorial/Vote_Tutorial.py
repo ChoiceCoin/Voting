@@ -78,7 +78,7 @@ def vote():
         print ("Thanks for voting for zero.")
         print(final)
 vote()
-
+`
 # Here, the two `vote_address` variables refer to the respective choices available, so they should each be set to different addresses. 
 # In turn, the respective addresses may correspond with any two choices which may be voted upon and more addresses may be added to accommodate additional selection options. 
 
@@ -118,10 +118,7 @@ def check_results_zero():
             print("Account {} has {}.".format(address, balance_formatter(amount, asset_id, client)))
             return
         print("Account {} must opt-in to Asset ID {}.".format(address, asset_id))
-check_results_zero()
+check_results_zero()`
 
 # 6. Build the Best Voting Technology
 # The Choice Coin Open Source Software (OSS) Program rewards developers for building Choice Coin software on GitHub.
-# Currently, there are two OSS reward structures, the Gold Badge and the Silver Badge. 
-# The Silver Badge rewards substantial contributions to the Voting Repository on the Choice Coin GitHub. 
-# The Gold Badge rewards deployment of the Decentralized Decisions software for real world use cases.

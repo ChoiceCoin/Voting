@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro&family=Roboto&display=swap');
+
+
+.navbar {
+    display:  flex;
+    justify-content: space-between; 
+    background-color: rgb(109, 175, 197);
+    width: 100vw;
+    height: 7vh;
+  }
+  
+  .navbar ul {
+      color : lightcoral !important;
+      display: flex;
+      justify-content: space-between;
+      text-decoration: none;
+      list-style: none;
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+     
+  }
+  
+  .navbar ul li a {
+   color : lightcoral !important;
+   text-decoration: none;
+   outline: none;
+   font-family: 'Roboto', sans-serif
+  }
+  
+  .navbar ul li {
+      cursor: pointer;
+      font-family: 'Roboto', sans-serif
+  }
+  .navbar ul .dropdown{
+      position: absolute;
+      right: 100px;
+      cursor: pointer;
+  }
+  
+  img {
+      width: 40px;
+  }
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.body {
+    display: block;
+   text-align: center;
+   list-style: none;
+   overflow: hidden;
+}
+
+.body h1 {
+    color: rgba(42, 42, 145, 0.534);
+    font-size: 21px;
+    font-family: 'Readex Pro', sans-serif;
+}
+.connect p {
+    font-size: 20px;
+    margin-left: -48px;
+    font-weight: bold;
+    color : rgb(56, 56, 13)
+}
+
+.connect ul li {
+ list-style: none;
+ text-decoration: none;
+ font-family: 'Readex Pro', sans-serif;
+ 
+}
+
+.connect ul li span {
+    padding: 5px;
+    cursor : pointer;
+    border: solid 1px blue;
+    background-color: rgba(42, 42, 145, 0.534);
+    box-shadow: 3px 3px 3px 3px #888888
+}
+
+.connect ul li:last-child {
+    margin-top: -21px;
+    margin-right: 214px; 
+}
+
+.container {
+    text-align: center;
+    padding: 10px;
+}
+.container .wallet{
+    text-align: center;
+    padding: 10px;
+}
+.container .checkbox{
+    text-align: center;
+    display: flex;
+}
+
+.wallet input {
+    margin-top: 10px;
+    outline: none;
+    padding: 10px;
+    border : solid 1px brown;
+}
+
+input {
+    border : solid 1px brown;
+}
+
+ button {
+     width: 90px;
+     color: whitesmoke;
+     background-color: rgb(134, 82, 82);
+     cursor: pointer;
+ }
+
+ .header h1 {
+     padding-top: 30px;
+   text-align: center;
+   color: lightcoral;
+   font-size: 23px;
+   font-family: 'Readex Pro', sans-serif;
+ }
+ 
+ .red,.blue {
+    padding: 10px;
+    margin: 10px;
+}
+
+#ded,#dud {
+    /* margin-left: 10px; */
+    font-weight: bold;
+    color: rgb(179, 45, 51);
+}
+#results {
+    display: flex;
+    text-align: center;
+    background-color: rgb(179, 45, 51);
+    width: 60vw;
+    margin: 0 auto;
+
+}
+#results #result {
+    color : whitesmoke
+}
+
+.wallet input {
+    width : 50vw;
+}
+
+.wallet {
+    margin-top: -40px;
+}
+
+.container .checkbox {
+    display: flex;
+    margin-left: 200px;
+}
+
+@media screen and (max-width: 600px) and (min-width: 420px) {
+    .navbar ul li a {
+        margin-left: -40px;
+        }
+     .navbar ul .dropdown {
+            right: 34px;
+        }
+        .navbar ul .vote {
+            right: 40px;
+    }
+    .container .checkbox {
+        margin-left: 0px;
+        margin-bottom: 23px;
+    }
+    #ded,#dud {
+        margin-left: 0px;
+    }
+    .red,.blue {
+        padding: 0px;
+    }
+}
+@media screen and (max-width: 420px) and (min-width: 200px) {
+    .navbar ul li a {
+        margin-left: -40px;
+        }
+     .navbar ul .dropdown {
+            right: 34px;
+        }
+        .navbar ul .vote {
+            right: 40px;
+    }
+    .container .checkbox {
+        margin-left: 0px;
+        margin-bottom: 23px;
+    }
+    #ded,#dud {
+        margin-left: 0px;
+    }
+    .red,.blue {
+        padding:  2px;
+    }
+    .blue {
+        padding: 2px;
+        margin-left: -20px;
+    }
+    .red {
+        margin-right: 10px;
+    }
+    .container .checkbox {
+        margin-left: -33px;
+    }
+    #results {
+        width: 100vw;
+    }
+}
+
+/* @media screen and (max-width: 1000) and (min-width:610px ) {
+    .container .checkbox {
+      margin-left: auto;
+    }
+} */
+
+/* @media screen and (max-width: 600px) and (min-width: 200px) {
+    .navbar ul li a {
+        margin-left: -40px;
+        }
+     .navbar ul .dropdown {
+            right: 34px;
+        }
+        .navbar ul .vote {
+            right: 40px;
+    }
+    .container .checkbox {
+        margin-left: 0px;
+        margin-bottom: 23px;
+    }
+    #ded,#dud {
+        margin-left: 0px;
+    }
+    .red,.blue {
+        padding: 4px;
+        margin: 4px;
+    }
+    section {
+     width: 100vw;
+    }
+    .checkbox .red #red-input {
+        height: 30px
+    }
+    .checkbox .blue #blue-input{
+        height: 30px;
+    }
+
+} */
+
+
+
+
+
+
