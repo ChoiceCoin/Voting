@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choice Coin</title>
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+    </script>
+    <style>
+        body{
+        padding:10% 3% 10% 3%;
+        text-align:center;
+        }
+        img{
+            height:140px;
+                width:140px;
+        }
+        .mode {
+            float:right;
+        }
+        .change {
+            cursor: pointer;
+            border: 1px solid #555;
+            border-radius: 40%;
+            width: 20px;
+            text-align: center;
+            padding: 5px;
+            margin-left: 8px;
+        }
+        .dark{
+            background-color: #222;
+            color: #e6e6e6;
+        }
+            background-color: rgb(8, 8, 8);
+            color: rgb(73, 130, 214);
+        }
+        .navbar,.container{
+            display: flex;
+            justify-content: space-around;
+        }
+        .inner{
+            width: 500px;
+            height: 350px;
+            color: whitesmoke;
+            background: royalblue;
+            margin: 400px;
+            margin-top: 0px;
+        }
+
+        #conct-wallet{
+            color :white;
+            background-color: royalblue;
+
+        }
+        #submit{
+                display: flex;
+                justify-content: space-around;
+                margin-left: 100px;
+                margin-top: 10px;
+                width: 250px;
+                border-radius: 5px;
+                border-color: none;
+                height: 30px;
+                color: royalblue;
+                font-weight: bolder;
+                font-size: 20px;
+               
+        }
+
+    </style>
+</head>
+<body>
+    <div class="mode">
+        Dark mode:            
+        <span class="change">OFF</span>
+    </div>
+    <div class="navbar">
+        <h1>Choice coin</h1>
+        <button id="conct-wallet">Connect Wallet</button>
+    </div>
+
+    <div class="inner">
+        <h1 style="text-align: center;">Choice Coin Voting Software</h1>
+        <form>
+            <label for="choice-coin">Amount To Commit</label>
+            <input type="number" min="0" id="number" >
+        </form>
+        <p>OPTIONS</p>
+        <div class="container">
+            <div class="yes">
+               <input type="radio" id="zero_address" name="choice-quest" value="one_address">
+               <label for="choice-coin">Yes</label>
+            </div>
+        
+            <div class="no">   
+                <input type="radio" id="no" name="choice-quest" value="no">
+               <label for="choice-coin">No</label>
+            </div>
+        </div>
+
+        <input id="submit" type="submit"> 
+        <p>
+            Click on the switch on top-right
+            to move to dark mode.
+        </p>
+    </div>
+    
+    <script>
+        $( ".change" ).on("click", function() {
+            if( $( "body" ).hasClass( "dark" )) {
+                $( "body" ).removeClass( "dark" );
+                $( ".change" ).text( "OFF" );
+            } else {
+                $( "body" ).addClass( "dark" );
+                $( ".change" ).text( "ON" );
+            }
+        });
+        var zero_address; //defining zero address and one address
+        var one_address;
+         var from;
+         var to = " ";
+          //connecting to algosigner
+          connectwallet =()=>{
+                if(typeof AlgoSigner === 'undefined'){
+                    alert('Please install algosigner');
+                    return false;
+                }
+                console.log("Connected to wallet successfully")
+                AlgoSigner.connect()
+                .then(()=> AlgoSigner.accounts({
+                    ledger: 'TestNet'
+                }))
+                //get accountdata of accounts in the Algo testnet 
+                .then((accountData)=>{
+                
+                    zero_address = accountData[0]['address']
+                    one_address = accountData[1]['address']
+                    from = accountData[2]['address']
+                    console.log("Connected to wallet successfully")
+                    
+                })
+                .catch((e)=>{
+                    console.error(e)
+
+                })
+            }
+            //adding click event listener to the submit button
+            var submit= document.getElementById('conct-wallet');
+            submit.addEventListener('click', function(){connectwallet();});
+
+            
+            //function to connect to testnet,sign and send transaction
+            function firstTransaction(){
+                to = " ";
+                amount = parseInt(document.getElementById('number').value)
+                note = 'Vote for Choice';
+                if(document.getElementById('zero_address').checked){
+                    to = zero_address
+                }else{
+                    to = one_address
+                }
+                AlgoSigner.connect()
+                // get the current parameters, these are needed in order to sign the transaction
+                .then(() => AlgoSigner.algod({
+                    ledger: 'TestNet',
+                    path: '/v2/transactions/params'
+                }))
+                // sign the transaction
+                    .then((txParams) => AlgoSigner.sign({
+                        from: from,
+                        to: to,
+                        amount: +amount,
+                        note: note,
+                        // 'pay' is an ALGO payment transaction
+                        type: 'pay',
+                        fee: txParams['min-fee'], // the minimum fee to send the transaction
+                        firstRound: txParams['last-round'], // the first round the transaction is valid for
+                        lastRound: txParams['last-round'] + 1000, // the last round the transaction is valid for
+                        genesisID: txParams['genesis-id'], // required
+                        genesisHash: txParams['genesis-hash'], // required 
+                        flatFee: true // levy a flat fee instead of a variable fee
+                    }))
+                    // send the transaction
+                    .then((signedTx) => AlgoSigner.send({
+                        ledger: 'TestNet',
+                        tx: signedTx.blob // the unique blob representing the signed transaction
+                        
+                    }))
+                    // wait for confirmation from the blockchain
+                    .then((tx) => waitForAlgosignerConfirmation(tx)) // see algosignerutils.js
+                    .then((tx) => {
+                        // our transaction was successful, we can now view it on the blockchain 
+                        console.log('connection successful');
+                    })
+                    .catch((e) => { 
+                        // handle errors and perform error cleanup here 
+                        console.error(e); 
+                    });
+                    
+                    
+               
+            }
+
+
+            //adding click event listener to the submit button
+            var submitTransaction= document.getElementById("submit");
+            submitTransaction.addEventListener('click', function(){firstTransaction();});
+
+
+            
+    </script>
+</body>
+</html>

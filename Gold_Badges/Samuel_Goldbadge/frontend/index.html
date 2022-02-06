@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+    name="description"
+    content="Choice Coin is an Algorand Standard Asset that powers Decentralized Decisions, a voting and governance software built directly on the Algorand Blockchain">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://www.google.com/s2/u/0/favicons?domain=https://choice-coin.com/">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins&display=swap" rel="stylesheet">
+    <title>Choice coin</title>
+    <style>
+        body{
+            
+font-family: 'Poppins', sans-serif;
+        }
+           canvas{ 
+             display: block;
+             
+             } 
+         #choice{
+             
+              position: absolute;
+         }
+
+
+          #choice-div{ 
+            position:relative;
+            width: 100%; 
+            height: 700px;
+            background-color: #0c0208;
+            background-image: url(""); 
+            background-repeat: no-repeat; 
+            background-size: cover;
+            background-position: 50% 50%;
+         }
+
+         .closeBtn{
+            font-size: 30px;
+            color: #fff;
+            float: right;
+            }
+
+        .closeBtn:hover,.closeBtn:focus{
+            color: #e439ef;
+            text-decoration: none;
+            cursor:  pointer;
+            }
+        
+      
+    </style>
+</head>
+<body>
+    <nav class="home-nav flex items-center justify-between flex-wrap    p-6  w-full z-10 top-0 md:px-20">
+		<div class="flex items-center flex-shrink-0 text-white mr-6">
+			<a class="text-white flex space-x-2 cursor-pointer no-underline hover:text-white hover:no-underline" href="../index.html">
+        <span style="color: white;"> </span>
+        <h1 class="logo text-3xl text-white " >Choice Coin</h1> 
+			</a>
+		</div>
+
+		<div class="block lg:hidden">
+			<button id="nav-toggle" class="flex items-center px-3 py-2  rounded text-white border-gray-600 hover:text-white hover:border-white">
+				<?xml version="1.0" ?><svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6H20M4 12H20M4 18H11" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+			</button>
+		</div>
+
+		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
+			<ul class="list-reset lg:flex justify-end flex-1 items-center">
+				
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" style="cursor: pointer;" onclick="electionReset()">Create Proposal</a>
+				</li>
+			
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" style="cursor: pointer;" onclick="Proposals()">Proposals </a>
+				</li>
+                <li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="https://choice-coin.com/">About Us </a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+  <!-- HOME  -->
+    <div class="" id="choice-div">
+        <div id="choice" class="choice text-white pt-14 px-5   md:px-20 " >
+            <div class=" pt-5">
+                <h1 class=" home text-3xl md:text-5xl leading-loose  pb-4 " >A Democratic Token For a New Age</h1>
+                <p class="flex flex-wrap text-sm md:text-base mt-5 " > Choice Coin is an Algorand Standard Asset that powers Decentralized Decisions, a voting and governance software built directly on the Algorand Blockchain. Decentralized Decisions enables organizations to make governance decisions in an open and decentralized manner. For the Choice Coin DAO,
+                     Decentralized Decisions leverages Proof-of-Participation as a governance mechanism, allowing voters to have a larger say in direct proportion to their contribution to the network. </p>
+                <p> Choice Coin powers Decentralized Voting Technology that will define governance for the next generation. </p>
+            </div>
+            <div class="flex text-white space-x-9 mt-10 md:mt-14 w-full px-2 ">
+                <a class="font bg-blue-800 font-semibold hover:bg-gray-800 text-white py-2 px-5  md:py-3 md:px-7 rounded-xl focus:outline-none focus:shadow-outline" style="cursor: pointer;" id="election">Create Proposal</a>
+                <a class="font bg-blue-800 hover:bg-gray-800 text-white font-semibold py-2 px-5 md:py-3 md:px-7 rounded-xl focus:outline-none focus:shadow-outline" style="cursor: pointer;"> About Choice coin</a>
+            </div>
+     </div> 
+
+   
+    </div>
+
+    <!-- Proposals page -->
+    <div id="proposals" class=" flex justify-center mt-28  h-auto">
+        <div class="">
+            <h2 style="text-align: center;" class="mb-5 text-2xl font-bold" > Proposals </h2>
+            <div id="proposal-div" class=" flex flex-col flex-wrap justify-center md:space-x-9 md:flex-row " >
+            </div>
+        </div>
+        </div>
+
+   
+    <!-- CREATE ELECTION -->
+    <div class="mt-0" id="proposal" hidden>
+        <div id="error" class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+        <div id="success" class="success">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+
+       <!-- wallet address -->
+        <div class="wallet">
+            <span id="wallet-address"> </span>
+        </div>
+         <!-- feedback  -->
+         <div id="total_gov_coin" class="alert">
+        </div>
+       
+
+        <div class=" flex justify-center items-center mt-5">
+            
+           
+
+          <div class="w-full max-w-xl">
+              <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" >
+                
+           <div style="display:flex; justify-content: space-between;">
+                <h1 class="create block text-gray-700 text-xl font-bold mb-2" > Create Proposal </h1> 
+               <!-- wallet connection -->
+                <button class="connect pb-5 flex justify-end" id="modalBtn" >  <p class="mt-2 create" >Connect Wallet</p><img class="w-10" src="https://img.icons8.com/color/48/000000/wallet-app.png"/>  </button>
+            </div>
+           
+          
+       
+           
+
+           <div class="wallet-modal">
+               <div id="simpleModal" class="modal-overlay mt-24 md:mt-0" hidden>
+                   <div class="modal-content rounded">
+                     <div class="modal-header bg-blue-800">
+                         <span class="closeBtn"> <img class="w-8 text-white" src="./closemodal.svg"/> </span>
+                         <h2>Connect your Wallet</h2>
+                     </div>
+                     <div class="modal-body">
+                       <div class="flex inline-flex w-full " onclick="myAlgoWalletConnect()">
+                           <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
+                               <img style="margin-top: 10px; margin-left: 10px;" class="w-7 text-white " src="https://i.postimg.cc/76r9kXSr/My-Algo-Logo-4c21daa4.png" alt="algorand" srcset="">
+                               <p class="pt-3" style="margin-left: 10px;" > My Algo Wallet</p>
+                           </button>
+                       </div>
+
+                    <div class="flex inline-flex w-full " onclick="algoSignerConnect()" >
+                        <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
+                            <img style="margin-top: 10px; margin-left: 10px;" class="w-7 text-white " src="https://i.postimg.cc/L4JB4JwT/Algo-Signer-2ec35000.png" alt="algosigner" srcset="">
+                            <p class="pt-3" style="margin-left: 10px;" > Algosigner</p>
+                        </button>
+                   </div>
+                   <div class="flex inline-flex w-full " onclick="connectWallet()">
+                        <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
+                            <img class="w-12 text-white " src="./algorandlogo.svg" alt="algorand" srcset="">
+                            <p class="pt-3" >Algorand Mobile Wallet</p>
+                        </button>
+                 </div>
+                     </div>
+                  
+                   </div>
+                 </div>
+           </div>
+            <div class="mb-2">
+          
+          <input id="proposal-title" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="electionTitle" type="text" placeholder="Enter Proposal Title"  >
+        </div>
+            <p style="padding-bottom: 20px; font-size: 13px; color: red;"  class="italic">100 choice will be committed for proposal to be submitted</p>
+        <a id="proposal-sign"
+        class="submit bg-gray-700 mt-2 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" >Submit Proposal</a>
+     </div>
+      
+     </div>
+      
+      </div>
+      
+     </div>
+
+     <!-- Proposal vote -->
+     <div id="proposal-vote" class="mt-28 p-10 md:px-24 w-full" hidden>
+        <div id="errors" class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+        <div id="successs" class="success">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+
+        <h1 id="proposal-header" class="font-bold text-lg pb-10" > Welcome</h1>
+       
+        <div class="body">
+            <header id="header-title">Particpate by Voting</header>
+          <div class="decision">
+          <label class="red" for="red">YES
+            <input type="radio" name="dec" id="red" value="one">
+          </label>
+           <label class="blue" for="blue">NO
+            <input type="radio" name="dec" id="blue" value="two">
+           </label>
+           
+            <br/>
+            <label for="wallet-address" style="margin-top: 10px;">Enter Choice Amount: </label><br/>
+            <input type="text" id="choice-amount" autofocus name="from" placeholder="Input amount of choice" style="background-color:var(--body-bg);padding: 10px;border-radius: 10px; outline:none; border:2px solid blue; width: 40vw; height: 30px;">        
+         
+        </div>
+          <button class="proposal-button" id="proposal-button">Vote</button>
+
+        </div>
+        <!-- vote -->
+
+  <!-- ongoing election -->
+        <div id="ongoing" class="current mt-20">
+            <h1 class="mt-3 mb-10 text-xl  font-bold md:text-2xl"  >  Ongoing  election </h1>
+            <div class="current-open flex flex-col border rounded  p-5 md:p-10 md:flex-row" >
+                
+                <div class=" mb-5 w-full flex flex-col items-center justify-center   cursor-pointer md:w-auto">
+                    <img class="w-44 h-30" src="https://media-exp1.licdn.com/dms/image/C4D1BAQEzyBcrpBcX7A/company-background_10000/0/1519796682454?e=215" alt="" srcset="">
+                    <p class="text-lg text-center font-bold pt-2 mb-2" >Developer of the year</p>
+                </div>
+                <div class="   mt-5 md:mt-0 w-full  md:w-3/4 md:pl-10" >
+                    <h1 class="text-xl text-center font-bold -mt-10 p-2 mb-2"> Candidates  </h1>
+                   <div class="flex space-x-3  md:space-x-8 justify-center flex-wrap" >
+
+                    <div class="flex flex-col justify-center items-center" >
+                        <span> <img class="  rounded-full h-24 w-24 flex items-center justify-center" src="https://avatars.githubusercontent.com/u/19754168?v=4" alt=""> </span>
+                        <p class="font-medium text-base " >Xekhai</p> 
+                    </div>
+                    <div class="flex flex-col items-center" >
+                        <span> <img class="  rounded-full h-24 w-24 flex items-center justify-center" src="https://avatars.githubusercontent.com/u/81499885?v=4" alt=""> </span>
+                        <p class="font-medium text-base " > Oluwatunmise</p>  
+                    </div>
+                    <div class="flex flex-col items-center" >
+                     
+                         <span> <img class="  rounded-full h-24 w-24 flex items-center justify-center" src="https://avatars.githubusercontent.com/u/78707441?v=4" alt="">  </span>
+                        <p class="font-medium text-base " >AlphaGlitch</p>  
+                    </div>
+                    <div class="flex flex-col items-center" >
+                        <span> <img class="  rounded-full h-24 w-24 flex items-center justify-center" src="https://avatars.githubusercontent.com/u/40547207?v=4" alt=""> </span>
+                        <p class="font-medium text-base " >Jagah</p>  
+                    </div>
+                    <div class="flex flex-col items-center" >
+                        <span> <img class="  rounded-full h-24 w-24 flex items-center justify-center" src="https://avatars.githubusercontent.com/u/63968702?v=4" alt=""> </span>
+                        <p class="font-medium text-base " >Prince Hope</p>  
+                    </div>
+                    
+                   </div>
+                   <div class="mt-5 flex justify-center items-center" >
+                    <a class=" p-2 px-3 border rounded border-gray-100 bg-gray-700 text-white hover:p-8 hover:shadow-md " style="cursor: pointer;" onclick="candidateElection()">Vote</a>
+                </div>
+                </div>
+                    
+            </div>
+        </div>
+        
+    </div>
+
+  <!-- each Proposal vote  -->
+  <div id="each-proposal-vote" class="mt-28 p-10 md:px-24 w-full" hidden>
+    <div id="each-error" class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div>
+    <div id="each-success" class="success">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div>
+ <div id="each-after">
+   <div style="display:flex; justify-content: space-between;">
+    <h1 id="proposal-header" class="font-bold text-lg pb-10" > Welcome</h1>
+    <button class="connect pb-5 flex justify-end" id="eachModalBtn" >  <p class="mt-2" >Connect Wallet  </p> <img class="w-5 h-5" style="margin-top: 9px; margin-left: 8px;" src="https://cdn-icons-png.flaticon.com/512/214/214362.png"/>  </button>
+   </div>
+    
+   <div class="wallet-modal">
+    <div id="eachSimpleModal" class="modal-overlay mt-24 md:mt-0" hidden>
+        <div class="modal-content rounded">
+          <div class="modal-header bg-blue-800" style="display: flex; justify-content: space-between;">
+              <h2>Connect your Wallet with</h2>
+              <span style="cursor: pointer;" class="eachCloseBtn"> <img id="eachCloseBtn" class="w-8 text-white" src="./closemodal.svg"/> </span>
+          </div>
+          <div class="modal-body">
+            <div class="flex inline-flex w-full " onclick="myAlgoconnectEachProposal()">
+                <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
+                    <img style="margin-top: 10px; margin-left: 10px;" class="w-7 text-white " src="https://i.postimg.cc/76r9kXSr/My-Algo-Logo-4c21daa4.png" alt="algorand" srcset="">
+                    <p class="pt-3" style="margin-left: 10px;" > My Algo Wallet</p>
+                </button>
+            </div>
+
+         <div class="flex inline-flex w-full " onclick="algosignerConnectEach()" >
+             <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
+                 <img style="margin-top: 10px; margin-left: 10px;" class="w-7 text-white " src="https://i.postimg.cc/L4JB4JwT/Algo-Signer-2ec35000.png" alt="algosigner" srcset="">
+                 <p class="pt-3" style="margin-left: 10px;" > Algosigner</p>
+             </button>
+        </div>
+        <div class="flex inline-flex w-full " onclick="connectWallet()">
+             <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
+                 <img class="w-12 text-white " src="./algorandlogo.svg" alt="algorand" srcset="">
+                 <p class="pt-3" >Algorand Mobile Wallet</p>
+             </button>
+      </div>
+          </div>
+       
+        </div>
+      </div>
+</div>
+
+   
+    <div class="body">
+        <header id="header-title">Vote on Proposal</header>
+      <div class="decision">
+      <label class="red" for="red">YES
+        <input type="radio" name="dec" id="each-red" value="one">
+      </label>
+       <label class="blue" for="blue">NO
+        <input type="radio" name="dec" id="each-blue" value="two">
+       </label>
+       
+        <br/>
+        <label for="wallet-address" style="margin-top: 10px;">Enter Choice Amount: </label><br/>
+        <input type="text" id="each-choice-amount" autofocus name="from" placeholder="Input amount of choice" style="background-color:var(--body-bg);padding: 10px;border-radius: 10px; outline:none; border:2px solid blue; width: 20vw; height: 30px;">        
+     
+    </div>
+      <button class="proposal-button" id="each-proposal-button">Vote</button>
+
+    </div>
+    <!-- vote -->
+ </div>
+ <!-- after successful vote -->
+    <div id="each-successful" class=" mt-24" hidden>
+        <div id="err" class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+        <div id="succes" class="success">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+
+        <div class="w-full flex justify-center items-center">
+            <img src="https://img.icons8.com/external-tal-revivo-duo-tal-revivo/100/000000/external-product-quality-checkmark-for-approved-and-tested-basic-duo-tal-revivo.png"/>
+
+            <h2 class="text-2xl font-semibold" > Successfully voted </h2>
+        </div>
+
+        <div class="flex mt-10 justify-center space-x-10" > 
+            <a class="bg-blue-800 font-semibold hover:bg-gray-800 text-white py-2 px-5  md:py-3 md:px-7 rounded-xl focus:outline-none focus:shadow-outline" href="../index.html">Go to Home </a>  
+        </div>
+
+
+   </div>
+
+<!-- ongoing election -->
+    <div id="ongoing" class="current mt-20">
+        <h1 class="mt-3 mb-10 text-xl  font-bold md:text-2xl"  >  Ongoing  election </h1>
+        <div class="current-open flex flex-col border rounded  p-5 md:p-10 md:flex-row" >
+            
+            <div class=" mb-5 w-full flex flex-col items-center justify-center   cursor-pointer md:w-auto">
+                <img class="w-44 h-30" src="https://media-exp1.licdn.com/dms/image/C4D1BAQEzyBcrpBcX7A/company-background_10000/0/1519796682454?e=2159024400&v=beta&t=UxYGzfBsmy8BJzmkXbfN5saHKpdfsyjC3dxl1xSZX2c" alt="" srcset="">
+                <p class="text-lg text-center font-bold pt-2 mb-2" >Developer of the year</p>
+            </div>
+            <div class="   mt-5 md:mt-0 w-full  md:w-3/4 md:pl-10" >
+                <h1 class="text-xl text-center font-bold -mt-10 p-2 mb-2"> Candidates  </h1>
+               <div class="flex space-x-3  md:space-x-8 justify-center flex-wrap" >
+
+                <div class="flex flex-col justify-center items-center" >
+                    <span> <img class="  rounded-full h-24 w-24 flex items-center justify-center" src="https://avatars.githubusercontent.com/u/19754168?v=4" alt=""> </span>
+                    <p class="font-medium text-base " >Xekhai</p> 
+                </div>
+                <div class="flex flex-col items-center" >
+                    <span> <img class="  rounded-full h-24 w-24 flex items-center justify-center" src="https://avatars.githubusercontent.com/u/81499885?v=4" alt=""> </span>
+                    <p class="font-medium text-base " > Oluwatunmise</p>  
+                </div>
+                <div class="flex flex-col items-center" >
+                 
+                     <span> <img class="  rounded-full h-24 w-24 flex items-center justify-center" src="https://avatars.githubusercontent.com/u/78707441?v=4" alt="">  </span>
+                    <p class="font-medium text-base " >AlphaGlitch</p>  
+                </div>
+                <div class="flex flex-col items-center" >
+                    <span> <img class="  rounded-full h-24 w-24 flex items-center justify-center" src="https://avatars.githubusercontent.com/u/40547207?v=4" alt=""> </span>
+                    <p class="font-medium text-base " >Jagah</p>  
+                </div>
+                <div class="flex flex-col items-center" >
+                    <span> <img class="  rounded-full h-24 w-24 flex items-center justify-center" src="https://avatars.githubusercontent.com/u/63968702?v=4" alt=""> </span>
+                    <p class="font-medium text-base " >Prince Hope</p>  
+                </div>
+                
+               </div>
+               <div class="mt-5 flex justify-center items-center" >
+                <a class=" p-2 px-3 border rounded border-gray-100 bg-gray-700 text-white hover:p-8 hover:shadow-md " style="cursor: pointer;" onclick="candidateElection()">Vote</a>
+            </div>
+            </div>
+                
+        </div>
+    </div>
+    
+
+</div>
+
+<!-- each candidate vote -->
+<div id="candidates" class=" flex px-10 flex-col justify-center mt-24  h-auto">
+    <button class="connect pb-5 flex justify-end" id="candidateModalBtn" >  <p class="mt-2" >Connect Wallet</p><img class="w-10" src="https://img.icons8.com/color/48/000000/wallet-app.png"/>  </button>
+
+    <div class="wallet-modal" >
+        <div id="candidateSimpleModal" class="modal-overlay mt-24 md:mt-0">
+            <div class="modal-content rounded">
+              <div class="modal-header bg-blue-800" style="display: flex; justify-content: space-between;">
+                 <h2>Connect your Wallet</h2>
+                  <span style="cursor: pointer;" class="candidateCloseBtn" id="candidateCloseBtn"> <img class="w-8 text-white" src="../closemodal.svg"/> </span>
+                  
+              </div>
+              
+              <div class="modal-body">
+                <div class="flex inline-flex w-full " onclick="myAlgoconnectEachCandidate ()">
+                    <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
+                        <img style="margin-top: 10px; margin-left: 10px;" class="w-7 text-white " src="https://i.postimg.cc/76r9kXSr/My-Algo-Logo-4c21daa4.png" alt="algorand" srcset="">
+                        <p class="pt-3" style="margin-left: 10px;" > My Algo Wallet</p>
+                    </button>
+                </div>
+
+             <div class="flex inline-flex w-full " onclick="algosignerConnectCandidate()" >
+                 <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
+                     <img style="margin-top: 10px; margin-left: 10px;" class="w-7 text-white " src="https://i.postimg.cc/L4JB4JwT/Algo-Signer-2ec35000.png" alt="algosigner" srcset="">
+                     <p class="pt-3" style="margin-left: 10px;" > Algosigner</p>
+                 </button>
+            </div>
+            <div class="flex inline-flex w-full " onclick="connectWallet()">
+                 <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
+                     <img class="w-12 text-white " src="./algorandlogo.svg" alt="algorand" srcset="">
+                     <p class="pt-3" >Algorand Mobile Wallet</p>
+                 </button>
+          </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    
+<div class="">
+<h1 class="developer text-3xl md:text-4xl text-center font-semibold  " >Choice Coin Developer Of the Year </h1>
+</div>
+<p class="dev" style="margin: 10px; display: flex; text-align: left; color: red;" >please note, for each vote 1 choice will be committed</p>
+<p class="font-semibold text-xl my-10 text-center " > Candidates </p>
+
+<div id="candidate-error" class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+</div>
+<div id="candidate-success" class="success">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+</div>
+
+<div class=" shadow-md border p-10  flex flex-col md-mx-5 md:grid md:grid-cols-4 md:gap-5">
+<div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
+    <span> <img class=" w-56 h-30  flex items-center justify-center" src="https://avatars.githubusercontent.com/u/19754168?v=4" alt=""> </span>
+    <p class="font-medium text-base pt-5 " class="Xekhai" > Xekhai </p>  <span> 
+
+     <a><button  id="Xekhai" class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
+</div>
+<div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
+    <span> <img class="  w-56 h-30 flex items-center justify-center" src="https://avatars.githubusercontent.com/u/81499885?v=4" alt=""> </span>
+    <p class="font-medium text-base pt-5 " class="Oluwatunmise" > Oluwatunmise</p>  <span> 
+    
+
+        <a><button id="Oluwatunmise"  class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
+</div>
+<div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
+    <span> <img class=" w-56 h-30  flex items-center justify-center" src="https://avatars.githubusercontent.com/u/78707441?v=4" alt=""> </span>
+    <p class="font-medium text-base pt-5 " class="AlphaGlitch"  > AlphaGlitch </p>  <span> 
+
+        <a><button id="AlphaGlitch"  class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
+</div>
+<div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
+    <span> <img class="w-56 h-30   flex items-center justify-center" src="https://avatars.githubusercontent.com/u/40547207?v=4" alt=""> </span>
+    <p class="font-medium text-base pt-5 " class="Jagah" > Jagah</p>  <span> 
+
+        <a><button  id="Jagah" class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
+</div>
+<div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
+    <span> <img class="w-56 h-30   flex items-center justify-center" src="https://avatars.githubusercontent.com/u/63968702?v=4" alt=""> </span>
+    <p class="font-medium text-base pt-5 " class="Prince Hope" >Prince Hope</p>  <span> 
+
+        <a><button id="Prince"  class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
+</div>
+
+
+
+
+</div>
+
+</div>
+
+    <!-- successful vote -->
+    <div id="successful" class=" mt-24" hidden>
+        <div id="success-err" class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+        <div id="success-succes" class="success">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+
+        <div class="w-full flex justify-center items-center">
+			<img src="https://img.icons8.com/external-tal-revivo-duo-tal-revivo/100/000000/external-product-quality-checkmark-for-approved-and-tested-basic-duo-tal-revivo.png"/>
+
+			<h2 class="text-2xl font-semibold" > Successfully voted </h2>
+        </div>
+
+		<div class="flex mt-10 justify-center space-x-10" > 
+            <a class="bg-blue-800 font-semibold hover:bg-gray-800 text-white py-2 px-5  md:py-3 md:px-7 rounded-xl focus:outline-none focus:shadow-outline" href="../index.html">Go to Home </a>  
+        </div>
+
+
+    </div>
+
+     <!-- footer -->
+    <div class=" section1 px-5 md:px-20 pt-20 pb-24 bg-gray-200 " id="footer">
+        <h1  class=" text-2xl md:text-3xl leading-6 mb-5 font-bold" > Promoting Democracy and Decentralization</h1>
+        <div>
+            <div class="flex flex-col  md:flex-row mt-10" >
+                <div class="flex mb-5 md:mb-0 md:px-20 justify-between space-x-4" >
+                    <img class="w-24 h-24 rounded" src="https://choice-coin.com/res/img/icon/vote.png" alt="" srcset="">
+                    <div>
+                        <h2 class="text-xl font-semibold text-blue-800" >Decentralized Voting</h2>
+                        <p class="text-sm mt-px" >Choice Coin powers Decentralized Voting Technology that will define governance for the next generation</p>
+                    </div>
+                </div>
+                <div class="flex mb-5 md:mb-0 md:px-20 justify-between space-x-4" >
+                    <img class="w-24 h-24 rounded" src="https://choice-coin.com/res/img/icon/validate.png" alt="" srcset="">
+                    <div>
+                        <h2 class="text-xl font-semibold text-blue-800" >Participatory Validation</h2>
+                        <p class="text-sm mt-px" >Holders of Choice Coin can immediately vote on allocations for the network, which will help democratic causes and organizations.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col  md:flex-row mt-10" >
+                <div class="flex mb-5 md:mb-0 md:px-20 justify-between space-x-4" >
+                    <img class="w-24 h-24 rounded" src="https://choice-coin.com/res/img/icon/develop.png" alt="" srcset="">
+                    <div>
+                        <h2 class="text-xl font-semibold text-blue-800" >Open Development</h2>
+                        <p class="text-sm mt-px " >The Choice Coin Network is entirely open source </p>
+                    </div>
+                </div>
+                <div class="flex md:px-20 justify-between md:mr-28  space-x-4" >
+                    <img class="w-24 h-24 rounded" src="secure.svg" alt="" srcset="">
+                    <div>
+                        <h2 class="text-xl font-semibold text-blue-800" >Secure</h2>
+                        <p class="text-base mt-px" >
+                          Our technology is secure.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+ </div>
+    <!-- footer -->
+ <footer class="bg-gray-900 w-full pt-10 md:px-20" id="ft">
+     <div class=" flex flex-col md:flex-row justify-between  items-center  md:px-10">
+            <div>
+                 <div class="flex items-center mb-5 flex-shrink-0 text-white mr-6">
+                <a class="text-white flex space-x-2 cursor-pointer no-underline hover:text-white hover:no-underline" href="#">
+            <span> <img class="w-5" src="https://choice-coin.com/Screenshot%202021-06-25%20at%2023-38-44%20Logo%20Maker%20Used%20By%202%203%20Million%20Startups.png" alt=""> </span>
+            <h1 class="text-3xl text-white " >   Choice Coin  </h1> 
+                </a>
+            </div>
+          
+            
+        </div>
+        
+           
+        <div class="flex flex-col" >
+            <div class="flex inline-flex space-x-3">
+            
+                <a class=" " href=""><img  class="w-8" src="https://img.icons8.com/stickers/100/000000/github.png"/></a>
+                <a href=""><img class="w-8" src="https://img.icons8.com/fluency/48/000000/twitter.png"/></a>   
+                <a href=""><img class="w-8" src="https://img.icons8.com/color/48/000000/discord-logo.png"/></a>
+            </div>
+            <a  style="color: antiquewhite;" class="text-lg font-semi-bold text-center text-base mt-5" href="https://choice-coin.gitbook.io/choice-coin-docs/">Docs</a>
+        </div>
+    
+     </div>
+     <div style="color: aliceblue;" class=" text-center pb-5"> <p  > © 2021 All rights reserved Choice coin </p> </div>
+ </footer>
+    <!-- SCRIPT -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/algosdk@1.13.0-beta.1/dist/browser/algosdk.min.js"
+        integrity="sha384-w9fodN00YjvWxdNoiyT+W6CqaATkXlfid9tnzBlToDqZWepVWLjI5wO7jNL4+aNs"
+        crossorigin="anonymous"
+    ></script>
+    <script src="./src/algo.js"></script>
+     <script src="./src/app.js"></script>
+     <script src="./src/myalgowallet.js"></script>
+     <script src="./src/algosigner.js"></script>
+   
+
+     
+     <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/@walletconnect/client@1.7.0/dist/esm/index.js" integrity="sha256-MihHum5EWA/XtHbareMp0+KgaTuUKDnnYzZO2yaDnaU=" crossorigin="anonymous"></script>
+     <script  src="https://cdn.jsdelivr.net/npm/algorand-walletconnect-qrcode-modal@1.6.1/dist/cjs/index.js" integrity="sha256-xlXXs6QTWTcOyiOn/qivryL81nGDj3rYUDXdDXcaXJA=" crossorigin="anonymous"></script> -->
+     
+     <script type="text/javascript" src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+     <script src="./src/algorandmobile.js"></script>
+     <script src="/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/algorand-walletconnect-qrcode-modal@1.6.1/dist/umd/index.min.js"></script>
+       <!-- <script src="https://cdn.jsdelivr.net/npm/algorand-walletconnect-qrcode-modal@1.6.1/dist/cjs/index.js" integrity="sha256-xlXXs6QTWTcOyiOn/qivryL81nGDj3rYUDXdDXcaXJA=" crossorigin="anonymous"></script>
+       <script src="https://cdn.jsdelivr.net/npm/algorand-walletconnect-qrcode-modal@1.6.1/dist/cjs/index.min.js"></script> -->
+       <script src="https://cdn.jsdelivr.net/npm/@walletconnect/client@1.7.0/dist/umd/index.min.js"></script>
+
+
+    
+    <script>
+particlesJS("choice-div", {"particles":{"number":{"value":80,"density":{"enable":false,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":700 + 'px'}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
+ 
+
+    </script>
+</body>
+</html>
