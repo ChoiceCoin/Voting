@@ -1,0 +1,43 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 5rem;
+
+}
+
+.description {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin: 2rem 0;
+}
+
+.main > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main a {
+    text-decoration: none;
+    color: #333;
+
+}
+
+.main h1 {
+    font-size: 2.7rem;
+    text-align: center;
+}
+
+.link {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 1rem 2rem;
+    width: 10rem;
+    background: #333;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px black;
+    color: white !important;
+}
