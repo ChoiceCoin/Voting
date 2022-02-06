@@ -18,7 +18,7 @@ $ python3 run.py
 
 ## Preview Site
 
->
+> https://choice-vote.herokuapp.com
 
 ## Youtube url
 
