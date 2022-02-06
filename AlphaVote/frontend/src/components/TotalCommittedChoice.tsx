@@ -15,8 +15,9 @@ import { URL } from "../constants";
 import { useEffect, useState } from "react";
 import { indexerForChain } from "../utils/api";
 import { Election } from "../participate/ElectionCard";
+import { useWindowSize } from "@react-hook/window-size";
 
-const TotalCommittedChoiceWrapper = styled.div`
+const TotalCommittedChoiceWrapper = styled.div<{ isMobile: boolean }>`
   display: flex;
   align-items: center;
   align-self: center;
@@ -26,6 +27,10 @@ const TotalCommittedChoiceWrapper = styled.div`
   border: 1px solid;
   border-radius: 4px;
   margin-right: 8px;
+
+  @media (max-width: 768px) {
+    font-size: 10px;
+  }
 `;
 
 export const getChoiceCoinData = (assets: IAssetData[], chain: ChainType) => {
@@ -48,6 +53,7 @@ const TotalCommittedChoice = () => {
     userTotalCommittedChoiceToVoting,
     setUserTotalCommittedChoiceToVoting,
   ] = useState<bigint>(BigInt(0));
+  const [width] = useWindowSize();
 
   useEffect(() => {
     if (!data) {
@@ -100,16 +106,14 @@ const TotalCommittedChoice = () => {
   }
 
   return (
-    <TotalCommittedChoiceWrapper>
-      <span>
-        Committed:
-        {data &&
-          formatBigNumWithDecimals(
-            userTotalCommittedChoiceToVoting,
-            choiceCoin.decimals
-          )}{" "}
-        {choiceCoin.unitName || "units"}
-      </span>{" "}
+    <TotalCommittedChoiceWrapper isMobile={width < 768}>
+      Committed:{" "}
+      {data &&
+        formatBigNumWithDecimals(
+          userTotalCommittedChoiceToVoting,
+          choiceCoin.decimals
+        )}{" "}
+      {choiceCoin.unitName || "units"}
     </TotalCommittedChoiceWrapper>
   );
 };
