@@ -1,0 +1,16 @@
+{
+  "name": "js-tutorial",
+  "version": "1.0.0",
+  "description": "This is a choice coin js tutorial app for voting",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node index.js"
+  },
+  "author": "samuel aspirin",
+  "license": "ISC",
+  "dependencies": {
+    "algosdk": "^1.13.0",
+    "prompt-sync": "^4.2.0"
+  }
+}

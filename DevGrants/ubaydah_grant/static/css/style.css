@@ -1,0 +1,208 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: fixed !important;
+  /* z-index: 100; */
+}
+
+.vote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.copy {
+  background-color: none;
+  border: none;
+}
+.vertical_line {
+  border-left: 3px solid #fff;
+  height: 22px;
+}
+
+.inputt,
+.inputt:active,
+.inputt:focus,
+.inputt:focus:active,
+.blue,
+.blue:active,
+.blue:focus,
+.blue:focus:active {
+  background-color: #ffffff !important;
+  border: none;
+  color: #000;
+  outline: none;
+  height: 3rem;
+  text-indent: 10px;
+  width: 220px;
+  border-radius: 3px;
+}
+
+body {
+  color: #cfe4f8;
+  background-color: rgb(3, 4, 49);
+  /* background-image: radial-gradient(#000565 0.65px, #192e3a 0.65px); */
+  /* background-size: 13px 13px; */
+}
+.form {
+  background-color: #0c23a1;
+  color: #031b6d;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  width: 420px;
+}
+
+.highlight {
+  background-color: rgb(10, 17, 107);
+}
+
+.textinput {
+  text-align: center;
+  padding: 5px;
+  font-size: 10px;
+}
+
+.textinput2 {
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 200px;
+}
+
+#choice_text,
+#choice_value {
+  width: auto;
+}
+
+#notify {
+  background-color: #1e1196;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  justify-content: center;
+  align-items: center;
+
+  padding: 6px;
+}
+
+#notification {
+  margin-top: -22px;
+  margin-bottom: 3px;
+  font-size: 12px;
+}
+.box {
+  width: 500px;
+  border: 1px solid #0a3663 !important;
+}
+
+#algowallet:hover,
+#algosigner:hover,
+#algomobile:hover {
+  cursor: pointer;
+  color: rgb(53, 53, 241);
+  text-decoration: underline;
+}
+
+.disconnect {
+  margin-right: 100px;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: -95px;
+  z-index: 1000;
+  display: none;
+}
+
+.primary-text {
+  color: rgb(53, 53, 241) !important;
+}
+
+.dropdown:active {
+  outline: none;
+}
+
+@media screen and (max-width: 900px) {
+  .navigation {
+    font-size: 14px;
+  }
+  .connect_wallet,
+  .wallet_center {
+    font-size: 10px;
+  }
+  #wallet_value {
+    font-size: 8px !important;
+    width: 100px;
+  }
+  .box {
+    width: 320px;
+  }
+  #choice_value {
+    font-size: 8px !important;
+    width: auto;
+  }
+
+  .navigation {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  .connect_wallet {
+    margin-top: 0 !important;
+  }
+  .form {
+    width: 320px;
+  }
+  .header > span {
+    font-size: 20px;
+  }
+  .span2 {
+    font-size: 10px !important;
+  }
+  .textinput2 {
+    padding: 2px;
+  }
+
+  .vertical_line {
+    border-left: 1px solid #fff;
+    height: 12px;
+  }
+
+  .mode {
+    font-size: 13px;
+  }
+  .modal {
+    width: 300px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .header {
+    font-size: 16px;
+  }
+
+  .participate {
+    font-size: 18px;
+  }
+}
+
+.ui {
+  background-color: rgb(7, 28, 97) !important;
+}
+
+.primary-bg-blur {
+  backdrop-filter: blur(25px) saturate(114%);
+  -webkit-backdrop-filter: blur(25px) saturate(114%);
+  background-color: rgba(13, 21, 128, 0.41);
+  border-radius: 12px;
+  border: 1px solid rgba(5, 49, 116, 0.3);
+}
