@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif&family=Shizuru&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  color: white;
+  background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/10/Pine-Forest-Wallpaper-High-Quality-HD.jpg");
+  background-size: auto;
+}
+#g {
+  text-decoration: none;
+  color: white;
+}
+.header {
+  width: 100%;
+  height: 10vh;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.start {
+  display: grid;
+  justify-content: center;
+}
+.options {
+  margin-left: 15%;
+  margin-top: 50px;
+  width: 70%;
+  height: 38vh;
+  background-color: grey;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 5px solid white;
+}
+#address {
+  word-break: break-all;
+}
+#g:hover {
+  color: skyblue;
+  font-size: 18px;
+  transition: 0.5s;
+}
+#importBtn {
+  padding: 6px;
+  color: white;
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+#passPharse {
+  padding: 30px;
+}
+#pkey {
+  padding: 7px;
+  width: 78%;
+  border: 2px solid skyblue;
+  border-radius: 5px;
+}
+.elements {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 90%;
+  height: 28vh;
+  border-radius: 2px;
+  background-color: aquamarine;
+}
+.items {
+  cursor: pointer;
+  margin: 1.5%;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 43%;
+  height: 6vh;
+  background-color: grey;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+img {
+  width: 10vh;
+  height: 10vh;
+}
+#gen {
+  width: 5vh;
+  height: 5vh;
+  margin: 1px;
+}
+.mm {
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg");
+  background-size: cover;
+}
+.gena {
+  display: flex;
+  justify-content: center;
+}
+.left {
+  border: 5px dashed white;
+  border-radius: 10px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  margin-top: 12vh;
+  background-color: rgb(48, 47, 47);
+  padding: 15px;
+}
+.pas {
+  padding: 10px;
+  margin: 10px;
+}
+#generateBtn {
+  padding: 6px;
+  color: white;
+  background-color: black;
+  border: 2px solid white;
+
+  border-radius: 5px;
+}
+#generateBtn:hover {
+  font-size: 15px;
+  transition: 0.8s;
+  cursor: pointer;
+  background: linear-gradient(to right, rgb(25, 95, 151) 0%, #dd4c4f 100%);
+}
+#connectBtn {
+  cursor: pointer;
+  padding: 8px;
+  border: 2px solid skyblue;
+  border-radius: 9px;
+  color: white;
+  background: linear-gradient(to right, rgb(50, 151, 25) 0%, #dd4c4f 100%);
+}
+#importBtn:hover {
+  font-size: 15px;
+  transition: 0.8s;
+  cursor: pointer;
+  background: linear-gradient(to right, rgb(25, 95, 151) 0%, #dd4c4f 100%);
+}
+#nft {
+  background: linear-gradient(to right, rgb(25, 95, 151) 0%, #dd4c4f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
