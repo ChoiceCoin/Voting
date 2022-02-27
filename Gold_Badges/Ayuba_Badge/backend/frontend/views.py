@@ -19,7 +19,7 @@ def wait_for_confirmation(client, txid):
     return txinfo
 
 algod_address = "https://testnet-algorand.api.purestake.io/ps2"
-algod_token = "nH6GvZZLPE2a6yZSLX2BH7Mk5HArCVlF61zv7ps1"
+algod_token = "your api key"
 headers = {
    "X-API-Key": algod_token,
 }
@@ -30,16 +30,16 @@ algodclient = algod.AlgodClient(algod_token, algod_address, headers)
 params = algodclient.suggested_params()
 
 
-existing_account1 = 'BY6T6BB3ZQP5IOTATATDWPLKAKUTRL5IJUSI4573VVTRU3UP6GVGQSN4LI'
-mnemonic1 = 'feed trend mean scissors region gasp fashion hint case jewel ability seed leg wife share mushroom lizard craft armed today multiply match mom abstract young'
+existing_account1 = ''
+mnemonic1 = ''
 private_key1 = mnemonic.to_private_key(mnemonic1)
 
-existing_account2 = 'CC2NN5NTJIKBGP7UBNW6AKHOOP2MJWVQRCZYRN7NOKI3V4ZWKHGSRIANB4'
-mnemonic2 = 'culture best wear board fiction paddle mix dwarf man glad strike treat armed inquiry sugar split drama pulse runway fish tenant split result abstract misery'
+existing_account2 = ''
+mnemonic2 = ''
 private_key2 = mnemonic.to_private_key(mnemonic2)
 
-existing_account3 = 'C73S3TWSN2PG25OZD7VEGTLGDBUVEVYE4R4A5ZG3JAJJ2Q4FZYDZLKAD6U'
-mnemonic3 = 'sadness wild laptop attend protect travel observe fossil fall trick zebra action around honey love utility sunset shoulder base chair trend click camera about crane'
+existing_account3 = ''
+mnemonic3 = ''
 private_key3 = mnemonic.to_private_key(mnemonic3)
 
 receiver_address = 'HSCWQUOUXCY5I6F3LET2SPFE366OZYQIBJTE4OGLIDQTPHSUFKIEAMU5RM'
@@ -56,7 +56,7 @@ def Confirm_vote(request):
         if form.is_valid():
             send_amount = form.cleaned_data["amount"]
             sender_address = request.user.userprofile.wallet_address
-            tx = transaction.PaymentTxn(existing_account1,params.min_fee,params.first,params.last,params.gh,receiver_address,send_amount)
+            tx = transaction.PaymentTxn(sender_address,params.min_fee,params.first,params.last,params.gh,receiver_address,send_amount)
             signed_tx = tx.sign(private_key1)
             txid = algodclient.send_transaction(signed_tx)
             print('Transaction sent with ID', txid)
