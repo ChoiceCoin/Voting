@@ -3,13 +3,16 @@ This is a repository for voting software built using Choice Coin on the Algorand
 
 # OSS Rewards for Contributions
 
-There are two OSS reward structures for contributions, the Gold Badge and the Silver Badge. The Silver Badge rewards substantial contributions to the Voting Repository on the Choice Coin GitHub.  The Gold Badge rewards deployment of the Decentralized Decisions software for real world use cases. The Gold_Badges and Silver_Badges folders include contributions from reward winners. As of November 19, 2021 11 Gold Badges have been awarded and the program is currently closed, but may open again in the future. Silver Badge awards are still available. 
+As the largest OSS project on Algorand Choice Coin strives to excel in open source innovation. Choice Coin is currently focusing on rewarding contributions to this Repository and especially encouraging women to contribute. We recently made 6,000,000.00 Choice available specifically to women to build on Algorand. Additioanlly, Choice Coin commonly hosts bash style hackathons to reward developers and makes Bronze Badge awards available to developers for making significant contributions to the Choice Coin Voting Repository. If you would like to get started building with us, please join our Discord, open a pull request, or post an issue here. To make a pull request please place all of your files in a single folder and add the folder to the Bronze_Badges folder in this repository. Please also add a description regarding the contribution.
+
+For all contributions. Please add all of your files in a seperate folder with titled: UserName_Program. For example, ChoiceCoin_Bronze or ChoiceCoin_Grants. Then, add your folder to the appropriate folder in this Repository. If you already have a fork, please be sure to merge upstream before making a PR. If you have questions, please reach out by posting an issue. Below are some links to developer resources.
 
 Choice Coin Participation: https://choice-coin.com/participation.html
 
 Developer Docs: https://choice-coin.gitbook.io/choice-coin-docs/getting-started/introduction
 
-Gold Badge Information: https://forum.algorand.org/t/choice-coin-gold-badge/4817
+Choice Grants for Female Developers: https://medium.com/@ChoiceCoin/choice-grants-for-female-developers-on-algorand-991f61ad14ad
+
 
 # Dependencies
 - To run the code in the *Choice_Coin_Voting* Folder, you first must have Python installed. Please download the latest version of Python, and create a virtual environment specifically for this directory. Python Download: https://www.python.org/downloads/.
@@ -19,6 +22,14 @@ Gold Badge Information: https://forum.algorand.org/t/choice-coin-gold-badge/4817
 # Voting Tutorial
 
 For an easy startup, check the Voting_Tutorial folder for a step by step guide to getting started building voting software with Choice Coin on Algorand.
+
+# Retired OSS Programs
+
+These programs are not currently active. We will do our best to re-open them as soon as possible. *
+
+There are two OSS reward structures for contributions, the Gold Badge and the Silver Badge. The Silver Badge rewards substantial contributions to the Voting Repository on the Choice Coin GitHub.  The Gold Badge rewards deployment of the Decentralized Decisions software for real world use cases. The Gold_Badges and Silver_Badges folders include contributions from reward winners. As of November 19, 2021 11 Gold Badges have been awarded and the program is currently closed, but may open again in the future. Silver Badge awards are still available. 
+
+Gold Badge Information: https://forum.algorand.org/t/choice-coin-gold-badge/4817
 
 # Demo Run Steps
 - To run the code found in the *Choice_Coin_Voting* folder, make sure to first download the dependencies as described above using *pip*.
