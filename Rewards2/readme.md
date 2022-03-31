@@ -1,4 +1,4 @@
-#Voting Rewards
+# Voting Rewards
 
 Rewards scripts for Decentralized Decisions using BeautifulSoup.
 
