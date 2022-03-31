@@ -5,20 +5,17 @@ import csv
 import re
 
 def get_data():
-    #--------
-    #page 0
-    #--------
-    html = urlopen("https://algoexplorer.io/address/25S2YKMG2E3L5RTFI67NTSWFJJQHBTDULAIN7TQVXWB3E4E5Y6BPG3O44I")
-    soup = BeautifulSoup(html, 'html.parser')
+    try:
+        #html = urlopen("https://algoexplorer.io/address/25S2YKMG2E3L5RTFI67NTSWFJJQHBTDULAIN7TQVXWB3E4E5Y6BPG3O44I/")
+        html = requests.get("https://algoexplorer.io/address/25S2YKMG2E3L5RTFI67NTSWFJJQHBTDULAIN7TQVXWB3E4E5Y6BPG3O44I/")
+    except Exception as e:
+        print(e)
+        return
 
-    html = 'https://algoexplorer.io/address/25S2YKMG2E3L5RTFI67NTSWFJJQHBTDULAIN7TQVXWB3E4E5Y6BPG3O44I'
-    soup = urllib2.urlopen(html)
-    #soup = BeautifulSoup(html, 'html.parser')
-    #Sender
+    soup = BeautifulSoup(html.content, 'html.parser')
     Sender_Data = soup.find_all('a')
-    #for link in soup.find_all('a'):
-        #print(link.get('href'))
-    
+    print(Sender_Data)
+
 get_data()
     
     #Sender = SenderData[7].text.strip().replace('\n', ' ').replace('\r', '')
