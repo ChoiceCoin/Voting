@@ -1,4 +1,6 @@
 __pycache__
 .venv
 node_modules
-Choice_Coin_Voting/.DS_Store
+Xekhai/.DS_Store
+.DS_Store
+node_modules

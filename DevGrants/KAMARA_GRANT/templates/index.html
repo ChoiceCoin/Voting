@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choice Coin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background: #f4f7fa;
+        }
+        .container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .inner_wrapper {
+            position: relative;
+        }
+        .card {
+            position: relative;
+            width: 500px;
+            border-radius: 20px;
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            /* background-color: rgb(87,84,84); */
+            /* background: linear-gradient(-135deg, #1de9b6 0%, #1dc4e9 100%); */
+            padding: 10px 0px;
+            margin: 0px;
+        }
+        #logo-header {
+            display: flex;
+            align-items: baseline;
+        }
+        #logo-header span {
+            font-weight: 800;
+            font-size: 30px;
+        }
+        .card-bg .r:first-child {
+            top: -100px;
+            right: -100px;
+            background: linear-gradient(-135deg, #1de9b6 0%, #1dc4e9 100%);
+        }
+
+        .card-bg .r.s:nth-child(2) {
+            top: 150px;
+            right: -150px;
+            background: #04a9f5;
+        }
+
+        .card-bg .r.s:nth-child(3) {
+            left: -150px;
+            bottom: 150px;
+            background: #1de9b6;
+        }
+
+        .card-bg .r:last-child {
+            left: -100px;
+            bottom: -100px;
+            background: linear-gradient(-135deg, #899FD4 0%, #A389D4 100%);
+        }
+
+        .card-bg .r.s {
+            width: 20px;
+            height: 20px;
+        }
+
+        .card-bg .r {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+        }
+        .card-bg .r:nth-child(odd) {
+            -webkit-animation: floating 7s infinite;
+            animation: floating 7s infinite;
+        }
+
+        .card-bg .r:nth-child(even) {
+            -webkit-animation: floating 9s infinite;
+            animation: floating 9s infinite;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #04a9f5;
+            border-color: #04a9f5;
+        }
+
+        @-webkit-keyframes floating {
+            from {
+                -webkit-transform: rotate(0deg) translate(-10px) rotate(0deg);
+                transform: rotate(0deg) translate(-10px) rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(360deg) translate(-10px) rotate(-360deg);
+                transform: rotate(360deg) translate(-10px) rotate(-360deg);
+            }
+        }
+            @keyframes floating {
+            from {
+                -webkit-transform: rotate(0deg) translate(-10px) rotate(0deg);
+                transform: rotate(0deg) translate(-10px) rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(360deg) translate(-10px) rotate(-360deg);
+                transform: rotate(360deg) translate(-10px) rotate(-360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="toast-container position-absolute top-0 end-0 p-3">            
+        </div>
+        <div class="container">
+            <div class="inner_wrapper">
+                <div class="card-bg">
+                    <span class="r"></span>
+                    <span class="r s"></span>
+                    <span class="r s"></span>
+                    <span class="r"></span>
+                </div>
+                <div id="algo_alert" class="alert alert-success fade show visually-hidden" style="width: 500px;" role="alert">
+                    <h4 class="alert-heading">AlgoSigner not installed!</h4>
+                    <p>You don't appear to have AlgoSigner installed! You can get it from the <a target="_blank"
+                        href="https://chrome.google.com/webstore/detail/algosigner/kmmolakhbgdlpkjkcjkebenjheonagdm">Chrome Web
+                        Store</a>.</p>
+                </div>
+                <div class="card" style="width: 500px;">    
+                    <div class="card-header">
+                        <div id="logo-header">
+                            <img src="/static/img/andys industry help work.png" alt="logo" style="width: 50px">
+                            <span>hoice Coin</span>
+                        </div>
+                        <button onclick="connectWallet()" class="btn btn-primary" id="connect_btn">Connect Wallet</button>
+                    </div>
+                    <div class="card-body">
+                        <form id="form">
+                            <h3>Choice Coin Voting</h3>
+                            <div class="mb-3">
+                                <label for="issue_form" class="form-label">Issue Number</label>
+                                <input type="text" name="issue_number" class="form-control" id="issue_form" placeholder="***************" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="statement_form" class="form-label">Statement</label>
+                                <textarea class="form-control" id="statement_form" rows="3" required></textarea>
+                            </div>
+                            <div style="display: flex; justify-content: space-between">
+                                    <div style="display: flex">
+                                        <div class="form-check" style="margin-right: 15px;">
+                                            <input class="form-check-input" type="radio" name="colorAddressForm" id="flexRadioDefault1" value="yes">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                            Yes
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="colorAddressForm" id="flexRadioDefault2" value="no" checked>
+                                            <label class="form-check-label" for="flexRadioDefault2">No</label>
+                                        </div>                                
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="/static/js/algosignerutils.js"></script>
+    <script>
+        window.addEventListener('load', ()=> {
+            checkForAlgosigner();
+        })
+        let account = undefined;
+        const form = document.getElementById('form');
+        const connectBtn = document.getElementById('connect_btn');
+        const connectWallet = (e)=> {
+            AlgoSigner.connect()
+            .then(() => AlgoSigner.accounts({
+                ledger: 'TestNet'
+            }))
+            .then((accountData) => {
+                account = accountData;
+                connectBtn.innerText = "Connected"
+                connectBtn.setAttribute('disabled','true')
+            })
+            .catch((error) => console.error(error))
+        }
+
+        const createToast = (message) => {
+            const toastContainer = document.getElementsByClassName('toast-container')[0]
+            const toast = document.createElement('div')
+            toast.classList.add('toast','align-items-center')
+            toast.setAttribute('aria-live','assertive')
+            toast.setAttribute('aria-atomic', 'true')
+            toast.setAttribute('id','toastNotice')
+            toast.setAttribute('role', 'alert')
+            const dFlex = document.createElement('div')
+            dFlex.classList.add('d-flex')
+            const toastBody = document.createElement('div')
+            toastBody.innerText = message
+            toastBody.classList.add('toast-body')
+            dFlex.appendChild(toastBody)
+            const button = document.createElement('button')
+            button.classList.add('btn-close','me-2','m-auto')
+            button.setAttribute('aria-label','Close')
+            button.setAttribute('data-bs-dismiss','toast')
+            button.setAttribute('type','button')
+            dFlex.appendChild(button)
+            toast.appendChild(dFlex);
+            toastContainer.appendChild(toast)
+            toast.addEventListener('hidden.bs.toast', ()=> {
+                toastContainer.removeChild(toast);
+            })
+            var bsAlert = new bootstrap.Toast(toast)
+            bsAlert.show();//show it
+        }
+
+        const signTransaction = (address_color) => {
+            let receiver_address = undefined;
+            const blue_address = account[1].address
+            const red_address = account[1].address
+            address_color == "yes" ? receiver_address = blue_address : receiver_address= red_address;
+            if (typeof AlgoSigner === 'undefined'){
+                // var myToast = bootstrap.Toast.getOrCreateInstance(createToast('AlgoSigner extension not installed'))
+                // myToast.show()
+                var myAlert =document.getElementById('toastNotice');//select id of toast
+                var bsAlert = new bootstrap.Toast(myAlert);//inizialize it
+                bsAlert.show();
+                return new Error("Algosigner extension not installed")
+            }
+            console.log('Signing transation')
+            AlgoSigner.connect()
+            .then(() => AlgoSigner.algod({
+                ledger: "TestNet",
+                path: "/v2/transactions/params",
+            }))
+            .then((txtParams) =>  AlgoSigner.sign({
+                from: account[0].address,
+                to: receiver_address,
+                amount: 'hi',
+                note: 'voting',
+                type: 'pay', // pay in an algo payment transaction
+                fee: txtParams['min-fee'], // the minimum fee to send the transaction
+                firstRound: txtParams['last-round'], // the first round the transaction is valid for
+                lastRound: txtParams['last-round'] + 1000, // the last round the transaction is valid for
+                genesisID: txtParams['genesis-id'], // required 
+                genesisHash: txtParams['genesis-id'], // required
+                flatFee: true // Levy a flat fee instead of a variable fee
+            }))
+            .then((signedTx) => {
+                console.log(signedTx);
+            })
+            .catch((error) => {
+                createToast(error)
+                console.log(error)
+            })            
+        }
+
+        form.addEventListener('submit', (e)=> {
+            e.preventDefault()  
+            if (account === undefined) {
+                createToast("You are not connected")
+                return false;
+            }
+            
+            signTransaction(form.colorAddressForm.value)
+        })
+    </script>
+</body>
+</html>

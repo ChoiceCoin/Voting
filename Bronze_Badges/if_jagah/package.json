@@ -1,0 +1,15 @@
+{
+  "name": "david_if",
+  "version": "1.0.0",
+  "description": "Choice coin Bronze task",
+  "main": "simple_if.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kazeem David",
+  "license": "ISC",
+  "dependencies": {
+    "algosdk": "^1.12.0",
+    "prompt": "^1.2.0"
+  }
+}

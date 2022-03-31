@@ -1,0 +1,14 @@
+{
+  "name": "Choice-Grants-for-Women",
+  "version": "1.0.0",
+  "description": "Choice Grants for Women",
+  "scripts": {
+    "start": "web-dev-server --app-index index.html --node-resolve --open --watch"
+  },
+  "author": "Fionna Chan",
+  "license": "MIT",
+  "devDependencies": {
+    "@open-wc/building-rollup": "^2.0.1",
+    "@web/dev-server": "^0.1.28"
+  }
+}
