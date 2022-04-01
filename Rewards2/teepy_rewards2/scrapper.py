@@ -2,6 +2,9 @@ from enum import Enum
 from typing import Union, List
 import requests
 import csv
+from selenium.webdriver import Chrome
+from selenium.webdriver.common.by import By
+import re
 
 
 class API(Enum):
@@ -9,7 +12,12 @@ class API(Enum):
     ALGOEXPLORER = "https://indexer.algoexplorerapi.io/rl/v1/transactions"
     ALGOSCAN = "https://algoscan.app/api/transactions/"
 
-class Scrapper:
+class WEB(Enum):
+
+    ALGOEXPLORER = "https://algoexplorer.io/address/"
+    ALGOSCAN = "https://algoscan.app/address/"
+
+class APIClient:
 
     def __init__(self, api: API):
         self.api = api
@@ -88,6 +96,32 @@ class Scrapper:
             dict_writer = csv.DictWriter(file, keys)
             dict_writer.writeheader()
             dict_writer.writerows(data)  
+
+class Scrapper:
+
+    pass
+
+def get_data(address):
+    data = []
+    browser = Chrome()
+    browser.get(f"{WEB.ALGOEXPLORER.value}{address}")
+    t_body = browser.find_element(by=By.TAG_NAME, value='tbody')
+    rows = browser.find_elements(by=By.TAG_NAME, value='tr')
+    for row in rows[1:]:
+        a_tags = row.find_elements(by=By.TAG_NAME, value='a')
+        all_els = row.find_elements(By.XPATH, ".//*")
+        #print(len(all_els))
+        try:
+            amount = a_tags[2].text
+            amount = re.sub("[^0123456789\.]", '', amount)
+            sender = all_els[10].text
+            data.append({'amount': amount, 'from': sender})
+        except:
+            pass
+    browser.close()
+    print(data)
+
+get_data("25S2YKMG2E3L5RTFI67NTSWFJJQHBTDULAIN7TQVXWB3E4E5Y6BPG3O44I")
 
 
 
