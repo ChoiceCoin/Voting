@@ -1,0 +1,8 @@
+cffi==1.15.0; python_version >= "3.5" and python_full_version < "3.0.0" or python_full_version >= "3.4.0" and python_version >= "3.5"
+msgpack==1.0.2; python_version >= "3.5"
+py-algorand-sdk==1.8.0; python_version >= "3.5"
+pycparser==2.21; python_version >= "3.5" and python_full_version < "3.0.0" or python_full_version >= "3.4.0" and python_version >= "3.5"
+pycryptodomex==3.11.0; python_version >= "3.5" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" and python_version >= "3.5"
+pynacl==1.4.0; python_version >= "3.5" and python_full_version < "3.0.0" or python_full_version >= "3.4.0" and python_version >= "3.5"
+python-decouple==3.5
+six==1.16.0; python_version >= "3.5" and python_full_version < "3.0.0" or python_full_version >= "3.4.0" and python_version >= "3.5"
