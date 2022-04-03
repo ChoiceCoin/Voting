@@ -1,5 +1,5 @@
 # Web Scraper with Selenium
-This is a web-scraper that scrapes all `from`, `to` and `amount` from the supplied wallet address from AlgoExplorer or AlgoScan. The scraper grabs all `from`, `to` and `amount` variables on each page then moves to the next page. This is achieved with selenium.
+This is a web-scraper that scrapes all `from`, `to` and `amount` from the supplied wallet address from AlgoExplorer or AlgoScan. The scraper grabs all `from`, `to` and `amount` variables on each page then moves to the next page. This is achieved with selenium. Chrome web driver is needed to run the code. This can be downloaded at <a href="https://chromedriver.chromium.org/downloads" target="_blank">https://chromedriver.chromium.org/downloads</a>
 
 
 ## Setup and Installation
