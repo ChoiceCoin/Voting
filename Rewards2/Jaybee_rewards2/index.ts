@@ -10,7 +10,10 @@ const indexerClient = new Indexer(token, "https://mainnet-algorand.api.purestake
 
 let nexttoken='';
 let numtx=1;
- 
+function sleep(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 export interface paymentType{
         "amount": number&bigint,
         "close-amount": string,
@@ -63,6 +66,7 @@ async function getTransactionHistory(address:string){
     let transacationCount=0
     var transacationDataArray:transacationData[]=[]
     while (numtx>0){
+        await sleep(150);
         let next_page=nexttoken
         let response = await indexerClient.searchForTransactions()
         .address(address)
