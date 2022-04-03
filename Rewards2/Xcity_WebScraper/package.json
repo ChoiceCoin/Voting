@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "algosdk": "^1.15.0",
+    "json2xls": "^0.1.2"
+  }
+}
