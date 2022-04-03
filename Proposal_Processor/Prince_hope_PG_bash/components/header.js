@@ -1,10 +1,10 @@
-import {useGlobalContext} from "./context"
-// import MyAlgoCosnnect from "@randlabs/myalgo-connect";
+import { useGlobalContext } from "./context";
+// import MyAlgoConnect from "@randlabs/myalgo-connect";
 import WalletConnect from "@walletconnect/client";
-import QRCodeModal from "algorand-walletconnect-qrcode-modal"
-import styles from "../styles/header.module.css"
+import QRCodeModal from "algorand-walletconnect-qrcode-modal";
+import styles from "../styles/header.module.css";
 import Link from "next/link";
-const Header = () =>{
+const Header = () => {
   const { isConnected, setModalOpen, isModalOpen, setConnected } =
     useGlobalContext();
   const myAlgoConnect = async () => {
@@ -51,7 +51,6 @@ const Header = () =>{
       localStorage.setItem("wallet-type", "walletconnect");
       localStorage.setItem("address", address);
       localStorage.setItem("addresses", addresses);
-
       window.location.reload();
     });
 
@@ -68,7 +67,7 @@ const Header = () =>{
       localStorage.setItem("wallet-type", "walletconnect");
       localStorage.setItem("address", address);
       localStorage.setItem("addresses", addresses);
-
+      setConnected(true);
       window.location.reload();
     });
 
@@ -102,6 +101,8 @@ const Header = () =>{
         localStorage.setItem("addresses", addresses);
 
         // window.location.reload();
+      setConnected(true);
+
       }
     } catch (error) {
       alert({
@@ -109,94 +110,105 @@ const Header = () =>{
         alertContent: "AlgoSigner not set up yet!",
       });
     }
-    return true
+    return true;
   };
 
-const handleConnect = async (e,walletType) =>{
-  e.preventDefault()
- try{ switch (walletType) {
-    case "Wallet_connect":
-      await connectWallet()
-setConnected(true)
-setModalOpen(false);
+  const handleConnect = async (e, walletType) => {
+    e.preventDefault();
+    try {
+      switch (walletType) {
+        case "Wallet_connect":
+          await connectWallet();
+          setModalOpen(false);
+
+          break;
+        case "Algo_signer":
+          await algoSignerConnect()
+          ;
+          setModalOpen(false);
 
 
-      break;
-    case "Algo_signer":
-      await algoSignerConnect()
-setConnected(true);
-setModalOpen(false)
+          break;
+        case "my_algo_wallet":
+          await myAlgoConnect();
+          setConnected(true);
+          setModalOpen(false);
 
-console.log("Successfull");
-
-      break;
-    case "my_algo_wallet":
-      await myAlgoConnect()
-setConnected(true);
-setModalOpen(false);
-
-
-      break;
-    default:
-      alert("incorrect connection method")
-      break;
-  }
-}
-  catch(e){
-    console.log(e)
-  }
-}
-    return (
-      <header
-        className={`${styles.header} flex justify-between px-8 py-3 bg-blue-300 w-full fixed top-0  `}
-      >
+          break;
+        default:
+          alert("incorrect connection method");
+          break;
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  return (
+    <header
+      className={`${styles.header} fixed flex justify-between px-8 py-5 bg-white rounded-b-sm w-full top-0 shadow-lg `}
+    >
+      <div
+        onClick={() => setModalOpen(false)}
+        className={` w-screen h-screen bg-slate-300 opacity-50  ${
+          styles.modal
+        } ${isModalOpen ? styles.modalClosed : ""}`}
+      ></div>
+      <Link href="/">
+        <a className="text-3xl hover:text-gray-50">Choice Proposals</a>
+      </Link>
+      <div className={`${styles.buttons} `}>
+        {!isConnected ? (
+          <div onClick={() => setModalOpen(!isModalOpen)}>Connect</div>
+        ) : (
+          <div onClick={() => setModalOpen(!isModalOpen)}>Disconnect</div>
+        )}
         <div
-          onClick={() => setModalOpen(false)}
-          className={` w-screen h-screen bg-slate-300 opacity-50  ${
-            styles.modal
-          } ${isModalOpen ? styles.modalClosed : ""}`}
-        ></div>
-        <Link href="/"><a className="text-2xl hover:text-gray-50">Choice Proposals</a></Link>
-        <div className={`${styles.buttons} `}>
+          className={`${styles.connectButtons}  ${
+            isModalOpen ? styles.open : ""
+          } `}
+        >
           {!isConnected ? (
-            <div onClick={() => setModalOpen(!isModalOpen)}>Connect</div>
+            <div className="flex flex-col gap-3">
+              <div
+                className="flex"
+                onClick={(e) => handleConnect(e, "my_algo_wallet")}
+              >
+                <img
+                  src="https://i.postimg.cc/76r9kXSr/My-Algo-Logo-4c21daa4.png"
+                  alt=""
+                />{" "}
+                My Algo Wallwet
+              </div>
+              <div
+                className="flex"
+                onClick={(e) => handleConnect(e, "Wallet_connect")}
+              >
+                <img
+                className="w-8"
+                  src="https://i.postimg.cc/J7JZ4cFb/icon-37675b59-1.png"
+                  alt=""
+                />{" "}
+                Wallet Connect
+              </div>
+              <div
+                className="flex"
+                onClick={(e) => handleConnect(e, "Algo_signer")}
+              >
+                <img
+                  src="https://i.postimg.cc/L4JB4JwT/Algo-Signer-2ec35000.png"
+                  alt=""
+                />{" "}
+                AlgoSigner
+              </div>
+            </div>
           ) : (
-            <div onClick={() => setModalOpen(!isModalOpen)}>Disconnect</div>
+            <div className="flex flex-col gap-4">
+              <div>Disconnect</div>
+            </div>
           )}
-          <div
-            className={`${styles.connectButtons}  ${
-              isModalOpen ? styles.open : ""
-            } `}
-          >
-            {!isConnected ? (
-              <div className="flex flex-col gap-3" >
-                {/* <div
-                  className=""
-                  onClick={(e) => handleConnect(e, "my_algo_wallet")}
-                >
-                  My Algo Wallwet
-                </div> */}
-                <div
-                  className=""
-                  onClick={(e) => handleConnect(e, "Wallet_connect")}
-                >
-                  Wallet Connect
-                </div>
-                <div
-                  className=""
-                  onClick={(e) => handleConnect(e, "Algo_signer")}
-                >
-                  AlgoSigner
-                </div>
-              </div>
-            ) : (
-              <div className="flex flex-col gap-4">
-                <div>Disconnect</div>
-              </div>
-            )}
-          </div>
         </div>
-      </header>
-    );
-}
-export default Header
+      </div>
+    </header>
+  );
+};
+export default Header;

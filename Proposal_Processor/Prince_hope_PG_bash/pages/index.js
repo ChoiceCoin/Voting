@@ -1,20 +1,25 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css"
+import styles from "../styles/Home.module.css";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useGlobalContext } from "../components/context";
 import Header from "../components/header";
+import { useRouter } from "next/router";
+import {AiOutlineEdit} from "react-icons/ai"
+
 export default function Home() {
+
   const { propsObj, setPropsObj } = useGlobalContext();
+  const router = useRouter();
 
   useEffect(() => {
-    let storage = localStorage.getItem("proposals");
+    let storage = window.localStorage.getItem("proposals");
     if (!storage) {
       localStorage.setItem("proposals", JSON.stringify(Obj));
       storage = localStorage.getItem("proposals");
     }
-    console.log("Change")
+    console.log("Change");
     setPropsObj(JSON.parse(storage));
   }, []);
 
@@ -26,37 +31,61 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <Header/>
-        <h1 className={styles.title}>
+      <Header />
+      <main className={` ${styles.main}`}>
+        <h1 className={`mt-8 ${styles.title}`}>
           Welcome to <Link href="/new/proposals">Choice Proposals</Link>
         </h1>
-
+        <h2
+          className={`text-lg text-center font-mono mt-2 max-w-md ${styles.descriptio}`}
+        >
+          A new and Intuitive way of making Proposals for the Choice Coin DAO
+        </h2>
         <p className={styles.description}>
           Get started by making a Proposal{" "}
-          <code className={styles.code}><Link href={"/new/proposals"}>Here</Link></code>
+          <div
+            className={`${styles.cod} animate-bounce rounded mt-6 text-white bg-blue-500 border-2 hover:text-blue-500 hover:bg-white hover:border-blue-500`}
+          >
+            <Link href={"/new/proposals"}>
+              <a className="block ">Here</a>
+            </Link>
+          </div>
         </p>
-
-        <div className={styles.grid}>
+      </main>
+      <section className={`m-0 p-0 bg-blue-400 pt-6`}>
+          <div className="text-3xl text-white my-3 text-center">PROPOSALS</div>
+        <div className={`bg-blue-400 m-0 p-0 ${styles.grid}`}>
           {propsObj &&
-            propsObj.map(({ name, desc, id }, key) => {
+            propsObj?.map(({ name, desc, id }, key) => {
               return (
-                <details className={styles.card} key={key}>
+                <details
+                  className={`${styles.card} hover:translate-x-3 transition-transform delay-200 ease-in-out shadow-lg`}
+                  key={key}
+                >
                   <summary className="overflow-hidden">
                     <div className="">{name}</div>
                     {"  "}#{id}
-                    <Link href={`/${id}`}>&rarr;</Link>
+                    <div className="flex justify-evenly w-28  ml-auto">
+                      <div
+                        className=" w-screen"
+                        onClick={() => {
+                          router.push(`/edit/${id}`);
+                        }}
+                      >
+                        <AiOutlineEdit className="inline cursor-pointer" />
+                      </div>
+                    </div>
                   </summary>
                   <Link href={`/${id}`}>
                     <a className="cursor-pointer overflow-auto flex ">
-                      {desc.slice(0, 150)}...
+                      {desc?.slice(0, 150)}...
                     </a>
                   </Link>
                 </details>
               );
             })}
         </div>
-      </main>
+      </section>
 
       <footer className={styles.footer}>
         <a

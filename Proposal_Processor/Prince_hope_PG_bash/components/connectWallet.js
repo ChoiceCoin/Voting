@@ -1,146 +1,74 @@
-// import algosdk from "algosdk";
-// import { ASSET_ID } from "./constants";
-// import { useEffect, useState } from "react";
-// import MyAlgoConnect from "@randlabs/myalgo-connect";
-// import { useWindowSize } from "@react-hook/window-size";
-// import { CopyToClipboard } from "react-copy-to-clipboard";
-// import WalletConnect from "@walletconnect/client";
-// import QRCodeModal from "algorand-walletconnect-qrcode-modal";
+import $ from "jquery";
+import algosdk from "algosdk";
+import { useState } from "react";
+import "./styles/electionlist.css";
+import WalletConnect from "@walletconnect/client";
+import MyAlgoConnect from "@randlabs/myalgo-connect";
+import { formatJsonRpcRequest } from "@json-rpc-tools/utils";
+import QRCodeModal from "algorand-walletconnect-qrcode-modal";
+import { useRouter } from "next/router";
+import { ASSET_ID, ELECTION_ID, URL, ADDRESS_1, ADDRESS_2 } from "./constants";
 
-const TopNavigationBar = ({ darkTheme, NavLink }) => {
+const ElectionList = ({amount}) => {
+  const Router = useRouter()
+  const [address1, setAddress1] = useState(0);
+  const [address2, setAddress2] = useState(0);
 
-  // const isWalletConnected =
-  //   localStorage.getItem("wallet-type") === null ? false : true;
-  const LogOut = () => {
-    localStorage.removeItem("address");
-    localStorage.removeItem("addresses");
-    localStorage.removeItem("wallet-type");
-    localStorage.removeItem("walletconnect");
-    window.location.reload();
-    console.log("data");
-  };
+  const algodClient = new algosdk.Algodv2(
+    {
+      "X-API-Key": "",
+    },
+    "https://testnet-algorand.api.purestake.io/ps2",
+    ""
+  );
 
-  const setMode = () => {
-    if (!darkTheme) {
-      localStorage.setItem("mode", "dark");
-      // dispatch({ type: "dark_mode" });
-    } else {
-      localStorage.setItem("mode", "light");
-      // dispatch({ type: "light_mode" });
-    }
-  };
+  const walletType = localStorage.getItem("wallet-type");
+  const isThereAddress = localStorage.getItem("address");
 
-  // const [balance, setBalance] = useState([]);
-
-  // const algodClient = new algosdk.Algodv2(
-  //   {
-  //     "X-API-Key": "Xy8NsXxfJg2cQ2YQ4pax6aLrTcj55jZ9mbsNCM30 ",
-  //   },
-  //   "https://testnet-algorand.api.purestake.io/ps2",
-  //   ""
-  // );
-
-  // const walletAddress = localStorage.getItem("address");
-  // const addresses = localStorage.getItem("addresses")?.split(",");
-
-  // let addrArr = [];
-
-  // useEffect(() => {
-  //   addresses?.forEach(async (item) => {
-  //     const myAccountInfo = await algodClient.accountInformation(item).do();
-  //     const bal =
-  //       myAccountInfo.assets.find((element) => element["asset-id"] === ASSET_ID)
-  //         ?.amount / 100;
-
-  //     addrArr.push({ balance: !!bal ? bal : 0, address: item });
-
-  //     if (addrArr?.length === addresses?.length) {
-  //       dispatch({
-  //         type: "setAlgoAddress",
-  //         addressIndex: 0,
-  //         addr: addrArr[0]?.address,
-  //       });
-  //       setBalance(addrArr);
-  //     }
-  //   });
-
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
-
-  const myAlgoConnect = async () => {
-    const myAlgoWallet = new MyAlgoConnect({ shouldSelectOneAccount: false });
+  const myAlgoConnect = async (votingAddress) => {
+    const myAlgoWallet = new MyAlgoConnect();
 
     try {
       const accounts = await myAlgoWallet.connect({
         shouldSelectOneAccount: true,
       });
+      const address = !!isThereAddress ? isThereAddress : accounts[0].address;
 
-      const addresses = accounts.map((item) => item?.address);
-      const address = accounts[0].address;
+      const myAccountInfo = await algodClient
+        .accountInformation(
+          !!isThereAddress ? isThereAddress : accounts[0].address
+        )
+        .do();
 
-      // close modal.
-      localStorage.setItem("wallet-type", "my-algo");
-      localStorage.setItem("address", address);
-      localStorage.setItem("addresses", addresses);
+      // get balance of the voter
+      const balance = myAccountInfo.assets
+        ? myAccountInfo.assets.find(
+            (element) => element["asset-id"] === ASSET_ID
+          ).amount / 100
+        : 0;
 
-      window.location.reload();
+      const suggestedParams = await algodClient.getTransactionParams().do();
+      const amountToSend = amount * 100;
+
+      const txn = algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
+        from: address,
+        to: voteData.address,
+        amount: amountToSend,
+        assetIndex: ASSET_ID,
+        suggestedParams,
+      });
+
+      const signedTxn = await myAlgoWallet.signTransaction(txn.toByte());
+      await algodClient.sendRawTransaction(signedTxn.blob).do();
+
+      // alert success
+      alert("You have Successfully voted");
+      setTimeout(() => Router.push("/"), 1500);
     } catch (error) {
-      console.log(error);
+      alert("Error encounterd while voting");
     }
   };
-
-  const connectWallet = () => {
-    const connector = new WalletConnect({
-      bridge: "https://bridge.walletconnect.org",
-      qrcodeModal: QRCodeModal,
-    });
-
-    if (!connector.connected) {
-      connector.createSession();
-    }
-
-    connector.on("connect", (error, payload) => {
-      if (error) {
-        throw error;
-      }
-
-      const { accounts } = payload.params[0];
-
-      const addresses = accounts.map((item) => item);
-      const address = accounts[0];
-
-      localStorage.setItem("wallet-type", "walletconnect");
-      localStorage.setItem("address", address);
-      localStorage.setItem("addresses", addresses);
-
-      window.location.reload();
-    });
-
-    connector.on("session_update", (error, payload) => {
-      if (error) {
-        throw error;
-      }
-
-      const { accounts } = payload.params[0];
-
-      const addresses = accounts.map((item) => item);
-      const address = accounts[0];
-
-      localStorage.setItem("wallet-type", "walletconnect");
-      localStorage.setItem("address", address);
-      localStorage.setItem("addresses", addresses);
-
-      window.location.reload();
-    });
-
-    connector.on("disconnect", (error, payload) => {
-      if (error) {
-        console.log(error);
-      }
-    });
-  };
-
-  const algoSignerConnect = async () => {
+  const algoSignerConnect = async (votingAddress) => {
     try {
       if (typeof window.AlgoSigner === "undefined") {
         window.open(
@@ -155,178 +83,117 @@ const TopNavigationBar = ({ darkTheme, NavLink }) => {
           ledger: "TestNet",
         });
 
-        const addresses = accounts.map((item) => item?.address);
-        const address = accounts[0].address;
+        const address = !!isThereAddress ? isThereAddress : accounts[0].address;
 
-        // close modal.
-        localStorage.setItem("wallet-type", "algosigner");
-        localStorage.setItem("address", address);
-        localStorage.setItem("addresses", addresses);
+        const myAccountInfo = await algodClient
+          .accountInformation(
+            !!isThereAddress ? isThereAddress : accounts[0].address
+          )
+          .do();
 
-        window.location.reload();
+        const suggestedParams = await algodClient.getTransactionParams().do();
+        const amountToSend = voteData.amount * 100;
+
+        const txn = algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
+          from: address,
+          to: votingAddress, //!Give value
+          amount: amountToSend,
+          assetIndex: ASSET_ID,
+          suggestedParams,
+        });
+
+        const signedTxn = await window.AlgoSigner.signTxn([
+          { txn: window.AlgoSigner.encoding.msgpackToBase64(txn.toByte()) },
+        ]);
+        await algodClient
+          .sendRawTransaction(
+            window.AlgoSigner.encoding.base64ToMsgpack(signedTxn[0].blob)
+          )
+          .do();
+
+        // alert success
+        alert("Successfully voted")
+        setTimeout(() => Router.push("/"), 1500);
       }
     } catch (error) {
-      dispatch({
-        type: "alert_modal",
-        alertContent: "AlgoSigner not set up yet!",
+      alert(`Error encoutered ${error}`)
+    }
+  };
+  const algoMobileConnect = async (votingAddress) => {
+    const connector = new WalletConnect({
+      bridge: "https://bridge.walletconnect.org",
+      qrcodeModal: QRCodeModal,
+    });
+
+    try {
+      const address = !!isThereAddress ? isThereAddress : "";
+
+      const myAccountInfo = await algodClient.accountInformation(address).do();
+
+      const suggestedParams = await algodClient.getTransactionParams().do();
+      const amountToSend = amount * 100;
+
+      const txn = algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
+        from: address,
+        to: votingAddress,
+        amount: amountToSend,
+        assetIndex: ASSET_ID,
+        suggestedParams,
       });
+
+      const txnsToSign = [
+        {
+          txn: Buffer.from(algosdk.encodeUnsignedTransaction(txn)).toString(
+            "base64"
+          ),
+          message: "Transaction using Mobile Wallet",
+        },
+      ];
+
+      const requestParams = [txnsToSign];
+
+      const request = formatJsonRpcRequest("algo_signTxn", requestParams);
+      const result = await connector.sendCustomRequest(request);
+
+      const decodedResult = result.map((element) => {
+        return element ? new Uint8Array(Buffer.from(element, "base64")) : null;
+      });
+
+      console.log(decodedResult);
+
+      // alert success
+      alert("Successful")
+      setTimeout(() => Router.push("/"), 1500);
+    } catch (error) {
+     alert(error)
     }
   };
 
+  const placeVote = (address, amount, election) => {
+    if (!address) {
+      alert({
+        type: "alert_modal",
+        alertContent: "Select an option to vote!!",
+      });
+      return;
+    }
+
+    if (walletType === "my-algo") {
+      myAlgoConnect({ address, amount, election });
+    } else if (walletType === "algosigner") {
+      algoSignerConnect({ address, amount, election });
+    } else if (walletType === "walletconnect") {
+      algoMobileConnect({ address, amount, election });
+    }
+  };
+
+  if (error) return "An error has occurred: " + error.message;
+
   return (
-    <header className="">
-      
-      <div className="">
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            textTransform: "uppercase",
-          }}
-        >
-          Choice Coin
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          {true? (
-            <>
-              <div className="">
-                <div className="">
-                  <div className="">
-                    <div className="">
-                      Choice
-                    </div>
-
-                    {/* <CopyToClipboard text={balance[addressNum]?.address}>
-                      <div className="">
-                        <p>{balance[addressNum]?.address}</p>
-                        <i className=" uil-copy"></i>
-                      </div>
-                    </CopyToClipboard> */}
-                  </div>
-                </div>
-
-                <div className="">
-                </div>
-              </div>
-            </>
-          ) : (
-            <div className="">
-              <div className="">
-                <button className="">
-                  <p>
-                    Connect Wallet
-                    <i
-                      className=" uil-angle-down"
-                      style={{ fontSize: "18px" }}
-                    />
-                  </p>
-                </button>
-              </div>
-
-              <div className="">
-                <div className="" onClick={myAlgoConnect}>
-                  <div className="">
-                    <img
-                      src="https://i.postimg.cc/76r9kXSr/My-Algo-Logo-4c21daa4.png"
-                      alt=""
-                    />
-                  </div>
-                  <p className="">My Algo Wallet</p>
-                </div>
-
-                <div
-                  className=""
-                  onClick={algoSignerConnect}
-                >
-                  <div className="">
-                    <img
-                      src="https://i.postimg.cc/L4JB4JwT/Algo-Signer-2ec35000.png"
-                      alt=""
-                    />
-                  </div>
-                  <p className="">
-                    {typeof window.AlgoSigner === undefined
-                      ? "Install AlgoSigner"
-                      : "AlgoSigner"}
-                  </p>
-                </div>
-
-                <div className="" onClick={connectWallet}>
-                  <div className="">
-                    <img
-                      src="https://i.postimg.cc/J7JZ4cFb/icon-37675b59-1.png"
-                      alt=""
-                    />
-                  </div>
-                  <p className="">
-                    Algorand Mobile Wallet
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          fontSize: "12px",
-          fontWeight: "500",
-          wordSpacing: "1px",
-          alignItems: "center",
-          color: "var(--wht)",
-          padding: "0px 5vw",
-          letterSpacing: "0.5px",
-          textTransform: "uppercase",
-          background: "var(--background)",
-          height: "var(--sm-hd-height-half)",
-          justifyContent: "space-between",
-          borderTop: "1px solid var(--border-default)",
-        }}
-      >
-        <p style={{ opacity: "0.9" }}>
-          Amount committed to Governance:&nbsp;
-          {true&& <div>GetCommittedAmount</div>} Choice
-        </p>
-
-        {true && (
-          <ul className="">
-            <li>
-          
-            </li>
-
-            <li>
-            </li>
-
-            <li>
-         
-            </li>
-
-            <li >
-              M
-              {darkTheme ? (
-                <i className=" uil-brightness-low"></i>
-              ) : (
-                <i className=" uil-moon"></i>
-              )}
-              de
-            </li>
-            <li>Sign Out</li>
-          </ul>
-        )}
-      </div>
-    </header>
+    <>
+      .
+    </>
   );
 };
 
-export default TopNavigationBar;
+export default ElectionList;
