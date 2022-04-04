@@ -46,8 +46,8 @@ def main():
     broth = soup.find('tbody').find_all('tr', {"class": "styles_item__L_bVx"})
     for i in broth:
         carrots = i.find_all('td')
-        print(carrots[3].find('a').get_text)
-        amount = carrots[3].find("a").string
+        # print(carrots[3].find('a').contents[1])
+        amount = carrots[3].find("span").string if carrots[3].find("a") == None else carrots[3].find("a").contents[1]
         fromAddress = carrots[4].find("span").string if carrots[4].find("a") == None else carrots[4].find("a").string
         toAddress = carrots[5].find("span").string if carrots[5].find("a") == None else carrots[5].find("a").string
         print(f"{fromAddress} -> {toAddress}: {amount}")
