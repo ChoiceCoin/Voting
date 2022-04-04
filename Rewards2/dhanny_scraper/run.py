@@ -29,7 +29,7 @@ class Scraper(object):
 
         :param str wallet:  Wallet address
         """
-        self.token = "abed92409362483abb2b9543426d73c7" # Insert your Token Here
+        self.token = "" # Insert your Token Here
         self.all_data = []
         self.wallet = wallet
         self.client = ScrapingAntClient(token=self.token)
