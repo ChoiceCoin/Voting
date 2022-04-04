@@ -33,7 +33,7 @@ class AlgoScraper(object):
         self.all_data = []
 
     def run(self):
-        client = ScrapingAntClient(token="abed92409362483abb2b9543426d73c7")
+        client = ScrapingAntClient(token="")
         content = client.general_request(self.url).content
         soup = BeautifulSoup(content, 'html.parser')
         broth = soup.find('tbody').find_all('tr', {"class": "styles_item__L_bVx"})
