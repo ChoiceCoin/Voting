@@ -13,18 +13,17 @@ def get_data():
         print(e)
         return
     soup = BeautifulSoup(html.content, 'html.parser')
-    broth = soup.find_all('tr')
-    for i in broth:
+    for i in soup.find_all('tr'):
         carrots = soup.find_all('td')
         print(carrots)
         for j in carrots:
             celery = soup.find_all('a')
             print(celery)
             for k in celery:
-                choice = celery.contents[3]
+                choice = celery[3]
                 print(choice)
             for k in celery:
-                sender = celery.contents[4]
+                sender = celery[4]
                 print(sender)
         
 get_data()
