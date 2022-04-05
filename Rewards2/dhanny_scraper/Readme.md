@@ -44,3 +44,15 @@ INFO:root:Writing to csv file
 Saved file to myFile.csv
                           
 ```
+
+## Switch from AlgoExporer to AlgoScan
+```sh
+$ python run.py --type algoscan
+
+INFO:root:Running scraper....
+INFO:root:Running AlgoScan Scraper....
+INFO:root:Writing to csv file
+INFO:root:Saved file to myFile.csv
+
+```
+
