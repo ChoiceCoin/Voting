@@ -42,12 +42,29 @@ class AlgoScan(Scraper):
     def __init__(self, wallet) -> None:
         super(AlgoScan, self).__init__(wallet)
         self.url = "https://algoscan.app/address/" + wallet
+        self.count = 1
+        self.STOP = False
 
-    def run(self):
-        log("Running AlgoScan Scraper....", "info")
-        content = self.client.general_request(self.url).content
-        soup = BeautifulSoup(content, 'html.parser')
+    def next_page(self, num):
+        try:
+            func_snippet = f"""
+            const nextBtn = document.querySelector("#__next > main > section.mt-4 > div > div > button:nth-child(3)");
+            for (let i=0; i < {num}; i++) {{
+                nextBtn.click();
+                await new Promise(r => setTimeout(r, 2000));
+            }}
+            """
+            return func_snippet
+        except Exception as e:
+            log(f"{self.next_page.__name__} Error occured : {str(e)}", "info")
+            exit(1)
+    
+
+    def scrape_data(self, soup):
         broth = soup.find('tbody').find_all('tr')
+        next_btn = soup.find('button', {'aria-label': 'right', 'class': 'ml-1 hover:shadow-accent disabled:shadow-none undefined'})
+        if next_btn.has_attr('disabled'):
+            self.STOP = True
         for i in broth:
             carrots = i.find_all('td')
             fromAddress = carrots[4].find("a").string 
@@ -56,7 +73,29 @@ class AlgoScan(Scraper):
             amount = float(''.join(amount.split(' ')[0].split(',')))
             self.all_data.append({'from': fromAddress, 'to': toAddress, 'amount': amount})
             log(f"{fromAddress} -> {toAddress}: {amount}")
-        return self.all_data
+
+
+    def run(self):
+        try:
+            log("Running AlgoScan Scraper....", "info")
+            content = self.client.general_request(self.url).content
+            soup = BeautifulSoup(content, 'html.parser')
+            log("Scraping 1st page", "info")
+            self.scrape_data(soup)
+            while not self.STOP:
+                log(f"Scraping  {self.count + 1}  page", "info")
+                session2 = self.client.general_request(self.url, js_snippet=self.next_page(self.count))
+                soup2 = BeautifulSoup(session2.content, 'html.parser')
+                self.scrape_data(soup2)
+                self.count += 1
+            return self.all_data
+        except ScrapingantInvalidTokenException:
+            log("Invalid scrapingant Token", "info")
+            log("Exiting....", "info")
+            exit(1)
+        except Exception as e:
+            log(f"{self.run.__name__} An error occured: {str(e)} ", "info")
+            return self.all_data
 
     
 
@@ -79,13 +118,16 @@ class AlgoExplorer(Scraper):
         self.url = "https://algoexplorer.io/address/" + self.wallet
 
 
-    def next_page(self):
+    def next_page(self, num):
         try:
-            js_snippet = """
+            func_snippet = f"""
             const nextBtn = document.querySelector("button.styles_pagination-btn__vJnM4.styles_next__NxHpD.btn.btn-secondary");
-            nextBtn.click();
+            for (let i=0; i < {num}; i++) {{
+                nextBtn.click();
+                await new Promise(r => setTimeout(r, 2000));
+            }}
             """
-            return js_snippet
+            return func_snippet
         except Exception as e:
             log(f"{self.next_page.__name__} Error occured : {str(e)}", "info")
             exit(1)
@@ -109,15 +151,21 @@ class AlgoExplorer(Scraper):
             soup = BeautifulSoup(session.content, 'html.parser')
             total_page = int(soup.find("div", {"data-cy": "pagination"}).contents[1].split(" ")[1])
             log(f"AlgoExplorer discovered a total of {total_page}", "info")
-            self.scrape_data(soup)            
-            session2 = self.client.general_request(self.url, js_snippet=self.next_page())
-            soup2 = BeautifulSoup(session2.content, 'html.parser')
-            self.scrape_data(soup2)
+            log("Scraping  1st page", "info")
+            self.scrape_data(soup)
+            for i in range(total_page):
+                log(f"Scraping  {i + 2}/{total_page}  page", "info")
+                session2 = self.client.general_request(self.url, js_snippet=self.next_page(i + 1))
+                soup2 = BeautifulSoup(session2.content, 'html.parser')
+                self.scrape_data(soup2)
             return self.all_data
         except ScrapingantInvalidTokenException:
             log("Invalid scrapingant Token", "info")
             log("Exiting....", "info")
             exit(1)
+        except Exception as e:
+            log(f"{self.run.__name__} An error occured: {str(e)} ", "info")
+            return self.all_data
 
 
 def log(msg: str, level='debug'):
