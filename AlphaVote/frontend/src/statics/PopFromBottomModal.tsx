@@ -1,12 +1,11 @@
 import { useCallback, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import WalletConnect from "@walletconnect/client";
 import algowallet from "../assets/algorandwallet.svg";
 import myalgo from "../assets/myalgo.svg";
 import algosigner from "../assets/algosigner.svg";
 import ScrollText from "../components/ScrollText";
 import {
-  ChainType,
-  getAccountAssets,
   reset,
   selectAddress,
   selectConnected,
@@ -16,7 +15,6 @@ import {
   setConnected,
   setWalletType,
 } from "../store/walletSlice";
-import WalletConnect from "@walletconnect/client";
 import styled from "styled-components";
 
 const ConnectWalletImageWrapper = styled.div`
@@ -37,8 +35,6 @@ const ConnectWalletImageWrapper = styled.div`
   }
 `;
 
-const chain = ChainType.TestNet;
-
 const PopFromBottomModal = () => {
   const walletConnector = useSelector(selectConnector);
   const walletType = useSelector(selectWalletType);
@@ -50,16 +46,26 @@ const PopFromBottomModal = () => {
     (state) => (state as any).status.voteModal
   );
 
-  const chooseWallet = async (_walletType: string) => {
-    if (!walletType || walletType !== _walletType) {
-      dispatch(setWalletType(_walletType));
-    } else {
-      connectWallet();
-    }
+  const chooseWallet = (_walletType: string) => {
+    dispatch(setWalletType(_walletType));
+    connectWallet();
   };
 
+  const setAccountsAtConnection = useCallback(
+    (accounts: string[]) => {
+      console.log("accounts in set accounts at connection? ", accounts);
+      if (accounts.length > 0) {
+        dispatch(setAccounts(accounts));
+        dispatch(setConnected(true));
+      } else {
+        dispatch(setWalletType(null));
+      }
+    },
+    [dispatch]
+  );
+
   const subscribeToEvents = useCallback(() => {
-    if (!walletConnector) {
+    if (!walletConnector || !(walletConnector instanceof WalletConnect)) {
       return;
     }
     const _walletConnector = walletConnector as WalletConnect;
@@ -69,8 +75,9 @@ const PopFromBottomModal = () => {
       if (error) {
         throw error;
       }
+      localStorage.setItem("walletType", "walletConnect");
       const { accounts } = payload.params[0];
-      dispatch(setAccounts(accounts));
+      setAccountsAtConnection(accounts);
     });
 
     _walletConnector.on("session_update", (error, payload) => {
@@ -79,7 +86,7 @@ const PopFromBottomModal = () => {
         throw error;
       }
       const { accounts } = payload.params[0];
-      dispatch(setAccounts(accounts));
+      setAccountsAtConnection(accounts);
     });
 
     _walletConnector.on("disconnect", (error, payload) => {
@@ -89,18 +96,10 @@ const PopFromBottomModal = () => {
       }
       dispatch(reset());
     });
-  }, [dispatch, walletConnector]);
-
-  const setAccountsAtConnection = useCallback(
-    (accounts: []) => {
-      dispatch(setAccounts(accounts));
-      dispatch(setConnected(true));
-    },
-    [dispatch]
-  );
+  }, [dispatch, walletConnector, setAccountsAtConnection]);
 
   const setAlgoSignerAccounts = useCallback(() => {
-    walletConnector
+    (walletConnector as any)
       .accounts({ ledger: "TestNet" })
       .then((accounts: []) => {
         setAccountsAtConnection(accounts);
@@ -110,6 +109,7 @@ const PopFromBottomModal = () => {
       });
   }, [walletConnector, setAccountsAtConnection]);
 
+  // eslint-disable-next-line
   const connectWallet = useCallback(() => {
     if (walletType && walletConnector && !address) {
       // Check if connection is already established
@@ -119,10 +119,13 @@ const PopFromBottomModal = () => {
       }
       if (walletType === "walletConnect") {
         subscribeToEvents();
-        if (!walletConnector.connected) {
+        if (
+          walletConnector instanceof WalletConnect &&
+          !walletConnector.connected
+        ) {
           walletConnector.createSession();
         }
-        const { accounts } = walletConnector;
+        const { accounts } = walletConnector as WalletConnect;
         setAccountsAtConnection(accounts);
       }
       if (walletType === "myAlgo") {
@@ -136,11 +139,9 @@ const PopFromBottomModal = () => {
         } else {
           (window as any).AlgoSigner.connect()
             .then((results: any) => {
-              console.log("results? ", results);
               setAlgoSignerAccounts();
             })
             .catch((error: ErrorEvent) => {
-              console.log("here?");
               console.error(error);
             });
         }
@@ -148,26 +149,19 @@ const PopFromBottomModal = () => {
       dispatch({ type: "close_vote_modal" });
     }
   }, [
+    walletType,
     walletConnector,
     address,
     connected,
     dispatch,
-    subscribeToEvents,
     setAccountsAtConnection,
     setAlgoSignerAccounts,
-    walletType,
+    subscribeToEvents,
   ]);
 
   useEffect(() => {
     connectWallet();
   }, [connectWallet]);
-
-  useEffect(() => {
-    // Check if connection is already established
-    if (walletConnector && address && address.length > 0) {
-      dispatch(getAccountAssets({ chain, address }));
-    }
-  }, [address]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <menu

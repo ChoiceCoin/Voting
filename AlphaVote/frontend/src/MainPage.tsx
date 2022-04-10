@@ -1,14 +1,11 @@
-import { NavLink, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import WalletConnect from "@walletconnect/client";
 import QRCodeModal from "algorand-walletconnect-qrcode-modal";
 import MyAlgo from "@randlabs/myalgo-connect";
 
 import Faq from "./faq";
 import Home from "./Home";
-import Elections from "./elections";
 import Participate from "./participate";
-import Transfer from "./transfer";
-import CreateElection from "./elections/create";
 
 import TopNavigationBar from "./statics/TopNavigationBar";
 import BottomNavigationBar from "./statics/BottomNavigationBar";
@@ -38,14 +35,16 @@ const MainPage = () => {
   useEffect(() => {
     // auto-detect is user has connected their wallet to the app
     if (window.localStorage.getItem("walletconnect") != null) {
+      localStorage.setItem("walletType", "walletConnect");
       dispatch(setWalletType("walletConnect"));
     } else if (typeof (window as any).AlgoSigner !== "undefined") {
+      localStorage.setItem("walletType", "algoSigner");
       dispatch(setWalletType("algoSigner"));
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    if (walletType.length > 0) {
+    if (walletType && walletType.length > 0) {
       let connector;
       switch (walletType) {
         case "walletConnect":
@@ -82,14 +81,11 @@ const MainPage = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/elections" element={<Elections />} />
-        <Route path="/transfer" element={<Transfer />} />
-        <Route path="/elections/create" element={<CreateElection />} />
         <Route path="/participate" element={<Participate />} />
         <Route path="/faq" element={<Faq />} />
       </Routes>
 
-      <BottomNavigationBar NavLink={NavLink} darkTheme={darkTheme} />
+      <BottomNavigationBar darkTheme={darkTheme} />
     </main>
   );
 };

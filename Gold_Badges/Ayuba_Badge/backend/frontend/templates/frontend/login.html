@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <title>login</title>
+</head>
+<body>
+    
+    
+{% block content %}
+{% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-success w-50 text-center" style="margin: auto; margin-top: 50px;">{{message}}</div>
+  {% endfor %}
+{% endif %}
+
+    <main class="form-signin w-50" style="margin: auto; margin-top: 20px;">
+      <div class="container w-50" style="margin: auto;">
+        <img src="{% static 'images/choice.jpeg' %}" style="margin: auto; height: 200px;" alt="" srcset="">
+      </div>
+        <form method="post">
+            {% csrf_token %}
+          <h1 class="h4 mb-3 fw-normal text-center text-success">Please Verify To Vote</h1>
+          <div class="dropdown-divider mb-4">
+          </div>
+          <div class="form-floating ">
+            <label for="floatingInput">NIN</label>
+            <input type="text" placeholder="NIN" class="form-control" {{form.username}}
+          </div>
+          <div class="form-floating mt-2">
+            <label for="floatingPassword">Voter ID</label>
+            <input type="password" placeholder="Password" class="form-control" {{form.password}}
+          </div>
+      
+          <button class="w-70 mt-4 btn btn-lg btn-outline-success" type="submit">Verify</button>
+        </form>
+      </main>
+{% endblock %}
+
+
+</body>
+</html>

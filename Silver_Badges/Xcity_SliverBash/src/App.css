@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.resl {
+  width: auto;
+  height: auto;
+  border: 2px solid;
+  background-color: #fff;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  color: #000;
+  z-index: 100000;
+}
+#h {
+  color: #378805;
+  font-size: 28px;
+  text-align: center;
+}
+#pps {
+  padding: 5px;
+  font-size: 20px;
+  color: #378805;
+  text-align: center;
+}
+#chA {
+  padding: 5px;
+  font-size: 18px;
+  color: #378805;
+  text-align: center;
+}
+#yessorno {
+  display: flex;
+  justify-content: space-around;
+}
+#yes:hover {
+  background-color: green;
+  border-radius: 4px;
+  color: white;
+  padding: 10px;
+}
+#no:hover {
+  padding: 10px;
+  background-color: red;
+  border-radius: 4px;
+  color: white;
+}

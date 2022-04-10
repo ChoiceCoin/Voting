@@ -1,0 +1,4 @@
+.disconnect:hover {
+  text-decoration: underline;
+  color: red;
+}
