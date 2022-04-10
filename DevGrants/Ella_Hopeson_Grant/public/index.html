@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./tailwind.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script
+  src="https://unpkg.com/algosdk@1.13.0-beta.1/dist/browser/algosdk.min.js"
+  integrity="sha384-w9fodN00YjvWxdNoiyT+W6CqaATkXlfid9tnzBlToDqZWepVWLjI5wO7jNL4+aNs"
+  crossorigin="anonymous"
+></script>
+<script src="script.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choice Coin</title>
+  </head>
+  <body>
+    <section
+      class="h-full text-white bg-gradient-to-b to-purple-500 from-gray-400 flex items-center justify-center p-4"
+    >
+      <div class="max-w-2xl container backdrop-blur-sm p-14 space-y-10 m-auto backdrop-blur-sm bg-white">
+        <div class="flex justify-between">
+          <p class="header text-4xl font-bold">Choice Coin</p>
+          <div
+            class="
+            connect
+              p-3
+              rounded-full
+              bg-gradient-to-r
+              from-purple-500
+              to-pink-500
+              cursor-pointer
+            "
+          >
+            Connect Wallet
+          </div>
+        </div>
+        <div class="issue flex min-w-20 text-xl">
+          Issue Number:
+          <div type="text" class="bg-transparent placeholder:text-gray-900">
+            #1
+          </div>
+        </div>
+        <div
+          class="
+            rounded-xl
+            w-full
+            h-40
+            bg-purple-100
+            text-purple-700
+            p-4
+            text-lg
+          "
+        >
+          Should Emmanuella Be Granted The Female Developers Grant
+        </div>
+        <div class="votingAmount flex items-center gap-5">
+          <p class="text-lg">Input Voting Amount:</p>
+          <input
+            type="number"
+            class="rounded-2xl p-2 outline-none text-purple-700"
+          />
+        </div>
+        <div class="buttons flex justify-around px-10 text-xl">
+          <div
+            class="
+              yes
+              rounded-full
+              p-2
+              px-5
+              bg-green-300
+              hover:bg-white hover:border-purple-300 hover:text-green-500
+              transition
+            "
+          >
+            YES
+          </div>
+           <div
+            class="
+              yes
+              rounded-full
+              p-2
+              px-5
+              bg-red-300
+              hover:bg-white hover:border-purple-700 hover:text-red-400
+              transition
+            "
+          >
+          NO
+          </div>
+
+        </div>
+        <div class="button submit-btn m-auto w-40 flex justify-center    p-3
+              rounded-full
+              bg-gradient-to-r
+              from-purple-500
+              to-pink-500 border-2  cursor-pointer">
+            SUBMIT VOTE
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

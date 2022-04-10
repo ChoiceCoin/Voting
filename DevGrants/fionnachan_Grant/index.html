@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css" />
+    <title>Choice Grants for Women</title>
+  </head>
+  <body>
+    <header>
+      <div class="inner-wrapper">
+        <div class="logo">
+          <img src="./choice-logo.png" alt="Choice Coin"/>
+          <span>Choice Coin</span>
+        </div>
+        <button id="connect-button" onclick="connectWallet()">Connect Wallet</button>
+        <span id="address" class="hide"></span>
+      </div>
+    </header>
+    <section>
+      <div class="inner-wrapper">
+        <h3>Issue Number</h3>
+        <article>
+          Statement of the Issue to be voted on.<br/>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tincidunt mollis tortor sed egestas. Proin suscipit metus at justo tempor pharetra non nec nisl. In sed metus libero. Mauris ac risus eu eros laoreet tempus nec id lectus. Nam sit amet suscipit tellus, eget consectetur enim. Fusce a magna sit amet risus convallis lobortis. Maecenas ac lobortis neque. Sed vel urna lectus. Sed quis justo metus. Pellentesque facilisis orci vulputate tristique dictum. Fusce finibus quis dolor vitae finibus. Sed vestibulum, neque eu gravida sollicitudin, tortor orci lacinia ante, et cursus dui nisi non est.
+          </p>
+          <p>
+            Aenean tincidunt neque porta sapien sagittis, id aliquet turpis tempor. Phasellus a tortor nec elit efficitur laoreet. Nulla posuere ipsum ante, eu maximus libero luctus in. Vestibulum blandit egestas tincidunt. Nullam vitae nisl sit amet arcu pellentesque laoreet ac sed leo. Proin id nisi quis sem imperdiet laoreet imperdiet condimentum nisi. Maecenas tempus pharetra ligula in lobortis. Pellentesque odio est, varius et lectus a, convallis commodo risus. Nulla ornare iaculis nisl et malesuada. Donec condimentum quam a nibh hendrerit auctor. Quisque convallis bibendum libero, a sollicitudin elit malesuada ut. Curabitur consequat molestie orci at varius. Donec eu feugiat augue. Morbi sit amet purus nunc. Pellentesque mattis felis in tellus dapibus ultrices. Phasellus quis vulputate massa, id pretium purus.
+          </p>
+          <p>
+            Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum placerat, metus ut consequat elementum, purus orci pulvinar dolor, vel imperdiet ipsum massa id tellus. Cras rutrum, lorem rhoncus iaculis laoreet, mi dui mattis quam, et fringilla nisi dolor id mauris. In hac habitasse platea dictumst. Sed ac nisi dignissim, rhoncus quam sed, varius lacus. Fusce varius dui sed purus finibus, non pretium ante vestibulum. Phasellus ac euismod arcu. Nunc porta erat sed elit tristique scelerisque. Nullam efficitur rhoncus accumsan. Vestibulum condimentum dolor at dignissim sollicitudin. Etiam bibendum dapibus rhoncus. Etiam at diam eget purus elementum malesuada. In rhoncus nulla at facilisis gravida. Sed eu enim ornare, congue velit ac, tincidunt ante. Cras justo mauris, aliquam id faucibus quis, vestibulum nec diam. Duis pretium eu lectus eget venenatis.
+          </p>
+          <p>
+            In tincidunt faucibus luctus. Cras a urna non arcu feugiat dapibus in vel ante. Sed commodo, diam vitae pulvinar vehicula, elit dui venenatis nibh, ac porttitor nisi lorem a nunc. Aliquam rutrum, erat ac blandit tincidunt, purus purus imperdiet orci, a rhoncus sem diam nec mi. Donec diam felis, tincidunt ac lorem et, volutpat scelerisque est. Praesent dictum sem ligula, volutpat ultricies eros maximus eget. In hac habitasse platea dictumst. In ultricies faucibus velit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla sed quam a neque faucibus ornare vestibulum sagittis ex. Nam condimentum scelerisque nunc at fermentum. Duis tincidunt maximus nisi, vitae dictum urna consequat non. Proin lacus ex, aliquet sit amet mi et, vulputate interdum felis.
+          </p>
+          <p>
+            Vestibulum luctus vestibulum posuere. Aenean non sagittis libero. Maecenas nec tristique lectus. Morbi congue cursus luctus. Vivamus euismod arcu erat, et dignissim arcu dictum eu. Duis odio lacus, accumsan viverra porta quis, consectetur ut nibh. In sit amet ligula vitae erat vulputate cursus fringilla ut arcu. Cras tortor eros, porttitor non lorem nec, molestie accumsan purus. In luctus vitae justo in facilisis.
+          </p>
+        </article>
+        <div id="form">
+          <div class="form-row">
+            <div>
+              <input type="radio" name="vote" id="yes" value="yes" onchange="checkForm()"/>
+              <label for="yes">Yes</label>
+            </div>
+            <div>
+              <input type="radio" name="vote" id="no" value="no" onchange="checkForm()"/>
+              <label for="no">No</label>
+            </div>
+          </div>
+          <div class="vote-details">
+            <h3>Vote Amount</h3>
+            <div class="form-row">
+              <input type="number" name="amount" id="amount" value="0" min="0" required onchange="checkForm()"/>
+              <label for="amount">Choice Coin</label>
+            </div>
+          </div>
+          <button id="submit" onclick="submit()" disabled>Submit</button>
+        </div>
+        <div id="message"></div>
+      </div>
+    </section>
+    <footer>
+      <span>Choice Coin ©2021</span>
+    </footer>
+    <script
+      src="https://unpkg.com/algosdk@1.13.0-beta.1/dist/browser/algosdk.min.js"
+      integrity="sha384-w9fodN00YjvWxdNoiyT+W6CqaATkXlfid9tnzBlToDqZWepVWLjI5wO7jNL4+aNs"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chase Coin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+    <style>
+        *,*::after,*::before{
+            box-sizing: border-box;
+        }
+        body {
+            /* background: linear-gradient(135deg, rgb(139,199,248), rgb(36,91,211));
+            background: -moz-linear-gradient(135deg, rgb(139,199,248), rgb(36,91,211));
+            background: -o-linear-gradient(135deg, rgb(139,199,248), rgb(36,91,211));
+            background: -webkit-linear-gradient(135deg, rgb(139,199,248), rgb(36,91,211)); */
+            background: #9046ff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .wrapper {
+            position: relative;
+        }
+        .card {
+            position: relative;
+            width: 500px;
+            background-color: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 2px 3px 5px rgba(0,0,0,0.8);
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            /* background-color: rgb(87,84,84); */
+            /* background: linear-gradient(-135deg, #1de9b6 0%, #1dc4e9 100%); */
+            padding: 10px 0px;
+        }
+        .card-header > button {
+            padding: 2px 10px;
+            height: 40px;
+            outline: none;
+            border-radius: 10px;
+            border: 0px;
+            font-weight: bolder;
+            cursor: pointer;
+            transition: 1s ease;
+        }
+        .card-header > button:hover {
+            background: #9046ff;
+            color: #fff;
+        }
+        #logo-header span {
+            font-weight: 800;
+            font-size: 30px;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card-content h3 {
+            text-align: center;
+            font-weight: bolder;
+            font-size: 20px;
+        }
+        .form-control {
+            margin: 20px 0px;
+        }
+        .form-control label {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .form-control input, .form-control textarea {
+            width: 100%;
+            font-size: 18px;
+            padding: 10px;
+            margin-top: 15px;
+        }
+        
+        textarea {
+            height: 100px;
+        }
+        form .inner_foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        form button {
+            margin-top: 20px;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        .btn-primary {
+            color: #fff;
+            background-color: #5923ab;
+            border-color: #5923ab;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-header">
+                        <div id="logo-header">
+                            <img src="./andys industry help work.png" alt="logo" style="width: 50px">
+                            <span>hoice Coin</span>
+                        </div>
+                        <button onclick="connectWallet()">Connect Wallet</button>
+                    </div>
+                    <div class="card-content">
+                        <form id="form">
+                            <h3 style="color: #5923ab">This is Choice Coin Voting</h3>
+                            <div class="form-control">
+                                <label for="form_control__issue">Issue Number</label>
+                                <input type="text" id="form_control__issue" placeholder="************">
+                            </div>
+                            <div class="form-control">
+                                <label for="form_control__statement">Statement</label>
+                                <textarea id="form_control__statement"></textarea>
+                            </div>
+                            <div class="inner_foot">
+                                <div style="display: flex">
+                                        <div class="form-check" style="margin-right: 15px;">
+                                            <input class="form-check-input" type="radio" name="colorAddressForm" id="flexRadioDefault1" value="yes">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                            Yes
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="colorAddressForm" id="flexRadioDefault2" value="no" checked>
+                                            <label class="form-check-label" for="flexRadioDefault2">No</label>
+                                        </div>                                
+                                    </div>
+                                    <button type="submit" class="btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById('form');
+        const connectWallet = (e)=> {
+            alert("Connecting Wallet!!")
+        }
+        form.addEventListener('submit', (e)=> {
+            e.preventDefault()
+            alert('Submitting...')
+        })
+    </script>
+</body>
+</html> 

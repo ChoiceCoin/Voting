@@ -1,0 +1,68 @@
+body {
+  background-color: black;
+}
+
+.float-end {
+  padding-left: 58rem;
+}
+
+a {
+  padding-left: 100px;
+}
+.welcome {
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  padding-top: 100px;
+  color: white;
+}
+.vote {
+  text-align: center;
+  box-sizing: content-box;
+  border-radius: 10px;
+  background-color: rgb(18, 67, 122);
+  max-width: 500px;
+  margin: 0 auto 1.25rem auto;
+  color: white;
+  box-shadow: 5px 5px 10px 2px rgba(36, 32, 32, 0.8);
+}
+.choice {
+  padding-top: 20px;
+}
+
+label {
+  padding-bottom: 20px;
+  display: flex;
+  padding-left: 68px;
+  align-items: center;
+}
+.col-12 {
+  align-items: center;
+  padding-left: 41rem;
+}
+
+.amount {
+  text-align: center;
+  box-sizing: content-box;
+  border-radius: 10px;
+  background-color: rgb(22, 58, 102);
+  max-width: 400px;
+  margin: 0 auto 1.25rem auto;
+  color: white;
+}
+#choice-am {
+  background-color: white;
+  max-width: fit-content;
+}
+#choice-amount {
+  padding-left: 140px;
+}
+.wallet {
+  text-align: center;
+  box-sizing: content-box;
+  border-radius: 5px;
+  color: white;
+}
+
+.w-address {
+  margin: 10px 0 10px 0;
+}
