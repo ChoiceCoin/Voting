@@ -31,11 +31,11 @@ class Sender:
             self.purestake_token = ""  # Specify Algorand API Token Here
             self.purestake_address = "https://node.testnet.algoexplorerapi.io" # Specify Algorand Address Here: TestNet algor
             self.asset_id = 10458941 # USDC ASSET ID Change this to asset
-            self.myAddress = "4E5JMNWKUCV2KMCAGDUVXVWSZVH4KY5GB2BECOKGGSZDCC66LCEOJPWVCM" # Specify Wallet Address Here
+            self.myAddress = "" # Specify Wallet Address Here
             self.purestake_header = {'X-API-KEY': self.purestake_token}
             self.algod_client = algod.AlgodClient(self.purestake_token, self.purestake_address, self.purestake_header)
             self.params = self.algod_client.suggested_params()
-            self.mnemonic_data = "sport lady chef engage moral lab try smile pair moon term congress gallery furnace return chase valley shoulder romance fashion reflect lobster educate absorb phrase"
+            self.mnemonic_data = "" # Specify Mnemonic data here before running the script
             try:
                 self.private_key = mnemonic.to_private_key(self.mnemonic_data)
             except:
@@ -54,6 +54,7 @@ class Sender:
         print(account_info)
 
     def read_csv(self):
+        log(f"Reading file: {self.csvpath}")
         with open(self.csvpath) as csvfile:
             csvreader = csv.reader(csvfile)
             self.header = next(csvreader)

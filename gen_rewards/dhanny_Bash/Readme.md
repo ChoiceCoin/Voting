@@ -8,6 +8,11 @@ This script reads from a parsed csvfile and reads the `from` and `amount` row an
 $ pip install -r requirements.txt
 ```
 
+Add your wallet address and your mnemonic phrases to the script before running the script
+
+- self.myAddress = "Specify your wallet Address here"
+- self.mnemonic_data = "Add your mnemonic phrases here"
+
 ## Mode Help
 
 ```sh
