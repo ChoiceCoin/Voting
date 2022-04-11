@@ -1,6 +1,6 @@
 # Silver Reward Generator Bash
 
-This script reads from a parsed csvfile and reads the `from` and `amount` row and sends `1.1 * amount` from a specific wallet
+This script reads from a parsed csvfile the `from` and `amount` row and sends `1.1 * amount` from a specific wallet address to the address specified in the `from` rows.
 
 ## Setup and Installation
 
@@ -33,7 +33,7 @@ optional arguments:
 Run the script specifying the path to csvfile to read from
 
 ```sh
-$ python run.py mycsvfile.csv
+$ python run.py myFile.csv
 
 [!] Running Script...
 [!] sending 32756725.562 USDC to 25S2YKMG2E3L5RTFI67NTSWFJJQHBTDULAIN7TQVXWB3E4E5Y6BPG3O44I
