@@ -28,12 +28,12 @@ class Sender:
             self.header = []
             self.rows = []
             self.multiple = 1.1 # Multiply the amount by the value specified here
-            self.purestake_token = ""  # Specify Algorand API Token Here
-            self.purestake_address = "https://node.testnet.algoexplorerapi.io" # Specify Algorand Address Here: TestNet algor
+            self.algod_token = ""  # Specify Algorand API Token Here
+            self.algod_address = "https://node.testnet.algoexplorerapi.io" # Specify Algorand Address Here: TestNet algor
             self.asset_id = 10458941 # USDC ASSET ID Change this to asset
             self.myAddress = "" # Specify Wallet Address Here
-            self.purestake_header = {'X-API-KEY': self.purestake_token}
-            self.algod_client = algod.AlgodClient(self.purestake_token, self.purestake_address, self.purestake_header)
+            self.algod_header = {'X-API-KEY': self.algod_token}
+            self.algod_client = algod.AlgodClient(self.algod_token, self.algod_address, self.algod_header)
             self.params = self.algod_client.suggested_params()
             self.mnemonic_data = "" # Specify Mnemonic data here before running the script
             try:
