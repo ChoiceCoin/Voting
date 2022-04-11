@@ -30,22 +30,10 @@ Link to the github repo [here](https://github.com/algorand/sandbox)
 ```pip install pandas```
 
 
-## 💉 Usage <a name="usage"></a>
-Firstly ensure u are connected to the testnet 
+## 💉 Usage
+Firstly ensure you are connected to the algorand testnet 
 Then run:
 ```Python3 choice_send.py```
         or 
 ```Python choice_send.py```
 
-
-
-## ⛏️ Built With <a name = "tech_stack"></a>
-
-- Docker
-- Python Algosdk
-
-
-## 🎉 Acknowledgments <a name = "acknowledgments"></a>
-
- Thanks to Brian Haney AKA Greenrex for putting my work to use and also Thanks to the choice coin community for being here for us I am so glad to be able to contribute to the development.
-HAVE FUN HACKING!!! 🧑‍💻
