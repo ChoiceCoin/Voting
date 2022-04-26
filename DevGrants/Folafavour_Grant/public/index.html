@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>Choice Coin</title>
+<link href="css/style.css" rel="stylesheet"></link>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+<div class="navbar">
+
+<ul>
+  <li><a href="index"><img src="assets/choice.png" width="" style="width:35px; height:35px;" height=""></a></li>
+ 
+  <li style="float:right"><a class="active" href="#" id="connectBtn">Connect</a></li>
+</ul>
+
+</div>
+<br>
+<div class="container">
+
+<div style="text-align:center">Issue Number : #962 </div>
+<h3 style="text-align:center">Select checkbox to vote</h3>
+
+<form align="center">
+Yes <input type="radio" checked name="yes_no"> <input type="number" placeholder="Enter Amount">
+No <input type="radio" name="yes_no"> <input type="number" placeholder="Enter Amount">
+<br><br> Address: <input value="" class="address"/> <br><br>
+<button type="submit">VOTE</button>
+
+</form>
+</div>
+<script src="https://cdn.socket.io/4.4.0/socket.io.min.js" integrity="sha384-1fOn6VtTq3PWwfsOrk45LnYcGosJwzMHv+Xh/Jx5303FVOXzEnw0EpLv30mtjmlj" crossorigin="anonymous"></script>
+<script src="js/algoconnect.js"></script>
+<script>
+  var socket = io();
+  const algoConnect = connectToMyAlgo();
+  var connectbtn = document.getElementById("connectBtn");
+
+
+  connectbtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    connectbtn.textContent="loading"
+    algoConnect.then(() => {console.log('connection successful')})
+
+
+  });
+</script>
+</body>
+</html>
