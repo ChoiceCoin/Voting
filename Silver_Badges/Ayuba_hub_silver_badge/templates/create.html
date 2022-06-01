@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Election Voting</title>
+
+    <link rel="stylesheet" href="/static/css/style.css?version=7">
+    <link rel = "stylesheet" href = "/static/css/mystyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style type="text/css">
+
+    </style>
+
+  </head>
+  <body>
+    {% include 'header.html' %}
+    {% if message %}
+        <h3><p style="color:green">{{ message }}</p></h3>
+{% else %}
+    	    {% if error %}
+        <p style="color:red">{{ error }}</p>
+    		{% endif %}
+    <div class="container">
+      <div class="judul">
+        <h1>Add a voter to the decentralized database</h1>
+      </div>
+
+      <p>Add a new voter to the system. Administrative Key Required.</p>
+<div class = "second_container">
+<form action="" method = "post">
+  <form action="" method = "post">
+    <label for = "Name">Name</label>
+    <input id = "Name" type = "text" name = 'Name' placeholder = "Name"><br>
+    <label for = "main">Social Security Number</label>
+    <input id = "main" type="password" name="Social" placeholder="SS #"><br>
+    <label for = "main_1">Drivers Lisence</label>
+    <input id = "main_1" type = "password" name = "Drivers" placeholder = "DL #"><br>
+    <label for = "Key">ID</label>
+    <input id = "Key" name = "Key" type = "password"><br>
+    <input class="button" type="submit" value="Add Voter">
+</form>
+</div>
+
+{% endif %}
+    </div>
+    {% include 'footer.html' %}
+ </body>
+</html>

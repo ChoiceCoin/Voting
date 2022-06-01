@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Proposal | Choice</title>
+    <base />
+    <script src="assets/js/jquery-2.1.1.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen" />
+
+</head>
+
+<body>
+   
+    <header class="main_header">
+        <div class="nav_util_header">
+            <div class="container-fluid">
+                <div class="flex_wrapper flex_between">
+                    <div class="social">
+                        <ul>
+                            <li class="twitter"><a href="#"><span class="sr-only">Twitter</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_nav_bowl">
+            <div class="container-fluid">
+                <div class="navbar_container">
+                    <div class="navbar_group navbar_group_left">
+                        <div class="brand_logo">
+                            <a href="index.html" class="logo_link">
+                                Choice Logo
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="navbar_group navbar_group_right d-none" id="selected-adress">
+                        <p>Address: <span></span> </p>
+                    </div>
+                   
+                    <div class="navbar_group navbar_group_right">
+                        <nav class="home_nav">
+                            <div class="utility_nav_list">
+                               
+                                <div class="dropdown nav_link_item">
+                                    <a href="#" title="Connect Wallet" class="dropdown-toggle" data-toggle="dropdown">
+                                        <div class="link_icon">
+                                            <span class="link_icon_image wallet-image"></span>
+                                        </div>
+                                        <div class="link_label">
+                                            <span class="hidden-mobile">
+                                                Connect Wallet
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="javascript:void(0)" id="connect-wallet">Algosigner</a></li>
+                                    </ul>
+                                </div>
+
+                                
+
+                                
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main_content_area bg-grey">
+      
+        <section class="section_block">
+            <div class="container narrow_container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <nav class="us_proposal_nav ">
+                            <div class="proposal_nav_item active">
+                                <a href="javascript:void(0)" class="card_wrapper">
+                                    <div class="option_icon">
+                                        <img src="assets/images/details.png">
+                                    </div>
+                                    <div class="option_info">
+                                        <span>Proposals</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="proposal_nav_item">
+                                <a href="new-proposal.html" class="card_wrapper">
+                                    <div class="option_icon">
+                                        <img src="assets/images/proposal.png">
+                                    </div>
+                                    <div class="option_info">
+                                        <span>Submit Proposal</span>
+                                    </div>
+                                </a>
+                            </div>
+                          
+            
+                            
+                        </nav>
+                    </div>
+                    
+                    <div class="col-md-8">
+                        <div class="proposal_detail_panel">
+                            <div class="panel_wrapper">
+                                <header class="details_panel_header">
+                                    <h2 class="detail_title">
+                                        Proposals
+                                    </h2>
+                                </header>
+                                <div class="details_panel_body">
+                                    <div class="list_filter_sort">
+                                        <div class="filter_item_container">
+                                            <div class="list_item_count">
+                                                <div class="filter_block">
+                                                    <select class="form-control">
+                                                        <option>All Proposals (3)</option>
+                                                        <option>Open (1)</option>
+                                                        <option>Closed (1)</option>
+                                                        <option>Pending (1)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="filter_item_container sort_options">
+                                            <div class="search_bar">
+                                                <div class="input-group">
+                                                    <input type="search" class="form-control" placeholder="Search...">
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-primary">
+                                                            <svg class="cust_icon icon_xs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.72 56">
+                                                                <path d="M50.83,50.82,33.35,33.34a19.72,19.72,0,1,0-5,3.6L46.54,55.11a3,3,0,1,0,4.29-4.29ZM6.07,19.54A13.46,13.46,0,1,1,19.54,33,13.48,13.48,0,0,1,6.07,19.54Z"/>
+                                                            </svg>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="proposal_list">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="assets/js/bash.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

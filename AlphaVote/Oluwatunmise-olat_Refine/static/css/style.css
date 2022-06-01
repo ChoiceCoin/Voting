@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #6665ee;
+}
+::selection{
+  color: #fff;
+  background: #6665ee;
+}
+.wrapper{
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  max-width: 380px;
+  width: 100%;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+}
+.wrapper header{
+  font-size: 22px;
+  font-weight: 600;
+}
+.wrapper .poll-area{
+  margin: 20px 0 15px 0;
+}
+.poll-area label{
+  display: block;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 8px 15px;
+  border: 2px solid #e6e6e6;
+  transition: all 0.2s ease;
+}
+.poll-area label:hover{
+  border-color: #ddd;
+}
+label.selected{
+  border-color: #6665ee!important;
+}
+label .row{
+  display: flex;
+  pointer-events: none;
+  justify-content: space-between;
+}
+label .row .column{
+  display: flex;
+  align-items: center;
+}
+label .row .circle{
+  height: 19px;
+  width: 19px;
+  display: block;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  margin-right: 10px;
+  position: relative;
+}
+label.selected .row .circle{
+  border-color: #6665ee;
+}
+label .row .circle::after{
+  content: "";
+  height: 11px;
+  width: 11px;
+  background: #6665ee;
+  border-radius: inherit;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  display: none;
+}
+.poll-area label:hover .row .circle::after{
+  display: block;
+  background: #e6e6e6;
+}
+label.selected .row .circle::after{
+  display: block;
+  background: #6665ee!important;
+}
+label .row span{
+  font-size: 16px;
+  font-weight: 500;
+}
+label .row .percent{
+  display: none;
+}
+label .progress{
+  height: 7px;
+  width: 100%;
+  position: relative;
+  background: #f0f0f0;
+  margin: 8px 0 3px 0;
+  border-radius: 30px;
+  display: none;
+  pointer-events: none;
+}
+label .progress:after{
+  position: absolute;
+  content: "";
+  height: 100%;
+  background: #ccc;
+  width: calc(1% * var(--w));
+  border-radius: inherit;
+  transition: all 0.2s ease;
+}
+label.selected .progress::after{
+  background: #6665ee;
+}
+label.selectall .progress,
+label.selectall .row .percent{
+  display: block;
+}
+input[type="radio"],
+input[type="checkbox"]{
+  display: none;
+}
+
+nav {
+    height: 100px;
+    z-index: 5px;
+    background-color: #6665ee;
+    margin: 0;
+    padding: 25px;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#walletbtn {
+    border-radius: 3px;
+    box-shadow: 0px 1px 3px #6665ee;
+    margin: 5px;
+}
+
+.assets {
+    background-color: #f1f1f1;;
+    border-radius: 3px;
+    color: black;
+    font-size: 25px;
+    text-transform: capitalize;
+    box-shadow: 0px 1px 3px #6665ee;
+    margin: 5px;
+    display: none;
+    width: 600px;
+}
+
+.show {
+    display: block;
+    cursor: pointer;
+    border: 1px soid red;
+    box-shadow: 1px 1px 2px grey;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+/* li a:hover:not(.active) { */
+    /* background-color: #111; */
+/* } */
+  
+.active {
+    background-color: #04AA6D;
+}
+
+#wallet-address {
+    border: none;
+    background-color: #e9e5e5;
+    margin-left: auto;
+    width: 100%;
+    color:black;
+    border-radius: 4px;
+    resize: vertical;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 15px;
+}
+
+button{
+    width: 100%;
+    border-radius: 4px;
+    border: none;
+    resize: vertical;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 15px;
+    background-color:#6665ee;
+    cursor: pointer;
+}
+
+
+
+.alert {
+    text-transform: capitalize;
+    padding: 20px;
+    background-color: #da2114;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    display: none;
+}
+
+.error_show{
+    display: block;
+}
+
+.show {
+    display: block;
+    background-color:  #04AA6D;
+    color: white;
+    text-transform: capitalize;
+    font-size: 22px;
+    text-align: center;
+}
+  
+.closebtn {
+    margin-left: 15px;
+    font-weight: bold;
+    float: right;
+    font-size: 18px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+  }

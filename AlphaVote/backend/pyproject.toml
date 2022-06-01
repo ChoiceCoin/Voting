@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "choiceapi"
+version = "1.0.0"
+description = ""
+authors = ["Isaac Adewumi <ienioladewumi@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Flask = "^2.0.2"
+Flask-SQLAlchemy = "^2.5.1"
+python-dotenv = "^0.19.2"
+python-decouple = "^3.5"
+Flask-Cors = "^3.0.10"
+py-algorand-sdk = "^1.8.0"
+python-slugify = "^5.0.2"
+marshmallow = "^3.14.1"
+gunicorn = "^20.1.0"
+psycopg2 = "^2.9.2"
+Flask-Migrate = "^3.1.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+force_grid_wrap = 0
+use_parentheses = true
+combine_as_imports = true
+include_trailing_comma = true
+line_length = 119
+multi_line_output = 3
+skip = "migrations"
+default_section = "THIRDPARTY"
+known_flask="flask*"
+sections=["FUTURE","STDLIB","THIRDPARTY","FLASK","FIRSTPARTY","LOCALFOLDER"]
+
+[tool.black]
+line-length = 119
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+  /(
+      \.eggs
+    | \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | migrations
+  )/
+'''

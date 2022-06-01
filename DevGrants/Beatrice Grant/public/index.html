@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav
+      class="
+        navbar navbar-light
+        justify-content-between
+        align-items-center
+        bg-primary
+      "
+    >
+      <a class="navbar-brand fw-bold">
+        <img src="choice.png" alt="image" style="height: 50px" />
+      </a>
+      <div id="notifications">
+        <span id="notify"></span>
+      </div>
+      <div class="form-inline">
+        <div class="text-center b-3" id="connect_wallet">
+          <button
+            class="btn btn-primary connect_wallet"
+            type="button"
+            onclick="Connect()"
+          >
+            Connect Wallet
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="login">
+      <h5>Vote by clicking the checkbox</h5>
+
+      <div
+        class="vote mb-3 mt-2 d-flex justify-content-center align-items-center"
+      >
+        <div>
+          <label class="text-primary address">
+            <span class="mb-3 ml-4" style="display: inline-block">
+              BLUE ADDRESS
+              <input type="radio" name="option" value="blue" id="blue" />
+            </span>
+
+            <input
+              type="text"
+              name="u"
+              placeholder="Enter Amount"
+              id="blue-input"
+            />
+          </label>
+        </div>
+        <div class="ml-3">
+          <label class="text-danger address">
+            <span class="ml-4 mb-3" style="display: inline-block"
+              >RED ADDRESS
+              <input type="radio" name="option" id="red" value="red" />
+            </span>
+            <input
+              type="text"
+              name="p"
+              placeholder="Enter Amount"
+              id="red-input"
+            />
+          </label>
+        </div>
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <input
+          class="mb-4"
+          id="wallet"
+          type="text"
+          name="p"
+          autofocus
+          placeholder="Enter Wallet Address"
+        />
+        <button
+          type="submit"
+          class="btn btn-primary connect text-center"
+          onclick="myAlgoWalletSign()"
+        >
+          Vote
+        </button>
+      </div>
+    </div>
+    <script src="https://unpkg.com/algosdk@1.13.0-beta.1/dist/browser/algosdk.min.js"></script>
+    <script src="algo.js"></script>
+    <script src="algowallet.js"></script>
+  </body>
+</html>

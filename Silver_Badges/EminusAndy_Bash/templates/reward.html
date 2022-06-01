@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+
+{% block style %}
+    <style>
+        .container_wrapper {
+            margin-top: 20px;
+        }
+        .card {
+            background: rgba(0,0,0, 0.7);
+            margin: 55px auto;
+        }
+    </style>
+{% endblock style %}
+
+{% block content %}
+<div class="container" style="color: #fff;">
+    <div class="container_wrapper">
+        <div class="card">
+            <div class="card-header">
+                <h2>Reward Payment</h2>
+            </div>
+            <div class="card-body">
+                <form action="post" style="text-align: left;" id="form">
+                    <div class="mb-3">
+                        <label for="reward_name" class="col-md-4 col-form-label">Name for reward</label>
+                        <input type="text" name="reward" class="form-control" id="reward_name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="wallet_addresses" class="col-md-4 col-form-label">Addresses</label>
+                        <textarea name="wallet_addresses" class="form-control" id="wallet_addresses" rows="4"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="amount" class="col-md-4 col-form-label">Amount of choice</label>
+                        <input type="text" name="amount" class="form-control" id="amount">
+                    </div>
+                    <div style="text-align: right; width: 100%;">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                {% include 'table.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block script %}
+<script>
+    window.addEventListener('load', ()=> {
+            checkForAlgosigner();
+    })
+
+    const form = document.getElementById('form');
+    const formSubmit = document.querySelector('form button')
+    let txns = []
+    let b64Txns = []
+    form.addEventListener('submit', async(e) => {
+        try{
+            e.preventDefault()
+            if (account === undefined){
+                createToast("You are not connected to any wallet")
+                return
+            }
+            formSubmit.innerHTML = `<div class="d-flex justify-content-center">
+                                    <div class="spinner-border" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    </div>`
+            let addresses = form.wallet_addresses.value;
+            const reward_name = form.reward_name.value
+            const amount = form.amount.value
+            console.log(amount)
+            if (addresses){
+                const params = await algodClient.getTransactionParams().do();
+                addresses = addresses.split(/[\s,]+/)
+                for (address of addresses) {
+                    let transaction = new algosdk.Transaction({
+                        to: address,
+                        from: account.addr,
+                        amount: parseInt(amount),
+                        suggestedParams: params
+                    })
+                    txns.push(transaction)
+                }
+            }
+            await algosdk.assignGroupID(txns)
+            console.log('Txns', txns)
+            txns.map((transaction) => {
+                b64Txns.push({ txn: AlgoSigner.encoding.msgpackToBase64(transaction.toByte())});
+            })
+            console.log(b64Txns)
+            const signedTxn = await AlgoSigner.signTxn(b64Txns)
+            console.log(signedTxn)  
+            const binarySignedTx = signedTxn.map((tx) => AlgoSigner.encoding.base64ToMsgpack(tx.blob));
+            const tx = await algodClient.sendRawTransaction(binarySignedTx).do()
+            const confirmedTxn = await waitForConfirmation(tx.txId, 4)
+            const modalBody = document.querySelector('#transaction-successful .modal-body')
+            const div = document.createElement('div')
+            div.style.textAlign = 'center'
+            const p = document.createElement('p')
+            p.innerText = 'Transaction Done'
+            const a = document.createElement('a')
+            a.href = `https://testnet.algoexplorer.io/tx/${tx['txId']}`
+            a.setAttribute('target', '_blank')
+            a.setAttribute('rel','noreferrer')
+            a.innerText = tx['txId']
+            div.appendChild(p)
+            div.appendChild(a)
+            modalBody.appendChild(div)
+            const myModal = new bootstrap.Modal(document.getElementById('transaction-successful'), {
+                keyboard: false
+            })
+            myModal.show()
+            showTable(addresses, signedTxn)
+            formSubmit.innerText = 'submit'
+        } catch (error) {
+            createToast(error['message'])
+            formSubmit.innerText = 'submit'
+        }
+    })
+
+    const showTable = async(addresses, signedTxn) => {
+        const tbody = document.getElementsByTagName('tbody')[0]
+        addresses.map((address, index) => {
+            let tr = document.createElement('tr')
+            let tdId = document.createElement('td')
+            tdId.innerText = index + 1
+            let tdWallet = document.createElement('td')
+            tdWallet.innerText = `${address.slice(0,9)}...${address.slice(-5)}`
+            let tdTran = document.createElement('td')
+            tdTran.innerText = `${signedTxn[index]['txID'].slice(0,7)}...${signedTxn[index]['txID'].slice(-3)}`
+            let tdStatus = document.createElement('td')
+            let button = document.createElement('button')
+            button.classList = "btn btn-outline-success"
+            button.innerText = "Success"
+            tdStatus.appendChild(button)
+            tr.appendChild(tdId)
+            tr.appendChild(tdWallet)
+            tr.appendChild(tdTran)
+            tr.appendChild(tdStatus)
+            tbody.appendChild(tr)
+        })
+
+    }
+
+
+const waitForConfirmation = async function (txId, timeout) {
+    // Wait until the transaction is confirmed or rejected, or until 'timeout'
+    // number of rounds have passed.
+    //     Args:
+    // txId(str): the transaction to wait for
+    // timeout(int): maximum number of rounds to wait
+    // Returns:
+    // pending transaction information, or throws an error if the transaction
+    // is not confirmed or rejected in the next timeout rounds
+    if (algodClient == null || txId == null || timeout < 0) {
+        throw "Bad arguments.";
+    }
+    let status = (await algodClient.status().do());
+    if (status == undefined) throw new Error("Unable to get node status");
+    let startround = status["last-round"] + 1;
+    let currentround = startround;
+
+    while (currentround < (startround + timeout)) {
+        let pendingInfo = await algodClient.pendingTransactionInformation(txId).do();
+        if (pendingInfo != undefined) {
+            if (pendingInfo["confirmed-round"] !== null && pendingInfo["confirmed-round"] > 0) {
+                //Got the completed Transaction
+                return pendingInfo;
+            }
+            else {
+                if (pendingInfo["pool-error"] != null && pendingInfo["pool-error"].length > 0) {
+                    // If there was a pool error, then the transaction has been rejected!
+                    throw new Error("Transaction Rejected" + " pool error" + pendingInfo["pool-error"]);
+                }
+            }
+        }
+        await algodClient.statusAfterBlock(currentround).do();
+        currentround++;
+    }
+    throw new Error("Transaction not confirmed after " + timeout + " rounds!");
+};
+</script>
+{% endblock script %}

@@ -1,0 +1,16 @@
+cachelib==0.6.0
+cffi==1.15.0
+click==8.0.3
+Flask==2.0.3
+Flask-Session==0.4.0
+gunicorn==20.1.0
+itsdangerous==2.0.1
+Jinja2==3.0.3
+MarkupSafe==2.0.1
+msgpack==1.0.3
+py-algorand-sdk==1.9.0
+pycparser==2.21
+pycryptodomex==3.14.1
+PyNaCl==1.5.0
+python-dotenv==0.19.2
+Werkzeug==2.0.3

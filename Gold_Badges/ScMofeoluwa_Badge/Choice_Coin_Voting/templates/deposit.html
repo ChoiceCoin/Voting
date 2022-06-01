@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exchange for Choice Coin</title>
+
+    <link rel="stylesheet" href="/static/css/style.css?version=7">
+    <link rel = "stylesheet" href = "/static/css/mystyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style type="text/css">
+
+    </style>
+
+  </head>
+  <body>
+    {% include 'header.html' %}
+    {% if message %}
+        <h3><p style="color:green">{{ message }}</p></h3>
+{% else %}
+    	    {% if error %}
+        <p style="color:red">{{ error }}</p>
+    		{% endif %}
+    <div class="container">
+      <div class="judul">
+        <h1>Exchange Algo for Choice Coin</h1>
+      </div>
+
+      <p>Input your Algorand Wallet Address, 25-word Mnemonic, your name, and the amount of Choice Coin you want.</p>
+
+<form action="" method = "post">
+  <label for = "main">Algorand Wallet Address: </label>
+  <input id = "main" type="text" name="wallet" placeholder="address"><br>
+  <label for = "main_1">Algorand Wallet Mnemonic: </label>
+  <input id = "main_1" type = "text" name = "key" placeholder = "mnemonic"><br>
+  <label for = "main_2">Signature: </label>
+  <input id = "main_2"type = "text" name = "comment" placeholder = "name"><br>
+  <label for = "main_3">Amount of Choice Coin: </label>
+  <input id = "main_3" type = "number" name = "amount" size = "69" placeholder = "Number of Choice"><br>
+  <input class="button" type="submit" value="Make Exchange">
+</form>
+{% endif %}
+    </div>
+ </body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "connect",
+  "version": "1.0.0",
+  "description": "This connects myalgowallet and votes",
+  "main": "script.js",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node script.js",
+    "development": "nodemon script.js"
+  },
+  "author": "Amina",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

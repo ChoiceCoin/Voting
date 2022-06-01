@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choice coin | vote</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+ 
+	
+    <style>
+  
+  body{
+  font-family: 'Poppins', sans-serif;
+ }
+
+
+.modal-overlay{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content{
+  background-color: #f4f4f4;
+  margin: 20% auto;
+  width: 70%;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+}
+
+.modal-header h2, .modal-footer h3{
+  margin: 0;
+}
+
+.modal-header{
+  
+  padding: 15px;
+  color: #fff;
+}
+
+.modal-body{
+  padding: 10px 20px;
+}
+
+.modal-footer{
+  background: #1ce;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+.closeBtn{
+  font-size: 30px;
+  color: #fff;
+  float: right;
+}
+
+.closeBtn:hover,.closeBtn:focus{
+  color: #e439ef;
+  text-decoration: none;
+  cursor:  pointer;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="home-nav flex items-center justify-between flex-wrap    p-6  w-full z-10 top-0 md:px-20">
+		<div class="flex items-center flex-shrink-0 text-white mr-6">
+			<a class="text-white flex space-x-2 cursor-pointer no-underline hover:text-white hover:no-underline" href="../index.html">
+        <span> <img class="w-5" src="https://choice-coin.com/Screenshot%202021-06-25%20at%2023-38-44%20Logo%20Maker%20Used%20By%202%203%20Million%20Startups.png" alt=""> </span>
+        <h1 class="text-3xl text-white " >   Choice Coin  </h1> 
+			</a>
+		</div>
+
+		<div class="block lg:hidden">
+			<button id="nav-toggle" class="flex items-center px-3 py-2  rounded text-white border-gray-600 hover:text-white hover:border-white">
+				<?xml version="1.0" ?><svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6H20M4 12H20M4 18H11" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+			</button>
+		</div>
+
+		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
+			<ul class="list-reset lg:flex justify-end flex-1 items-center">
+				
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="./signup.html">Start Election </a>
+				</li>
+				
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="./voting.html">Vote</a>
+				</li>
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="./electionResult.html">Election results</a>
+				</li>
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="https://choice-coin.com/">About Us </a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+    
+
+    <div class=" flex px-10 flex-col justify-center mt-24  h-auto   ">
+                <button class="connect pb-5 flex justify-end" id="modalBtn" >  <p class="mt-2" >Connect Wallet</p><img class="w-10" src="https://img.icons8.com/color/48/000000/wallet-app.png"/>  </button>
+
+                <div class="wallet-modal" >
+                    <div id="simpleModal" class="modal-overlay mt-24 md:mt-0">
+                        <div class="modal-content rounded">
+                          <div class="modal-header bg-blue-800">
+                              <span class="closeBtn"> <img class="w-8 text-white" src="../closemodal.svg"/> </span>
+                              <h2>Connect your Wallet</h2>
+                          </div>
+                          <div class="modal-body">
+                            <div class="flex inline-flex w-full " >
+                                <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
+                                    <img class="w-12 text-white " src="../algorandlogo.svg" alt="algorand" srcset="">
+                                    <p class="pt-3" >  Algorand  </p>
+                                </button>
+                            </div>
+                          </div>
+                       
+                        </div>
+                      </div>
+                </div>
+
+                
+        <div class="">
+            <h1 class="text-3xl md:text-4xl text-center font-semibold  " > President of the Getter's club </h1>
+        </div>
+         <p class="font-semibold text-xl my-10 text-center " > Candidtates </p>
+        <div class=" shadow-md border p-10  flex flex-col md-mx-5 md:grid md:grid-cols-4 md:gap-5">
+            <div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
+                <span> <img class=" w-56 h-30  flex items-center justify-center" src="data:image/jpeg;base64,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" alt=""> </span>
+                <p class="font-medium text-base pt-5 " > Mark Piers </p>  <span> 
+
+                 <a href="./successfulVote.html"><button   class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
+            </div>
+            <div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
+                <span> <img class="  w-56 h-30 flex items-center justify-center" src="https://media.istockphoto.com/photos/portrait-young-confident-smart-asian-businessman-look-at-camera-and-picture-id1288538088?b=1&k=20&m=1288538088&s=170667a&w=0&h=3efMku7kSXUhpVrErAVVgxp6G91tRZ_5seygOn68RnE=" alt=""> </span>
+                <p class="font-medium text-base pt-5 " > Philip Lahm </p>  <span> 
+                
+
+                    <a href="./successfulVote.html"><button   class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
+            </div>
+            <div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
+                <span> <img class=" w-56 h-30  flex items-center justify-center" src="https://media.istockphoto.com/photos/headshot-of-44-year-old-mixed-race-man-in-casual-polo-shirt-picture-id1264106963?b=1&k=20&m=1264106963&s=170667a&w=0&h=dLQliHpFkaweGQhiRfkNGkwsAPoKCEy9UWWk-m2iCCk=" alt=""> </span>
+                <p class="font-medium text-base pt-5 " > Sam Acel </p>  <span> 
+
+                    <a href="./successfulVote.html"><button   class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
+            </div>
+            <div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
+                <span> <img class="w-56 h-30   flex items-center justify-center" src="https://media.istockphoto.com/photos/young-beautiful-woman-picture-id1294339577?b=1&k=20&m=1294339577&s=170667a&w=0&h=_5-SM0Dmhb1fhRdz64lOUJMy8oic51GB_2_IPlhCCnU=" alt=""> </span>
+                <p class="font-medium text-base pt-5 " > kemi Rangnor </p>  <span> 
+
+                    <a href="./successfulVote.html"><button   class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
+            </div>
+            <div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
+                <span> <img class="w-56 h-30   flex items-center justify-center" src="https://media.istockphoto.com/photos/portrait-of-happy-mature-man-smiling-picture-id1278978817?b=1&k=20&m=1278978817&s=170667a&w=0&h=iS-4Ma_LZ4BCznYaJZQsQwD5Ygtqzzuls6V5QUchFSY=" alt=""> </span>
+                <p class="font-medium text-base pt-5 " > Assed Bashir </p>  <span> 
+
+                    <a href="./successfulVote.html"><button   class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
+            </div>
+            
+           
+           
+          
+        </div>
+
+        <div class="CheckResult mt-10 mb-10  pb-10 flex justify-center" >
+            <div> 
+                <a class=" px-5  py-3  text-white font-bold  bg-blue-800 mt-2 hover:bg-gray-800 rounded" href="./electionResult.html"> Check  Result </a>
+            </div>
+            
+        </div>
+        </div>
+<script>
+    var modal = document.getElementById('simpleModal');
+
+var modalBtn = document.getElementById('modalBtn');
+
+var closeBtn = document.getElementsByClassName('closeBtn')[0];
+
+
+modalBtn.addEventListener('click', openModal);
+
+closeBtn.addEventListener('click', closeModal);
+
+window.addEventListener('click', outsideClick);
+
+
+function openModal(){
+  modal.style.display = 'block';
+}
+
+// Close modal
+function closeModal(){
+  modal.style.display = 'none';
+}
+
+// Click outside and close
+function outsideClick(e){
+  if(e.target == modal){
+    modal.style.display = 'none';
+  }
+}
+</script>
+    <script src="script.js"></script>
+</body>
+</html>

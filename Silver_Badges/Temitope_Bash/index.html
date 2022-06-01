@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>Choice-Coin-Voting</title>
+  </head>
+  <body style ="background-color: #DBF9FC;">
+    <div class="header mt-5">
+      <h1>CHOICE COIN VOTING </h1>
+    </div>
+    <nav class="navbar navbar-expand-sm bg-light">
+  
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+              <a class="nav-link" href="#">
+                ALGOSIGNER
+              </a>
+          <li class="nav-item">
+              <a class="nav-link" href="#">
+                ALGO-WALLET
+              </a>
+      </ul>
+  </nav>
+        <div class="mt-5 main-body">
+          <div class="header mt-5">
+            <h2>Choice Coin DAO(Decentralized Voting) </h2>
+          </div>
+          <div class="body-text">
+            <p>SELECT YOUR PREFERRED OPTION AND CLICK ON SUBMIT</p>
+          </div>
+          <form id="form" action="">
+            <div
+              class="
+                d-flex
+                align-items-center
+                justify-content-center
+                text-center
+                mt-4
+                form-container
+              "
+            >
+              <div class="mr-5 form-input">
+                <input type="radio" name="choice" id="red" required/>
+                <label for="red" class="text-danger">Red</label>
+              </div>
+              <div class="form-input">
+                <input type="radio" name="choice" id="blue" required/>
+                <label for="blue" class="text-primary">Blue</label>
+              </div>
+            </div>
+            <div class="button-container mt-5">
+              <button id="submit" class="IRE__button IRE__button-primary">CLICK HERE TO SUBMIT</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  
+    <script>
+      const inputs = Array.from(document.getElementsByTagName("input"));
+      inputs.forEach((each) => {
+        each.addEventListener("change", (e) => {
+          if (e.target.value.length) {
+            e.target.parentElement.classList.add("filled");
+          } else {
+            e.target.parentElement.classList.remove("filled");
+          }
+        });
+      });
+    </script>
+      <script src="https://cdn.socket.io/4.4.0/socket.io.min.js" integrity="sha384-1fOn6VtTq3PWwfsOrk45LnYcGosJwzMHv+Xh/Jx5303FVOXzEnw0EpLv30mtjmlj" crossorigin="anonymous"></script>
+
+      <script>
+        var socket = io();
+        var color;
+        var form = document.getElementById('form');
+        var urlBar = document.getElementById('urlBar');
+        var radios =document.getElementsByName('choice');
+        
+        
+      
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          document.getElementById('submit').textContent="loading"
+          
+
+        var red=radios[0];
+        var blue=radios[1]
+        if(red.checked){
+             color="red"
+             urlBar.classList.add("red")
+        }
+        else if(blue.checked){
+             color="blue"
+             urlBar.classList.remove("red")
+        }
+        
+         
+        socket.emit('vote', color); //emits the user choice color to server
+        socket.on('result', (result)=>{ //gets the result from server
+        console.log(result)
+        urlBar.textContent=result.message;
+
+        document.getElementById('submit').textContent="Vote"
+
+            })
+      
+        });
+      </script>
+  </body>
+</html>

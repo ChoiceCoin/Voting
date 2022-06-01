@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="tailwind.css"/>
+    <script src="script.js" defer></script>
+    <title>Choice</title>
+  </head>
+  <body class="p-3 md:p-10 font-serif font-bold">
+
+
+    	<nav class="bg-white shadow-sm">
+    
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="flex justify-between">
+				<div class="flex space-x-800">
+					<!-- Website Logo -->
+					<div>
+						<a href="#" class="flex items-center py-4 px-2">
+							<img src="assets/choice-logo.png"  alt="Logo" class="h-8 w-8 mr-2" />
+							<span class="font-semibold text-gray-500 text-lg"
+								>Navigation</span
+							>
+						</a>
+					</div>
+					<!-- Primary Navbar items -->
+					<div class="hidden md:flex items-center space-x-1">
+						<a
+							href=""
+							class="py-4 px-2 text-purple-500  border-b-4 border-purple-500  font-semibold "
+							>Home</a
+						>
+						<a
+							href=""
+							class="py-4 px-2 text-gray-500 font-semibold hover:text-purple-500  transition duration-300"
+							>Services</a
+						>
+						<a
+							href=""
+							class="py-4 px-2 text-gray-500 font-semibold hover:text-purple-500  transition duration-300"
+							>About</a
+						>
+						<a
+							href=""
+							class="py-4 px-2 text-gray-500 font-semibold hover:text-purple-500  transition duration-300"
+							>Contact Us</a
+						>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+<div class="box">
+  
+</div>
+    <!-- <div class="container body">
+      <div class="inner-container">
+        <div class="IRE__form-group">
+          <button type="text" id="urlBar" class="px-4" disabled readonly></button>
+         
+        </div>
+        <div class="mt-5 main-body">
+          <div class="header mt-5">
+            <h3>Cast your Vote</h3>
+          </div>
+          <div class="body-text">
+            <p>Select your Preferred option and click submit to proceed</p>
+          </div>
+          <form id="form" action="">
+            <div
+              class="
+                d-flex
+                align-items-center
+                justify-content-center
+                text-center
+                mt-4
+                form-container
+              "
+            >
+              <div class="mr-5 form-input">
+                <input type="radio" name="choice" id="red" required/>
+                <label for="red" class="text-danger">Red</label>
+              </div>
+              <div class="form-input">
+                <input type="radio" name="choice" id="blue" required/>
+                <label for="blue" class="text-primary">Blue</label>
+              </div>
+            </div>
+            <div class="button-container mt-5">
+              <button id="submit" class="IRE__button IRE__button-primary">Vote</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="powered">
+        <p>Powered By</p>
+        <div class="img-container">
+          <img src="./assets/choice-logo.png" alt="" />
+        </div>
+      </div>
+    </div> -->
+
+  <main class="max-w-5xl w-full mb-3 mx-auto  p-20 px-20  mt-4 shadow-lg rounded flex flex-col space-y-20 text-lg text-gray-800 ">
+    
+    <div class="row1 flex justify-between items-center ">
+    <div class="flex flex-col">
+      <p class="text-2xl text-purple-800  ">CHOICE COIN</p>
+      <input type="text" placeholder="input token Number " class="value" value="10">
+    </div>
+    <div class="connect bg-purple-600  min-w-min text-gray-200 p-3 shadow rounded-sm hover:bg-gray-100 hover:text-purple-800 transition-colors duration-300 cursor-pointer animate-bounce hover:bg-white border-2 border-purple-800">
+
+      Connect Wallet
+    </div>
+    
+  </div>
+  <div class="">ISSUE NUMBER:#1 </div>
+    <div class="statement w-full h-40 bg-white border-4 rounded border-purple-400  text-puple-400  p-4 text-xl ">
+      Statement Of the issue to be voted on
+    </div>
+    <form class="checkBox flex justify-between items-center">
+      <fieldset class="flex w-36 justify-between text-2xl" id="age" name="age">
+        <label class="">
+        
+          <input type="radio" id="yes" name="age" value="Yes" class="yes">
+          <span for="yes">Yes</span><br>
+        </label>
+        <label class="">
+          <input type="radio" id="No" name="age" value="No" class="no">
+           <span for="No">No</span><br>
+        </label>
+      </fieldset>
+      <div class="relative">
+        <input type="submit" class="submit bg-green-400 text-gray-100 p-2 px-4 relative rounded-sm hover:bg-gray-100 hover:text-green-400  border-2 border-green-400 transition-all duration-700 scale-100  text-2xl  ">
+
+
+        </input>
+      </div>
+      
+    </form>
+  </main>
+   
+  </body>
+</html>

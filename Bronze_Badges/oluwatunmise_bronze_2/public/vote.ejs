@@ -1,0 +1,19 @@
+<%- include("./partials/header"); %>
+
+<div class="head">
+    <h1>Participate in voting process with Choice Coin</h1>
+</div>
+
+
+<p class="info"><a href="/register">You have to Registered if you plan on withdrawing after voting.</a></p>
+  
+<p class="info">You have to connect your wallet first:</p>
+
+<div class = "second_container add-voter-cont">
+    <input class="button dropdwn" type="submit" onclick="dropDown()" value="connect wallet">
+    <div id="accounts" class="accounts-list">
+        <!-- <a href="#" onclick="Connect()">AlgoSigner</a> -->
+        <a href="#" onclick="myAlgoWalletConnect()">My Algowallet</a>
+    </div>
+</div>
+

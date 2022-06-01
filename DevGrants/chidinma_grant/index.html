@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes"  
+        <link type="text/css" rel="stylesheet" href="style.css" />
+        <title>Choice coin</title>
+        <style>
+            body{
+                background: #c8c8d3;
+                margin: 10px;
+                
+            }
+            nav{
+                background: rgb(42, 40, 44);
+                height: 70px;
+                padding: 5px;
+            
+            }
+            @media only screen and (max-width: 1000px){
+                .box{ width: 400px}
+            }
+            @media only screen and (max-width: 1000px){
+                #htag{ width: 400px}
+            }
+
+            .topnav{
+                display: flex;
+                justify-content: space-between;
+            }
+            
+            #first-link{
+                color:white;
+                text-decoration: none;
+                padding-top: 20px;
+                font-size: 25px;
+
+            }
+            #first-link:hover{
+                color:#88a59a;
+            }
+            
+        
+            /* Dropdown Button */
+            #btn {
+                background-color: #57645f;
+                color: white;
+                padding: 18px; 
+                font-size: 16px;
+                border: none;
+            }
+            
+            #btn:hover{
+                background-color: rgb(96, 138, 96);
+            }
+        nav ul{
+                display: flex;
+                justify-content: space-between;
+                
+            }
+            .choice{
+                display: inline;
+                display:block;
+                margin:0;
+                padding:0;
+            
+            }
+
+
+           
+            #top1{
+              margin-top:0;  
+              margin-bottom: 0;
+              font-size: 25px;
+              
+            }
+
+            
+
+            .box{
+                border: #1c1c1f;
+                margin: 400px;
+                padding: 20px;
+                padding-bottom: 100px;
+                margin-top: 0px;
+                height: 100px;
+                outline: solid 1px black;
+                border-radius:15px
+            }
+            .inner-box{
+                display: flex;
+                justify-content: space-around;
+            }
+            #htag{
+                text-align: center;
+                font-size: 10;
+                margin: 0px;
+            }
+            #text{
+                border-radius: 9px;
+                
+            }
+            #submit{
+                text-align: center;
+                background-color:royalblue;
+                color: white;
+                padding: 16px 32px;
+                text-decoration: none;
+                margin-right: 100px;
+                cursor: pointer;
+                height: 20px;
+                width: 100%;
+                padding-top: 10px;
+                border-radius:25px
+            }
+
+            .submitbtn{
+                display: flex;
+                justify-content: flex-start;
+                margin-left: 100px;
+                margin-top: 10px;
+                
+            }
+            /* Popup container */
+#btn {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+
+
+
+            
+        </style>
+    </head>
+    <body>
+        <nav>
+        <div class="topnav">
+            <a id="first-link" href="#">Choice</a>
+            <button id="btn" onclick="connectAlgo()">Connect to wallet</button>
+            
+        </div>
+        </nav>
+        <div class="choice">
+            <h1 id="top1" style="font-family: 'Times New Roman', Times, serif;"> Amount committed to governance: CHOICE</h1>
+
+        </div>
+        <hr>
+        <h1 id="htag">Participate in Voting</h1>
+        <div class="box">
+            <p>Is Choice Coin the best?</p>
+        
+            <form>
+                <label for="choice-coin">Amount To Commit</label>
+                <input type="number" min="0" id="number" >
+            </form>
+            <p>OPTIONS</p>
+            <div class="inner-box">
+                <div class="yes">
+                   <input type="radio" id="zero_address" name="question" value="yes">
+                   <label for="choice-coin">Yes</label>
+                </div>
+            
+                <div class="no">   
+                    <input type="radio" id="one_address" name="question" value="no">
+                   <label for="choice-coin">No</label>
+                </div>
+            </div>
+
+            <div class="submitbtn"><input id="submit" type="submit"> </div>
+
+        </div>
+        <script src="app.js" type="javascript"></script>
+        <script
+        src="https://unpkg.com/algosdk@1.13.0-beta.1/dist/browser/algosdk.min.js"
+        integrity="sha384-w9fodN00YjvWxdNoiyT+W6CqaATkXlfid9tnzBlToDqZWepVWLjI5wO7jNL4+aNs"
+        crossorigin="anonymous"></script>
+        <script>
+            const server = "https://testnet-algorand.api.purestake.io/ps2";
+            const token = "RmUnHl1d137YRKB5wxjal9Ro9kJ3TLuLy0D130N3";
+            const port = 3000;
+            const client = new algosdk.Algodv2(token, server, port);
+            const accountData = 
+                {'address_1': " ",
+                'address_2': " "}
+            var zero_address; //defining zero address and one address
+            var one_address;
+            var from;
+            var to = " ";
+            var amount = parseInt(document.getElementById('number').value)
+            var note = 'Vote for choice coin';
+            
+            //connecting to algosigner
+            connectAlgo =()=>{
+                if(typeof AlgoSigner === 'undefined'){
+                    alert('Please install algosigner');
+                    return false;
+                }
+                console.log("Connect")
+                document.getElementById('btn').innerHTML="Wallet Connected";
+                document.getElementById('btn').style.background = "green";
+                AlgoSigner.connect()
+                .then(()=> AlgoSigner.accounts({
+                    ledger: 'TestNet'
+                }))
+                //get accountdata of accounts in the Algo testnet 
+                .then((accountData)=>{
+                
+                    zero_address = accountData[0]['address']
+                    one_address = accountData[1]['address']
+                    from = accountData[2]['address']
+                    console.log(from)
+                })
+                .catch((e)=>{
+                    console.error(e)
+
+                })
+            }
+            //function to connect to testnet,sign and send transaction
+            //passing voters address as a parameter
+            function process(voters_address){
+                to = voters_address;
+                amount = parseInt(document.getElementById('number').value)
+                note = 'Vote for choice coin';
+
+                    AlgoSigner.connect()
+                    // get the current parameters, these are needed in order to sign the transaction
+                    .then(() => AlgoSigner.algod({
+                        ledger: 'TestNet',
+                        path: '/v2/transactions/params'
+                    }))
+                    // sign the transaction
+                    .then((txParams) => AlgoSigner.sign({
+                        from: from,
+                        to: to,
+                        amount: +amount,
+                        note: note,
+                        // 'pay' is an ALGO payment transaction
+                        type: 'pay',
+                        fee: txParams['min-fee'], // the minimum fee to send the transaction
+                        firstRound: txParams['last-round'], // the first round the transaction is valid for
+                        lastRound: txParams['last-round'] + 1000, // the last round the transaction is valid for
+                        genesisID: txParams['genesis-id'], // required
+                        genesisHash: txParams['genesis-hash'], // required 
+                        flatFee: true // levy a flat fee instead of a variable fee
+                    }))
+                    // send the transaction
+                    .then((signedTx) => AlgoSigner.send({
+                        ledger: 'TestNet',
+                        tx: signedTx.blob // the unique blob representing the signed transaction
+                        
+                    }))
+                    // wait for confirmation from the blockchain
+                    .then((tx) => waitForAlgosignerConfirmation(tx)) // see algosignerutils.js
+                    .then((tx) => {
+                        // our transaction was successful, we can now view it on the blockchain 
+                        console.log('connection successful');
+                    })
+                    .catch((e) => { 
+                        // handle errors and perform error cleanup here 
+                        console.error(e); 
+                    });
+                    
+                    
+               
+            }
+            //adding click event listener to the submit button
+            var subBtn= document.getElementById('submit');
+            subBtn.addEventListener('click', function(){acceptAllTransactions(zero_address,one_address);});
+            
+            //function added to the submit button to accept all transactions
+            function acceptAllTransactions(zero_address, one_address){
+                //sending coin to either one or zero address depending on users
+                if(document.getElementById('zero_address').checked){
+                    console.log(zero_address)
+                    process(zero_address);
+                
+
+                }else if(document.getElementById('one_address').checked) {
+                    console.log(one_address)
+                    process(one_address)
+                }
+            }
+            
+        </script>
+    </body>
+</html>
