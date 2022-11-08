@@ -1,4 +1,5 @@
-Choice Coin v3
+# Choice Coin v3
+
 Simplified voting application.
-Written with react.
-decentralized-decisions.app
+[Written with react](https://reactjs.org/).
+[Application](decentralized-decisions.app)
