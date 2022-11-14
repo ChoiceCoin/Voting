@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Proposal | Choice</title>
+    <base />
+    <script src="assets/js/jquery-2.1.1.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen" />
+
+</head>
+
+<body>
+   
+    <header class="main_header">
+        <div class="nav_util_header">
+            <div class="container-fluid">
+                <div class="flex_wrapper flex_between">
+                    <div class="social">
+                        <ul>
+                            <li class="twitter"><a href="#"><span class="sr-only">Twitter</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_nav_bowl">
+            <div class="container-fluid">
+                <div class="navbar_container">
+                    <div class="navbar_group navbar_group_left">
+                        <div class="brand_logo">
+                            <a href="index.html" class="logo_link">
+                                Choice Logo
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="navbar_group navbar_group_right d-none" id="selected-adress">
+                        <p>Address: <span></span> </p>
+                    </div>
+                   
+                    <div class="navbar_group navbar_group_right">
+                        <nav class="home_nav">
+                            <div class="utility_nav_list">
+                               
+                                <div class="dropdown nav_link_item">
+                                    <a href="#" title="Connect Wallet" class="dropdown-toggle" data-toggle="dropdown">
+                                        <div class="link_icon">
+                                            <span class="link_icon_image wallet-image"></span>
+                                        </div>
+                                        <div class="link_label">
+                                            <span class="hidden-mobile">
+                                                Connect Wallet
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="javascript:void(0)" id="connect-wallet">Algosigner</a></li>
+                                    </ul>
+                                </div>
+
+                                
+
+                                
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main_content_area bg-grey">
+      
+        <section class="section_block">
+            <div class="container narrow_container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <nav class="us_proposal_nav ">
+                            <div class="proposal_nav_item active">
+                                <a href="javascript:void(0)" class="card_wrapper">
+                                    <div class="option_icon">
+                                        <img src="assets/images/details.png">
+                                    </div>
+                                    <div class="option_info">
+                                        <span>Proposals</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="proposal_nav_item">
+                                <a href="new-proposal.html" class="card_wrapper">
+                                    <div class="option_icon">
+                                        <img src="assets/images/proposal.png">
+                                    </div>
+                                    <div class="option_info">
+                                        <span>Submit Proposal</span>
+                                    </div>
+                                </a>
+                            </div>
+                          
+            
+                            
+                        </nav>
+                    </div>
+                    
+                    <div class="col-md-8">
+                        <div class="proposal_detail_panel">
+                            <div class="panel_wrapper">
+                                <header class="details_panel_header">
+                                    <div class="detail_control">
+                                        <a href="index.html" class="back_btn always_show" title="Back to Proposals">
+                                            <span class="back_icon">
+                                                <img src="assets/images/details.png">
+                                            </span>
+                                            <span class="bc_label">
+                                                Back to Proposals
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <h2 class="detail_title">
+                                        Proposal Info
+                                    </h2>
+                                </header>
+                                
+                                <div class="proposal-info"></div>
+
+                                <div class="details_panel_body margin_top_s">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="" class="control-label text-caps">
+                                                        Vote
+                                                    </label>
+                                                    <div class="">
+                                                        <div class="radio-inline">
+                                                            <label for="free" class="font-regular">
+                                                                <input type="radio" name="type" id="free" value="free" class="voting-type" checked>
+                                                                <span>Yes</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio-inline">
+                                                            <label for="premium" class="font-regular">
+                                                                <input type="radio" name="type" id="premium" class="voting-type" value="premium">
+                                                                <span>No</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                        <div class="row">
+                                            <div class="col-md-12 choice-amount pd-0">
+                                                    <label for="min" class="control-label text-caps">
+                                                        Choice Amount
+                                                    </label>
+                                                    <input type="number" min="0" id="min" name="min" class="form-control" readonly>
+                                                
+    
+                                                
+                                            </div>
+                                        </div>
+    
+                                        <div class="section_cto">
+                                            <button type="button" class="btn btn-block btn-lg btn-primary">
+                                                Vote
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="assets/js/bash.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

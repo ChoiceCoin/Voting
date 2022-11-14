@@ -1,0 +1,22 @@
+footer {
+
+    background-color: #0f5ad4;
+    color: #ffffff;
+    border-top: 1px solid #E7E7E7;
+    text-align:center;
+    padding:1em;
+    position: relative;
+    /* left: 0; */
+    bottom: 0%;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    max-width: 98%;
+    overflow-x: hidden;
+}
+
+footer p {
+  margin:auto;
+  text-transform: capitalize;
+}

@@ -1,0 +1,137 @@
+.stt_elt {
+  width: 100%;
+  min-height: 50vh;
+  position: relative;
+  display: flex;
+  color: var(--txt-alt);
+  padding: 15vh 5vw 0vh;
+  flex-direction: column;
+
+  font-weight: 400;
+
+  align-items: center;
+}
+
+.big_screen .stt_elt {
+  padding-top: calc(15vh + var(--sm-hd-height-half));
+}
+
+.stt_elt_inn {
+  width: 420px;
+  max-width: 88vw;
+}
+.stt_hd {
+  display: flex;
+  font-size: 15px;
+  color: var(--wht);
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 13px 0px;
+  font-family: "Barlow", sans-serif;
+}
+
+.light_theme .stt_hd {
+  font-weight: 500;
+}
+
+.on_elt {
+  width: 100%;
+  min-height: 100px;
+
+  max-height: 40vh;
+  max-height: calc((var(--list_h) * 3) + 30px);
+  overflow-y: scroll;
+
+  border-radius: 8px;
+  background: var(--back-1);
+  display: flex;
+  flex-direction: column;
+
+  border: var(--list-border);
+}
+.elt_item {
+  display: flex;
+  min-height: var(--list_h);
+  align-items: center;
+  flex-direction: row;
+  padding: 12px 18px 12px 16px;
+
+  border-top: var(--list-border);
+}
+.elt_item:first-child {
+  border-top: none;
+}
+.elt_img_cont {
+  margin-right: 20px;
+}
+.elt_img_cont img {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 100%;
+}
+
+.elt_item .elt_det {
+  flex: 1;
+  font-size: 16px;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+}
+.elt_det .e_det_main {
+  font-size: 16px;
+  color: var(--wht);
+  opacity: 0.7;
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.elt_det .e_det_sub {
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*  */
+.create_elect {
+  display: flex;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 14px;
+  border-radius: 8px;
+  letter-spacing: 1px;
+  color: var(--white);
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  background: var(--main-col-inv);
+  color: #2958ff;
+}
+.create_elect a,
+.create_elect div {
+  padding: 24px 20px;
+}
+.participate_elt {
+  display: flex;
+  font-size: 13px;
+  margin-top: 20px;
+  font-weight: 600;
+  line-height: 14px;
+  border-radius: 8px;
+  letter-spacing: 1px;
+  color: var(--white);
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  background: var(--main-col);
+  color: var(--main-col-inv);
+  cursor: pointer;
+}
+.participate_elt a {
+  padding: 24px 20px;
+}

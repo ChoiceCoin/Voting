@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+        src="https://cdn.jsdelivr.net/npm/algosdk@1.13.0-beta.1/dist/browser/algosdk.min.js"
+        integrity="sha384-w9fodN00YjvWxdNoiyT+W6CqaATkXlfid9tnzBlToDqZWepVWLjI5wO7jNL4+aNs"
+        crossorigin="anonymous"
+    ></script>
+    <script src="/js/vote.js"></script>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <title>Choice Coin</title>
+</head>
+<body>
+    <div id="alert">
+        <span class="closebtn" id="txnid" onclick="this.parentElement.style.display='none';">&times;</span>
+      </div>
+    <section class="card">
+        <p>Click on a button to vote</p>
+        <div id="votes">
+            <label class="container">RED
+                <input type="radio" name="decision" value="red">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">BLUE
+                <input type="radio" name="decision" value="blue">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <input value="Button" type="submit" onclick="Vote()"> 
+    </section>
+</body>
+</html>
