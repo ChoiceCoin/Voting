@@ -1,0 +1,99 @@
+container {
+    max-width: 500px;
+    padding-top: 60px;
+    /*background-color: red; /* for visualization purposes */
+    display: inline-block;
+
+  }
+
+.judul{
+  margin-bottom:60px;
+}
+
+  body{
+    background-color:white;
+    color: black;
+    text-align:center;
+    font-family:Helvetica;
+    font-weight:lighter
+
+
+  }
+
+/* INI untuk input style*/
+input[type=text]{
+  width: 55%;
+  padding: 10px;
+  margin: 35px 0 45px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  text-align: center;
+  text-size:10px;
+}
+
+input[type=text]:focus{
+  background-color: #fff176;
+  outline: none;
+}
+
+
+  /*
+button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    background-color: #fcad26;
+    font-size: 16px;
+    font-weight: 300;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 25px 80px;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 6px #efa424;
+  }
+
+  button:hover {
+    box-shadow: 0 4px #efa424;
+    top: 2px;
+  }
+
+  button:active {
+    box-shadow: none;
+    top: 6px;
+  }
+  */
+
+  .button{
+    outline:none;
+    border:none;
+    padding:20px 30px;
+    background:#0f5ad4;
+    color:#fff;
+    text-decoration:none;
+    font-family:Helvetica;
+    font-weight:lighter;
+    font-size:20px;
+    cursor:pointer;
+    margin:20px;
+    display:inline-block;
+    border-radius:20px;
+    box-shadow: 0px 5px 0px 0px rgb(0, 142, 176);
+    position:relative;
+    top:0px;
+    transition: background 0.5s, top 0.1s, box-shadow 0.1s;
+  }
+  .button:hover{
+    background: #00CFFF;
+  }
+  .button:active{
+    box-shadow: 0px 2px 0px 0px rgb(0, 142, 176);
+    top:3px;
+  }

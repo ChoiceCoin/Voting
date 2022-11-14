@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Choice Voting App</title>
+  </head>
+  <body class="body-bg bg-dark latest2">
+    <nav class="navbar navbar-light justify-content-between align-items-center">
+      <a class="navbar-brand fw-bold"
+        ><h3 class="navigation">CHOICE COIN</h3></a
+      >
+      <div class="form-inline">
+        <div style="display: flex" class="d-none" id="notify">
+          <div class="d-flex flex-column wallet_center">
+            <span class="textinput2" id="wallet_value"></span>
+          </div>
+          <i
+            style="font-size: 10px; margin-right: 3px; cursor: pointer"
+            onclick="myFunction()"
+            class="fa"
+            >&#xf0c5;</i
+          >
+          <span class="vertical_line"></span>
+          <div class="d-flex flex-column">
+            <span class="textinput2" id="choice_value"></span>
+          </div>
+        </div>
+        <div class="dropdown" id="dropdown">
+          <button
+            class="btn border-0 primary-bg text-light dropdown-toggle ui latest"
+            type="button"
+            id="dropdownMenu2"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Connect Wallet
+          </button>
+          <div
+            class="dropdown-menu border-0 shadow p-3 mb-5 bg-white rounded"
+            aria-labelledby="dropdownMenu2"
+          >
+            <button
+              class="dropdown-item custom"
+              type="button"
+              onclick="myAlgoSignerConnect()"
+            >
+              Algo Signer
+            </button>
+            <hr />
+            <button
+              class="dropdown-item custom"
+              type="button"
+              onclick="myAlgoWalletConnect()"
+            >
+              My Algo Wallet
+            </button>
+            <hr />
+            <button
+              class="dropdown-item custom"
+              type="button"
+              id="connect"
+              onclick="algoMobile()"
+            >
+              Algorand Mobile Wallet
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="ml-4">
+      <label class="switch">
+        <input type="checkbox" id="switch" checked />
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <div class="navbar navbar-light justify-content-center align-items-center">
+      <a class="navbar-brand fw-bold"
+        ><div class="navigation" id="committed2">
+          Amount Commited to the Voting Process: 0 $Choice
+        </div></a
+      >
+    </div>
+    <h4 class="text mt-3 font-weight-bold w-100 text-center participate">
+      PARTICIPATE IN VOTING PROCESS
+    </h4>
+    <hr class="border" style="border-top: 39px" />
+    <div class="d-flex justify-content-center flex-column align-items-center">
+      <div class="mb-3 mt-4 p-4 box primary-bg-blur">
+        <div
+          class="
+            text-light text-center
+            mb-5
+            d-flex
+            justify-content-center
+            align-items-center
+          "
+        >
+          <img
+            src="/image/choice.png"
+            alt="question"
+            height="30px"
+            class="mr-2"
+            style="border-radius: 50%"
+          />
+          <h4 class="header">Is choice a voting app?</h4>
+        </div>
+        <div class="text-center mb-4 text-white">
+          ENTER AMOUNT:
+          <input
+            min="1"
+            id="option-input"
+            type="number"
+            class="blue text-center"
+            placeholder="1"
+          />
+        </div>
+        <div class="vote mb-3 mt-2">
+          <label class="text-white vote--section" id="vote--section1">
+            Yes
+            <input
+              type="radio"
+              name="option"
+              value="blue"
+              id="blue"
+              class="mr-5"
+            />
+          </label>
+          <label class="text-white vote--section" id="vote--section2"
+            >No
+            <input type="radio" name="option" id="red" value="red" />
+          </label>
+          <br />
+        </div>
+
+        <div class="text-center b-3 mb-2" id="submit">
+          <button
+            class="btn btn-light btn-md mt-3 w-100"
+            id="submit2"
+            onclick="myAlgoWalletSign()"
+          >
+            Submit Vote
+          </button>
+          <!-- Modal -->
+        </div>
+      </div>
+    </div>
+    <div
+      class="disconnect"
+      style="cursor: pointer; font-size: 16px; text-align: center; width: 100%"
+    >
+      <span id="disconnect"></span>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/algosdk@1.13.0-beta.1/dist/browser/algosdk.min.js"></script>
+
+    <script src="/public/bundle.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/algo.js"></script>
+    <script src="/js/algowallet.js"></script>
+    <script src="/js/algosigner.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#switch").click(function () {
+          $(".latest").toggleClass("primary-bg");
+          $(".latest2").toggleClass("body-bg");
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+.footer{
+    color: #ffffff;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer > p{
+    font-size: 14px;
+}
+
+@media screen and (max-width: 650px){
+    .footer > p{
+        font-size: 10px;
+    }
+}
