@@ -2,7 +2,11 @@
 This is a repository for voting software built using Choice Coin. Our voting software is centered around Decentralized Decisions, an open-source voting software that allows organizations to make decisions in a distributed manner. 
 
 # Voting on Algorand
-Choice Coin has successfully developed and deployed several models for voting on the Algorand blockchain.
+Choice Coin has successfully developed and deployed several models for voting on the Algorand blockchain. 
+
+[Decentralized Decisions](https://www.decentralized-decisions.app/)
+[Research Paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3913316)
+[Security Audit](https://github.com/ChoiceCoin/Voting_DApp/blob/main/SecurityAudit/SecurityAudit.pdf)
 
 # Voting on Ethereum
 As of December 2022, Choice Coin is focusing on developing voting protocols on the Ethereum. [Topic in the Ethereum Research Forum](https://ethresear.ch/t/voting-on-ethereum/14467).
