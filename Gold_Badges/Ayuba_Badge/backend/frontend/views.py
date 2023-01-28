@@ -9,7 +9,7 @@ from algosdk import mnemonic,transaction
 
 
 algod_address = "https://testnet-algorand.api.purestake.io/ps2"
-algod_token = "nH6GvZZLPE2a6yZSLX2BH7Mk5HArCVlF61zv7ps1"
+algod_token = "your api key"
 headers = {
    "X-API-Key": algod_token,
 }
