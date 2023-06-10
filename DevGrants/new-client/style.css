@@ -1,0 +1,172 @@
+* {
+	padding: 10px;
+	margin: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+	font-family: "Josefin Sans", sans-serif;
+	border: none;
+	color: #fff;
+	outline: none;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: column;
+	min-height: 100vh;
+	background-color: grey;
+}
+
+.container {
+	width: auto;
+	border-radius: 5px;
+	background-color: rgba(128, 128, 128, 0.438);
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+		rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.first {
+	padding: 1px;
+	font-size: 18px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.first h4 {
+	/* font-family: cursive; */
+	font-size: 25px;
+	font-weight: 800;
+	text-transform: capitalize;
+}
+
+.first ::placeholder {
+	color: rgba(128, 128, 128, 0.407);
+	font-size: 20px;
+}
+
+.first button {
+	margin-left: 120px;
+	font-size: 12px;
+	letter-spacing: 2px;
+	font-weight: bold;
+	color: #fff;
+	width: 140px;
+	padding: 10px;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: 600;
+	border: 1px solid rgba(0, 255, 242, 0.722);
+	border-radius: 3px;
+	background: transparent;
+	box-shadow: rgba(0, 0, 0, 0.146) 0px 14px 28px,
+		rgba(0, 0, 0, 0.112) 0px 10px 10px;
+}
+
+.first h4 span {
+	color: rgb(10, 218, 128);
+	font-size: 25px;
+	font-weight: 800;
+	letter-spacing: 2px;
+}
+
+.second {
+	padding: 25px;
+	margin-left: -20px;
+}
+
+.second ::placeholder {
+	color: rgba(128, 128, 128, 0.167);
+	padding: 10px;
+	letter-spacing: 2px;
+	color: rgba(255, 255, 255, 0.482);
+
+	font-weight: 600;
+	text-transform: capitalize;
+}
+
+.second input {
+	margin-left: 10px;
+	border-radius: 3px;
+	width: 100%;
+	height: 30px;
+	background-color: gray;
+	box-shadow: rgba(0, 0, 0, 0.146) 0px 14px 28px,
+		rgba(0, 0, 0, 0.322) 0px 10px 10px;
+}
+
+.third {
+	padding: 40px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border: 1px solid rgba(46, 47, 46, 0.311);
+	background-color: rgba(154, 154, 154, 0.112);
+	border-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.146) 0px 14px 28px,
+		rgba(0, 0, 0, 0.322) 0px 10px 10px;
+}
+
+.third h4 {
+	display: flex;
+	color: rgba(255, 255, 255, 0.527);
+	justify-content: center;
+	letter-spacing: 2px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+	font-size: 15px;
+	font-weight: 800;
+}
+
+.rand-btn {
+	padding: 20px;
+	margin-left: 40px;
+	margin-right: 60px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.rand-btn input {
+	background-color: white;
+	font-weight: 800;
+	font-size: 11px;
+	width: 100px;
+	padding: 7px;
+	border: 1px solid;
+	border-radius: 5px;
+	font-weight: bolder;
+	box-shadow: rgba(0, 0, 0, 0.146) 0px 14px 28px,
+		rgba(0, 0, 0, 0.112) 0px 10px 10px;
+}
+
+.rand-btn .true {
+	border: 1px solid rgba(0, 128, 0, 0.708);
+	color: green;
+	background-color: gray;
+}
+.rand-btn .false {
+	background-color: gray;
+	border: 1px solid rgba(255, 0, 0, 0.838);
+	color: red;
+}
+
+.submit {
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.submit input {
+	background-color: white;
+	width: 200px;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	font-weight: bold;
+	background-color: rgb(34, 21, 177);
+	color: white;
+	box-shadow: rgba(0, 0, 0, 0.479) 0px 14px 28px,
+		rgba(0, 0, 0, 0.112) 0px 10px 10px;
+	letter-spacing: 2px;
+}
