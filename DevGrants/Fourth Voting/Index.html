@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Choice Coin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body style="background: url(back.jpg);
+  background-size: contain;">
+    <div style=" padding: 10px;
+  background-color: transparent;
+  color: white;
+  font-size: 44sp;
+  display: flex;
+  justify-content: space-between;">
+      <h1>Choice Coin</h1>
+    </div>
+    <div style=" width: 400px;
+  height: 400px;
+  background-color: white;
+  margin: auto;
+  margin-top: 130px;
+  border: 4px solid;
+  display: flex;
+  justify-content: center;
+  border-radius: 4px;">
+  <button class="connect" style="padding: 10px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-image: linear-gradient(180deg, rgba(133,67,39,255)
+,#96b5c7
+);
+  color: white;">Connect Wallet</button>
+      <div style="display: flex;
+  justify-content: center;
+  flex-direction: column;">
+        <input style="width: 250px;
+  height: 25px;
+  padding: 5px;
+  margin: 20px;
+  border-radius: 5px;" type="text" placeholder="Address" />
+        <p>Choice Coin Voting Software</p>
+        <input style=" border-radius: 5px;
+  height: 100px;
+  width: 300px;
+  margin: 20px;" type="text" placeholder="Enter Statement" />
+        <div style="
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;">
+          <h3 class="yes" >Yes</h1>
+          <h3 class="no">No</h2>
+        </div>
+        <button class="submit" style="padding: 5px;
+        width: 200px;
+        margin-left: 50px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;">Submit</button>
+      </div>
+    </div>
+    <script>
+        // Retrieve AlgoSigner sdk from the browser
+const { AlgoSigner } = window;
+
+// Get the connect button
+const submitBtn = document.querySelector(".submit");
+const yes = document.querySelector(".yes");
+const no = document.querySelector(".no");
+const wallet = document.querySelector(".connect");
+
+// function to connect wallet
+const connectWallet = async () => {
+  // Firstly check if algosigner is already installed
+  if (!AlgoSigner) {
+    return alert("Kindly install Algosigner");
+  }
+  // Connect Account if Algosigner is installed
+  await AlgoSigner.connect()
+    .then((d) => {
+      console.log("Wallet Connected!");
+    })
+    .catch((e) => console.log("Error in connection"));
+};
+
+wallet.addEventListener("click", async (e) => {
+  await connectWallet();
+});
+// Sign the Transaction
+const signTransaction = async (receiver = blue_address) => {
+	const txn = await AlgoSigner.algod({
+		ledger: "TestNet",
+		path: "/v2/transactions/params",
+	})
+		.then((e) => {
+			return e;
+		})
+		.catch((e) => console.log("error in algorand"));
+
+	//retrieve account details
+	const account = await AlgoSigner.accounts({
+		ledger: "TestNet",
+	})
+		.then((value) => value[0])
+		.then((result) => {
+			const { address } = result;
+
+			return address;
+		})
+
+		.catch((e) => console.log("failed to retrieve accounts"));
+
+	//Transaction signature
+	await AlgoSigner.sign({
+		from: account,
+		to: receiver,
+		amount: document.querySelector("hello"),
+		note: "voting",
+		fee: txn["min-fee"],
+	})
+		.then(() => console.log("complete"))
+		.catch((e) => console.log("error", e));
+};
+
+
+submitBtn.addEventListener("click", (e) => {
+	console.log("welcome user");
+
+	//checks to see if the user click an option
+	if (!yesOrNo) {
+		alert("Please click either yes or no");
+		return;
+	}
+	if (yesOrNo == "Yes") {
+		signTransaction(blue_address);
+	}
+	if (yesOrNo == "No") {
+		signTransaction(red_address);
+	}
+	alert(`Transaction successful in successful in ${yesOrNo}`);
+}); 
+    </script>
+  </body>
+</html>
