@@ -1,7 +1,7 @@
 /*Enter this code into a SQL Terminal, logged in as a root user*/  
 
 CREATE DATABASE voting;
-USE DATABASE voting;
+USE voting;
 CREATE table accounts 
 ( id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
  name VARCHAR(100) NOT NULL, 
@@ -22,7 +22,7 @@ class VARCHAR(1) NOT NULL
 );
 CREATE table class_power
 (
+votes_per_stake INT NOT NULL,
 class VARCHAR(1) NOT NULL 
-votes_per_stake INT NOT NULL
 );
 
