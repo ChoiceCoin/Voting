@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 14px;
+  color: #666;
+}
+input,
+textarea {
+  outline: none;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: #5a7233;
+}
+.header {
+  margin-top: 0;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+form {
+  position: relative;
+  width: 80%;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.form-inner {
+  padding: 40px;
+}
+.form-inner input,
+.form-inner textarea {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  background: #d0dfe8;
+}
+
+.form-inner textarea {
+  resize: none;
+}
+
+button {
+  width: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  border-bottom: 4px solid #3e4f24;
+  background: #5a7233;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+}
+button:hover {
+  background: #3e4f24;
+}
+.submit {
+  margin-top: 20px;
+  display: block;
+  text-align: center;
+}
+.option {
+  font-weight: 500;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.header-input {
+  width: auto;
+}
+.submit_button {
+  width: 140px;
+  border-radius: 50px;
+}
+
+@media (min-width: 568px) {
+  form {
+    width: 60%;
+  }
+}
