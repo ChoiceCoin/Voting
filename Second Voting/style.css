@@ -1,0 +1,82 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.vid {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-size: cover;
+}
+body {
+  background-image: url("back.gif");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.headChoice {
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+}
+button {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+}
+.mainDiv {
+  width: 400px;
+  height: 400px;
+  background-color: transparent;
+  margin: auto;
+  margin-top: 130px;
+  border: 4px solid;
+  display: flex;
+  justify-content: center;
+  border-radius: 4px;
+}
+.ff {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.address {
+  width: 250px;
+  height: 25px;
+  padding: 5px;
+  background-color: transparent;
+  margin: 20px;
+  border-radius: 5px;
+}
+p {
+  margin: 20px;
+  margin-left: 50px;
+}
+.Statement {
+  border-radius: 5px;
+  height: 100px;
+  width: 300px;
+  margin: 20px;
+  background-color: transparent;
+}
+.yesNo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.submit {
+  margin-top: 20px;
+}
+.yes:hover {
+  background-color: rgb(71, 160, 71);
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
+.no:hover {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
