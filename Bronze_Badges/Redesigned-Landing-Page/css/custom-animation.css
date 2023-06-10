@@ -1,0 +1,54 @@
+@-webkit-keyframes jump {
+  0%   {-webkit-transform: translate3d(0,0,0);transform: translate3d(0,0,0);}
+  40%  {-webkit-transform: translate3d(0,24%,0);transform: translate3d(0,24%,0); opacity: 0.5;}
+  100% {-webkit-transform: translate3d(0,0,0);transform: translate3d(0,0,0); opacity: 1;}
+}
+@keyframes jump {
+  0%   {-webkit-transform: translate3d(0,0,0);transform: translate3d(0,0,0);}
+  40%  {-webkit-transform: translate3d(0,24%,0);transform: translate3d(0,24%,0); opacity: 0.5;}
+  100% {-webkit-transform: translate3d(0,0,0);transform: translate3d(0,0,0); opacity: 1;}
+}
+
+@-webkit-keyframes scale-up {
+  0%   {-webkit-transform: scale(0.7);transform: scale(0.7);}
+  40%  {-webkit-transform: translate3d(0,24%,0) scale(1);transform: translate3d(0,24%,0) scale(1); opacity: 0.7;}
+  100% {-webkit-transform: scale(0.7);transform: scale(0.7); opacity: 1;}
+}
+@keyframes scale-up {
+  0%   {-webkit-transform: scale(0.7);transform: scale(0.7);}
+  40%  {-webkit-transform: translate3d(0,24%,0) scale(1);transform: translate3d(0,24%,0) scale(1); opacity: 0.7;}
+  100% {-webkit-transform: scale(0.7);transform: scale(0.7); opacity: 1;}
+}
+
+
+@-webkit-keyframes fade-in {
+  0%   {opacity: 0.7;}
+  40%  {opacity: 1;}
+  100% {opacity: 0.7;}
+}
+@keyframes fade-in {
+  0%   {opacity: 0.7;}
+  40%  {opacity: 1;}
+  100% {opacity: 0.7;}
+}
+@-webkit-keyframes border-one {
+  0%   {border: 5px solid #ff8b90; border-right: none;border-top: none;}
+  50%  {border: 5px solid #01daba; border-right: none;border-top: none;}
+  100% {border: 5px solid #b377f6; border-right: none;border-top: none;}
+}
+@keyframes border-one {
+  0%   {border: 5px solid #ff8b90; border-right: none;border-top: none;}
+  50%  {border: 5px solid #01daba; border-right: none;border-top: none;}
+  100% {border: 5px solid #b377f6; border-right: none;border-top: none;}
+}
+
+@-webkit-keyframes border-two {
+  0%   {border: 5px solid #b377f6; border-right: none;border-bottom: none;}
+  50%  {border: 5px solid #fec25e; border-right: none;border-bottom: none;}
+  100% {border: 5px solid #01daba; border-right: none;border-bottom: none;}
+}
+@keyframes border-two {
+  0%   {border: 5px solid #b377f6; border-right: none;border-bottom: none;}
+  50%  {border: 5px solid #fec25e; border-right: none;border-bottom: none;}
+  100% {border: 5px solid #01daba; border-right: none;border-bottom: none;}
+}
