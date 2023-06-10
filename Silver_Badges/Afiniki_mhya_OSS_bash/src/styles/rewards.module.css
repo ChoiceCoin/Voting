@@ -1,0 +1,39 @@
+.reward{
+    max-width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.reward form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 2px 2px 5px #333;
+    padding: 2rem;
+
+}
+.reward input{
+    padding :3px 1rem;
+}
+.reward input[type="submit"]{
+    background: hsl(120, 56%, 64%);
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    box-shadow: 2px 2px 2px #333;
+    padding: 1rem;
+
+
+}
+.reward h1{
+    text-align: center;
+    font-size: 2rem;
+}
+
+.reward span {
+    display: flex;
+    width: 70%;
+    margin: auto;
+    flex-direction: column;
+    gap: 0.5rem;
+}

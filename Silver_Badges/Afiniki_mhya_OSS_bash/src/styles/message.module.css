@@ -1,0 +1,23 @@
+.message{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 4rem;
+    gap: 0.3rem;
+    color: white;
+    text-align: center;
+    
+}
+.success{
+    background: hsl(120, 100%, 75%, 0.5);
+}
+.failure{
+background-color: hsla(0, 85%, 45%, 0.5);
+}
+.h1{
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+}
