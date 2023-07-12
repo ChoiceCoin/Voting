@@ -12,7 +12,7 @@ Choice Coin has successfully developed and deployed several models for voting on
 
 
 # Voting on Ethereum
-As of December 2022, Choice Coin is focusing on developing voting protocols on the Ethereum. [Topic in the Ethereum Research Forum](https://ethresear.ch/t/voting-on-ethereum/14467).
+As of December 2022, Choice Coin is focusing on developing voting protocols on the Ethereum. [Topic in the Ethereum Research Forum](https://ethresear.ch/t/voting-on-ethereum/14467). The goal for the project will be to continue developing voting protocols on Ethereum.
 
 # OSS Rewards for Contributions
 As the largest OSS project on Algorand Choice Coin strives to excel in open source innovation. Choice Coin is currently focusing on rewarding contributions to this Repository and especially encouraging women to contribute. We recently made 6,000,000.00 Choice available specifically to women to build on Algorand. Additioanlly, Choice Coin commonly hosts bash style hackathons to reward developers and makes Bronze Badge awards available to developers for making significant contributions to the Choice Coin Voting Repository. 
