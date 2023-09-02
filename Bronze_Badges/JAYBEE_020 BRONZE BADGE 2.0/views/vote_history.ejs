@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Using Choice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;500&family=Roboto:ital,wght@1,300&family=Rubik:ital,wght@0,300;1,300;1,500&display=swap" rel="stylesheet">
+
+    <body style="background-image: linear-gradient(white,#5F6ADA); overflow-y: scroll; ">
+    <section style="height: max-content;">
+      <nav style="position: absolute; top: 0px; width: 100%; background-color: #533AFE;" class="nav">
+        <a style="color: white; font-size: 20px; margin-left: 250px; font-weight: 500; font-family: 'Raleway', sans-serif; " class="nav-link" aria-current="page" href="#"> <img style="height: 30px; align-self: center;" src="/img/choice2.png"alt=""> Choice</a>
+        <a style="color: white; margin-left: 50%; font-family: 'Raleway', sans-serif; " class="nav-link" href="/">Home</a>
+        <a style="color: white; font-family: 'Raleway', sans-serif;" class="nav-link " href="#">About</a>
+      </nav>
+        
+        <div style="width: 100%; margin-top: 170px; margin-bottom: 90px; padding-right: 50px; padding-left: 50px;background-repeat: no-repeat;  ;">
+          <table style="margin-top: 10px;">
+            <thead>
+                <tr style="font-family: 'Raleway', sans-serif; ">
+                    <th>Candidates</th>
+                    <th>Wallet</th>
+                    <th>Transaction Id</th>
+                    <th>Choice For Vote</th>
+                  </tr>
+            </thead>
+            <tbody id="tableData">
+              <!-- getting the passed object from the backend to render in front end -->
+              <% results.forEach((element)=>{ %>
+                <tr style="font-size: 13px;" class="vote-data">
+                        <td><%= element.candidate %> </td>
+                        <td><%= element.address %> </td>
+                        <td><%= element.Id %> </td>
+                        <td><%= element.amount %> </td>
+                        <td><a href="/withdraw/<%= element.candidate %>/<%= element.amount %> "><button style="width: 140px; height: 30px; margin-left:0; font-weight: 400; background-color: #3ECF8E;  " type="submit" class="btn btn-primary">WITHDRAW</button></a> </td>
+                    <%})%> 
+                  </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+    </section>
+
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+

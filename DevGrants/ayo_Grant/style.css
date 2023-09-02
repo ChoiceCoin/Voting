@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.container {
+  width: 500px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0,0,0, 0.22) 0px 10px 10px;
+  padding-bottom: 30px;
+}
+input:focus,
+button:focus {
+  outline: none;
+}
+.coin,
+.input,
+textarea {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 25px;
+  margin: 15px 20px;
+}
+textarea {
+  width: 460px;
+  height: 200px;
+  padding: 10px;
+  font-size: 15px;
+}
+button{
+    cursor: pointer;
+}
+.coin button,
+.buttons button {
+  font-size: 20px;
+  padding: 10px;
+  background-color: #000;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 5px;
+}
+input {
+  width: 200px;
+  padding: 5px;
+  font-size: 15px;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.yes-btn {
+  background-color: rgb(106, 214, 106) !important;
+  width: 150px;
+}
+.no-btn {
+  background-color: red !important;
+  width: 150px;
+}
+.btn {
+  text-align: center;
+}
+.submit {
+  font-size: 20px;
+  padding: 10px;
+  width: 150px;
+  margin-top: 20px;
+  background-color: #1cdefb;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 5px;
+}

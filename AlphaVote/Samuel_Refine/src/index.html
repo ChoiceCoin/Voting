@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Choice coin
+    </title>
+    <link rel="icon" type="image/png" href="https://www.google.com/s2/u/0/favicons?domain=https://choice-coin.com/">
+    <link rel="shortcut icon" href="/images/logo-mb.png" type="image/png">
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- APP CSS -->
+    <link rel="stylesheet" href="/styles/grid.css">
+    <link rel="stylesheet" href="/styles/app.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <img src="/images/choice.png" alt="Comapny logo">
+            <div class="sidebar-close" id="sidebar-close">
+                <i class='bx bx-left-arrow-alt'></i>
+            </div>
+        </div>
+        <div class="sidebar-user">
+            <div class="sidebar-user-info">
+                <div class="sidebar-user-name">
+                   <span style="font-size: 17px;" id="connect"> connect wallet to access</span>
+                </div>
+            </div>
+            <button class="btn btn-outline">
+                <i class='bx bx-log-out bx-flip-horizontal'></i>
+            </button>
+        </div>
+        <!-- SIDEBAR MENU -->
+        <ul class="sidebar-menu">
+           
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-user-circle'></i>
+                    <span>connect wallet</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="#" onclick="myAlgoWalletConnect()">
+                            My algo wallet
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="connectToAlgoSigner()">
+                            Algosigner
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="qrCode()">
+                            Algorand Mobile Wallet
+                          <div id="canva" class="canva" hidden>
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            <canvas id="canvas"></canvas>
+                          </div>
+                            
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+           
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-cog'></i>
+                    <span>settings</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="#" class="darkmode-toggle" id="darkmode-toggle">
+                            darkmode
+                            <span class="darkmode-switch"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- END SIDEBAR MENU -->
+    </div>
+    <!-- END SIDEBAR -->
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+        <div class="main-header">
+            <div class="mobile-toggle" id="mobile-toggle">
+                <i class='bx bx-menu-alt-right'></i>
+            </div>
+            <div class="main-title">
+                Choice Coin
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="row">
+                <div class="col-3 col-md-6 col-sm-12">
+                    <div class="box box-hover">
+                        <!-- COUNTER -->
+                        <div class="counter">
+                            <div class="counter-title" id="address">
+                                connect your wallet to access
+                            </div>
+                            <div class="counter-info">
+                                <div class="counter-count">
+                                    Address
+                                </div>
+                                <i class='bx bx-shopping-bag'></i>
+                            </div>
+                        </div>
+                        <!-- END COUNTER -->
+                    </div>
+                </div>
+                <div class="col-3 col-md-6 col-sm-12">
+                    <div class="box box-hover">
+                        <!-- COUNTER -->
+                        <div class="counter">
+                            <div class="counter-title">
+                                Choice committed per 10 tnx
+                            </div>
+                            <div class="counter-info">
+                                <div class="counter-count">
+                                    <span style="font-size: 17px;" id="choice" >Connect wallet to access</span>
+                                </div>
+                                <i class='bx bx-line-chart'></i>
+                            </div>
+                        </div>
+                        <!-- END COUNTER -->
+                    </div>
+                </div>
+                
+            </div>
+<!-- vote -->
+           
+        <div class="body">
+            <header>Particpate by Voting</header>
+          <div class="decision">
+          <label class="red" for="red">YES
+            <input type="radio" name="dec" id="red" value="one">
+          </label>
+           <label class="blue" for="blue">NO
+            <input type="radio" name="dec" id="blue" value="two">
+           </label>
+           
+            <br/>
+            <label for="wallet-address" style="margin-top: 10px;">Enter Choice Amount: </label><br/>
+            <input type="text" id="choice-amount" autofocus name="from" placeholder="Input amount of choice" style="background-color:var(--body-bg);padding: 10px;border-radius: 10px; outline:none; border:2px solid blue; width: 40vh; height: 30px;">        
+         
+        </div>
+          <button class="button" id="button">Vote</button>
+
+        </div>
+        <!-- vote -->
+
+            <div class="row">
+                <div class="col-4 col-md-6 col-sm-12">
+                    <!-- CATEGORY CHART -->
+                    <div class="box f-height">
+                        <div class="box-body">
+                            <div id="category-chart"></div>
+                        </div>
+                    </div>
+                    <!-- END CHART -->
+                </div>
+                <div class="col-5 col-md-12 col-sm-12">
+                    <!-- CUSTOMERS CHART -->
+                    <div class="box f-height">
+                        <div class="box-header">
+                            rates
+                        </div>
+                        <div class="box-body">
+                            <div id="customer-chart"></div>
+                        </div>
+                    </div>
+                    <!-- END CHART -->
+                </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+
+    <div class="overlay"></div>
+
+    <!-- SCRIPT -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/algosdk@1.13.0-beta.1/dist/browser/algosdk.min.js"
+        integrity="sha384-w9fodN00YjvWxdNoiyT+W6CqaATkXlfid9tnzBlToDqZWepVWLjI5wO7jNL4+aNs"
+        crossorigin="anonymous"
+    ></script>
+    <!-- APEX CHART -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script src="/js/algo.js"></script>
+    <script src="/js/qrcode.js"></script>
+    
+
+    <script src="/js/algorand-mobile.js"> </script>
+    <script src="/js/algowallet.js"></script>
+    <script src="/js/algosigner.js"></script>
+    
+    <!-- APP JS -->
+    <script src="/js/app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css" type="text/css">
+    <title>Bash Challenge</title>
+</head>
+<body>
+    <div class="votes">
+        <div id="votes">
+            <label class="container">RED
+                <input type="radio" id="red" name="algo" value="red">
+                <span></span>
+            </label>
+            <label class="container">BLUE
+                <input type="radio" id="blue" name='algo' value="blue">
+                <span></span>
+            </label>
+        </div>
+        <button type="submit" id="button" onclick="Vote()"> Button Address</button>
+    </div>
+    <script
+    src="https://cdn.jsdelivr.net/npm/algosdk@1.13.0-beta.1/dist/browser/algosdk.min.js"
+    integrity="sha384-w9fodN00YjvWxdNoiyT+W6CqaATkXlfid9tnzBlToDqZWepVWLjI5wO7jNL4+aNs"
+    crossorigin="anonymous"
+    ></script>
+<script src="/votes.js"></script>
+</body>
+</html>

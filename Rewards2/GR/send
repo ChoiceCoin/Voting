@@ -1,0 +1,30 @@
+import csv
+from algosdk.v2client import algod
+from algosdk import account, encoding, mnemonic, transaction 
+from algosdk.future.transaction import AssetConfigTxn, AssetTransferTxn, PaymentTxn, write_to_file
+
+algod_address = "https://testnet-algorand.api.purestake.io/ps2" 
+algod_token = "" 
+headers = {"X-API-Key": algod_token }
+algod_client = algod.AlgodClient(algod_token,algod_address,headers)
+
+asset_id = ""
+send_address = ""
+send_phrase = mnemonic.to_private_key("")
+
+data = open('data.csv', 'r')
+read = csv.reader(data)
+
+for row in read:
+    params = algod_client.suggested_params()
+    amount = row[2]
+    vote_address = row[0]
+    transaction = AssetTransferTxn(sender=voter_address, sp=params, receiver=vote_address, amt=amount, index=asset_id)
+    signature = transaction.sign(voter_phrase)
+    algod_client.send_transaction(signature)
+    final = transaction.get_txid()
+    print ("Thanks for sending for one.")
+    print(final)
+send()
+
+#still need to convert line 20 to float value.

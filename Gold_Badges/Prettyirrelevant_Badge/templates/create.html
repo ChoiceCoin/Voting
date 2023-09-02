@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Add Voter Form</h3>
+        </div>
+        <form class="container panel-body" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+                <label for="ssn">SSN</label>
+                <input type="password" class="form-control" id="ssn" name="ssn" placeholder="Social Security Number" required>
+            </div>
+            <div class="form-group">
+                <label for="dl">Driver's License</label>
+                <input type="password" class="form-control" id="dl" name="dl" placeholder="Driver's License" required>
+            </div>
+            <button type="submit" class="btn btn-success">Add Voter</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

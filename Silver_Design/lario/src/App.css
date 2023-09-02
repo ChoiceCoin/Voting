@@ -1,0 +1,12 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.app{
+  display: flex;
+  margin: 0 auto;
+  height: 100%;
+  flex-direction: column;
+  background-color: #1c2237;
+}

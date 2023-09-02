@@ -1,0 +1,474 @@
+.dropdwn {
+    color: white;
+    background-color: #349834;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    margin:auto;
+    transform: translateX(50%);
+}
+
+.dropdwn:hover {
+    background-color: #2980B9;
+}
+
+.accounts {
+    position: relative;
+    display: inline-block;
+}
+
+.accounts-list {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.accounts-list a{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.show {
+    display: block;
+    cursor: pointer;
+    width: 50%;
+    margin:auto;
+    transform: translateX(50%);
+
+}
+
+.accounts-list a:hover {
+    background-color: #ddd;
+}
+
+body {
+    margin: 0;
+    /* background: white; */
+    background: #fafafa;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  .index-main-cont {
+    display: flex;
+    padding: 2em;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    margin-bottom: 25vh;
+    
+  }
+  
+  .sub-main-cont {  
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #child-1 {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  #child-1 h2, #child-3 h2, #child-2 h2{
+    color: #0f5ad4;
+    text-transform: capitalize;
+  }
+  
+  #child-1 p, #child-3 p, #chlid-2 p{
+    text-align: center;
+    font-size: 50px;
+    width: auto;
+    margin: auto;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  
+  #child-2 {
+    width: 30%;    
+  }
+  
+  
+  #child-1, #child-2, #child-3 {
+    border-radius: 4px;
+    box-shadow: 3px 6px 20px rgba(122, 122, 122, 0.3);
+    padding: 1em;
+    
+  }
+  
+  #child-1 a {
+    background: #0f5ad4;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    margin: auto;
+    width: fit-content;
+    padding: 1em;
+    border-radius: 1em;
+    transition: 0.4s ease-in;
+    text-transform: capitalize;
+    box-shadow: 3px 6px 20px rgba(122, 122, 122, 0.3);
+  }
+  
+  #child-1 a:hover {
+    background: white;
+    color: #0f5ad4;
+  }
+  
+  #child-1 h2, #child-2 h2, #child-3 h2  {
+    text-align: center;
+    font-size: 20px;
+  }
+  
+  #child-1 p, #child-2 p, #child-3 p {
+    font-size: 15px;
+    color: gray;
+  }
+  
+  .head{
+    background: hsl(217, 75%, 47%);
+    padding: 40px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    text-transform: capitalize;
+  }
+  
+  
+  form {
+    border-radius: 5px;
+    padding: 20px;
+    width:50%;
+    margin: auto;
+    margin-bottom: 20vh;
+  }
+  
+  .add-voter-cont form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .add-voter-cont form div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  input[type=text], input[type=password] {
+    border: none;
+    background-color: #e9e5e5;
+    margin-left: auto;
+    width: 50%;
+    color:black;
+    border-radius: 4px;
+    resize: vertical;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 14px;
+  }
+  
+  .generic-form{
+    margin: 20px;
+    padding: 10px;
+    font-size: 25px;
+  }
+  
+  .button {
+    background-color: hsl(217, 79%, 56%);
+    color: white;
+    font-size: 16px;
+    padding: 16px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .button:hover {
+    background-color:  hsl(217, 79%, 50%);
+  }
+  
+  
+  .info {
+    font-size: 20px;
+    text-align:center;
+    font-weight: bold;
+    color: #222222;
+    opacity: 0.765;
+    font-size: 1.5em;
+  }
+  
+  
+  #child-2 div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    padding: 1em;
+  }
+  
+  #child-2 div p {
+    margin-left: 10px;
+  }
+  
+  #child-3 {
+    width: auto;
+    margin-top: 2em;
+  }
+  
+  #child-3 p {
+    text-align: center;
+  }
+  
+  
+  
+  .navigation {
+    height: 70px;
+    background: #0f5ad4;
+  }
+  
+  .brand {
+    position: absolute;
+    padding-left: 10px;
+    float: left;
+    line-height: 70px;
+    text-transform: uppercase;
+    font-size: 1.4em;
+  }
+  .brand a, .brand a:visited {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  
+  article {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  
+  
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  
+  }
+  
+  .result-cont {
+    /* background: rgb(206, 218, 237); */
+    background-color: rgba(71, 126, 228, 0.474);
+    /* opacity: 0.245; */
+    padding: 1.2em;
+    width: 50%;
+    border-radius: 12px;
+    margin: auto;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+   text-transform: capitalize;
+   box-shadow: rgba(0,0,0,0.24) 0px 3px 8px !important;
+   border: 1px solid blue !important;
+  }
+  
+  .closer {
+    cursor: pointer;
+    margin-left: auto;
+    width: fit-content;
+    font-size: 2em;
+    font-weight: bolder;
+    
+  }
+  
+  .message {
+  
+    text-align: center; 
+  }
+  
+  .img-wrapper{
+    width: 30vw;
+    height: 30vw;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0px;
+    margin: -20px 35vw;
+    /* box-shadow: ; */
+  }
+  
+  .img-wrapper img{
+    width: 100%;
+    position:relative;
+    display: flex;
+  }
+
+
+  .navigation {
+    height: 70px;
+    background: #0f5ad4;
+  }
+
+.nav-container {
+max-width: 1000px;
+margin: 0 auto;
+}
+
+nav {
+float: right;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    float: left;
+    position: relative;
+}
+nav ul li a, nav ul li a:visited {
+    display: block;
+    padding: 0 20px;
+    line-height: 70px;
+    background: #0f5ad4;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav ul li a:hover, nav ul li a:visited:hover {
+    background: #2581DC;
+    color: #ffffff;
+}
+
+nav ul li a:not(:only-child):after, nav ul li a:visited:not(:only-child):after {
+    padding-left: 4px;
+    content: ' ▾';
+}
+
+nav ul li ul li {
+    min-width: 190px;
+}
+
+nav ul li ul li a {
+    padding: 15px;
+    line-height: 20px;
+}
+
+.nav-dropdown {
+    position: absolute;
+    display: none;
+    z-index: 1;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile navigation */
+.nav-mobile {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #0f5ad4;
+    height: 70px;
+    width: 70px;
+}
+
+@media only screen and (max-width: 798px) {
+    .nav-mobile {
+        display: block;
+}
+
+nav {
+    width: 100%;
+    padding: 70px 0 15px;
+}
+
+nav ul {
+    display: none;
+}
+
+nav ul li {
+    float: none;
+}
+
+nav ul li a {
+    padding: 15px;
+    line-height: 20px;
+}
+
+nav ul li ul li a {
+    padding-left: 30px;
+}
+
+.nav-dropdown {
+    position: static;
+}
+}
+
+@media screen and (min-width: 799px) {
+.nav-list {
+    display: block !important;
+}
+}
+#nav-toggle {
+    position: absolute;
+    left: 18px;
+    top: 22px;
+    cursor: pointer;
+    padding: 10px 35px 16px 0px;
+}
+
+#nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 5px;
+    width: 35px;
+    background: #ffffff;
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all 300ms ease-in-out;
+}
+
+#nav-toggle span:before {
+    top: -10px;
+}
+
+#nav-toggle span:after {
+    bottom: -10px;
+}
+
+#nav-toggle.active span {
+    background-color: transparent;
+}
+#nav-toggle.active span:before, #nav-toggle.active span:after {
+    top: 0;
+}
+
+#nav-toggle.active span:before {
+    transform: rotate(45deg);
+}
+
+#nav-toggle.active span:after {
+    transform: rotate(-45deg);
+}
+
+
+
+.fix {
+    width: 50%;
+    margin: auto;
+}

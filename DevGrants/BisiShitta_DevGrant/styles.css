@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro&family=Roboto&display=swap');
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+input{
+  font-family: 'Open Sans', sans-serif;
+}
+
+input,button{
+  outline: none;
+}
+
+.main_container{
+  min-height: 100vh;
+  width: 100%;
+  background-color: #cddc39;
+  background-image: url('https://www.volunteeringkingston.org.uk/wp-content/uploads/2018/10/Winter.jpeg');
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main_container .animate {
+    display: inline-block;
+    width: calc(10px * var(--count));
+    height: calc(10px * var(--count));
+    border-radius: calc(5px * var(--count));
+    border: 2px solid #fff5;
+    position: absolute;
+    top: calc(6% * var(--count));
+    left: calc(10% * var(--count));
+    box-shadow: 0 2px 6px #0002, 0 4px 16px #0004;
+
+
+    animation-name: move;
+    animation-iteration-count: infinite;
+    animation-delay: calc(0.2s * var(--count));
+    animation-duration: calc(5s * var(--count));
+    animation-fill-mode: both;
+}
+
+.main_container .animate:nth-child(1) {
+    background-color: #ffc107;
+}
+
+.main_container .animate:nth-child(2) {
+    background-color: #2196f3;
+}
+
+.main_container .animate:nth-child(3) {
+    background-color: #8bc34a;
+}
+
+.main_container .animate:nth-child(4) {
+    background-color: #f44336;
+}
+
+
+.main_container .login_form {
+    display: block;
+    max-width: 400px;
+    width: 100%;
+    padding: 50px 25px;
+    background-image: linear-gradient(45deg, #fff1, #fff3);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 2px outset #fff5;
+    position: relative;
+    box-shadow: 0 2px 6px #0002, 0 5px 16px #0005;
+}
+
+.main_container .login_form .login_form_title {
+    font-size: 18px;
+    color: #000;
+}
+
+.main_container .login_form .group {
+    position: relative;
+    margin-top: 30px;
+}
+
+.main_container .login_form .group input {
+    background-color: #0002;
+    border-radius: 4px;
+    padding: 6px 25px 6px 10px;
+    display: block;
+    width: 100%;
+    box-shadow: -1px 1px 2px #0002 inset;
+    color: #fff;
+    font-size: 16px;
+    border: 1px outset #fff5;
+    transition: border-radius 0.3s;
+}
+
+.main_container .login_form .group label {
+    position: absolute;
+    pointer-events: none;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #fffa;
+    transition-property: top, left, color, font-size;
+    transition: 0.3s;
+}
+
+.main_container .login_form .group input:valid+label,
+.main_container .login_form .group input:focus+label {
+    top: -14px;
+    left: 0;
+    color: #fff;
+    font-size: 12px;
+}
+
+.main_container .login_form .group .icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fffe;
+    text-shadow: 0 0 1px #0007;
+}
+
+.main_container .login_form button {
+    border: 2px outset #ffffff78;
+    display: inline-block;
+    background: linear-gradient(45deg, #ffffff05, #ffffff61);
+    padding: 8px 25px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    box-shadow: 0 0 0 4px #fff2;
+    margin: 20px 0;
+    cursor: pointer;
+    transition-property: transform, background;
+    transition: 0.3s ease-in-out;
+}
+
+.main_container .login_form button:hover {
+    background: linear-gradient(-45deg, #ffffff05, #ffffff61);
+}
+
+.main_container .login_form button:active {
+    transform: scale(0.95);
+}
+
+.main_container .login_form .login_footer{
+    text-align: right;
+}
+.main_container .login_form .login_footer a{
+    display: inline-block;
+    padding: 5px 10px;
+    text-decoration: none;
+    background: #0001;
+    color: #fff;
+    font-size: 15px;
+    text-shadow: 1px 1px 1px #0002;
+    transition: color 0.3s;
+}
+.main_container .login_form .login_footer a:hover{
+    color: #66edff;
+}
+
+
+
+
+@keyframes move {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    25%,
+    75% {
+        transform: translate(400%, 300%);
+    }
+
+    30%,
+    60%,
+    90% {
+        transform: translate(200%, 500%);
+    }
+
+    20%,
+    40%,
+    80% {
+        transform: translate(500%, 300%);
+    }
+
+    10%,
+    50% {
+        transform: translate(200%, 10%);
+    }
+}
+
+.login_form .right {
+    margin-left: 210px;
+    margin-top: -43px;
+}
+
+h3 span {
+    font-family: 'Readex Pro', sans-serif;
+    cursor: pointer;
+    color : rgb(11, 51, 83);
+}
+
+.radio {
+    margin-top: 20px;
+	background: #454857;
+	padding: 4px;
+	border-radius: 3px;
+	box-shadow: inset 0 0 0 3px rgba(35, 33, 45, 0.3),
+		0 0 0 3px rgba(185, 185, 185, 0.3);
+	position: relative;
+}
+
+.radio input {
+	width: 100px;
+	height: 100%;
+	appearance: none;
+	outline: none;
+	cursor: pointer;
+	border-radius: 2px;
+	padding: 4px 8px;
+	background: #454857;
+	color: #bdbdbdbd;
+	font-size: 14px;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		"Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	transition: all 100ms linear;
+}
+
+.radio input:checked {
+	background-image: linear-gradient(180deg, rgb(11, 51, 83), rgb(11, 51, 83));
+	color: #fff;
+	box-shadow: 0 1px 1px #0000002e;
+	text-shadow: 0 1px 0px #79485f7a;
+}
+
+.radio input:before {
+	content: attr(label);
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+}

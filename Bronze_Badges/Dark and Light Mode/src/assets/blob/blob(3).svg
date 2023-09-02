@@ -1,0 +1,10 @@
+<!--?xml version="1.0" standalone="no"?-->
+              <svg id="sw-js-blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <defs> 
+                        <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
+                            <stop id="stop1" stop-color="rgba(153, 217, 140, 1)" offset="0%"></stop>
+                            <stop id="stop2" stop-color="rgba(217, 237, 146, 1)" offset="100%"></stop>
+                        </linearGradient>
+                    </defs>
+                <path fill="url(#sw-gradient)" d="M23.6,-28.1C29,-23.6,30.8,-14.7,32.4,-5.7C34,3.3,35.5,12.3,32.5,20C29.6,27.8,22.2,34.2,13.7,37C5.2,39.7,-4.3,38.9,-12.2,35.2C-20,31.6,-26.1,25.1,-30.5,17.6C-34.9,10.1,-37.5,1.5,-36,-6.3C-34.5,-14,-29,-21,-22.3,-25.3C-15.6,-29.7,-7.8,-31.4,0.6,-32.1C9.1,-32.9,18.2,-32.7,23.6,-28.1Z" width="100%" height="100%" transform="translate(50 50)" style="transition: all 0.3s ease 0s;" stroke-width="0" stroke="url(#sw-gradient)"></path>
+              </svg>

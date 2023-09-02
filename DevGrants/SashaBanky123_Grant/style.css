@@ -1,0 +1,224 @@
+body {
+	margin: 0;
+	padding: 0px;
+}
+
+#contact-form {
+	width: 100%;
+	height: 90vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#contact-form form {
+	display: flex;
+	width: 70%;
+	height: 60vh;
+	box-shadow: 2px 12px 20px rgba(0, 0, 0, 0.2);
+	border: 1px solid rgba(255, 166, 0, 0.16);
+	border-radius: 5px;
+}
+.contact-left {
+	width: 40%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.contact-right {
+	width: 60%;
+	height: 100%;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border-left: 1px solid rgb(222, 152, 12);
+}
+.heading {
+	color: transparent;
+	-webkit-text-stroke: 2px #000;
+	font-family: fantasy;
+	font-size: 2rem;
+	letter-spacing: 1px;
+	font-weight: 400;
+	text-transform: uppercase;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.f-name {
+	display: flex;
+	flex-direction: column;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.f-name input {
+	height: 30px;
+	width: 250px;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	border-bottom: 1px solid #292929;
+	color: #ffffff;
+	margin: 10px 0px;
+	font-size: 13px;
+}
+
+.f-name ::placeholder {
+	opacity: 0.5;
+	letter-spacing: 1px;
+}
+
+.f-name input:focus {
+	border-bottom: 1px solid orange;
+	transition: all ease 0.5s;
+}
+
+.contact-right textarea {
+	width: 100% !important;
+	height: 320px !important;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	border-radius: 3px;
+	box-sizing: border-box;
+	color: #000000;
+	font-size: 16px;
+}
+.contact-right textarea::placeholder {
+	color: #ebebeb;
+	font-size: 18px;
+	letter-spacing: 2px;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.message font {
+	font-size: 17px;
+	font-weight: bold;
+	padding-bottom: 7px;
+	text-transform: capitalize;
+	letter-spacing: 2px;
+	color: rgba(0, 0, 0, 0.557);
+	text-decoration: underline;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.message {
+	margin: 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+.submit-btn {
+	margin-top: -19px;
+}
+
+.submit-btn button {
+	font-size: 10px;
+	font-weight: bold;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	background-color: rgba(2, 63, 38, 0.818);
+	padding: 10px;
+	width: 100%;
+	border-radius: 0 0 3px 3px;
+	outline: none;
+	border: none;
+	box-shadow: 2px 12px 20px rgba(0, 0, 0, 0.2);
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+}
+
+.submit-btn:hover {
+	background-color: #09987b;
+	transition: all ease 0.7s;
+	border-radius: 3px;
+}
+
+.vote-btn {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.vote-btn .yes {
+	background-color: rgba(0, 128, 26, 0.797);
+	padding: 10px;
+	width: 100px;
+	margin-top: -8px;
+	margin-left: -150px;
+	border-radius: 3px;
+	outline: none;
+	border: none;
+	box-shadow: 2px 12px 20px rgba(0, 0, 0, 0.2);
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+}
+
+.vote-btn .no {
+	background-color: rgba(128, 0, 0, 0.797);
+	padding: 10px;
+	width: 100px;
+	margin-top: -8px;
+	margin-right: -150px;
+	border-radius: 3px;
+	outline: none;
+	border: none;
+	box-shadow: 2px 12px 20px rgba(0, 0, 0, 0.2);
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+}
+
+.action-btn {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.action-btn .connect {
+	background-color: rgb(255, 154, 3);
+	padding: 10px;
+	width: 200px;
+	color: #fff;
+
+	border-radius: 3px;
+	outline: none;
+	border: none;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.action-btn .submit {
+	background-color: rgba(128, 0, 0, 0.797);
+	padding: 10px;
+	width: 200px;
+	margin-top: -10px;
+	margin-right: -130px;
+	border-radius: 0 0 3px 3px;
+	outline: none;
+	border: none;
+	box-shadow: 2px 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.action-btn:hover {
+	background-color: rgba(0, 132, 255, 0.777);
+	transition: all ease 0.8s;
+	border-radius: 3px;
+}
+
+.text h4 {
+	padding-top: 20px;
+	color: #000;
+	font-size: 15px;
+	font-weight: bold;
+	letter-spacing: 2px;
+	border-bottom: 1px solid #000;
+	text-transform: capitalize;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

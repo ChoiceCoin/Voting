@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<div class="card card-body w-50" style="margin: auto; margin-top: 100px;">
+    <table class="table">
+        <h3 class="text-primary text-center">Transaction Table</h3>
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Address</th>
+            <th scope="col">Txn ID</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for a in addr %}
+          <tr>
+            <td>{{a}}</td>
+            <td><a href="https://testnet.algoexplorer.io/address/{{a}}">txn</a></td>
+            <td>Sucess</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+
+{% endblock %}

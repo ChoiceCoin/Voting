@@ -1,0 +1,9 @@
+Flask==2.0.1
+matplotlib==3.4.3
+py-algorand-sdk==1.5.0
+rsa==4.7.2
+tk==0.1.0
+Flask-SQLAlchemy==2.5.1
+Flask-User==0.6.21
+
+

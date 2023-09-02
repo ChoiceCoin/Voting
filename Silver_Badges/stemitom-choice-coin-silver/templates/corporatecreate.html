@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add a stakeholder</title>
+
+    <link rel="stylesheet" href="/static/css/style.css?version=7">
+    <link rel = "stylesheet" href = "/static/css/mystyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style type="text/css">
+
+    </style>
+
+  </head>
+  <body>
+    {% include 'header.html' %}
+    {% if message %}
+        <h3><p style="color:green">{{ message }}</p></h3>
+{% else %}
+    	    {% if error %}
+        <p style="color:red">{{ error }}</p>
+    		{% endif %}
+    <div class="container">
+      <div class="judul">
+        <h1>Adding a stakeholder</h1>
+      </div>
+
+      <p>Please enter the stakeholder's information below. Contact your system administrator if you are missing this information.</p>
+
+<form action="" method = "post">
+  <label for = "main_5">Stakeholder's Name:</label>
+  <input id = "main_5" type = "text" name = "Name" placeholder="John Smith"><br>
+  <label for = "main_1">Ownership Stake as percentage:</label>
+  <input id = "main_1" type = "number" name = "Stake" size = "40" placeholder = "20"><br>
+  <label for = "main">Stakeholder's Secret Key:</label>
+  <input id = "main" type="password" name="Secret" placeholder="Secret Key"><br>
+  <label for = "main_4">Administrator Key:</label>
+  <input id = "main_4" type = "password" name = "Main" placeholder = "Administrator Key"><br>
+  <input class="button" type="submit" value="Add Voter">
+</form>
+{% endif %}
+    </div>
+    {% include 'footer.html' %}
+ </body>
+</html>

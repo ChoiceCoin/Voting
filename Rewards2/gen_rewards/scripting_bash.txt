@@ -1,0 +1,18 @@
+Details
+
+Silver Badge: 72,000 Choice
+Bronze Badge: 29,000 Choice
+Deadline: Monday April 9th @ 2:30PM EST
+
+Task
+Write a script that reads a csv file and sends Choice to each sending address.
+The amount of Choice sent to each address should be 1.5 the amount in the amount column.
+
+Requirements
+All files must be in one folder.
+Only one file may be used to script the code.
+All folders must be named [user_name]_bash.
+All contributions must be made to the gen_rewards folder.
+
+Rewards 
+All rewards will be distributed by Tuesday April 10th @ 2:30PM EST

@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro&family=Roboto&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    
+}
+
+.body {
+    display: block;
+   text-align: center;
+   list-style: none;
+}
+
+.body h1 {
+    color: rgba(42, 42, 145, 0.534);
+    font-size: 21px;
+    font-family: 'Readex Pro', sans-serif;
+}
+.connect p {
+    font-size: 20px;
+    margin-left: -48px;
+    font-weight: bold;
+    color : rgb(56, 56, 13)
+}
+
+.connect ul li {
+ list-style: none;
+ text-decoration: none;
+ font-family: 'Readex Pro', sans-serif;
+ 
+}
+
+.connect ul li span {
+    padding: 5px;
+    cursor : pointer;
+    border: solid 1px blue;
+    background-color: rgba(42, 42, 145, 0.534);
+    box-shadow: 3px 3px 3px 3px #888888
+}
+
+.connect ul li:last-child {
+    margin-top: -21px;
+    margin-right: 214px; 
+}
+
+.container {
+    text-align: center;
+    padding: 10px;
+}
+.container .wallet{
+    text-align: center;
+    padding: 10px;
+}
+
+.wallet input {
+    margin-top: 10px;
+    outline: none;
+    padding: 10px;
+    border : solid 1px rgba(27, 27, 197, 0.863);
+}
+
+ button {
+     width: 90px;
+     color: whitesmoke;
+     background-color: rgba(27, 27, 197, 0.863);
+     cursor: pointer;
+ }
+
+ .header h1 {
+     padding-top: 30px;
+   text-align: center;
+   color: lightcoral;
+   font-size: 23px;
+   font-family: 'Readex Pro', sans-serif;
+ }
+ 
+ .red,.blue {
+    padding: 10px;
+    border : solid 1px rgba(27, 27, 197, 0.863);
+    margin: 10px;
+}
+
+#ded,#dud {
+    margin-left: 10px;
+    font-weight: bold;
+    color: rgba(27, 27, 197, 0.863);
+}
+#results {
+    text-align: center;
+    background-color: grey;
+    margin: 0 auto;
+    width: 350px;
+}
+#results #result {
+    color : whitesmoke
+}
+
+@media screen and (max-width: 500px) {
+ .navbar ul li a {
+    margin-left: -40px;
+    }
+ .navbar ul .dropdown {
+        right: 34px;
+    }
+}

@@ -1,0 +1,50 @@
+<%- include("./partials/header"); %>
+
+<div class="container mt-4 mb-5">
+  <h1 class="text-center">
+    <span style="display: block"> Commence Voting </span>
+    <span style="display: block; font-size: 1rem" class="mt-2">
+      Select either of the available two options
+    </span>
+  </h1>
+</div>
+
+<div class="vote mb-4">
+  <label class="text-primary vote--section">
+    Blue Address
+    <input type="radio" name="input" value="blue" id="blue" />
+    <input
+      id="blue-input"
+      class="blue"
+      type="text"
+      placeholder="Enter Amount"
+    />
+
+    <span class="checkmark"></span>
+  </label>
+
+  <label class="text-danger vote--section"
+    >Red Address
+    <input type="radio" name="input" id="red" value="red" />
+    <input id="red-input" class="red" type="text" placeholder="Enter Amount" />
+    <span class="checkmark"></span>
+  </label>
+  <br />
+</div>
+
+<span class="d-flex justify-content-center" style="display: block">
+  <span style="display: block" class="form-group" id="show">
+    <label for="wallet-address">Enter Your Wallet Address: </label><br />
+    <input
+      class="inputt"
+      type="text"
+      id="wallet-address"
+      autofocus
+      name="from"
+      placeholder="Input your wallet address"
+    />
+    <button class="btn btn-primary btn-lg" onclick="myAlgoWalletSign()">
+      Submit
+    </button>
+  </span>
+</span>

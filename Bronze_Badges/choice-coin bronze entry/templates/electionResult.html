@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins&display=swap" rel="stylesheet">
+	
+<style>
+ body{
+  font-family: 'Poppins', sans-serif;
+ }
+</style>
+<body>
+  <nav class="home-nav flex items-center justify-between flex-wrap    p-6  w-full z-10 top-0 md:px-20">
+		<div class="flex items-center flex-shrink-0 text-white mr-6">
+			<a class="text-white flex space-x-2 cursor-pointer no-underline hover:text-white hover:no-underline" href="../index.html">
+        <span> <img class="w-5" src="https://choice-coin.com/Screenshot%202021-06-25%20at%2023-38-44%20Logo%20Maker%20Used%20By%202%203%20Million%20Startups.png" alt=""> </span>
+        <h1 class="text-3xl text-white " >   Choice Coin  </h1> 
+			</a>
+		</div>
+
+		<div class="block lg:hidden">
+			<button id="nav-toggle" class="flex items-center px-3 py-2  rounded text-white border-gray-600 hover:text-white hover:border-white">
+				<?xml version="1.0" ?><svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6H20M4 12H20M4 18H11" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+			</button>
+		</div>
+
+		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
+			<ul class="list-reset lg:flex justify-end flex-1 items-center">
+				
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="./signup.html">Start Election </a>
+				</li>
+				
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="./voting.html">Vote</a>
+				</li>
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="./electionResult.html">Election results</a>
+				</li>
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="https://choice-coin.com/">About Us </a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+<div class="results-div w-full justify-center px-2  md:px-20 mt-24">
+
+    
+  <div class="pt-5" >
+
+    <h1 class="text-3xl font-bold text-center" >Results</h1>
+    <p class="md:text-2xl text-xl mt-5 pb-5 text-center font-semibold" > How people voted </p>
+</div>
+  <div class="flex flex-col px-5 md:flex-row border rounded " >
+     <div class="flex   md:ml-10 mt-10 flex-col" >
+        <div class=" w-full md:w-44 text-xl cursor-pointer bg-blue-800 hover:bg-gray-800 text-white font-semibold text-center px-3 py-8 rounded "  >
+          <p>Total number of votes:</p>
+           <span class=" text-2xl font-bold" > 55 </span>
+        </div>
+
+        <div class=" w-full mt-10 md:w-44 cursor-pointer md:mt-20 text-xl bg-blue-800 hover:bg-gray-800  text-white font-semibold text-center px-3 py-8 rounded "  >
+          <p>Duration of election:</p>
+           <span class=" text-2xl font-bold" > <span>24</span> hours <span class="ml-5" >45</span> min </span>
+        </div>
+     </div>
+     <div class="w-full flex flex-col justify-center items-center" >
+      <div id="myChart" style="width:100%; max-width:600px; height:500px;"></div>
+      <div> <p> <span class="text-2xl font-semibold" > Kemi Rangnor  wins </span>   <span class="text-2xl">🎉</span>  </p> </div> 
+  
+    </div>
+  </div>
+  
+
+  <div class="flex flex-col justify-center text-center mt-10 mb-20  "> 
+     <p class="text-xl" >share  result  </p>
+       <div class="flex justify-center mt-3 space-x-3" > 
+      <a href=""><img class="w-8" src="https://img.icons8.com/color/48/000000/whatsapp--v1.png"/></a>   
+      <a href=""><img class="w-8"src="https://img.icons8.com/fluency/48/000000/facebook-new.png"/></a>   
+      <a href=""><img class="w-8" src="https://img.icons8.com/fluency/48/000000/twitter.png"/></a>   
+      <a href=""><img class="w-8" src="https://img.icons8.com/color/48/000000/discord-logo.png"/></a>   
+      </div>
+   </div>
+
+</div>
+
+
+<script src="../script.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script>
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+  
+  function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+    ['Candidates', 'votes'],
+    ['Mark',5],
+    ['philip',4],
+    ['Sam',4],
+    ['kemi',26],
+    ['assed',15]
+  ]);
+  
+  var options = {
+    title:'Result for  President of the Getters Club election'
+  };
+  
+  var chart = new google.visualization.BarChart(document.getElementById('myChart'));
+    chart.draw(data, options);
+    console.log(data);
+  }
+  </script>
+  
+  
+
+
+</body>
+</html>

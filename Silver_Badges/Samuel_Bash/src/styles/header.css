@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro&family=Roboto&display=swap');
+
+.navbar {
+  display:  flex;
+  justify-content: space-between; 
+  background-color: grey;
+}
+
+.navbar ul {
+    color : lightcoral !important;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    list-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+   
+}
+
+.navbar ul li a {
+ color : lightcoral !important;
+ text-decoration: none;
+ outline: none;
+ font-family: 'Roboto', sans-serif
+}
+
+.navbar ul li {
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif
+}
+.navbar ul .dropdown{
+    position: absolute;
+    right: 100px;
+    cursor: pointer;
+}
+
+img {
+    width: 40px;
+}
+
+@media screen and (max-width: 600px) {
+    .navbar ul .vote {
+        right: 40px;
+}
+}
+

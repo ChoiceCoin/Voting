@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+display:flex;
+height:100vh;
+justify-content: center;
+align-items: center;
+background: linear-gradient(135deg,rgb(248, 210, 139),rgb(168, 128, 54));
+
+}
+
+.halftheme .pic{
+    height:60px;
+    width:60px;
+    margin: 40px 10px 0px 10px;
+    width:13.33%;
+    float:left;
+   
+
+}
+
+.halftheme .button1{
+    height: 45px;
+    margin:0px 0;
+    width: 23.33%;
+    margin-top: 0px;
+    position: fixed;
+    
+    
+}
+
+
+.container{
+    max-width: 700px;
+    height:500px;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    padding:0px 0px;
+    border-radius:20px;
+   
+
+}
+
+.container .halftheme{
+    max-width: 700px;
+    height:130px ;
+    width: 100%;
+    background: rgb(87, 84, 84);
+    padding:3px 10px;
+    border-top-left-radius:20px ;
+    border-top-right-radius:20px ;
+}
+
+
+.container .title{
+    font-size: 30px;
+    font-weight: bolder;
+    margin-top: 0;
+    position: relative;
+
+}
+
+.container .title::before{
+content: '';
+position: absolute;
+left:0;
+bottom:0;
+height:3px;
+width:560px;
+background: linear-gradient(135deg,rgb(248, 210, 139),rgb(129, 100, 45));
+margin-bottom: -78px;
+
+
+}
+
+.simple-text{
+    font-size: 20px;
+    font-weight: bold;
+    
+    padding-top: 20px;
+
+}
+
+.simple-text .text{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+    padding-top: 10px;
+
+}
+
+.container form .user-details{
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+form .user-details .input-box{
+    margin-bottom: 15px;
+    width:500px;
+    margin-left: 0px;
+}
+
+.user-details .input-box .details{
+    display:block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    margin-top: 25px;
+    margin-left: 10px;
+    font-size:18px;
+}
+
+.user-details .input-box1 .details{
+    display:block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    margin-top:5px;
+    margin-left: 285px;
+}
+
+
+.user-details .input-box input{
+    height:45px;
+    width: 400px;
+    margin-left: 10px;
+    outline: none;
+    border-radius: 5px;
+    border:1px solid #ccc;
+    padding-left: 15px;
+    font-size:16px;
+    border-bottom-width:2px;
+    transition:all 0.3s ease;
+    margin-top: 0px;
+}
+
+.user-details .input-box1 input{
+    height:100px;
+    width: 400px;
+    outline: none;
+    margin-left: 10px;
+    border-radius: 10px;
+    border:1px solid #ccc;
+    padding-left: 15px;
+    font-size:16px;
+    border-bottom-width:2px;
+    transition:all 0.3s ease;
+}
+
+form .input-box2 input{
+    height:50px;
+    width: 320px;
+    outline: none;
+    border-radius: 10px;
+    border:1px solid #ccc;
+    padding-left: 15px;
+    font-size:16px;
+    border-bottom-width:2px;
+    transition:all 0.3s ease;
+}
+
+
+
+
+.user-details .input-box input:focus,
+.user-details .input-box1 input:focus{
+    border-color: #000000
+}
+
+form .answer-details .answer-title{
+    font-size: 15px;
+    font-weight: 500;
+    
+    
+    
+}
+
+form .answer-details .category{
+    display: flex;
+    width: 80%;
+    margin:14px 0;
+    padding-top: 25px;
+    padding-left: 20px;
+}
+
+form .answer-details .category label:first-child {
+    margin-right: 20px;
+}
+
+.answer-details .category label{
+    display: flex;
+    align-items: center;
+}
+
+.answer-details .category .dot{
+    height:18px;
+    width: 18px;
+    background: #d9d9d9;
+    border-radius:50%;
+    margin-right:10px;
+    border: 5px solid transparent;
+    transition: all 0.3s ease;
+}
+
+#dot-1:checked ~ .category label .one,
+#dot-2:checked ~ .category label .two
+{
+    border-color: rgb(0, 0, 0);
+    background: #d9d9d9;
+}
+
+form input[type ="radio"]{
+    display: none;
+}
+
+
+
+form .button2{
+    height: 45px;
+    margin-left: 200px;
+    margin-right: 200px;
+    
+}
+.halftheme .button1 input{
+    height:50px;
+    width:170px;
+    margin-left: 480px;
+    margin-top: 0px;
+    outline:none;
+    color:#fff;
+    border:none;
+    font-size:18px;
+    font-weight:500;
+    border-radius: 5px;
+    letter-spacing:1px;
+    background:linear-gradient(135deg,rgb(248, 210, 139),rgb(168, 128, 54));
+}
+
+
+form .button2 input{
+    height:100%;
+    width:100%;
+    outline:none;
+    color:#fff;
+    border:none;
+    font-size:18px;
+    font-weight:500;
+    border-radius: 5px;
+    letter-spacing:1px;
+    background:linear-gradient(135deg,rgb(248, 210, 139),rgb(168, 128, 54));
+}
+
+.halftheme .button1 input:hover{
+    background:linear-gradient(135deg,rgb(196, 166, 110),rgb(148, 101, 13));
+}
+
+form .button2 input:hover{
+    background:linear-gradient(135deg,rgb(196, 166, 110),rgb(148, 101, 13));
+}
+
+@media (max-width: 584px){
+    .container{
+        max-width:100%;
+    }
+
+    form .user-details .input-box{
+        margin-bottom:15px;
+        width: 100%;
+    }
+
+    form .answer-details .category{
+        width:100%;
+    }
+    .container form .user-details{
+        max-height: 300px;
+        overflow-y:scroll;
+    }
+
+    .user-details::-webkit-scrollbar{
+        width:0;
+    }
+}

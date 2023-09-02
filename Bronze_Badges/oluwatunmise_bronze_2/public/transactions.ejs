@@ -1,0 +1,51 @@
+<%- include("./partials/header"); %>
+<style>
+    #transactions {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 80%;
+      margin: auto;
+      margin-top: 40px;
+    }
+    
+    #transactions td, #transactions th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #transactions tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #transactions tr:hover {background-color: #ddd;}
+    
+    #transactions th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #0f5ad4;
+      color: white;
+    }
+    </style>
+<div class="head">
+    <h1>All Transactions</h1>
+</div>
+
+    <table id="transactions">
+        <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>AssetID</th>
+            <th>Amount</th>
+            <th>TransactionId</th>
+            <th>TransactionType</th>
+        </tr>
+        <% for (let i = 0; i < transactions.length ; i++) { %>
+            <tr> 
+                <td><%= transactions[i].address %></td>
+                <td><%= transactions[i].receiverAddress%></td>
+                <td><%= transactions[i].assetID %></td>
+                <td><%= transactions[i].amount %></td>
+                <td><%= transactions[i].txnID %></td>
+                <td><%= transactions[i].transactionType %></td>
+            </tr>
+        <% } %>
+</table>

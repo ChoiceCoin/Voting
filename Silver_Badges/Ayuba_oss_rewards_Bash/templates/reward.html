@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="card card-body w-50" style="margin: auto; margin-top: 200px;">
+    <div class="card card-body">
+        <h3 class="card-title text-center text-success">
+            Reward Form 
+         </h3>
+         {% for i in address %}
+         {{i}} 
+         {% endfor %}
+    </div>
+    
+    <form action="{% url 'reward_table' %}" method="post">
+        {% csrf_token %}
+        {{ rew|crispy}}
+
+        <button class="btn btn-success mt-4" type="submit">Send Reward</button>
+    </form>
+</div>
+
+{% endblock %}

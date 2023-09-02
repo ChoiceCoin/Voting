@@ -1,0 +1,30 @@
+.result{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100vh;
+}
+
+.result__container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 25px;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 50px;
+    align-items: center;
+}
+
+.result__image > img{
+    width: 40%;
+    height: 70%;
+    border: 3px solid rgb(252, 4, 4);
+    border-radius: 15px;
+}
+
+
+@media screen and (max-width: 700px){
+    .result__image > img{
+        width: 90%;
+    }
+}

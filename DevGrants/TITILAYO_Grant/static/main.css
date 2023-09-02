@@ -1,0 +1,178 @@
+body {
+    background-color: #242424;
+}
+
+.header {
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    /*height: 40px;*/
+    border-bottom: 1px solid transparent;
+}
+
+.connBtn {
+    width: unset;
+    height: unset;
+    border-radius: 8px;
+    color: #000;
+    padding: 17px 24px;
+    background-color: #f2fe67;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12);
+    border: none;
+    font-family: "Barlow",sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+a.button {
+    display: inline-block;
+}
+.button--regular {
+    padding: 17px 24px;
+}
+.button--ghost {
+    --button-bg: transparent;
+    color: var(--ghost-button-text);
+}
+.button {
+    width: unset;
+    height: unset;
+    border-radius: 8px;
+}
+.typography--button {
+    font-family: "Barlow",sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.button {
+    --button-width: max-content;
+    --button-height: 35px;
+    --button-color: #fff;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--button-width);
+    height: var(--button-height);
+    color: var(--button-color);
+    background-color: var(--button-bg);
+    border: none;
+    border-radius: 2px;
+    border-radius: var(--small-radius-size);
+    outline: none;
+}
+.button, .list-item__click-wrapper {
+    cursor: pointer;
+}
+a {
+    text-decoration: none;
+}
+
+hr {
+    color: white;
+    margin: 0;
+}
+.content {
+    min-height: calc(100vh - 40px);
+    box-sizing: content-box;
+    padding: 74px 24px 128px;
+    /*background-color: #3a3939;*/
+    color: white;
+}
+
+.f-head {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 30px 0 16px;
+    font-family: "Barlow",sans-serif;
+}
+
+.i-label {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: "Barlow",sans-serif;
+}
+
+#amount {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 37px;
+    letter-spacing: -2px;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    color: white;
+    background-color: transparent;
+    border: none;
+    border-radius: 2px;
+}
+
+.form-sec {
+    margin-top: 20px;
+    background-color: #363636;
+    padding: 12px 18px 12px 16px;
+    border-radius: 8px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.dets {
+    background-color: #363636;
+    padding: 12px 18px 12px 16px;
+    border-radius: 8px;
+    font-family: "Barlow",sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.options {
+    margin-top: 15px;
+    font-family: "Barlow",sans-serif;
+    font-size: 15px;
+}
+
+.options p {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.checks {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.checks li {
+    width: 50%;
+}
+
+.fbtn {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.connected {
+    background-color: #363636;
+    color: white;
+    border: 1px solid rgba(255,255,255,8%);
+}
+
+.hide {
+    display: none;
+}
