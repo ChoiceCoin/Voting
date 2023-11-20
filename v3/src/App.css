@@ -1,0 +1,222 @@
+/* . is in front of classNames */
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-blueuced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white; /* font color */
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#button {
+  background-color: white;
+  padding: 10px;
+  width: 100px;
+  color:blue;
+  border-radius: 10px;
+  border-color: white
+
+}
+
+#button1 {
+  background-color: white;
+  padding: 10px;
+  width: 100px;
+  color:blue;
+  border-radius: 10px;
+  border-color: white;
+  font-family: 'Times New Roman';
+
+
+}
+
+#button2 {
+  background-color: white;
+  padding: 10px;
+  width: 100px;
+  color:blue;
+  border-radius: 10px;
+  border-color: white;
+  font-family: 'Times New Roman';
+
+}
+
+#button3 {
+  background-color: white;
+  padding: 10px;
+  width: 100px;
+  color:blue;
+  border-radius: 10px;
+  border-color: white;
+  font-family: 'Times New Roman';
+
+
+}
+#button4 {
+  background-color: white;
+  padding: 10px;
+  width: 100px;
+  color:blue;
+  border-radius: 10px;
+  border-color: white;
+  font-family: 'Times New Roman';
+
+
+}
+
+
+#message0{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+
+#message1{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+#message2{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+#message3{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+#message4{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+#message5{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+#message6{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+#message7{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+#message8{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+#message9{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+
+#message55{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+#message65{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+#message58{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+#message59{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+#message68{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+#message69{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+#message755{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+#message765{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+#message758{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+#message759{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+#message768{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+#message769{
+  color:blue;
+  font-family: 'Times New Roman';
+}
+
+#displaytext{
+  font-family: 'Times New Roman';
+}
+
+#square {
+  width: 50px;
+  height: 50px;
+  background: blue;
+}
+
+#table {
+  border: 5px white;
+  width: 800px;
+  height: 200px;
+}
+
+th {
+  border: 1px white;
+  width: 100px;
+  height: 100px;
+}
+  
+td {
+  text-align: center;
+  border: 1px solid blue;
+  width: 200px;
+  height: 100px;
+}
+
+#TbFlame{
+  color:blue;
+  width: 100px;
+  height: 100px;
+}

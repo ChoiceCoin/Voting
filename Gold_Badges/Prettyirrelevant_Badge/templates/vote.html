@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Voter Verification Form - {{ election.title }}</h3>
+        </div>
+        <form class="container panel-body" method="post">
+            <div class="form-group">
+                <label for="ssn">SSN</label>
+                <input type="password" class="form-control" id="ssn" name="ssn" required>
+            </div>
+            <div class="form-group">
+                <label for="dl">Driver's License</label>
+                <input type="password" class="form-control" id="dl" name="dl" required>
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Verify</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

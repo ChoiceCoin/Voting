@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choice coin | sign in</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins&display=swap" rel="stylesheet">
+    <style>
+    body{
+  font-family: 'Poppins', sans-serif;
+ }     
+ 
+.center {
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+}
+.form-input {
+  
+  
+  width: 50%;
+  border-radius: 2px;
+  background:#fff;
+  box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377),
+              3px 3px 7px rgba(94, 104, 121, 0.377);
+}
+.form-input input {
+  display:none;
+
+}
+.form-input label {
+  display:block;
+  width:100%;
+  height:45px;
+  
+  line-height:50px;
+  text-align:center;
+  
+
+  color:#fff;
+  
+ 
+  text-transform:Uppercase;
+  font-weight:600;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.form-input img {
+  width:100%;
+  border-radius: 2px;
+  display:none;
+
+  margin-bottom:30px;
+}
+
+   
+  </style>
+
+    </style>
+</head>
+<body>
+  <nav class="home-nav flex items-center justify-between flex-wrap   p-6  w-full z-10 top-0 md:px-20">
+		<div class="flex items-center flex-shrink-0 text-white mr-6">
+			<a class="text-white flex space-x-2 cursor-pointer no-underline hover:text-white hover:no-underline" href="index.html">
+        <span> <img class="w-5" src="https://choice-coin.com/Screenshot%202021-06-25%20at%2023-38-44%20Logo%20Maker%20Used%20By%202%203%20Million%20Startups.png" alt=""> </span>
+        <h1 class="text-3xl text-white " >   Choice Coin  </h1> 
+			</a>
+		</div>
+
+		<div class="block lg:hidden">
+			<button id="nav-toggle" class="flex items-center px-3 py-2  rounded text-white border-gray-600 hover:text-white hover:border-white">
+				<?xml version="1.0" ?><svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6H20M4 12H20M4 18H11" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+			</button>
+		</div>
+
+		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
+			<ul class="list-reset lg:flex justify-end flex-1 items-center">
+				
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="./signup.html">Start Election </a>
+				</li>
+				
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="./voting.html">Vote</a>
+				</li>
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="./electionResult.html">Election results</a>
+				</li>
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="https://choice-coin.com/">About Us </a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+
+  <div class="mt-28">
+    <div class=" flex justify-center items-center mt-5">
+      <div class="w-full max-w-xl">
+          <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" >
+       <div> <h1 class="block text-gray-700 text-xl font-bold mb-2" > Add Candidates</h1> </div>
+      
+      
+      
+    <div id="participant">
+        
+        <div class="content" id="wrapper"> 
+            <div class="mb-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="fullname">
+                  Fullname
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="participantname" type="text" placeholder="Fullname">
+                <div class="imageUpload mt-3">
+            
+                    <div class="center">
+                     <div class="form-input">
+                       <div class="preview">
+                         <img id="file-ip-1-preview">
+                       </div>
+                       <label id="change" class="bg-gray-700" for="file-ip-1">Upload Image</label>
+                       <input type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
+                       
+                     </div>
+                   </div> 
+                    </div>
+              </div>
+        </div>
+        <div class=" mt-10 flex justify-between">
+            <a class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" href="./add_new.html"> Add new participant </a>
+            <a class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" href="./Admin.html"> Submit  </a>
+        </div>
+        </div>
+        </div>
+    </div>
+  
+  
+  </div>
+      </div>
+  </div>
+  </div>
+  <script>
+// function add_more() {
+//     document.getElementById('wrapper').innerHTML += '<span class = "flex mt-2" >  <div class=" addp mb-2"> <label class="block text-gray-700 text-sm font-bold mb-2" for="fullname"> Fullname</label><input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="participantname" type="text" placeholder="Fullname"><div class="imageUpload mt-3"> <div class="center"><div class="form-input"><div class="preview"><img id="file-ip-1-preview"> </div><label id="change" for="file-ip-1">Upload Image</label><input type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);"></div></div> </div></div></span>';
+// };
+
+  function showPreview(event){
+  if(event.target.files.length > 0){
+    let change = document.getElementById("change");
+    let src = URL.createObjectURL(event.target.files[0]);
+    let preview = document.getElementById("file-ip-1-preview");
+    change.innerText = "change image";
+    preview.src = src;
+    
+    preview.style.padding = "20px";
+    preview.style.display = "block";
+  }
+}
+
+  </script>
+     
+    <script src="../script.js"></script>
+</body>
+</html>

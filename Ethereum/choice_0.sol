@@ -1,0 +1,1 @@
+// Choice Coin voting on Ethereum

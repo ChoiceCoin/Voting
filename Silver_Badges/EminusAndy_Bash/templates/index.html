@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<style>
+    .card {
+        margin-right: 10%;
+        margin-left: auto;
+    }
+</style>
+
+{% endblock style %}
+
+{% block content %}    
+    <!-- <div class="toast-container position-absolute top-0 end-0 p-3">            
+    </div> -->
+    <div style="color: #fff; position: absolute; top: 40%; left: 3%; width: 700px;">
+        <h1 style="font-weight: 800; font-size: 55px;">Choice Coin Address Payment</h1>
+        <h4 style="font-weight: 600; font-size: 30px;">This <span style="color: orange;">enables</span> you to reward Active Participants of the Choicecoin Open Source Development Community.
+        <p style="font-size: 1.2rem;">Simply fill in the required fields and submit</p>
+    </div>
+    <div class="container-fluid">
+        <div class="inner_wrapper">
+            <div id="algo_alert" class="alert alert-success fade show visually-hidden" style="width: 100%; min-width: 600px;" role="alert">
+                <h4 class="alert-heading">AlgoSigner not installed!</h4>
+                <p>You don't appear to have AlgoSigner installed! You can get it from the <a target="_blank"
+                    href="https://chrome.google.com/webstore/detail/algosigner/kmmolakhbgdlpkjkcjkebenjheonagdm">Chrome Web
+                    Store</a>.</p>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="" style="margin-top: 10%;">
+                        <div class="card" style="background: rgba(255,255,255,0.7)">    
+                            <div class="card-header">
+                                <div id="logo-header">
+                                    <img src="static/images/algo.png" alt="logo" style="width: 50px">
+                                    <span>hoice Coin</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <form id="form" method="post" style="text-align: left;">
+                                    <div class="mb-3 row">
+                                        <label for="amount_form" class="col-md-4 col-form-label">Full Name</label>
+                                        <div class="col-md-8">
+                                          <input type="text" name="fullname" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="amount_form" class="col-md-4 col-form-label">Discord Id</label>
+                                        <div class="col-md-8">
+                                          <input type="text" name="discord" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="amount_form" class="col-md-4 col-form-label">Github</label>
+                                        <div class="col-md-8">
+                                          <input type="text" name="github" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="amount_form" class="col-md-4 col-form-label">Twitter Handle</label>
+                                        <div class="col-md-8">
+                                          <input type="text" name="twitter" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="amount_form" class="col-md-4 col-form-label">Wallet Address</label>
+                                        <div class="col-md-8">
+                                          <input type="text" name="wallet" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div style="text-align: right; width: 100%;">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+

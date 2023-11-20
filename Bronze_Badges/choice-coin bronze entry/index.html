@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins&display=swap" rel="stylesheet">
+    <title>Choice coin</title>
+    <style>
+        body{
+            
+font-family: 'Poppins', sans-serif;
+        }
+           canvas{ 
+             display: block;
+             
+             } 
+         #choice{
+              position: absolute;
+         }
+
+
+          #choice-div{ 
+            position:relative;
+            width: 100%; 
+            height: 700px;
+            background-color: #2c041d;
+            background-image: url(""); 
+            background-repeat: no-repeat; 
+            background-size: cover;
+            background-position: 50% 50%;
+         }
+        
+      
+    </style>
+</head>
+<body>
+    <nav class="home-nav flex items-center justify-between flex-wrap    p-6  w-full z-10 top-0 md:px-20">
+		<div class="flex items-center flex-shrink-0 text-white mr-6">
+			<a class="text-white flex space-x-2 cursor-pointer no-underline hover:text-white hover:no-underline" href="#">
+        <span> <img class="w-5" src="https://choice-coin.com/Screenshot%202021-06-25%20at%2023-38-44%20Logo%20Maker%20Used%20By%202%203%20Million%20Startups.png" alt=""> </span>
+        <h1 class="text-3xl text-white " >   Choice Coin  </h1> 
+			</a>
+		</div>
+
+		<div class="block lg:hidden">
+			<button id="nav-toggle" class="flex items-center px-3 py-2  rounded text-white border-gray-600 hover:text-white hover:border-white">
+				<?xml version="1.0" ?><svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6H20M4 12H20M4 18H11" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+			</button>
+		</div>
+
+		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
+			<ul class="list-reset lg:flex justify-end flex-1 items-center">
+				
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="./templates/signup.html">Start Election </a>
+				</li>
+				
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="./templates/voting.html">Vote</a>
+				</li>
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="./templates/electionResult.html">Election results</a>
+				</li>
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="https://choice-coin.com/">About Us </a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+    <div class="" id="choice-div">
+        <div id="choice" class="choice text-white pt-14 px-5   md:px-20 " >
+            <div class=" pt-5">
+                <h1 class=" text-3xl md:text-5xl leading-loose  pb-4 " >A Democratic Token For a New Age</h1>
+                <p class="flex flex-wrap text-sm md:text-base mt-5 " > Choice Coin is an Algorand Standard Asset that powers Decentralized Decisions, a voting and governance software built directly on the Algorand Blockchain. Decentralized Decisions enables organizations to make governance decisions in an open and decentralized manner. For the Choice Coin DAO,
+                     Decentralized Decisions leverages Proof-of-Participation as a governance mechanism, allowing voters to have a larger say in direct proportion to their contribution to the network. </p>
+                <p> Choice Coin powers Decentralized Voting Technology that will define governance for the next generation. </p>
+            </div>
+            <div class="flex text-white space-x-9 mt-10 md:mt-14 w-full px-2 ">
+                <a class="bg-blue-800 font-semibold hover:bg-gray-800 text-white py-2 px-5  md:py-3 md:px-7 rounded-xl focus:outline-none focus:shadow-outline"  href="./templates/signup.html"> Start Election</a>
+                <a class="bg-blue-800 hover:bg-gray-800 text-white font-semibold py-2 px-5 md:py-3 md:px-7 rounded-xl focus:outline-none focus:shadow-outline" href="./templates/voting.html"> Vote Here </a>
+            </div>
+     </div> 
+
+   
+    </div>
+    <div class=" section1 px-5 md:px-20 pt-20 pb-24 bg-gray-200 " >
+        <h1  class=" text-2xl md:text-3xl leading-6 mb-5 font-bold" > Promoting Democracy and Decentralization</h1>
+        <div>
+            <div class="flex flex-col  md:flex-row mt-10" >
+                <div class="flex mb-5 md:mb-0 md:px-20 justify-between space-x-4" >
+                    <img class="w-24 h-24 rounded" src="https://choice-coin.com/res/img/icon/vote.png" alt="" srcset="">
+                    <div>
+                        <h2 class="text-xl font-semibold text-blue-800" >Decentralized Voting</h2>
+                        <p class="text-sm mt-px" >Choice Coin powers Decentralized Voting Technology that will define governance for the next generation</p>
+                    </div>
+                </div>
+                <div class="flex mb-5 md:mb-0 md:px-20 justify-between space-x-4" >
+                    <img class="w-24 h-24 rounded" src="https://choice-coin.com/res/img/icon/validate.png" alt="" srcset="">
+                    <div>
+                        <h2 class="text-xl font-semibold text-blue-800" >Participatory Validation</h2>
+                        <p class="text-sm mt-px" >Holders of Choice Coin can immediately vote on allocations for the network, which will help democratic causes and organizations.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col  md:flex-row mt-10" >
+                <div class="flex mb-5 md:mb-0 md:px-20 justify-between space-x-4" >
+                    <img class="w-24 h-24 rounded" src="https://choice-coin.com/res/img/icon/develop.png" alt="" srcset="">
+                    <div>
+                        <h2 class="text-xl font-semibold text-blue-800" >Open Development</h2>
+                        <p class="text-sm mt-px " >The Choice Coin Network is entirely open source </p>
+                    </div>
+                </div>
+                <div class="flex md:px-20 justify-between md:mr-28  space-x-4" >
+                    <img class="w-24 h-24 rounded" src="secure.svg" alt="" srcset="">
+                    <div>
+                        <h2 class="text-xl font-semibold text-blue-800" >Secure</h2>
+                        <p class="text-base mt-px" >
+                          Our technology is secure.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+ </div>
+ <footer class="bg-gray-900 w-full pt-10 md:px-20">
+     <div class=" flex flex-col md:flex-row justify-between  items-center  md:px-10">
+            <div>
+                 <div class="flex items-center mb-5 flex-shrink-0 text-white mr-6">
+                <a class="text-white flex space-x-2 cursor-pointer no-underline hover:text-white hover:no-underline" href="#">
+            <span> <img class="w-5" src="https://choice-coin.com/Screenshot%202021-06-25%20at%2023-38-44%20Logo%20Maker%20Used%20By%202%203%20Million%20Startups.png" alt=""> </span>
+            <h1 class="text-3xl text-white " >   Choice Coin  </h1> 
+                </a>
+            </div>
+          
+            
+        </div>
+        
+           
+        <div class="flex flex-col" >
+            <div class="flex inline-flex space-x-3">
+            
+                <a class=" " href=""><img  class="w-8" src="https://img.icons8.com/stickers/100/000000/github.png"/></a>
+                <a href=""><img class="w-8" src="https://img.icons8.com/fluency/48/000000/twitter.png"/></a>   
+                <a href=""><img class="w-8" src="https://img.icons8.com/color/48/000000/discord-logo.png"/></a>
+            </div>
+            <a class="text-lg font-semi-bold text-center text-base mt-5" href="https://choice-coin.gitbook.io/choice-coin-docs/">Docs</a>
+        </div>
+    
+     </div>
+     <div class=" text-center pb-5"> <p  > © 2021 All rights reserved Choice coin </p> </div>
+ </footer>
+     
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+       <script src="/script.js"></script>
+    <script>
+particlesJS("choice-div", {"particles":{"number":{"value":80,"density":{"enable":false,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":700 + 'px'}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
+ 
+
+    </script>
+</body>
+</html>
