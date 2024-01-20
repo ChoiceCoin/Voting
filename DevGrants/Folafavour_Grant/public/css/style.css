@@ -1,0 +1,44 @@
+.container{  margin: auto;
+  width: 60%;padding:10px;}
+form{}
+
+input{height:50px; width:300px;}
+input[type=radio]{height:20px;width:20px;}
+.address{height:50px;width:100%;}
+
+button{color:white; 
+background-color:RGB(30 45 145);
+padding:25px;
+border:1px solid white;
+width:200px;
+font-size:25px;
+}
+
+*{font-size:25px;}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: lightblue;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: transparent;
+}
+
+.active {
+  background-color: RGB(30 45 145);height:40px;
+}

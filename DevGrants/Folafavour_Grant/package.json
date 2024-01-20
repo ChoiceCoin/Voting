@@ -1,0 +1,18 @@
+{
+  "name": "Folashade_Grant",
+  "version": "1.0.0",
+  "description": "Choice coin Silver Grant",
+  "main": "simple_if.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Folashade Favour",
+  "license": "ISC",
+  "dependencies": {
+    "@randlabs/myalgo-connect": "^1.1.1",
+    "algosdk": "^1.12.0",
+    "express": "^4.17.1",
+    "prompt": "^1.2.0",
+    "socket.io": "^4.4.0"
+  }
+}
