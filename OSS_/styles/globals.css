@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.checker-bg {
+  background-color: #ffffff;
+  background-image: url("../assets/back.jpg");
+  background-size: cover;
+}
+.imge-bg {
+  background-color: #ffffff;
+  background-image: url("https://wallpapercave.com/wp/wp2576938.jpg");
+  background-size: cover;
+}
+.imge1-bg {
+  background-color: #ffffff;
+  background-image: url("https://wallpapercave.com/wp/wp2821418.jpg");
+  background-size: cover;
+}
+.imge2-bg {
+  background-color: #ffffff;
+  background-image: url("https://wallpapercave.com/wp/wp5396152.jpg");
+  background-size: cover;
+}
+.imge3-bg {
+  background-color: #ffffff;
+  background-image: url("https://images.hdqwalls.com/download/anime-ninja-4k-lo-3840x2160.jpg");
+  background-size: cover;
+}
