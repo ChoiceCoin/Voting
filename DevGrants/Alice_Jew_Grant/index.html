@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choice Coin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            /* background: #f4f7fa; */
+            min-height: 100vh;
+            min-width: 100vw;
+            background: linear-gradient(135deg, rgb(248,210,139), rgb(168,128,54));
+        }
+        .container-lg {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .inner_wrapper {
+            position: relative;
+        }
+        .card {
+            position: relative;
+            width: 100%;
+            min-width: 600px;
+            border-radius: 20px;
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0px;
+            margin: 0px;
+        }
+        .card-body {
+            text-align: center;
+        }
+        #logo-header {
+            display: flex;
+            align-items: baseline;
+        }
+        #logo-header span {
+            font-weight: 800;
+            font-size: 30px;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background: linear-gradient(180deg, rgb(248,210,139), rgb(168,128,54));
+            border: none;
+        }
+
+
+        @media (max-width: 800px) {
+            .card {
+                width: 90%;
+                transform: translateY(-10%);
+            }
+            .logo-header span {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="toast-container" aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100"></div>
+        <!-- <div class="toast-container position-absolute top-0 end-0 p-3">            
+        </div> -->
+        <div class="container-lg">
+            <div class="inner_wrapper">
+                <div id="algo_alert" class="alert alert-success fade show visually-hidden" style="min-width: 600px; width: 100%;" role="alert">
+                    <h4 class="alert-heading">AlgoSigner not installed!</h4>
+                    <p>You don't appear to have AlgoSigner installed! You can get it from the <a target="_blank"
+                        href="https://chrome.google.com/webstore/detail/algosigner/kmmolakhbgdlpkjkcjkebenjheonagdm">Chrome Web
+                        Store</a>.</p>
+                </div>
+                <div class="card">    
+                    <div class="card-header">
+                        <div id="logo-header">
+                            <img src="static/img/andys industry help work.png" alt="logo" style="width: 50px">
+                            <span>hoice Coin</span>
+                        </div>
+                        <button onclick="connectWallet()" class="btn btn-primary" id="connect_btn">Connect Wallet</button>
+                    </div>
+                    <div class="card-body">
+                        <form id="form" method="post">
+                            <h3 class="mb-5">Choice Coin Voting</h3>
+                            <div class="mb-3 row">
+                                <label for="amount_form" class="col-md-2 col-form-label">Amount</label>
+                                <div class="col-md-10">
+                                  <input type="text" name="amount" class="form-control" id="amount_form" placeholder="Enter the amount of choice" required>
+                                </div>
+                              </div>
+                            <div style="display: flex; justify-content: space-between">
+                                    <div style="display: flex">
+                                        <div class="form-check" style="margin-right: 15px;">
+                                            <input class="form-check-input" type="radio" name="colorAddressForm" id="flexRadioDefault1" value="yes">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                            Yes
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="colorAddressForm" id="flexRadioDefault2" value="no" checked>
+                                            <label class="form-check-label" for="flexRadioDefault2">No</label>
+                                        </div>                                
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/algosdk@1.12.0/dist/browser/algosdk.min.js" integrity="sha384-N6rRZtVTe4Rvktk9jRWB/jo+NHuNpd2Uh87V0GndIMZbWkKKZZfn1FuzORyMypsZ" crossorigin="anonymous"></script>
+    <script src="static/js/algosignerutils.js"></script>
+    <script src="static/js/index.js"></script>
+    <script>
+        window.addEventListener('load', ()=> {
+            checkForAlgosigner();
+        })
+
+        const form = document.getElementById('form');
+        form.addEventListener('submit', (e)=> {
+            e.preventDefault()  
+            if (account === undefined) {
+                createToast("You are not connected")
+                return false;
+            }
+            signTransaction(form.colorAddressForm.value, form.amount.value)
+        })
+    </script>
+</body>
+</html>
