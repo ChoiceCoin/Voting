@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Choice Coin</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <form action="" class="mainDiv">
+            <div style="display: flex; flex-direction: row;">
+                <img src="choice.png" style="width: 100px; height: 100px;"/>
+                <h1 style="margin-top: 35px; margin-left: -20px;">HOICE COIN</h1>
+            </div>
+            <button style="padding: 10px; margin-top: 20px;" type="submit" class="connect">Connect Wallet</button>
+            <input class="box" placeholder="Issue Number">
+            <p style="color: white; padding: 10px; font-size: 18px;">Choice Coin Voting Mail</p>
+            <input name="Password" placeholder="Enter Statement" class="pas">
+            <div style="margin: 10px;">
+                <input type="button" value="Yes" class="true">
+                <input type="button" value="NO" class="false">
+            </div>
+            <button type="submit" style="padding: 10px; margin-top: 30px;">Submit</button>
+        </form>
+        <script>// Retrieve AlgoSigner sdk from the browser
+            const { AlgoSigner } = window;
+            
+            //define the adddresses
+            const red_address = "";
+            const blue_address = "";
+            
+            //Get  DOM Elements
+            const submitBtn = document.querySelector(".submit");
+            const connectWallet = document.querySelector(".connect");
+            const yes = document.querySelector(".yes-btn");
+            const no = document.querySelector(".no-btn");
+            
+            let yesOrNo = "";
+            const setValue = (value) => {
+                yesOrNo = value;
+            };
+            //Function to Connect User's Account
+            const ConnectAccount = async () => {
+                //Check  if AlgoSigner is installed
+                if (!AlgoSigner) {
+                    return alert("Kindly install AlgoSigner");
+                }
+            
+                //Connect Account if AlgoSigner is installed
+                await AlgoSigner.connect()
+                    .then((d) => {})
+                    .catch((e) => console.log("error in connection"));
+            };
+            
+            // Sign the Transaction
+            const signTransaction = async (receiver = blue_address) => {
+                const txn = await AlgoSigner.algod({
+                    ledger: "TestNet",
+                    path: "/v2/transactions/params",
+                })
+                    .then((e) => {
+                        return e;
+                    })
+                    .catch((e) => console.log("error in algorand"));
+            
+                //retrieve account details
+                const account = await AlgoSigner.accounts({
+                    ledger: "TestNet",
+                })
+                    .then((value) => value[0])
+                    .then((result) => {
+                        const { address } = result;
+            
+                        return address;
+                    })
+            
+                    .catch((e) => console.log("failed to retrieve accounts"));
+            
+                //Transaction signature
+                await AlgoSigner.sign({
+                    from: account,
+                    to: receiver,
+                    amount: document.querySelector("hello"),
+                    note: "voting",
+                    fee: txn["min-fee"],
+                })
+                    .then(() => console.log("complete"))
+                    .catch((e) => console.log("error", e));
+            };
+            
+            connectWallet.addEventListener("click", async (e) => {
+                await ConnectAccount();
+                connectWallet.value = "Connected";
+            });
+            
+            submitBtn.addEventListener("click", (e) => {
+                console.log("welcome user");
+            
+                //checks to see if the user click an option
+                if (!yesOrNo) {
+                    alert("Please click either yes or no");
+                    return;
+                }
+                if (yesOrNo == "Yes") {
+                    signTransaction(blue_address);
+                }
+                if (yesOrNo == "No") {
+                    signTransaction(red_address);
+                }
+                alert(`Transaction successful in successful in ${yesOrNo}`);
+            });</script>
+    </body>
+</html>
