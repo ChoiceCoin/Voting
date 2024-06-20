@@ -1,0 +1,51 @@
+body{
+    background: url("back.jpg") no-repeat center center/cover;
+}
+
+/* Connect Form */
+.form{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    height: 540px;
+    width: 600px;
+    align-items: center;
+    margin-top: 130px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: -5px -5px rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
+}
+.box{
+    width: 350px;
+    padding: 10px;
+    height: 50px;
+    color: white;
+    margin-top: 6px;
+    background: transparent;
+    border-bottom: 1px solid;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+.box::placeholder {
+    font-size: 1em;
+    color: rgb(255, 255, 255);
+    padding: 5px;
+  }
+  .pas{
+      width: 350px;
+    padding: 10px;
+    height: 70px;
+    margin-top: 6px;
+    border-radius: 5px;
+    border-bottom: 1px solid;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+  }
+button{
+    background: #000000
+    ;
+    border-radius: 5px;
+    color: white;
+}
