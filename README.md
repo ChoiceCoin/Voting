@@ -1,5 +1,5 @@
 # Voting
-This is a repository for voting software built using Choice Coin. Our voting software is centered around Decentralized Decisions, an open-source voting software that allows organizations to make decisions in a distributed manner. 
+This is a repository for voting software built using Choice Coin. Our voting software is centered around Decentralized Decisions, an open-source voting software that allows organizations to make decisions in a distributed manner. Learn more about [Choice Coin](https://www.choice-coin.com/).
 
 # Voting on Algorand
 Choice Coin has successfully developed and deployed several models for voting on the Algorand blockchain. 
