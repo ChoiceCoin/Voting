@@ -1,0 +1,78 @@
+/** @format */
+* {
+  margin: 0%;
+  padding: 0%;
+}
+body {
+  background-color: rgb(255, 255, 255);
+}
+.headChoice {
+  background-color: rgb(0, 174, 255);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.button1 {
+  padding: 15px;
+  border-radius: 30px;
+  background-color: #fff;
+  color: rgb(113, 165, 189);
+}
+.hh1 {
+  color: #fff;
+}
+.square {
+  width: 460px;
+  background-color: rgb(0, 174, 255);
+  height: 530px;
+  margin: auto;
+  margin-top: 140px;
+  border: solid;
+  display: flex;
+  justify-content: center;
+}
+.hint {
+  padding: 10px;
+  width: 340px;
+  height: 35px;
+  margin-top: 20px;
+  text-align: center;
+}
+h3 {
+  margin-top: 20px;
+  color: #fff;
+  text-align: center;
+}
+.Writeup {
+  margin-top: 20px;
+  width: 360px;
+  height: 200px;
+  text-align: center;
+}
+.YesNo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: #fff;
+  margin-top: 20px;
+}
+.button2 {
+  margin-top: 20px;
+  width: 370px;
+  height: 50px;
+  text-align: center;
+  color: #fff;
+  background-color: black;
+}
+.Yes:hover {
+  background-color: green;
+  padding: 10px;
+  color: black;
+  border-radius: 5px;
+}
+.No:hover {
+  background-color: red;
+  padding: 10px;
+  color: black;
+  border-radius: 5px;
+}
