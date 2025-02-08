@@ -1,0 +1,41 @@
+.devform_container {
+  display: flex;
+  font-weight: 500;
+  font-size: 17px;
+  height: 100vh;
+  width: 100vw;
+  padding: 40px var(--pad) 100px;
+  flex-direction: column;
+}
+
+.devform_container div {
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+  flex-direction: column;
+}
+
+.devform_container p {
+  margin-bottom: 10px;
+}
+.devform_container input {
+  height: 38px;
+  border-radius: 5px;
+  border: var(--border-default-2);
+  padding: 0px 15px;
+}
+
+.submit_form {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  margin: 15px 0px 35px;
+}
+
+.submit_form_butt {
+  height: 38px;
+  color: #fff;
+  padding: 0px 50px;
+  background: #000;
+}
