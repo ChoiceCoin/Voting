@@ -1,0 +1,238 @@
+/* Responsive CSS Document */
+
+/* 
+    Created on : 05/12/2018. 
+    Description: cryto - Bitcoin & Cryptocurrency Landing Page HTML Template.
+    Version    : 1.0.
+    Author     : @creativegigs.
+   
+*/
+
+@media (min-width: 992px) {
+  .container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1600px) {
+  .about-cryto.style-two .single-box:first-child {left:0;}
+  .about-cryto.style-two .single-box {width: 252px; padding: 60px 25px;}
+}
+@media (min-width: 1200px) and (max-width: 1320px) {
+  .theme-main-menu.full-width #mega-menu-holder {padding-left: 50px;}
+  .theme-main-menu.full-width {padding: 65px 50px 0;}
+}
+@media (max-width: 1199px) {
+  .about-cryto.style-two .single-box {width: 100%;position: static;padding: 25px 35px;margin-bottom: 10px;}
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  #polyglotLanguageSwitcher {margin-left: 40px;}
+  #mega-menu-holder ul> li> a {margin: 0 12px;}
+  .theme-banner-one .main-text-wrapper p {margin-left: 150px;padding-right: 150px;}
+  .theme-banner-one .main-text-wrapper {padding-top: 270px;}
+  .our-features-one .single-feature.border-fix:before, .our-features-one .single-feature.border-fix:after {width: 80px;}
+  .our-features-one .single-feature.border-fix:before {left: -50px;}
+  .our-features-one .single-feature.border-fix:after {right: -50px;}
+  .apps-overview .inner-wrapper .x-mockup {width: 40%;left: 195px;}
+  .apps-overview .inner-wrapper .s8-mockup {width: 32%;left: -70px;}
+  .theme-counter .bg-image .theme-title p {padding-left: 90px;}
+  .token-sale-section .theme-title p,.our-road-map .theme-title p {padding: 15px 140px 0;}
+  .token-sale-section .token-sale-text .title-wrapper {padding-right: 150px;}
+  .token-sale-section .token-sale-text .title-wrapper .title:before {right: -130px;}
+  .theme-main-menu.full-width {padding: 65px 40px 0;}
+  .theme-main-menu.full-width #mega-menu-holder {padding-left: 30px;}
+  .theme-banner-three .main-text-wrapper {padding-bottom: 300px;}
+}
+/*(min-width: 992px) and (max-width: 1199px)*/
+
+@media (max-width: 991px) {
+  .theme-main-menu #mega-menu-holder.dark-bg .navbar-nav {background:#1d1d21; }
+  #mega-menu-holder.dark-bg ul> li> a {border-bottom: 1px solid rgba(255,255,255,0.08);}
+  .theme-main-menu {padding: 30px 0 20px;}
+  .theme-main-menu.full-width {padding: 30px 20px 20px;}
+  .theme-main-menu.full-width #mega-menu-holder {padding-left: 0;}
+  .theme-main-menu.full-width .navbar>div {width: 100%;}
+  .theme-main-menu.fixed.full-width {padding: 10px 15px;}
+  .theme-main-menu .right-widget .login-button {display: none;}
+  #polyglotLanguageSwitcher {margin: 10px 0 0;}
+  .theme-main-menu .logo {
+    float: none;
+    position: absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    z-index: 5;
+  }
+  .theme-main-menu #mega-menu-holder {
+    position: absolute;
+    width: 100%;
+    top:0;
+    left:0;
+    z-index: 1;
+  }
+  .theme-main-menu #mega-menu-holder .navbar-nav {background: #fff;box-shadow: 0px 0px 55px 0px rgba(134, 153, 174, 0.12);}
+  #mega-menu-holder ul> li> a {margin: 0 10px;padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.05);}
+  #mega-menu-holder ul> li> a:before,.our-feature-two .text .number:before,.our-feature-two .text .number:after {display: none;}
+  .theme-banner-one .main-text-wrapper p {padding-left: 0;padding-right: 0;}
+  .our-features-one .single-feature.border-fix:before, .our-features-one .single-feature.border-fix:after,
+  .apps-overview .inner-wrapper .s8-mockup,.apps-overview .inner-wrapper .x-mockup {display: none;}
+  .our-features-one .single-feature .icon-box {width: 180px;height: 180px;}
+  .theme-title h2 {font-size: 40px;line-height: 58px;}
+  .our-features-one {padding: 80px 0 100px;}
+  .our-feature-two {padding: 100px 0 50px;}
+  .our-feature-two .text,.our-feature-two .single-block:nth-child(1) .text,.our-feature-two .single-block:nth-child(2) .text,
+  .our-feature-two .single-block:nth-child(3) .text,.our-feature-two.dark-bg .text {border: none;padding: 0 0 60px;}
+  .our-feature-two .single-block:nth-child(3) .img-box>div,.our-feature-two .single-block:nth-child(2) .img-box>div,.our-feature-two .img-box>div,
+  .our-feature-two.dark-bg .img-box>div {padding: 0 0 50px;}
+  .our-feature-two .single-block:nth-child(2) .img-box {border: none;}
+  .apps-overview {margin-bottom: 100px;}
+  .theme-counter .theme-title {text-align: center;}
+  .theme-counter .bg-image .theme-title p {padding: 15px 0 0;text-align: center;}
+  .theme-counter .bg-image .counter-wrapper {padding: 55px 0 0;}
+  .theme-counter .bg-image,.testimonial-section .theme-title {padding-bottom: 100px;}
+  .contact-us-one .overlay {padding: 90px 0 100px;}
+  .contact-us-one form {padding: 45px 15px;}
+  .theme-footer .top-footer-data-wrapper [class*="col-"] {padding-bottom: 40px;}
+  .theme-footer .top-footer-data-wrapper {padding: 50px 0 20px;}
+  .theme-footer .bottom-footer {padding: 30px 0;}
+  .about-cryto,.our-features-three {padding: 80px 0 100px;}
+  .our-feature-two.dark-bg {padding: 100px 0 80px 0;}
+  .token-sale-section .overlay {padding: 100px 0;}
+  .about-cryto img {margin: 40px auto 0;}
+  .our-features-three .theme-title,.token-sale-section .theme-title,.our-road-map .theme-title {padding-bottom: 100px;}
+  .token-sale-section .theme-title p,.our-road-map .theme-title p {padding: 15px 0 0;}
+  .token-sale-section .token-sale-text .title-wrapper {text-align: left;padding: 0;margin-bottom: 45px;}
+  .token-sale-section .token-sale-text .title-wrapper .title {padding-bottom: 10px;}
+  .token-sale-section .token-sale-text .title-wrapper .title:before {
+    top:auto;
+    left:0;
+    right: auto;
+    bottom: 0;
+  }
+  .token-sale-section .token-sale-allocation {padding-top: 30px;}
+  .token-sale-section .token-sale-allocation img {margin: 60px auto 0;}
+  .our-road-map .roadmap.roadmap--orientation-auto .roadmap__events__event {width:auto;height: auto;margin: 0;}
+  .our-road-map .time-line-wrapper #timeline-frame .roadmap__events__event .event {width: 210px;height: 120px;}
+  .roadmap.roadmap--orientation-auto .roadmap__events {padding: 0;}
+  .roadmap.roadmap--orientation-auto .roadmap__events__event:nth-child(odd) .event,
+  .roadmap.roadmap--orientation-auto .roadmap__events__event:nth-child(even) .event {top:0; bottom: auto;}
+  .our-road-map .roadmap.roadmap--orientation-auto .roadmap__events:after {height: 100%;width: 2px;}
+  .our-road-map .time-line-wrapper #timeline-frame .roadmap__events__event .event:before {top:50%;}
+  .our-road-map .roadmap.roadmap--orientation-auto .roadmap__events__event:nth-child(odd) .event:before {
+    right: -6px;
+    transform: rotate(220deg);
+    margin-top: -6px;
+    left:auto !important;
+  }
+  .our-road-map .roadmap.roadmap--orientation-auto .roadmap__events__event:nth-child(even) .event:before {
+    left: -6px !important;
+    transform: rotate(45deg);
+    margin-top: -6px;
+    margin-left: 0 !important;
+  }
+  .our-road-map .roadmap.roadmap--orientation-auto .roadmap__events__event:nth-child(odd):before,
+  .our-road-map .roadmap.roadmap--orientation-auto .roadmap__events__event:nth-child(even):before {top:50%;bottom: auto;margin-top: -5px;}
+  .our-road-map,.contact-section-dark {padding: 100px 0;}
+  .theme-main-sidebar {padding-top: 100px;}
+  .theme-pagination {padding-top: 0;}
+  .theme-main-menu .logo a {margin: 0;}
+  .our-feature-two .img-box img {margin-top: 0;}
+  .theme-banner-three .shape-two {display: none;}
+  .theme-banner-three .main-text-wrapper {padding: 180px 0 150px;}
+  .our-features-four,.testimonial-section .full-width,.contact-us-one.bg-color {padding: 120px 0 100px;}
+  .about-cryto.style-two {padding: 100px 0;}
+  .about-cryto.style-two:before,.about-cryto.style-two:after,
+  .our-features-four .shape,.apps-overview.color-three:before,
+  .apps-overview.color-three:after,.apps-overview.color-three .shape,
+  .our-feature-five .shape,.testimonial-section .full-width:after,
+  .contact-us-one.bg-color:after,.contact-us-one.bg-color:before,
+  .contact-us-one.bg-color .shape-two,.theme-footer .shape {display: none;}
+  .about-cryto.style-two .icon-data {margin-top: 60px;}
+  .about-cryto.style-two .single-box {text-align: center;}
+  .about-cryto.style-two .single-box img {margin-top: 0;}
+  .our-feature-five .img-box>div {margin-top: 60px;}
+  .our-feature-five .single-block {padding-bottom: 100px;}
+  .our-feature-five {padding-bottom: 120px;}
+  .apps-overview.color-three {padding: 0;margin-bottom: 0;}
+  .accordion-one .panel-group .panel:last-child {margin-bottom: 45px;}
+} 
+/*(max-width: 991px)*/
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .theme-banner-one .main-text-wrapper {padding: 180px 0 50px;}
+  .theme-banner-two .main-text-wrapper {padding: 180px 0 150px;}
+  .theme-inner-banner {padding-top: 200px;}
+}
+/*(min-width: 768px) and (max-width: 991px)*/
+
+@media (max-width: 767px) {
+  #theme-banner h1 {font-size: 45px;line-height: 55px;}
+  .theme-banner-one .main-text-wrapper p {font-size: 20px;line-height: 32px;padding: 30px 0 40px;}
+  .theme-banner-one .main-text-wrapper,.theme-banner-two .main-text-wrapper {padding: 170px 0 40px;}
+  .stock-market-price {padding-bottom: 0;}
+  .theme-title h2 br {display: none;}
+  .our-features-one .single-feature {padding-bottom: 40px;}
+  .our-feature-two .text .title {font-size: 45px;line-height: 52px;}
+  .apps-overview .inner-wrapper {padding: 100px 0 85px;}
+  .theme-counter .bg-image {padding-top: 0;}
+  .theme-counter .bg-image .counter-wrapper p {font-size: 20px;}
+  .our-work-progress .section-title-wrapper {width: 100%;padding: 0 15px;}
+  .our-work-progress .main-wrapper .progress-slider-wrapper {width: 100%;padding: 0 15px;}
+  .our-work-progress .section-title-wrapper .theme-title {max-width: none;padding: 0 0 40px;}
+  .contact-us-one .theme-title p br,.contact-section-dark .theme-title p br {display: none;}
+  .contact-section-dark form {padding: 70px 50px 0;}
+  .theme-banner-three .main-text-wrapper p br {display: none;}
+  .theme-inner-banner h2 {font-size: 30px;}
+  .theme-inner-banner {padding: 150px 0 0; margin-bottom: 80px;}
+  .theme-inner-banner ul {margin-top: 100px;}
+  .blog-grid-style .single-blog-post .title a {font-size: 25px;line-height: 38px; margin: 15px 0 20px;}
+  .blog-grid-style .single-blog-post.text-style .post-meta-box {padding: 30px 15px 20px;}
+  .inner-page-spacing {margin-bottom: 100px;}
+  .blog-details .blog-main-post h2 {padding: 0 0 0 50px;margin: 60px 0;}
+  .blog-details .blog-main-post h2:before {width: 32px;}
+  .theme-banner-one .illustration {display: none;}
+}
+/*(max-width: 767px)*/
+
+@media (min-width: 576px) and (max-width: 767px) {
+  
+}
+/*(min-width: 576px) and (max-width: 767px)*/
+
+@media (max-width: 575px) {
+  .switcher .switch-menu {width: 270px;max-height: 350px;}
+  .switcher {left: -270px;}
+  .switcher #styleOptions li a {height: 120px;}
+  .testimonial-section .single-block .img-block,.our-team .single-block .img-block {float: none;margin: 0 auto;}
+  .testimonial-section .single-block .text,.our-team .single-block .text {float: none;text-align: center;padding: 40px 0 0;width: 100%;}
+  .testimonial-section .single-block .text img,.our-team .single-block .text img {margin: 0 auto;}
+  .testimonial-section .theme-title {padding-bottom: 60px;}
+  .theme-footer .bottom-footer .copyright {float: none;text-align: center;padding-bottom: 20px;}
+  .theme-footer .bottom-footer ul {float: none;text-align: center;}
+  #theme-banner .button-group {margin: 0 -5px;}
+  #theme-banner .button-group>li {float: none;padding: 5px 0;}
+  .apps-overview .inner-wrapper .button-group li {display: block;margin:0;padding: 5px 0;}
+  .our-road-map .time-line-wrapper #timeline-frame .roadmap__events__event .event {width: auto;padding: 22px 25px 0;}
+  .contact-section-dark form {padding: 70px 0 0;}
+  #theme-banner h1 br {display: none;}
+  .blog-details .tag-option ul {width: 100%;}
+  .blog-details .tag-option ul li {margin-top: 15px;}
+  .blog-details .comment-area .comment-section .comment button {position: static;margin-top: 10px;}
+}
+/*(max-width: 575px)*/
+
+@media (max-width: 650px) {
+  #success, #error {
+    width: 86%;
+    height: auto;
+    top: calc(50% - 50px);
+    left: 7%;
+    padding: 30px 10px;
+  } 
+}
+@media (max-width: 400px) {
+  
+}
+@media (max-width: 380px) {
+  
+}
