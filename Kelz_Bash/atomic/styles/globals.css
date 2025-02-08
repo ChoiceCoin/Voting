@@ -1,0 +1,102 @@
+html,
+body {
+  background: url("https://hddesktopwallpapers.in/wp-content/uploads/2015/09/nice-images.jpg");
+  padding: 0;
+  background-size: cover;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: black;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#gen {
+  padding: 6px;
+}
+.ma {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.address {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+button:hover {
+  color: white;
+}
+button {
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid white;
+  padding: 7px;
+  background-color: skyblue;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  height: 100px;
+}
+
+h1 span {
+  position: relative;
+  top: 20px;
+  display: inline-block;
+  animation: bounce 0.3s ease infinite alternate;
+  font-family: "Titan One" cursive;
+  font-size: 80px;
+  color: #fff;
+  text-shadow: 0 1px 0 green, 0 2px 0 green, 0 3px 0 green, 0 4px 0 green,
+    0 5px 0 green, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent,
+    0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+h1 span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+h1 span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+h1 span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+h1 span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+h1 span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+h1 span:nth-child(7) {
+  animation-delay: 0.6s;
+}
+
+h1 span:nth-child(8) {
+  animation-delay: 0.7s;
+}
+
+@keyframes bounce {
+  100% {
+    top: -20px;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
+      0 5px 0 #ccc, 0 6px 0 #ccc, 0 7px 0 #ccc, 0 8px 0 #ccc, 0 9px 0 #ccc,
+      0 50px 25px rgba(0, 0, 0, 0.2);
+  }
+}
