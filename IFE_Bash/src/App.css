@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+}
+body {
+  background: url("https://images8.alphacoders.com/484/thumb-1920-484717.jpg");
+  background-size: auto;
+}
+.header {
+  background-color: blue;
+  color: white;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.francaDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+#franca:hover {
+  color: black;
+  background-color: orange;
+  padding: 10px;
+  transition: 0.7s;
+}
+.pa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#franca {
+  cursor: pointer;
+  padding: 5px;
+  margin-top: 50px;
+  background: linear-gradient(to right, rgb(25, 95, 151) 0%, #dd4c4f 100%);
+  color: white;
+  border: 2px dashed black;
+  border-radius: 5px;
+}
+#payBtn {
+  margin: 10px;
+  width: 60%;
+  padding: 7px;
+  background: linear-gradient(to right, rgb(25, 95, 151) 0%, #dd4c4f 100%);
+  color: white;
+  border: 2px dashed black;
+}
+#pay {
+  width: 80%;
+  padding: 8px;
+  border: 2px solid black;
+}
+.address {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  margin: 10px;
+}
+#con:hover {
+  padding: 7px;
+  transition: 0.8s;
+}
+#con {
+  padding: 5px;
+  color: white;
+  border: solid #15ac15;
+  cursor: pointer;
+  border-radius: 4px;
+  background: linear-gradient(to right, rgb(95, 154, 202) 0%, #15ac15 100%);
+}
+#nft {
+  margin: 10px;
+  /* background: linear-gradient(to right, rgb(25, 95, 151) 0%, #dd4c4f 100%); */
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  color: white;
+  display: inline-block;
+}
