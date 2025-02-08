@@ -1,0 +1,124 @@
+* {
+	padding: 10px;
+	margin: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+	font-family: "Josefin Sans", sans-serif;
+	border: none;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container {
+	width: 4 0%;
+	border: 1px solid;
+	border-radius: 5px;
+	background-color: rgba(237, 237, 236, 0.372);
+	box-shadow: 12px 12px 10px rgb(0 0 0 / 8%);
+}
+
+.first {
+	padding: 1px;
+	font-size: 18px;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.first h4 {
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+		"Lucida Sans", Arial, sans-serif;
+	font-size: 2rem;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.first ::placeholder {
+	color: rgba(128, 128, 128, 0.407);
+	font-size: 20px;
+}
+
+.first button {
+	margin-left: 120px;
+	font-size: 12px;
+	letter-spacing: 2px;
+	font-weight: bold;
+	color: black;
+	width: 130px;
+	padding: 10px;
+	border: 1px solid;
+	border-radius: 3px;
+	background-color: rgb(182, 199, 228);
+}
+
+.second {
+	padding: 20px;
+	margin-left: -20px;
+}
+
+.second ::placeholder {
+	color: rgba(128, 128, 128, 0.407);
+}
+.second h4 {
+	font-size: 20px;
+}
+.second input {
+	width: 250px;
+	height: 30px;
+	border: 1px solid;
+}
+
+.third {
+	padding: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border: 1px solid;
+	border-radius: 5px;
+}
+
+.rand-btn {
+	padding: 20px;
+	margin-left: 40px;
+	margin-right: 60px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.rand-btn input {
+	background-color: white;
+	width: 70px;
+	padding: 7px;
+	border: 1px solid;
+	border-radius: 5px;
+	font-weight: bolder;
+}
+
+.rand-btn .true {
+	border: 1px solid green;
+}
+.rand-btn .false {
+	border: 1px solid red;
+}
+
+.submit {
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.submit input {
+	background-color: white;
+	width: 120px;
+	padding: 10px;
+	border: 1px solid;
+	border-radius: 5px;
+	font-weight: bold;
+	background-color: rgb(109, 63, 100);
+	color: white;
+}
