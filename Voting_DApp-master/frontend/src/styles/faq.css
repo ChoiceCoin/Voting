@@ -1,0 +1,131 @@
+.faq_cont {
+  width: 100%;
+  min-height: 50vh;
+  position: relative;
+  display: flex;
+  color: var(--txt-alt);
+  padding: 15vh 5vw 0vh;
+  flex-direction: column;
+
+  font-weight: 400;
+
+  align-items: center;
+}
+.faq_cont_inn {
+  width: 420px;
+  max-width: 88vw;
+}
+
+/* 
+  =================== */
+.faq_hd {
+  width: 100%;
+  display: flex;
+  font-size: 15px;
+  color: var(--wht);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 25px 0px 16px;
+
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 2;
+  top: calc(var(--sm-hd-height));
+  margin: 10px 0px;
+}
+
+.big_screen .faq_hd {
+  margin: 10px 0px 20px;
+}
+.faq_hd p {
+  opacity: 0.7;
+}
+.light_theme .faq_hd p {
+  opacity: 1;
+  font-weight: 500;
+}
+
+.collap_cov {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.collapsible {
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  color: var(--wht);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  background: var(--back-2);
+}
+.collapsible p {
+  opacity: 0.8;
+}
+
+.light_theme .collapsible p {
+  font-weight: 500;
+}
+
+.colap_active {
+  opacity: 0.9;
+}
+
+.collapsible:after {
+  content: "\002b";
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+.colap_active:after {
+  content: "\2212";
+}
+
+.collap_cont {
+  max-height: 0;
+  overflow: hidden;
+  font-weight: 500;
+
+  transition: max-height 0.2s ease-out;
+  background: rgba(134, 90, 90, 0.02);
+}
+
+.collap_cont p {
+  font-size: 15px;
+  line-height: 142%;
+
+  padding: 20px 18px;
+}
+
+.ask_q_sect {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.ask_que {
+  width: 100%;
+  color: var(--wht);
+  font-size: 15px;
+  background: var(--back-2);
+  padding: 14px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  margin-top: 20px;
+}
+.ask_que p {
+  opacity: 0.8;
+}

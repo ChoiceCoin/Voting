@@ -1,0 +1,25 @@
+.navigation {
+  background: #0f5ad4 !important;
+}
+.nav-link {
+  color: #ffffff !important;
+}
+article {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
+}
+footer {
+  background-color: #0f5ad4 !important;
+  color: #ffffff;
+  border-top: 1px solid #0f5ad4;
+  padding-top: 15px;
+}
+.second_container {
+  width: 500px;
+  clear: both;
+}
+.second_container input {
+  width: 100%;
+  clear: both;
+}

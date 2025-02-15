@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choice Coin</title>
+    <link rel="stylesheet" href="static/css/index.css"/>
+    <link rel="stylesheet" href="static/css/reset.css"/>
+  </head>
+  <body>
+    <div class="container">
+      <section class="header">
+        <div class="header__logo">
+          <p class="header__logo-text">ChoiceCoin</p>
+        </div>
+        <label class="dropdown">
+          <div class="dd-button">Connect Wallet</div>
+
+          <input type="checkbox" class="dd-input" id="test" />
+
+          <ul class="dd-menu">
+            <li onclick="connectToMyAlgoWallet()">AlgoWallet</li></a>            
+            <li onclick="connectToAlgoSigner()">AlgoSigner</li>
+            <li onclick="connectToWalletConnect()">WalletConnect</li>
+          </ul>
+        </label>
+      </section>
+      <section class="landing">
+        <div class="landing__image-con">
+          <img
+            class="landing__image"
+            src="static/illustration.svg"
+            alt="Landing Illsutration"
+          />
+        </div>
+        <h1 class="landing__heading">Participate in Voting Process</h1>
+        <p class="landing__paragraph">Is Choice Coin the best?</p>
+        <form action="{{url_for('index')}}" method="post" class="landing__form">
+          <div class="landing__input-con">
+            <p>Amount:</p>
+            <button class="counter--btn minus">-</button>
+            <input
+              class="landing__input"
+              name="amount"
+              id= "amount"
+              min="0"
+              value="1"
+              type="number"
+            />
+            <button class="counter--btn add">+</button>
+          </div>
+          <div class="landing__select-con">
+            <div>
+              <input type="radio" name="yes" id= "yes" value="yes" />
+                <label for="zero_one">Yes</label>
+               
+            </div>
+            <div>
+              <input type="radio" name="no" id= "no" value="no" />
+                <label for="zero_one">No</label>
+            </div>
+          </div>
+          </form>
+          <button onclick= "castVote()" class="primary--button landing__button">Cast Vote</button>
+        
+        <div class="alert">
+        <div class= "alert-box"></div>       
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        </div>
+       
+      </section>
+      <section class="footer">
+        <div class="footer__icons">
+          <a style="color: black" href="https://twitter.com/ChoiceCoinAlgo"><ion-icon size="large" name="logo-twitter"></ion-icon></a>
+          <a style="color: black" href="https://discord.gg/s7khtPYf"><ion-icon size="large" name="logo-discord"></ion-icon></a>
+          <a style="color: black" href=""><ion-icon size="large" name="logo-slack"></ion-icon></a>      
+        </div>
+      </section>
+    </div>
+    <script type="module" src="./static/js/algowallet.js"></script>
+    <script type= "module" src="./static/js/algosigner.js"></script>
+    <script type="module" src="./static/js/walletconnect.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/algosdk@1.12.0/dist/browser/algosdk.min.js" integrity="sha384-N6rRZtVTe4Rvktk9jRWB/jo+NHuNpd2Uh87V0GndIMZbWkKKZZfn1FuzORyMypsZ" crossorigin="anonymous"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

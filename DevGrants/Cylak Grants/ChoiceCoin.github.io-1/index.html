@@ -1,0 +1,807 @@
+<!-- @format -->
+
+<!-- Base Meta Information -->
+<!-- Base Meta Information -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head Info -->
+  <head>
+    <title>Choice Coin</title>
+    <link rel="icon" type="image/png" href="Logo_200x200.png" />
+    <link rel="stylesheet" href="res/css/global_styles.css" />
+    <link rel="stylesheet" href="res/css/animate.min.css" />
+    <link rel="stylesheet" href="res/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css"
+    />
+    <!-- Small CSS to Hide elements at 1520px size -->
+    <style>
+      @media (max-width: 1520px) {
+        .left-svg {
+          display: none;
+        }
+      }
+
+      /* small css for the mobile nav close */
+      #nav-mobile-btn.close span:first-child {
+        transform: rotate(45deg);
+        top: 4px;
+        position: relative;
+        background: #a0aec0;
+      }
+
+      #nav-mobile-btn.close span:nth-child(2) {
+        transform: rotate(-45deg);
+        margin-top: 0px;
+        background: #a0aec0;
+      }
+    </style>
+  </head>
+
+  <!-- Create Body -->
+  <body class="animate__animated animate__fadeIn">
+    <!-- Navbar Structure -->
+    <header class="relative z-50 w-full h-24">
+      <div
+        class="
+          container
+          flex
+          items-center
+          justify-center
+          h-full
+          max-w-6xl
+          px-8
+          mx-auto
+          sm:justify-between
+          xl:px-0
+        "
+      >
+        <img
+          src="Screenshot 2021-06-25 at 23-38-44 Logo Maker Used By 2 3 Million Startups.png"
+          width="50"
+          height="50"
+        />
+        <a
+          href="/"
+          class="
+            relative
+            flex
+            items-center
+            inline-block
+            h-5 h-full
+            font-black
+            leading-none
+          "
+        >
+          <span class="ml-3 text-xl text-gray-800">Choice Coin</span>
+        </a>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+
+        <nav
+          id="nav"
+          class="
+            absolute
+            top-0
+            left-0
+            z-50
+            flex flex-col
+            items-center
+            justify-between
+            hidden
+            w-full
+            h-64
+            pt-5
+            mt-24
+            text-sm text-gray-800
+            bg-white
+            border-t border-gray-200
+            md:w-auto md:flex-row md:h-24
+            lg:text-base
+            md:bg-transparent md:mt-0 md:border-none md:py-0 md:flex md:relative
+          "
+        >
+          <a
+            href="/"
+            class="
+              ml-0
+              mr-0
+              font-bold
+              duration-100
+              md:ml-12 md:mr-3
+              lg:mr-8
+              transition-color
+              hover:text-indigo-600
+            "
+            >Home</a
+          >
+          <a
+            href="documentation.html"
+            class="
+              mr-0
+              font-bold
+              duration-100
+              md:mr-3
+              lg:mr-8
+              transition-color
+              hover:text-indigo-600
+            "
+            >Research</a
+          >
+          <a
+            href="About.html"
+            class="
+              mr-0
+              font-bold
+              duration-100
+              md:mr-3
+              lg:mr-8
+              transition-color
+              hover:text-indigo-600
+            "
+            >About</a
+          >
+          <a
+            href="https://choice-coin.gitbook.io/choice-coin-docs/"
+            class="
+              mr-0
+              font-bold
+              duration-100
+              md:mr-3
+              lg:mr-8
+              transition-color
+              hover:text-indigo-600
+            "
+            >Docs</a
+          >
+          <a
+            href="participation.html"
+            class="
+              font-bold
+              duration-100
+              transition-color
+              hover:text-indigo-600
+            "
+            >Participate</a
+          >
+          <div
+            class="
+              flex flex-col
+              block
+              w-full
+              font-medium
+              border-t border-gray-200
+              md:hidden
+            "
+          ></div>
+        </nav>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+
+        <div
+          id="nav-mobile-btn"
+          class="
+            absolute
+            top-0
+            right-0
+            z-50
+            block
+            w-6
+            mt-8
+            mr-10
+            cursor-pointer
+            select-none
+            md:hidden
+            sm:mt-10
+          "
+        >
+          <span
+            class="
+              block
+              w-full
+              h-1
+              mt-2
+              duration-200
+              transform
+              bg-gray-800
+              rounded-full
+              sm:mt-1
+            "
+          ></span>
+          <span
+            class="
+              block
+              w-full
+              h-1
+              mt-1
+              duration-200
+              transform
+              bg-gray-800
+              rounded-full
+            "
+          ></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Content Container -->
+    <div class="container-fluid base-padding">
+      <!-- Index Title Canvas -->
+      <div class="jumbotron index-jumbotron">
+        <!-- Canvas Content -->
+        <div class="row canvas-correction-padding">
+          <!-- Main Content Row -->
+          <div class="row">
+            <!-- Choice Content Column -->
+            <div class="col-8">
+              <p class="choice-font-index-title">
+                A Democratic Token For a New Age
+              </p>
+              <p class="choice-font-index-text">
+                Choice Coin is an Algorand Standard Asset that powers
+                Decentralized Decisions, a voting and governance software built
+                directly on the Algorand Blockchain. Decentralized Decisions
+                enables organizations to make governance decisions in an open
+                and decentralized manner. For the Choice Coin DAO, Decentralized
+                Decisions leverages Proof-of-Participation as a governance
+                mechanism, allowing voters to have a larger say in direct
+                proportion to their contribution to the network.
+              </p>
+            </div>
+          </div>
+
+          <!-- Buttons Row -->
+          <div class="row">
+            <div class="d-flex justify-content-center">
+              <a
+                href="https://fortiorblockchain.com/"
+                class="btn btn-primary me-3"
+              >
+                <span>
+                  <i class="fas fa-network-wired choice-btn-icon"></i> &nbsp;
+                  <p class="choice-font-btn-text text-inline">
+                    Learn About Fortior
+                  </p>
+                </span>
+              </a>
+              <a
+                href="https://github.com/ChoiceCoin/White_Paper"
+                class="btn btn-primary me-3"
+              >
+                <span>
+                  <i class="fas fa-file-alt choice-btn-icon"></i> &nbsp;
+                  <p class="choice-font-btn-text text-inline">
+                    Choice Coin White Paper
+                  </p>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ABOUT SECTION 1 -->
+      <div class="row row-standard-padding">
+        <!-- ABOUT SECTION 2 -->
+        <div class="row shaded-box row-standard-padding">
+          <!-- Section Heading -->
+          <div class="row">
+            <div class="col-12">
+              <p class="choice-font-subtitle">
+                Promoting Democracy and Decentralization
+              </p>
+            </div>
+          </div>
+          <hr />
+
+          <!-- Section Content -->
+          <div class="row">
+            <div class="row">
+              <div
+                class="
+                  col-12 col-lg-4
+                  side-padding
+                  tiny-break-padding
+                  margin-col
+                "
+              >
+                <div class="d-flex justify-content-center">
+                  <img class="choice-icon-img" src="res/img/icon/vote.png" />
+                </div>
+                <div class="d-flex justify-content-center tiny-break-padding">
+                  <p class="choice-font-header-text">Decentralized Voting</p>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <p class="choice-font-normal-text">
+                    Choice Coin powers Decentralized Voting Technology that will
+                    define governance for the next generation.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="
+                  col-12 col-lg-4
+                  side-padding
+                  tiny-break-padding
+                  margin-col
+                "
+              >
+                <div class="d-flex justify-content-center">
+                  <img
+                    class="choice-icon-img"
+                    src="res/img/icon/validate.png"
+                  />
+                </div>
+                <div class="d-flex justify-content-center tiny-break-padding">
+                  <p class="choice-font-header-text">
+                    Participatory Validation
+                  </p>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <p class="choice-font-normal-text">
+                    Holders of Choice Coin can immediately vote on allocations
+                    for the network, which will help democratic causes and
+                    organizations.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="
+                  col-12 col-lg-4
+                  side-padding
+                  tiny-break-padding
+                  margin-col
+                "
+              >
+                <div class="d-flex justify-content-center">
+                  <img class="choice-icon-img" src="res/img/icon/develop.png" />
+                </div>
+                <div class="d-flex justify-content-center tiny-break-padding">
+                  <p class="choice-font-header-text">Open Development</p>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <p class="choice-font-normal-text">
+                    The Choice Coin Network is entirely open source, and all
+                    participants can develop openly on both Choice Coin and its
+                    voting protocol.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="row top-pad-fix margin-col">
+              <div class="d-flex justify-content-left">
+                <a href="documentation.html" class="btn btn-primary me-3">
+                  <span>
+                    <i class="fas fa-book-open choice-btn-icon"></i> &nbsp;
+                    <p class="choice-font-btn-text text-inline">Read More</p>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GITHUB SECTION -->
+        <div class="row row-standard-padding">
+          <!-- Section Heading -->
+          <div class="row">
+            <div class="col-12">
+              <p class="choice-font-subtitle">A Growing Community</p>
+            </div>
+          </div>
+          <hr />
+
+          <!-- Section Content -->
+          <div class="row">
+            <!--  Content -->
+            <div class="row">
+              <div class="col-12">
+                <p class="choice-font-normal-text">
+                  The Choice Coin community is rapidly expanding thanks to our
+                  engagement and incentive programs. As this open-source project
+                  continues to grow, we look forward to building the new age of
+                  decentralized governance. Learn more about Choice Coin by
+                  checking out our Github Repos, participation incentives,
+                  official blog, and documentation below.
+                </p>
+              </div>
+            </div>
+
+            <!-- GitHub Plugins -->
+            <div class="row row-break-padding">
+              <div class="col-12">
+                <!-- Git Projects Row 1 -->
+                <div class="row">
+                  <div class="col-12 col-lg-6 tiny-break-padding">
+                    <div class="git-summary-box">
+                      <div
+                        class="
+                          d-flex
+                          tiny-break-padding
+                          justify-content-left
+                          align-items-center
+                        "
+                      >
+                        <i class="fas fa-lg fa-book"></i> &nbsp;
+                        <p class="choice-font-repo-link-text">Choice-V1</p>
+                      </div>
+                      <div
+                        class="d-flex tiny-break-padding justify-content-left"
+                      >
+                        <p
+                          id="choice-v1-description"
+                          class="choice-font-normal-text no-padding"
+                        >
+                          <!-- Populated by Javascript -->
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex tiny-break-padding justify-content-left"
+                      >
+                        <span class="me-4">
+                          <i class="fas fa-language"></i>
+                          <p
+                            id="choice-v1-language"
+                            class="choice-font-normal-text text-inline"
+                          >
+                            <!-- Populated by Javascript -->
+                          </p>
+                        </span>
+                        <span class="me-4">
+                          <i class="fas fa-code-branch"></i>
+                          <p
+                            id="choice-v1-forks"
+                            class="choice-font-normal-text text-inline"
+                          >
+                            <!-- Populated by Javascript -->
+                          </p>
+                        </span>
+                        <span class="me-4">
+                          <i class="far fa-star"></i>
+                          <p
+                            id="choice-v1-stars"
+                            class="choice-font-normal-text text-inline"
+                          >
+                            <!-- Populated by Javascript -->
+                          </p>
+                        </span>
+                      </div>
+                      <div
+                        class="d-flex justify-content-left tiny-break-padding"
+                      >
+                        <a
+                          href="https://github.com/ChoiceCoin/Choice-V1"
+                          class="btn btn-primary me-3"
+                        >
+                          <span>
+                            <p class="choice-font-btn-text-small text-inline">
+                              View Project &nbsp;
+                            </p>
+                            <i
+                              class="
+                                fas
+                                fa-arrow-circle-right
+                                choice-btn-icon-small
+                              "
+                            ></i>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6 tiny-break-padding">
+                    <div class="git-summary-box">
+                      <div
+                        class="
+                          d-flex
+                          tiny-break-padding
+                          justify-content-left
+                          align-items-center
+                        "
+                      >
+                        <i class="fas fa-lg fa-book"></i> &nbsp;
+                        <p class="choice-font-repo-link-text">
+                          Smart_Contracts
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex tiny-break-padding justify-content-left"
+                      >
+                        <p
+                          id="smart-contracts-description"
+                          class="choice-font-normal-text no-padding"
+                        >
+                          <!-- Populated by Javascript -->
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex tiny-break-padding justify-content-left"
+                      >
+                        <span class="me-4">
+                          <i class="fas fa-language"></i>
+                          <p
+                            id="smart-contracts-language"
+                            class="choice-font-normal-text text-inline"
+                          >
+                            <!-- Populated by Javascript -->
+                          </p>
+                        </span>
+                        <span class="me-4">
+                          <i class="fas fa-code-branch"></i>
+                          <p
+                            id="smart-contracts-forks"
+                            class="choice-font-normal-text text-inline"
+                          >
+                            <!-- Populated by Javascript -->
+                          </p>
+                        </span>
+                        <span class="me-4">
+                          <i class="far fa-star"></i>
+                          <p
+                            id="smart-contracts-stars"
+                            class="choice-font-normal-text text-inline"
+                          >
+                            <!-- Populated by Javascript -->
+                          </p>
+                        </span>
+                      </div>
+                      <div
+                        class="d-flex justify-content-left tiny-break-padding"
+                      >
+                        <a
+                          href="https://github.com/ChoiceCoin/Smart_Contracts"
+                          class="btn btn-primary me-3"
+                        >
+                          <span>
+                            <p class="choice-font-btn-text-small text-inline">
+                              View Project &nbsp;
+                            </p>
+                            <i
+                              class="
+                                fas
+                                fa-arrow-circle-right
+                                choice-btn-icon-small
+                              "
+                            ></i>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Git Projects Row 2 -->
+                <div class="row">
+                  <div class="col-12 col-lg-6 tiny-break-padding">
+                    <div class="git-summary-box">
+                      <div
+                        class="
+                          d-flex
+                          tiny-break-padding
+                          justify-content-left
+                          align-items-center
+                        "
+                      >
+                        <i class="fas fa-lg fa-book"></i> &nbsp;
+                        <p class="choice-font-repo-link-text">Voting</p>
+                      </div>
+                      <div
+                        class="d-flex tiny-break-padding justify-content-left"
+                      >
+                        <p
+                          id="voting-description"
+                          class="choice-font-normal-text no-padding"
+                        >
+                          <!-- Populated by Javascript -->
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex tiny-break-padding justify-content-left"
+                      >
+                        <span class="me-4">
+                          <i class="fas fa-language"></i>
+                          <p
+                            id="voting-language"
+                            class="choice-font-normal-text text-inline"
+                          >
+                            <!-- Populated by Javascript -->
+                          </p>
+                        </span>
+                        <span class="me-4">
+                          <i class="fas fa-code-branch"></i>
+                          <p
+                            id="voting-forks"
+                            class="choice-font-normal-text text-inline"
+                          >
+                            <!-- Populated by Javascript -->
+                          </p>
+                        </span>
+                        <span class="me-4">
+                          <i class="far fa-star"></i>
+                          <p
+                            id="voting-stars"
+                            class="choice-font-normal-text text-inline"
+                          >
+                            <!-- Populated by Javascript -->
+                          </p>
+                        </span>
+                      </div>
+                      <div
+                        class="d-flex justify-content-left tiny-break-padding"
+                      >
+                        <a
+                          href="https://github.com/ChoiceCoin/Voting"
+                          class="btn btn-primary me-3"
+                        >
+                          <span>
+                            <p class="choice-font-btn-text-small text-inline">
+                              View Project &nbsp;
+                            </p>
+                            <i
+                              class="
+                                fas
+                                fa-arrow-circle-right
+                                choice-btn-icon-small
+                              "
+                            ></i>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6 tiny-break-padding">
+                    <div class="git-summary-box">
+                      <div
+                        class="
+                          d-flex
+                          tiny-break-padding
+                          justify-content-left
+                          align-items-center
+                        "
+                      >
+                        <i class="fas fa-lg fa-book"></i> &nbsp;
+                        <p class="choice-font-repo-link-text">
+                          ChoiceCoin.github.io
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex tiny-break-padding justify-content-left"
+                      >
+                        <p
+                          id="web-description"
+                          class="choice-font-normal-text no-padding"
+                        >
+                          <!-- Populated by Javascript -->
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex tiny-break-padding justify-content-left"
+                      >
+                        <span class="me-4">
+                          <i class="fas fa-language"></i>
+                          <p
+                            id="web-language"
+                            class="choice-font-normal-text text-inline"
+                          >
+                            <!-- Populated by Javascript -->
+                          </p>
+                        </span>
+                        <span class="me-4">
+                          <i class="fas fa-code-branch"></i>
+                          <p
+                            id="web-forks"
+                            class="choice-font-normal-text text-inline"
+                          >
+                            <!-- Populated by Javascript -->
+                          </p>
+                        </span>
+                        <span class="me-4">
+                          <i class="far fa-star"></i>
+                          <p
+                            id="web-stars"
+                            class="choice-font-normal-text text-inline"
+                          >
+                            <!-- Populated by Javascript -->
+                          </p>
+                        </span>
+                      </div>
+                      <div
+                        class="d-flex justify-content-left tiny-break-padding"
+                      >
+                        <a
+                          href="https://github.com/ChoiceCoin/ChoiceCoin.github.io"
+                          class="btn btn-primary me-3"
+                        >
+                          <span>
+                            <p class="choice-font-btn-text-small text-inline">
+                              View Project &nbsp;
+                            </p>
+                            <i
+                              class="
+                                fas
+                                fa-arrow-circle-right
+                                choice-btn-icon-small
+                              "
+                            ></i>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Buttons Row -->
+            <div class="row">
+              <div class="d-flex justify-content-left">
+                <a href="participation.html" class="btn btn-primary me-3">
+                  <span>
+                    <i class="fas fa-exclamation-circle choice-btn-icon"></i>
+                    &nbsp;
+                    <p class="choice-font-btn-text text-inline">Get Involved</p>
+                  </span>
+                </a>
+                <br />
+                <a
+                  href="https://medium.com/@ChoiceCoin"
+                  class="btn btn-primary me-3"
+                >
+                  <span>
+                    <i class="fas fa-network-wired choice-btn-icon"></i> &nbsp;
+                    <p class="choice-font-btn-text text-inline">
+                      Choice Coin Blog
+                    </p>
+                  </span>
+                </a>
+                <br />
+                <a
+                  href="https://choice-coin.gitbook.io/choice-coin-docs/getting-started/introduction"
+                  class="btn btn-primary me-3"
+                >
+                  <span>
+                    <i class="fas fa-network-wired choice-btn-icon"></i> &nbsp;
+                    <p class="choice-font-btn-text text-inline">
+                      Choice Coin Docs
+                    </p>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.onload = function () {
+        populate_github_data();
+      };
+    </script>
+    <script src="res/js/global_scripts.js"></script>
+    <script src="res/js/bootstrap.bundle.min.js"></script>
+    <script src="res/js/fontawesome.min.js"></script>
+    <script src="res/js/jquery.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+[
+	{
+	  "slug":"proposal-one",
+	  "category": "free",
+	  "fee": 0,
+	  "title":"Proposal One",
+	  "image":"view-proposal.png",
+	  "status":"open",
+	  "summary":"This is a test proposal and i think you will love here",
+	  "start_date":"26-10-2021 03:00",
+	  "end_date":"31-10-2021 03:00",
+	  "created_date":"31-10-2021 03:00",
+	  "author":"adresssssssssssss",
+	  "choice":{
+		"type":"premium",
+		"min":1,
+		"max":5
+	  }
+	},
+	{
+	  "slug":"proposal-two",
+	  "category": "paid",
+	  "fee": 2,
+	  "title":"Proposal Two",
+	  "image":"view-proposal.png",
+	  "status":"close",
+	  "summary":"This is a test proposal and i think you will love here",
+	  "start_date":"26-10-2021 03:00",
+	  "end_date":"31-10-2021 03:00",
+	  "created_date":"31-10-2021 03:00",
+	  "author":"adresssssssssssss",
+	  "choice":{
+		"type":"free",
+		"min":0,
+		"max":0
+	  }
+	},
+	{
+	  "slug":"proposal-three",
+	  "category": "free",
+	  "fee": 0,
+	  "title":"Proposal Three",
+	  "image":"view-proposal.png",
+	  "status":"pending",
+	  "summary":"This is a test proposal and i think you will love here",
+	  "start_date":"26-10-2021 03:00",
+	  "end_date":"31-10-2021 03:00",
+	  "created_date":"31-10-2021 03:00",
+	  "author":"adresssssssssssss",
+	  "choice":{
+		"type":"premium",
+		"min":1,
+		"max":0
+	  }
+	}
+  ]

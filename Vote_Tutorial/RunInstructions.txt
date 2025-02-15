@@ -1,0 +1,11 @@
+To run the vote tutorial app;
+
+cd into the Vote_Tutorial folder and run the following commands.
+
+pip install -r requirements.txt
+python Vote_Tutorial.py
+
+The app has been configured to work right away but there are specific instructions in the vote_tutorial.py file on how to tailor to specfic needs.
+
+
+Also to change the name of the candidates, update the index.html file appropriately and also change the algorand address in the vote function of the onclick event handler for each candidate to correspond to the addresses set in the vote_tutorial.py file.

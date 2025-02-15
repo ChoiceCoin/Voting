@@ -1,0 +1,57 @@
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    margin-top: 100px;
+    text-align: center;
+    font-family: arial;
+}
+
+.card input[type="submit"]{
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+.card input[type="submit"]:hover {
+    opacity: 0.7;
+}
+
+.card p, label {
+    text-transform: capitalize;
+    padding: 5px;
+    color: grey;
+    font-size: 22px;
+}
+
+.alert {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    padding: 20px;
+    background-color: hsl(130, 61%, 54%);
+    color: black;
+  }
+  
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: rgb(48, 44, 44);
+    font-weight: bold;
+    float: right;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}

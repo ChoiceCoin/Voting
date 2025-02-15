@@ -1,0 +1,24 @@
+{
+  "name": "algosigner",
+  "version": "1.0.0",
+  "description": "This uses connect to wallet or algosigner instead of mmenomics",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "Samuel Aspirin",
+  "license": "MIT",
+  "dependencies": {
+    "algorand-qrcode": "^2.1.1",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    {% if elections|length > 0 %}
+        <div class="panel panel-default mt-5">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">All Elections</h3>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for election in elections %}
+                        <tr>
+                            <td>{{ election.id }}</td>
+                            <td>{{ election.title }}</td>
+                            <td>
+                                <a type="button" href="{{ url_for('vote', slug=election.slug) }}"  class="btn btn-success {% if not election.is_started %}disabled{% endif %}">Vote</a>
+                                <a type="button" href="{{ url_for('voting_result', slug=election.slug) }}"  class="btn btn-info {% if not election.is_finished %}disabled{% endif %}">See Result</a>
+
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="panel panel-default mt-5">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">All Elections</h3>
+            </div>
+            <div class="panel-body">
+                <h5 class='text-center'>No elections yet!</h5>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock content %}

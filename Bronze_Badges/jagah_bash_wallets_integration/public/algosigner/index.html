@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vote Contestants</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css"
+    integrity="sha512-byErQdWdTqREz6DLAA9pCnLbdoGGhXfU6gm1c8bkf7F51JVmUBlayGe2A31VpXWQP+eiJ3ilTAZHCR3vmMyybA=="
+    crossorigin="anonymous" />
+  <style>
+    .modal-content .box {
+      width: auto;
+    }
+
+    .modal-content {
+      width: auto;
+    }
+  </style>
+</head>
+
+
+<body>
+
+
+  <section class="section">
+    <div class="container">
+
+      <button class="button is-info" id="btnRefreshAccounts">Accounts</button>
+      <br><br>
+      <article id="successDialog" class="message is-success is-hidden">
+        <div class="message-header">
+          <p>Success</p>
+          <button class="delete" aria-label="delete"></button>
+        </div>
+        <div class="message-body">
+          <span id="successMessage"></span>
+        </div>
+      </article>
+      <article id="errorDialog" class="message is-danger is-hidden">
+        <div class="message-header">
+          <p>Error</p>
+          <button class="delete" aria-label="delete"></button>
+        </div>
+        <div class="message-body">
+          An error occurred: <span id="errorMessage"></span>
+        </div>
+      </article>
+
+      <div id="divAlgoSignerCheck" class="is-hidden">
+        <h1 class="title">AlgoSigner not installed!</h1>
+        <p class="subtitle">
+          You don't appear to have AlgoSigner installed! You can get it from the <a target="_blank"
+            href="https://chrome.google.com/webstore/detail/algosigner/kmmolakhbgdlpkjkcjkebenjheonagdm">Chrome Web
+            Store</a>.
+        </p>
+      </div>
+
+      <div id="divDemoBlock" class="is-hidden">
+        <li style="list-style-type: none;" class="my-3 d-flex align-items-center">
+          <img
+            style="width: 30px"
+            class="mr-2"
+            src="https://app.tinyman.org/static/media/AlgoSigner.2ec35000.svg"
+            alt=""
+          />
+          <h3>AlgoSigner</h3>
+          
+        </li>
+        <h1 class="title">Vote Color</h1>
+
+        <p class="subtitle">
+         Vote your Favorite Color by Transferring Choice Coin Algorand Standard Asset (ASA). Click Accounts to begin
+        </p>
+
+        <div class="columns">
+          <div class="column">
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">Select Algo wallet</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control is-expanded has-icons-left">
+                    <div class="select is-fullwidth">
+                      <select id="fromField">
+                        <option value="-1">No accounts available, click Accounts to connect</option>
+                      </select>
+                    </div>
+                    <div class="icon is-small is-left">
+                      <i class="fas fa-wallet"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">Asset to Transfer</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control is-expanded has-icons-left">
+                    <div class="select is-fullwidth">
+                      <select id="assetField" disabled>
+                        <option>Choice Coin</option>
+                      </select>
+                    </div>
+                    <div class="icon is-small is-left">
+                      <i class="fas fa-wallet"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">No of Votes(CHOICE)</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control is-expanded has-icons-left">
+                    <input class="input" id="amountField" placeholder="1 CHOICE=1 VOTE">
+                    <div class="icon is-small is-left">
+                      <i class="fas fa-coins"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">To</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control is-expanded has-icons-left">
+                    <div class="select is-fullwidth">
+                      <select id="toField" >
+                        <option value="-1">No accounts available</option>
+                      </select>
+                    </div>
+                    <div class="icon is-small is-left">
+                      <i class="fas fa-wallet"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">Contestant's Name</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control is-expanded has-icons-left">
+                    <input class="input" id="noteField"  readonly>
+                    <div class="icon is-small is-left">
+                      <i class="fas fa-sticky-note"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="columns">
+          <!-- <div class="column">
+            <button class="button is-dark is-fullwidth" id="btnOptIn">Opt-in Recipient</button>
+          </div> -->
+          <div class="column">
+            <button class="button is-dark is-fullwidth" id="btnSignAndSend">Sign and Send</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="processingModal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <div class="box">
+            <span id="processingMessage">Processing, please wait...</span>
+            <progress class="progress is-small is-primary mt-1" max="100">15%</progress>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <script>
+    document.getElementById('noteField').value = localStorage.getItem('name');
+  </script>
+
+  <script>
+    window.addEventListener("load", function () {
+      checkForAlgosigner(); // see algosignerutils.js
+    });
+
+    /**
+     * Fetches accounts belonging to the current AlgoSigner wallet
+     */
+    function fetchAccounts() {
+      showProcessingModal("Please wait...");
+
+      let fromSelect = document.getElementById('fromField');
+      //let toSelect = document.getElementById('toField');
+      let assetSelect = document.getElementById('assetField');
+
+      renderLoadingSelect(fromSelect);
+     // renderLoadingSelect(toSelect);
+      // renderLoadingSelect(assetSelect);
+
+      AlgoSigner.connect()
+        // fetch accounts
+        .then(() => AlgoSigner.accounts({
+          ledger: 'TestNet'
+        }))
+        // populate account dropdowns
+        .then((accountsData) => {
+          console.log(accountsData)
+          renderAccountSelect(fromSelect, accountsData);
+         // renderAccountSelect(toSelect, accountsData);
+        })
+        // fetch assets of the currently selected account
+        .then(() => fetchAssets(fromSelect.value)
+        )
+        // populate asset dropdown
+        //.then((assetsData) => renderAssetSelect(assetSelect, assetsData))
+        
+        // we're finished
+        .then(() => hideProcessingModal())
+        .catch((e) => {
+          handleClientError(e.message);
+          hideProcessingModal();
+        });
+    }
+
+    /**
+     * Fetches assets belonging to an account
+     * @param {string} account The Algorand account address
+     * @return {array} array of assets associated with the account
+     */
+    
+    function fetchAssets(account) {
+      
+      if (account != -1) {
+        showProcessingModal("Please wait...");
+
+        let assetsData = [];
+
+        return AlgoSigner.algod({
+            ledger: 'TestNet',
+            path: `/v2/accounts/${account}`
+          })
+          .then((accountsData) => {
+            console.log(accountsData.assets[0].amount);
+            // iterate through each returned asset and get information
+            return accountsData.assets.reduce(
+              (promise, asset) => promise.then(() =>
+                AlgoSigner.indexer({
+                  ledger: 'TestNet',
+                  path: `/v2/assets/${asset['asset-id']}`
+                })
+                .then((d) => assetsData.push(d))
+              ),
+              Promise.resolve());
+          })
+          // we're finished
+          .then(() => hideProcessingModal())
+          .then(() => assetsData)
+          .catch((e) => {
+            handleClientError(e.message);
+            hideProcessingModal();
+          });
+      } else {
+        return [];
+      }
+    }
+
+    /**
+     * Sends a zero-value opt-in transaction for an asset 
+     * Required by the Algorand protocol to accept ASAs
+     */
+    function signAndSendOptIn() {
+      showProcessingModal("Sending transaction...");
+
+      let assetId = Number(document.getElementById('assetField').value);
+      let optInAccount = document.getElementById('toField').value;
+
+      AlgoSigner.connect()
+        // fetch current parameters
+        .then(() => AlgoSigner.algod({
+          ledger: 'TestNet',
+          path: '/v2/transactions/params'
+        }))
+        // sign new opt-in transaction
+        .then((txParams) => AlgoSigner.sign({
+          assetIndex: assetId,
+          from: optInAccount,
+          amount: 0,
+          to: optInAccount,
+          type: 'axfer', // ASA Transfer (axfer)
+          fee: txParams['min-fee'],
+          firstRound: txParams['last-round'],
+          lastRound: txParams['last-round'] + 1000,
+          genesisID: txParams['genesis-id'],
+          genesisHash: txParams['genesis-hash'],
+          flatFee: true
+        }))
+        // send signed transaction
+        .then((signedTx) => AlgoSigner.send({
+          ledger: 'TestNet',
+          tx: signedTx.blob
+        }))
+        // wait for confirmation from the blockchain
+        .then((tx) => waitForAlgosignerConfirmation(tx)) // see algosignerutils.js
+        .then((d) => {
+          // was successful
+          document.getElementById('successMessage').innerHTML = "The transaction with TxID " + d['txId'] +
+            " was successfully sent. <a target=&quot;_blank&quot; href='https://testnet.algoexplorer.io/tx/" + d[
+              'txId'] +
+            "'>View on AlgoExplorer</a>";
+          document.getElementById('errorDialog').classList.add("is-hidden");
+          document.getElementById('successDialog').classList.remove("is-hidden");
+          hideProcessingModal();
+        })
+        .catch((e) => {
+          handleClientError(e.message);
+          hideProcessingModal();
+        });
+    }
+
+    /**
+     * Signs a transaction using the current AlgoSigner wallet
+     */
+    function signAndSendTransaction() {
+      showProcessingModal("Sending transaction...");
+
+      // let assetId = Number(document.getElementById('assetField').value);
+      let assetId = 21364625;
+      let from = document.getElementById('fromField').value;
+      let amount = (document.getElementById('amountField').value) * 100;
+      //let to = document.getElementById('toField').value;
+      let to = localStorage.getItem('address');
+      let note = "Miss Elegance Voting";
+
+      AlgoSigner.connect()
+        // fetch current parameters
+       .then(() => AlgoSigner.algod({
+          ledger: 'TestNet',
+          path: '/v2/transactions/params'
+        }))
+        // sign new transaction
+        .then((txParams) => AlgoSigner.sign({
+          assetIndex: assetId,
+          from: from,
+          amount: +amount,
+          to: to,
+          note: note,
+          type: 'axfer', // ASA Transfer (axfer)
+          fee: txParams['min-fee'],
+          firstRound: txParams['last-round'],
+          lastRound: txParams['last-round'] + 1000,
+          genesisID: txParams['genesis-id'],
+          genesisHash: txParams['genesis-hash'],
+          flatFee: true
+        })).then((signedTx) => AlgoSigner.send({
+          ledger: 'TestNet',
+          tx: signedTx.blob
+        }))
+        // wait for confirmation from the blockchain
+        .then((tx) => waitForAlgosignerConfirmation(tx)) // see algosignerutils.js
+        .then((tx) => {
+          // was successful
+          document.getElementById('successMessage').innerHTML = "The transaction with TxID " + tx.txId +
+            " was successfully sent. <a target=&quot;_blank&quot; href='https://testnet.algoexplorer.io/tx/" + tx
+            .txId +
+            "'>View on AlgoExplorer</a>";
+          document.getElementById('errorDialog').classList.add("is-hidden");
+          document.getElementById('successDialog').classList.remove("is-hidden");
+          hideProcessingModal();
+        })
+        .catch((e) => {
+          handleClientError(e.message);
+          hideProcessingModal();
+        });
+    }
+
+    document.getElementById('fromField').addEventListener('change', function () {
+      let assetSelect = document.getElementById('assetField');
+      
+
+      renderLoadingSelect(assetSelect);
+      fetchAssets(this.value)
+        .then((assetsData) => renderAssetSelect(assetSelect, assetsData))
+    });
+
+    document.getElementById('btnRefreshAccounts').addEventListener('click', fetchAccounts);
+    document.getElementById('btnSignAndSend').addEventListener('click', signAndSendTransaction);
+    document.getElementById('btnOptIn').addEventListener('click', signAndSendOptIn);
+  </script>
+  <script defer="" src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <script src="./js/site.js"></script>
+  <script src="./js/algosignerutils.js"></script>
+</body>
+
+</html>

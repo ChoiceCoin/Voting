@@ -1,0 +1,13 @@
+.App{
+    text-align: center;
+}
+.BlogCard{
+      
+    margin: 50px;
+    padding: 16px;
+    box-sizing: boder-box;
+    border-radius: 5px;
+    box-shadow : 0 2px 5px #ccc;
+
+  
+}

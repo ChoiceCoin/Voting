@@ -1,0 +1,22 @@
+<%- include("./header"); %>
+<div class="header">
+    <h1>Participate by Voting</h1>
+</div>
+
+
+<div class="container">
+    
+    <label class="container">RED
+        <input type="radio" value="red" name="input" id="red">
+    </label>
+    
+    <label class="container">BLUE
+        <input type="radio"  id="blue" name="input" value="blue">
+    </label>
+    <br/>
+    <div class="wallet">
+     <input type="text" id="wallet" autofocus name="from" placeholder="Enter your wallet address">
+    </div>
+      
+    <button class="button" onclick="myAlgoWalletSign()">Vote</button>
+</div>

@@ -1,0 +1,23 @@
+<%- include("./partials/header"); %>
+<div class="head">
+    <h1>Start Voting</h1>
+</div>
+
+
+<div class="second_container add-voter-cont fix">
+    
+    <label class="container">One
+        <input type="radio" value="one" name="decision" id="options1">
+        <span class="checkmark"></span>
+    </label>
+    
+    <label class="container">Two
+        <input type="radio" name="decision" id="options2" value="two">
+        <span class="checkmark"></span> 
+    </label>
+    <br/>
+    <label for="wallet-address">Enter Your Wallet Address: </label><br/>
+    <input type="text" id="wallet-address" autofocus name="from" placeholder="Input your wallet address">
+      
+    <button class="button" onclick="Algosigner()">Vote</button>
+</div>

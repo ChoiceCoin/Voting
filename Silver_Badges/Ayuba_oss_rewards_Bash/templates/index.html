@@ -1,0 +1,31 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}">
+    <title>Choice Coin</title>
+</head>
+<body>
+{% block content %}
+    <div class="container" style="margin: auto;">
+        <div class="container">
+            <div class="card card-body w-50 mt-4"  style="margin: auto;">
+                <h2 class="card-title">Developer Details</h2>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ dev|crispy }}
+                    <button class="btn btn-success mt-4" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+    <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+</body>
+</html>

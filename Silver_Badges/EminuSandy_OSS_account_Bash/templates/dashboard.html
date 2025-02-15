@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block style %}
+    <style>
+        .container_wrapper {
+            margin-top: 20px;
+        }
+        .card {
+            background: rgba(0,0,0, 0.7);
+            margin: 55px auto;
+        }
+        .card-header  h2{
+            font-weight: 800;
+        }
+        .mb-3 h3 {
+            font-weight: 600;
+        }
+    </style>
+{% endblock style %}
+
+{% block content %}
+<div class="container" style="color: #fff;">
+    <div class="container_wrapper">
+        <div class="card">
+            <div class="card-header">
+                <h2>Welcome to Algorand</h2>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <h3>Signed in with</h3>
+                    <p>Algoland</p>
+                </div>
+
+                <div class="mb-3">
+                    <h3>Your puplic address</h3>
+                    <p>{{ accountInfo['address'] }}</p>
+                </div>
+
+                <div class="mb-3">
+                    <h3>Balance</h3>
+                    <p>{{ accountInfo['amount'] / 1000000 }} Algos</p>
+                </div>
+                {% if account['menmonic'] %}
+                    <div class="mb-3">
+                        <h3>Word list</h3>
+                        <p>{{ account['menmonic'] }}</p>
+                    </div>
+                {% endif %}
+
+                <div width: 100%;">
+                    <a href="/logout" class="btn btn-primary">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

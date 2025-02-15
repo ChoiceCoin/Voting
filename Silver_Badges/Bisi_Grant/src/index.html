@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css" type="text/css">
+    <link rel="icon" type="image/png" href="https://www.google.com/s2/u/0/favicons?domain=https://choice-coin.com/">  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Choice Coin</title>
+</head>
+<body>
+<div class="body">
+<section>
+    <div class="navbar">
+        <ul>
+            <li><img style="height: 35px;"src="./img/choice.png"></li>
+            <div class="dropdown">
+                <button class="btn btn-secondary" type="button" >
+                    <a onclick="myAlgoWalletConnect()" >Connect</a>
+                </button>
+              </div>
+        </ul>
+    </div>
+    </section>
+    <div class="header">
+        <h1>Click checkbox to vote</h1>
+    </div>
+    
+    <div id="results" hidden>
+        <span id="result"></span>
+    </div>
+    
+    <div class="container">
+     <div class="checkbox">
+      <div class="red">
+        <label class="container" id="ded">RED
+            <input type="radio" value="red" name="input" id="red">
+            <input id="red-input" class="red" type="text" placeholder="Enter Amount">
+        </label>
+        
+      </div> 
+        
+        <div class="blue">
+            <label class="container" id="dud">BLUE
+                <input type="radio"  id="blue" name="input" value="blue">
+                <input id="blue-input" class="blue" type="text" placeholder="Enter Amount">
+            </label>
+           
+        </div>
+    </div>
+        <br/>
+        <div class="wallet">
+         <input type="text" id="wallet" autofocus name="from" placeholder="Enter your wallet address">
+        </div>
+          
+        <button class="button" onclick="myAlgoWalletSign()">VOTE</button>
+    </div>
+</div>
+    <script
+        src="https://cdn.jsdelivr.net/npm/algosdk@1.13.0-beta.1/dist/browser/algosdk.min.js"
+        integrity="sha384-w9fodN00YjvWxdNoiyT+W6CqaATkXlfid9tnzBlToDqZWepVWLjI5wO7jNL4+aNs"
+        crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./connect.js"></script>
+    <script src="./wallet.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- HERO SECTION -->
+    <div class="head">
+      <h1>Participate in voting process with Choice Coin</h1>
+    </div>
+
+    <p class="info">Please validate your identity below:</p>
+    {% if message %}
+    <div class="result-cont">
+      <p class="closer" onclick="closer()">&times;</p>
+      <h3><p style="color:green" class="message">{{ message }}</p></h3>
+    </div>  
+    {% else %}
+    {% if error %}
+    <div class="result-cont">
+      <p class="closer" onclick="closer()">&times;</p>
+      <p style="color:red" class="message">{{ error }}</p>
+    </div>
+    {% endif %}
+    {% endif %}
+    <div class = "second_container add-voter-cont">
+      <form action="" method = "post">
+        <div>
+          <label for = "main">Social Security Number</label>
+          <input id = "main" type="password" name="Social" placeholder="Social Security Number"><br>
+        </div>
+
+        <div>
+          <label for = "main_1">Drivers Lisence</label>
+          <input id = "main_1" type = "password" name = "Drivers" placeholder = "Driver's License"><br>
+        </div>
+        
+        <input class="button" type="submit" value="Submit for verification">
+      </form>
+    </div>
+{% endblock content %}

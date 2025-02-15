@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if message %}
+<div class="result-cont">
+  <p class="closer" onclick="closer()">&times;</p>
+  <h3><p style="color:green">{{ message }}</p></h3>
+</div>
+{% else %}
+{% if error %}
+<div class="result-cont">
+  <p class="closer" onclick="closer()">&times;</p>
+  <p style="color:red">{{ error }}</p>
+</div>
+{% endif %}
+{% endif %}
+
+<div class="head">
+    <h1>Exchange Algo for Choice Coin</h1>
+</div>
+
+<p class="info">Input your Algorand Wallet Address, 25-word Mnemonic, your name, and the amount of Choice Coin you want.</p>
+
+<div class="add-voter-cont">
+  <form action="" method = "post">
+    <div>
+      <label for = "main">Algorand Wallet Address: </label>
+      <input id = "main" type="text" name="wallet" placeholder="address"><br>
+    </div>
+  
+    <div>
+      <label for = "main_1">Algorand Wallet Mnemonic: </label>
+      <input id = "main_1" type = "text" name = "key" placeholder = "mnemonic"><br>
+    </div>
+  
+    <div>
+      <label for = "main_2">Signature: </label>
+      <input id = "main_2"type = "text" name = "comment" placeholder = "name"><br>
+    </div>
+  
+    <div>
+      <label for = "main_3">Amount of Choice Coin: </label>
+      <input id = "main_3" type = "number" name = "amount" size = "69" placeholder = "Number of Choice"><br>
+    </div>
+    <button class="button" style="margin-bottom: 100px;">
+      Make Exchange
+    </button>
+  </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,24 @@
+.createpoll{
+    width: 85%;
+    margin: 0 auto;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 900px){
+    .porfolio__projects{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media screen and (max-width: 700px){
+    .portfolio{
+        width: 92%;
+        /* border: 2px solid red; */
+    }
+    .porfolio__projects{
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,202 @@
+/* ============= Base ============= */
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: $theme-text-color-secondary;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: $theme-text-color-primary;
+	font-weight: 600;
+}
+
+a {
+	color: $theme-color-primary;
+	text-decoration: none;
+	&:hover {
+		color: darken($theme-color-primary, 5%);
+	}
+}
+
+hr {
+   background: darken($theme-border-color, 20%);	
+}
+
+.text-muted {
+	color: lighten($theme-text-color-light, 10%) !important;
+}
+
+.table-dark {
+	background: $theme-text-color-primary;
+	color: #fff;
+}
+
+.table-bordered th, .table-bordered td {
+	border-color: $theme-border-color;
+}
+
+.table th, .table td {
+	border-color: $theme-border-color;
+}
+
+.table thead th {
+	border-color: $theme-border-color;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+	background-color: $smoky-white;
+}
+
+.table-dark th, .table-dark td, .table-dark thead th {
+	border-color: lighten($theme-text-color-primary, 20%);
+}
+
+
+.table-hover > tbody > tr:hover {
+	background-color: lighten(#f5f6fe, 10%);
+
+}
+
+
+.popover {
+	border-color: darken($theme-bg-light, 5%);
+}
+.bs-popover-left>.arrow::before, .bs-popover-auto[x-placement^="left"]>.arrow::before {
+	border-left-color: darken($theme-bg-light, 5%);
+}
+.bs-popover-right>.arrow::before, .bs-popover-auto[x-placement^="right"]>.arrow::before {
+	border-right-color: darken($theme-bg-light, 5%);
+}
+.bs-popover-top>.arrow::before, .bs-popover-auto[x-placement^="top"]>.arrow::before {
+	border-top-color: darken($theme-bg-light, 5%);
+}
+.bs-popover-bottom>.arrow::before, .bs-popover-auto[x-placement^="bottom"]>.arrow::before {
+	border-bottom-color: darken($theme-bg-light, 5%);
+}
+
+a.app-link {
+	color: $theme-text-color-primary;
+	text-decoration: underline;
+    -webkit-text-decoration-color: rgba($theme-text-color-primary,0.3);
+    text-decoration-color: rgba($theme-text-color-primary,0.3);
+    &:hover {
+	    color: $theme-color-primary;
+	    -webkit-text-decoration-color: rgba($theme-color-primary,0.8);
+	        text-decoration-color: rgba($theme-color-primary,0.8);
+    }
+}
+
+button.close {
+	&:focus {
+		outline: none;
+	    @include box-shadow(none);
+	}
+}
+
+.btn {
+	font-weight: 600;
+	padding: 0.4rem 1rem;
+	font-size: 0.875rem;
+	border: none;
+	&:hover, &:active, &:focus {
+		text-decoration:none;
+	}
+	.bi {
+		position: relative;
+		top: -2px;
+	}
+}
+
+.btn:focus, .btn.focus {
+	box-shadow: none !important;
+}
+
+.app-btn-primary {
+    background: $theme-color-primary;
+	color: #fff;
+	border-color: $theme-color-primary;
+	&:hover {
+		color: #fff;
+		background: lighten($theme-color-primary, 5%);
+		border-color: lighten($theme-color-primary, 5%);
+	}
+}
+
+.app-btn-secondary {
+	background: white;
+	color: $theme-text-color-secondary;
+	border: 1px solid lighten($theme-text-color-secondary, 35%);
+	&:hover {
+		color: $theme-color-primary;
+		border: 1px solid $theme-color-primary;
+		background: white;
+	}
+}
+
+.btn-light {
+	background: $theme-bg-light;
+	color: $theme-color-primary;
+	&:hover {
+		background: $theme-bg-light;
+		color: $theme-color-primary;
+	}
+}
+
+
+
+
+.form-control {
+	padding-top: 0.6rem;
+	padding-bottom: 0.6rem;
+	height: 2.5rem;
+	border-color: $theme-border-color;
+    color: $theme-text-color-secondary;
+	&:focus {
+		@include box-shadow(none);
+		outline: none;
+		color: $theme-text-color-secondary;
+	}
+}
+
+.form-check-input:checked {
+	background-color: $theme-color-primary;
+	border-color: $theme-color-primary;
+}
+
+.dropdown-menu {
+	border-color: $theme-border-color;
+	
+	.dropdown-item {
+		padding: 0.5rem 1rem;		
+			
+		&:hover {
+			color: $theme-text-color-primary;
+		}
+		
+	}
+	
+	.dropdown-item:hover, .dropdown-item:focus {
+		background: mix($theme-bg-light, white, 50%);
+	}
+	
+	.dropdown-item.active, .dropdown-item:active {
+		background: mix($theme-bg-light, white, 50%);
+	}
+}
+
+
+
+
+
+.dropdown-divider {
+	border-top-color: $theme-border-color;
+	@include opacity(1);
+}
+
+.dropdown-toggle.no-toggle-arrow {
+	&:after {
+		display: none !important;
+	}
+}
+

@@ -1,0 +1,208 @@
+
+      .coinText
+      {
+          font-size: 30px;
+          margin-left: -10px;
+      }
+      .coinLogo
+      {
+         margin-top: -1em;
+         width: auto;
+         height: 30px;
+      }
+      .marginFix{
+              margin: 50px 15px 10px;
+          }
+      .lengthen{
+          height: 4em;
+      }
+      .btn-color-blue
+      {
+          background-color: #245ec7 !important;
+      }
+      .btn-colored-blue
+      {
+          background-color: #1b1b5c;
+          color: white;
+      }
+      .btn-colored-blue:hover
+      {
+          color: white;
+          background-color: #030349;
+      }
+      .centerSuccess
+      {
+          margin: 0;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 85%;
+      }
+      .frame
+      {
+          height: 80%;
+          overflow: auto;
+      }
+      @media (min-width:600px){
+        .btn-connect
+        {
+            padding:10px 16px;
+            font-size:18px;
+            line-height:1.3333333;
+            border-radius:6px
+        }
+          .coinText
+          {
+              font-size: 50px;
+          }
+          .coinLogo
+          {
+          margin-top: -2em;
+          height: 50px;
+          }
+          .widthInp
+          {
+              width: 50% !important;
+          }
+          .marginFix{
+              margin: 3em 10em 10em;
+          }
+          .lengthen{
+              font-size: 25px !important;
+          }
+          p{
+              font-size: 25px !important;
+          }
+      }
+      @media (min-width:1264px) {
+        .padIssue
+        {
+            padding: 50px 150px 20px !important;
+        }
+        .marginFix{
+            margin: 3em 15em 10em;
+        }
+      }
+      
+      /* body {
+          background-image: url('./bg2.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-position: center;
+      } */
+      body{
+        height: 200px;
+        background-color: black; /* For browsers that do not support gradients */
+        background-image: linear-gradient(to right, rgb(0, 0, 0) , #151738);
+        /* background-image: linear-gradient(to right, white , rgb(228, 236, 248)); */
+      }
+      .letter
+      {
+        background-image: linear-gradient(to left, #d48084, #b2528a, #cf5fd0);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: 700;
+        /* color:#d48084 !important */
+      }
+      /* .colorborder
+      {
+          border-color: #d48084;
+          background-color: transparent !important;
+          border-radius: 50px 50px 50px 50px;
+      } */
+      .colorborder2
+      {
+          color: white !important;
+          border-color: #d48084;
+          background-color: transparent !important;
+          border-radius: 40px 40px 40px 40px;
+      }
+      .color
+      {
+          background-color: #292d44;
+      }
+      .addressBtn
+      {
+          overflow: hidden;
+          width: 8.5em;
+          
+          scrollbar-width: none;
+      }
+      .containerAddress
+      {
+        border-color: white;
+      }
+      .integration-checklist__copy-button {
+        background-color: transparent;
+        color:white;  
+        border: none;
+        /* position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: calc(50% - 20px);
+        cursor: pointer; */
+      }
+      .integration-checklist__copy-button:before {
+        content: "";
+        display: none;
+        position: absolute;
+        z-index: 9998;
+        top: 35px;
+        left: 15px;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid rgba(0, 0, 0, 0.72);
+      }
+      .integration-checklist__copy-button:after {
+        content: "Copy to Clipboard";
+        display: none;
+        position: absolute;
+        z-index: 9999;
+        right:2px;
+        width: 114px;
+        height: 36px;
+        color: #fff;
+        font-size: 10px;
+        line-height: 36px;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.72);
+        border-radius: 3px;
+      }
+      .integration-checklist__copy-button:hover:before, .integration-checklist__copy-button:hover:after {
+        display: block;
+      }
+      .integration-checklist__copy-button:active, .integration-checklist__copy-button:focus {
+        outline: none;
+      }
+      .integration-checklist__copy-button:active:after, .integration-checklist__copy-button:focus:after {
+        content: "Copied!";
+      }
+      
+      .signature {
+        /* position: absolute;
+        right: 12px;
+        bottom: 12px;
+        color: rgba(0, 0, 0, 0.07);
+        font-size: 10px; */
+      }
+      
+      a {
+        color: rgba(13, 157, 219, 0.55);
+        font-weight: 500;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .textWrap
+      {
+        overflow-wrap: break-word !important;
+        word-break:break-all;
+        inline-size: 100% !important;
+      }

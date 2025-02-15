@@ -1,0 +1,19 @@
+{% extends './login.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container w-50" style="margin-top: 100px;">
+    <h4 class="text-success text-center">
+        Registration Form
+        <div class="dropdown-divider">
+        </div>
+    </h4>
+    <div class="container mt-4">
+        {% csrf_token %}
+        {{form|crispy}}
+
+        <button class="btn btn-lg btn-success mt-4" type="submit">Submit</button>
+    </div>
+</div>
+
+{% endblock %}

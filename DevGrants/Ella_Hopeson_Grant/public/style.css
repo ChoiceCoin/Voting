@@ -1,0 +1,5 @@
+.container{
+    background: hsl(0, 0%, 100%,0.3);
+ -webkit-backdrop-filter: blur(10px);
+ backdrop-filter: blur(13px);
+}

@@ -1,0 +1,30 @@
+@font-face {
+  font-family: pangram;
+  src: url(./fonts/pangram/Pangram-Light.otf);
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: pangram2;
+  src: url(./fonts/pangram/Pangram-Regular.otf);
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: satoshi;
+  src: url(./fonts/Satoshi_Complete/Variable/Satoshi-Variable.ttf)
+    format("truetype");
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: satoshi_italic;
+  src: url(./fonts/Satoshi_Complete/Variable/Satoshi-VariableItalic.ttf)
+    format("truetype");
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: italic;
+}

@@ -1,0 +1,122 @@
+body{
+    background: #c8c8d3;
+    margin: 10px;
+    
+}
+nav{
+    background: rgb(42, 40, 44);
+    height: 70px;
+    padding: 5px;
+
+}
+@media only screen and (max-width: 1000px){
+    .box{ width: 400px}
+}
+@media only screen and (max-width: 1000px){
+    #htag{ width: 400px}
+}
+
+.topnav{
+    display: flex;
+    justify-content: space-between;
+}
+
+#first-link{
+    color:white;
+    text-decoration: none;
+    padding-top: 20px;
+    font-size: 25px;
+
+}
+#first-link:hover{
+    color:#88a59a;
+}
+
+
+/* Dropdown Button */
+#btn {
+    background-color: #57645f;
+    color: white;
+    padding: 18px; 
+    font-size: 16px;
+    border: none;
+}
+
+#btn:hover{
+    background-color: rgb(96, 138, 96);
+}
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.choice{
+    display: inline;
+    display:block;
+    margin:0;
+    padding:0;
+
+}
+
+
+
+#top1{
+  margin-top:0;  
+  margin-bottom: 0;
+  font-size: 25px;
+  
+}
+
+
+
+.box{
+    border: #1c1c1f;
+    margin: 400px;
+    padding: 20px;
+    padding-bottom: 100px;
+    margin-top: 0px;
+    height: 100px;
+    outline: solid 1px black;
+    border-radius:15px
+}
+.inner-box{
+    display: flex;
+    justify-content: space-around;
+}
+#htag{
+    text-align: center;
+    font-size: 10;
+    margin: 0px;
+}
+#text{
+    border-radius: 9px;
+    
+}
+#submit{
+    text-align: center;
+    background-color:royalblue;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin-right: 100px;
+    cursor: pointer;
+    height: 20px;
+    width: 100%;
+    padding-top: 10px;
+    border-radius:25px
+}
+
+.submitbtn{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 100px;
+    margin-top: 10px;
+    
+}
+/* Popup container */
+#btn {
+position: relative;
+display: inline-block;
+cursor: pointer;
+}
+

@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.body {
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.IRE__form-group {
+  width: 70%;
+  margin: auto;
+  font-family: "Inter", sans-serif;
+  position: relative;
+}
+.IRE__form-group .red {
+  color: red;
+}
+.IRE__form-group .IRE__form-group--floating-label {
+  font-size: 12px;
+  color: #043b7c;
+  position: absolute;
+  top: 25%;
+  left: 20px;
+  font-weight: 400;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  padding: 0 0.2em;
+}
+.IRE__form-group button {
+  width: 100%;
+  position: relative;
+  background-color: transparent;
+  z-index: 1000;
+  display: block;
+  height: 40px;
+  border: 1px solid #3d85d8;
+  border-radius: 4px;
+  padding: 0 spacer(sm);
+  color: #1e4c82;
+  font-size: 13px;
+}
+.IRE__form-group button:-webkit-autofill,
+.IRE__form-group button:-webkit-autofill:hover,
+.IRE__form-group button:-webkit-autofill:focus,
+.IRE__form-group button:-webkit-autofill:active {
+  color: #1e4c82;
+  -webkit-text-fill-color: #1e4c82;
+}
+.IRE__form-group input:focus + .IRE__form-group--floating-label,
+.IRE__form-group.filled .IRE__form-group--floating-label {
+  z-index: 1010;
+  top: -5px;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  background-color: white;
+  padding: 0 spacer(xxxs);
+}
+.inner-container {
+  width: 100%;
+}
+.main-body {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+.IRE__button {
+  border-radius: 20px;
+  border: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-weight: 500;
+  height: 40px;
+  cursor: pointer;
+  padding: 0 spacer(md);
+}
+.IRE__button.left svg {
+  margin-right: auto;
+}
+.IRE__button.IRE__button--icon {
+  min-width: 50px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 spacer(md);
+}
+.IRE__button.IRE__button--icon span {
+  margin-left: 1em;
+}
+.IRE__button.right svg {
+  margin-left: auto;
+}
+.IRE__button[disabled="true"] {
+  background: #ebebeb;
+  color: #323840;
+  opacity: 0.65;
+}
+.IRE__button[disabled="true"] svg rect {
+  fill: #323840;
+  stroke: #323840;
+}
+.IRE__button[disabled="true"]:hover {
+  background: #ebebeb;
+}
+.IRE__button:hover {
+  text-decoration: none;
+}
+.IRE__button-primary {
+  background: #043b7c;
+  color: white;
+  width: 30%;
+  margin: auto;
+}
+.IRE__button-primary:hover {
+  background: #054795;
+}
+.IRE__button-primary svg g rect {
+  fill: white;
+}
+.IRE__button-primary svg path {
+  fill: white;
+}
+.button-container {
+  text-align: center;
+}
+.powered {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 2em;
+}
+.powered p {
+  margin-right: 1em;
+  color: #333;
+  font-size: 12px;
+}
+.powered img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 50px;
+}

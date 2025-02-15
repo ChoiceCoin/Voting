@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins&display=swap');
+body{
+  
+font-family: 'Poppins', sans-serif;
+}
+.home-nav{
+    background-color: #2c041d;
+}
+
+#ongoing {
+    display: none;
+}
+
+.modal-overlay{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  .modal-content{
+    background-color: #f4f4f4;
+    margin: 20% auto;
+    width: 40%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+  }
+  
+  .modal-header h2, .modal-footer h3{
+    margin: 0;
+  }
+  
+  .modal-header{
+    
+    padding: 15px;
+    color: #fff;
+  }
+  
+  .modal-body{
+    padding: 10px 20px;
+  }
+  
+  .modal-footer{
+    background: #1ce;
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+  }
+
+  /* wallet */
+
+  .connect {
+      margin-top: -4px;
+  }
+ 
+  .submit {
+      margin-top: 10px !important;
+      cursor: pointer;
+  }
+
+  /* feeback after connection */
+
+  .show {
+    display: block;
+    cursor: pointer;
+    border: 1px soid red;
+    box-shadow: 1px 1px 2px grey;
+}
+
+.alert {
+    text-transform: capitalize;
+    padding: 20px;
+    background-color: #da2114;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    display: none;
+    margin: 10px auto;
+    width: 30vw;
+}
+
+.success {
+    text-transform: capitalize;
+    padding: 20px;
+    background-color:   #04AA6D;
+    color: whitesmoke;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    display: none;
+    margin: 10px auto;
+    width: 30vw;
+}
+
+.error_show{
+    display: block;
+}
+.success_show {
+    display: block;
+}
+
+.show {
+    display: flex;
+    flex-direction: row;
+    background-color:  #04AA6D;
+    color: white;
+    text-transform: capitalize;
+    font-size: 15px;
+    width: 30vw;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+  
+.closebtn {
+    margin-left: 15px;
+    font-weight: bold;
+    float: right;
+    font-size: 18px !important;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+  }
+
+.wallet span {
+    background-color: #f1f1f1;;
+    border-radius: 3px;
+    color: black;
+    font-size: 25px;
+    text-transform: capitalize;
+    box-shadow: 0px 1px 3px #6665ee;
+    margin: 5px;
+    width: 600px;
+}
+
+.body{
+    border: solid 1px lightseagreen;
+    border-radius: 1.2%;
+    text-align: center;
+    padding: 10px;
+    margin: 20px auto;
+
+}
+
+header {
+    color: #0652dd;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.proposal-button {
+    width: 120px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #6665ee;
+    color:  #0652dd;
+}
+
+.proposal-button:hover {
+    color: grey;
+    background-color: #4040e7;
+}
+
+.decision {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.red,.blue {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+  @media screen and (max-width: 600px) {
+    .font {
+        font-size: 13px;
+    }
+     .modal-content {
+         width: 80%;
+     } 
+  }
+  @media screen and (max-width: 1000px) {
+      .show{
+          width: 80vw;
+          font-size: 13px;
+      }
+      .alert {
+          width: 80vw;
+          font-size: 13px;
+      }
+      .success {
+          width:80vw;
+          font-size: 13px;
+      }
+  }

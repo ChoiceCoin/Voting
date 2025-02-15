@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- hero section -->
+    <div class="head">
+      <h1>Add a voter to the decentralized database</h1>
+    </div>
+
+    <p class="info">Add a new voter to the system. Administrative Key Required.</p>
+    {% if message %}
+    <div class="result-cont">
+      <p class="closer" onclick="closer()">&times;</p>
+      <h3>
+        <p style="color:green">{{ message }}</p>
+      </h3>
+    </div>
+    {% else %}
+    {% if error %}
+    <div class="result-cont">
+      <p class="closer" onclick="closer()">&times;</p>
+      <p style="color:red">{{ error }}</p>
+    </div>
+    {% endif %}
+    {% endif %}
+    <div class="add-voter-cont">
+      <form action="" method = "post"> 
+        <div>
+          <label for = "Name">Name</label>
+          <input id = "Name" type = "text" name = 'Name' placeholder = "Name" class="inputs"><br>
+        </div>
+
+        <div>
+          <label for = "main">Social Security Number</label>
+          <input id = "main" type="password" name="Social" placeholder="Social Security Number" class="inputs"><br>
+        </div> 
+
+        <div>
+          <label for = "main_1">Drivers Lisence</label>
+          <input id = "main_1" type = "password" name = "Drivers" placeholder = "Drivers licence" class="inputs"><br>
+        </div>
+
+        <div>
+          <label for = "Key">ID</label>
+          <input id = "Key" name = "Key" type = "password" placeholder="Key ID" class="inputs"><br>
+        </div>
+        
+        <button class="button" value="Add Voter" style="margin-bottom: 100px;">
+          Add Voter
+        </button>
+      </form>
+    </div>
+{% endblock content %}

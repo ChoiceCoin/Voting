@@ -1,0 +1,12 @@
+.votes {
+    text-align: center;
+}
+
+input {
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+}
+

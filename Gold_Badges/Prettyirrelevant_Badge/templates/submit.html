@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Vote Submission Form - {{ election.title }}</h3>
+        </div>
+        <form class="container panel-body" method="post">
+            <h4>{{ election.title }}?</h4>
+            {% for candidate in election.candidates.all() %}
+            <div class="radio">
+              <label>
+                <input type="radio" name="choice" id="optionsRadios1" value="{{ candidate.name }}" checked>
+                {{ candidate.name }}
+              </label>
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-success btn-block">Vote</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

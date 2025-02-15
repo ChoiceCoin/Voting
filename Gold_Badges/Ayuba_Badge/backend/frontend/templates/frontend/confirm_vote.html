@@ -1,0 +1,24 @@
+{% extends './index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+<div id="app">
+    {% block content %}
+    <div class="container w-50" style="margin-top: 150px;">
+        <div class="card card-body" style="margin: auto;">
+            {{user.first_name}} {{user.last_name}}<br/>
+            voter ID: {{user.userprofile.voter_ID}}<br/>
+            <div class="dropdown-divider"></div>
+            <p class="text-center">Wallet Address</p>
+            <p class="text-center">{{user.userprofile.wallet_address}}</p>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{form|crispy}}
+                <button class="btn btn-success mt-2" type="submit">Commit Vote</button>
+            </form>
+            
+        </div>
+    </div>
+    {% endblock %}
+</div>

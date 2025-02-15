@@ -1,0 +1,135 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+}
+
+.container {
+	padding-bottom: 10px;
+	margin: auto;
+	width: 45%;
+	border-radius: 5px;
+	box-shadow: 12px 12px 12px 12px rgb(0 0 0 / 8%);
+}
+
+.container-2 {
+	border: 1px solid rgba(128, 128, 128, 0.407);
+	padding: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 5px;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 3%;
+	margin-bottom: 2%;
+}
+h1 {
+	font-size: 35px;
+	color: transparent;
+	font-family: cursive;
+	-webkit-text-stroke: 2px rgba(128, 128, 128, 0.955);
+	text-transform: capitalize;
+}
+
+hr {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 2%;
+}
+
+.newsletter {
+	padding: 20px;
+}
+
+input[type="text"] {
+	border-radius: 3px;
+	padding: 13px;
+	width: 350px;
+	border: 1px solid rgba(128, 128, 128, 0.407);
+}
+::placeholder {
+	color: rgba(128, 128, 128, 0.407);
+	padding: 20px;
+}
+.connect {
+	background-color: teal;
+	border: none;
+	color: #fff;
+	padding: 15px;
+	border-radius: 3px;
+	margin-top: 5%;
+}
+.connect:hover {
+	background: rgb(112, 160, 160);
+}
+
+.third {
+	padding: 10px;
+	padding-bottom: 0px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 5px;
+}
+.third textarea {
+	border: 1px solid rgba(128, 128, 128, 0.407);
+}
+.third ::placeholder {
+	color: rgba(128, 128, 128, 0.407);
+	font-size: 15px;
+}
+
+.submit {
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.submit input {
+	color: white;
+	width: 220px;
+	padding: 20px;
+	border: 1px solid rgba(128, 128, 128, 0.407);
+	border-radius: 5px;
+	font-weight: bold;
+	background-color: teal;
+}
+
+.yes {
+	background-color: green;
+	border: none;
+	color: #fff;
+	padding: 15px;
+	width: 150px;
+	border-radius: 3px;
+	margin-top: 5%;
+}
+.yes:hover {
+	background: rgba(9, 160, 6, 0.708);
+}
+
+.no {
+	background-color: red;
+	border: none;
+	color: #fff;
+	width: 150px;
+	padding: 15px;
+	border-radius: 3px;
+	margin-top: 5%;
+}
+.no:hover {
+	background: rgba(167, 19, 3, 0.708);
+}
+
+.vote-btn {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}

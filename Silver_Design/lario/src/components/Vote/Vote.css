@@ -1,0 +1,99 @@
+.vote{
+    width: 85%;
+    margin: 0 auto;
+    padding-top: 40px;
+    margin-bottom: 90px;
+}
+
+.porfolio__projects{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+    padding-bottom: 30px;
+}
+
+.porfolio__projects > .project {
+    border-radius: 30px;
+    text-align: center;
+    font-size: 1rem;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    transition: all .2s ease-in-out;
+}
+
+.porfolio__projects > .project:hover{
+    box-shadow: 0px 10px 15px rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+.porfolio__projects > .project> .project__title{
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    background-color: #ffffff;
+}
+.porfolio__projects > .project> .project__title > h5{
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #1c2237;
+    font-weight: bolder;
+}
+.porfolio__projects > .project > img {
+    width: 100%;
+    height: 200px;
+}
+.porfolio__projects > .project > .project__desc {
+    font-size: 0.9rem;
+    /* border: 2px solid red; */
+    text-align: left;
+    padding-bottom: 10px;
+    padding: 0 15px;
+    padding-top: 10px;
+    line-height: 2;
+    height: 130px;
+}
+.porfolio__projects > .project > .project__links{
+    /* border: 2px solid red; */
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    font-size: 0.9rem;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: #ffffff;
+}
+.repo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1c2237;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+.repo > .icon {
+    margin-right: 8px;
+}
+a{
+    text-decoration: none;
+}
+
+@media screen and (max-width: 900px){
+    .porfolio__projects{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media screen and (max-width: 700px){
+    .portfolio{
+        width: 92%;
+        /* border: 2px solid red; */
+    }
+    .porfolio__projects{
+        grid-template-columns: 1fr;
+    }
+}

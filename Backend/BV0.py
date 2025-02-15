@@ -14,7 +14,7 @@ algod_token = ""
 headers = {"X-API-Key": algod_token }
 # Initializes client for node.
 algod_client = algod.AlgodClient(algod_token,algod_address,headers)
-# Choice Asset ID.
+# Choice TestNet Asset ID.
 asset_id = 42771692 
 
 # VOID TEST ADDRESS

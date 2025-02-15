@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script
+    src="https://cdn.jsdelivr.net/npm/algosdk@1.13.0-beta.1/dist/browser/algosdk.min.js"
+    integrity="sha384-w9fodN00YjvWxdNoiyT+W6CqaATkXlfid9tnzBlToDqZWepVWLjI5wO7jNL4+aNs"
+    crossorigin="anonymous"
+  ></script>
+
+  <title>CHOICE COIN
+  </title>
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script src="/js/myalgo.min.js"></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <div class="left">
+                <li><a href="/">CHOICE COIN</a></li>
+            </div>
+            <div class="right">
+                <li style="float:right">
+                    <a id="walletbtn" class="active" onclick="Connect()" href="#">
+                        CONNECT TO A WALLET
+                    </a>
+                </li>
+                <li style="float:right"><a id="assets" onclick="Toggler()" class="assets"></a></li>
+            </div>
+        </ul>
+    </nav>
+    <div id="total_gov_coin" class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div>
+    <div id="error" class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div>
+    <section>
+
+        <div class="wrapper">
+            <header>CHOOSE YOUR CHOICE</header>
+          <div class="poll-area">
+            <input type="checkbox" name="poll" id="opt1" value="one">
+            <input type="checkbox" name="poll" id="opt2" value="two">
+            <label for="opt1" class="opt1">
+                <div class="row">
+                    <div class="column">
+                        <span class="circle"></span>
+                        <span class="text">Option One</span>
+                </div>
+              </div>
+            </label>
+            <label for="opt2" class="opt2">
+                <div class="row">
+                <div class="column">
+                  <span class="circle"></span>
+                  <span class="text">Option Two</span>
+                </div>
+              </div>
+            </label>
+            <br/>
+            <label for="wallet-address">Enter CHOICE AMOUNT: </label><br/>
+            <input type="text" id="wallet-address" autofocus name="from" placeholder="Input amount of choice">        
+          </div>
+          
+          <button class="button" onclick="myAlgoWalletSign()">Vote</button>
+
+        </div>
+    </section>
+
+
+    <script src="/js/script.js"></script>
+    <script src="/js/myalgowallet.js"></script>
+
+</body>
+</html>

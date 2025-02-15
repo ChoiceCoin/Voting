@@ -1,0 +1,12 @@
+Flask==1.1.2
+gunicorn==20.0.4
+h5py==3.1.0
+itsdangerous==1.1.0
+Jinja2==2.11.2
+Markdown==3.3.4
+MarkupSafe==1.1.1
+py-algorand-sdk==1.8.0
+pycryptodomex==3.12.0
+click==7.1.2
+werkzeug==1.0.1
+

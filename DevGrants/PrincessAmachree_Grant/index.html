@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tailwind.css"/>
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="script.js" defer></script>
+    <title>Choice</title>
+  </head>
+  <body class="p-0 md:p-10 font-serif font-bold bg-blue-200 relative ">
+
+<div class="absolute ball bg-blue-300 w-14 h-14 rounded-lg one "></div>
+<div class="absolute ball bg-blue-300 w-14 h-14 rounded-lg two"></div>
+<div class="absolute ball bg-blue-300 w-14 h-14 rounded-lg three"></div>
+<div class="absolute ball bg-blue-300 w-14 h-14 rounded-lg four "></div>
+<!-- <div class="absolute ball bg-blue-300 w-14 h-14 rounded-lg five"></div> -->
+
+<div class="box">
+  
+</div>
+<nav class="w-full text-2xl bg-white py-4 px-10 shadow flex items-center justify-between  ">
+  <p>Choice Coin</p>
+   <div class="connect bg-blue-400   p-3  rounded-xl  transition-colors duration-300 cursor-pointer border-2 btn animate-bounce">
+
+      Connect Wallet
+    </div>
+</nav>
+  <main class="max-w-xl w-full mb-3 md:mx-auto p-20 mt-14 shadow-lg rounded bg-white flex flex-col space-y-20 text-lg font-mono  ">
+    
+    <div class="row1 flex flex-col space-y-3 justify-between items-center ">
+    <div class="flex flex-col">
+      <!-- <p class="text-2xl text-white">CHOICE COIN</p> -->
+      <img class="w-10" src="./assets/choice-logo.png" alt="">
+    </div>
+    <div class="connect bg-blue-400  min-w-min  p-3  rounded-xl mt-5  transition-colors duration-300 cursor-pointer border-2 btn">
+
+      Connect Wallet
+    </div>
+    
+  </div>
+  <div class="text-gray-900 "><p>ISSUE NUMBER</p></div>
+    <div class="statement w-full h-40 bg-blue-100  text-puple-400  p-4 text-xl bg-gray-400">
+    </div>
+    <form class="checkBox flex justify-between items-center flex-col ">
+      <fieldset class="flex w-36 justify-between text-2xl" id="age" name="age">
+        <label class="">
+        
+          <input type="radio" id="yes" name="age" value="Yes" class="yes">
+          <span for="yes" class="">Yes</span><br>
+        </label>
+        <label class="">
+          <input type="radio" id="No" name="age" value="No" class="no">
+           <span for="No" class="">No</span><br>
+        </label>
+      </fieldset>
+      <div class="relative mt-4">
+        <input type="submit" class="btn submit bg-blue-500 text-gray-100 p-2 px-4 rounded-xl   transition-all duration-700 w-full scale-100  text-2xl  ">
+
+
+        </input>
+      </div>
+      
+    </form>
+  </main>
+   
+  </body>
+</html>

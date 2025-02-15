@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choice coin | sign in</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+      body{
+        
+font-family: 'Poppins', sans-serif;
+      }
+    </style>
+</head>
+<body>
+  <nav class="home-nav flex items-center justify-between flex-wrap   p-6  w-full z-10 top-0 md:px-20">
+		<div class="flex items-center flex-shrink-0 text-white mr-6">
+			<a class="text-white flex space-x-2 cursor-pointer no-underline hover:text-white hover:no-underline" href="../index.html">
+        <span> <img class="w-5" src="https://choice-coin.com/Screenshot%202021-06-25%20at%2023-38-44%20Logo%20Maker%20Used%20By%202%203%20Million%20Startups.png" alt=""> </span>
+        <h1 class="text-3xl text-white " >   Choice Coin  </h1> 
+			</a>
+		</div>
+
+		<div class="block lg:hidden">
+			<button id="nav-toggle" class="flex items-center px-3 py-2  rounded text-white border-gray-600 hover:text-white hover:border-white">
+				<?xml version="1.0" ?><svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6H20M4 12H20M4 18H11" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+			</button>
+		</div>
+
+		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
+			<ul class="list-reset lg:flex justify-end flex-1 items-center">
+				
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="./signup.html">Start Election </a>
+				</li>
+				
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="./voting.html">Vote</a>
+				</li>
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="./electionResult.html">Election results</a>
+				</li>
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4" href="https://choice-coin.com/">About Us </a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+     <div class="w-full bg-white   h-screen" >
+
+      <div class="pt-18 " >
+        <div class="flex mt-10 justify-center items-center " >
+          <p class=" text-3xl font-bold pr-2"> Sign in </p>
+          <span class="w-8 "  > <img src="https://img.icons8.com/external-bearicons-glyph-bearicons/64/000000/external-log-in-call-to-action-bearicons-glyph-bearicons-1.png"/> </span>
+        </div>
+        <div class=" flex justify-center items-center mt-5 ">
+     
+     
+ 
+       <div class="w-full max-w-xl">
+        <form class="bg-white shadow-md rounded px-8 pt-8 pb-8 mt-10 mb-4">
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+              Username
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username">
+          </div>
+            
+          <div class="mb-3">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+              Password
+            </label>
+            <input class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************">
+            <!-- <p class="text-red-500 text-xs italic">Please choose a password.</p> -->
+          </div>
+          
+          <div class="flex items-center justify-between">
+            <a href="./CreateElection.html" class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+              Login
+            </a>
+            
+          </div>
+        </form>
+   
+ </div>
+   </div>
+    </div>
+     </div>
+    <script src="../script.js"></script>
+</body>
+</html>

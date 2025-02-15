@@ -1,0 +1,149 @@
+* {
+	padding: 10px;
+	margin: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+	font-family: "Josefin Sans", sans-serif;
+	border: none;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: column;
+	min-height: 90vh;
+	background-color: #21d190;
+	background-image: linear-gradient(315deg, #21d190 0%, #d65bca 74%);
+}
+
+.container {
+	background-color: transparent;
+	border-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+		rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.connect {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.connect button {
+	border-radius: 8px;
+	font-size: 12px;
+	letter-spacing: 2px;
+	font-weight: 800;
+	color: #fff;
+	width: 200px;
+	padding: 12px;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	background-color: transparent;
+	box-shadow: rgba(0, 0, 0, 0.146) 0px 14px 28px,
+		rgba(0, 0, 0, 0.112) 0px 10px 10px;
+}
+
+.second {
+	padding: 25px;
+	margin-left: -20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.second ::placeholder {
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+	color: rgba(128, 128, 128, 0.167);
+	padding: 10px;
+	letter-spacing: 2px;
+	color: rgba(0, 0, 0, 0.438);
+	font-weight: 800;
+	text-transform: capitalize;
+}
+
+.second input {
+	margin-left: 10px;
+	border-radius: 5px;
+	width: 80%;
+	height: 30px;
+	background-color: rgba(255, 255, 255, 0.356);
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+		rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.second input:focus {
+	outline: none;
+}
+
+.third {
+	padding: 75px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border: 1px solid rgba(46, 47, 46, 0.311);
+	background-color: rgba(154, 154, 154, 0.112);
+	border-radius: 5px;
+}
+
+.third h4 {
+	letter-spacing: 2px;
+	font-size: 16px;
+	font-weight: 800;
+	color: rgba(255, 255, 255, 0.503);
+	text-transform: capitalize;
+	width: 120%;
+}
+
+.rand-btn {
+	padding: 20px;
+	margin-left: 40px;
+	margin-right: 60px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.rand-btn input {
+	background-color: white;
+	font-weight: 800;
+	font-size: 15px;
+	width: 100px;
+	padding: 7px;
+	border: 1px solid;
+	border-radius: 8px;
+	font-weight: 800;
+	box-shadow: rgba(0, 0, 0, 0.253) 0px 14px 28px;
+}
+
+.rand-btn .true {
+	background-color: transparent;
+	border: transparent;
+	color: #fff;
+}
+.rand-btn .false {
+	background-color: transparent;
+	border: transparent;
+	color: #fff;
+}
+
+.submit {
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.submit input {
+	background-color: white;
+	width: 70%;
+	padding: 13px;
+	border: none;
+	border-radius: 5px;
+	font-weight: bold;
+  background-image: linear-gradient(#35e2a354 , #c242b598);;
+	color: white;
+	box-shadow: rgba(0, 0, 0, 0.171) 0px 14px 28px,
+		rgba(0, 0, 0, 0.112) 0px 10px 10px;
+	letter-spacing: 2px;
+}

@@ -1,0 +1,152 @@
+.home{
+    margin: 0;
+    background: #1c2237;
+    height: calc(100vh - 40px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    color: #fff;
+    margin-bottom: 0;
+    margin-top: -80px;
+}
+
+
+.home__container{
+    display: flex;
+    height: 400px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.home__title{
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+}
+.home__title > p{
+    margin-top: 15px;
+}
+.home__buttons{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 55%;
+    display: flex;
+    justify-content: space-between;
+}
+    .home__buttons:nth-child(1){
+        margin-right: 40px;
+    }
+.social-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.social-icon-link {
+    color: #fff;
+    font-size: 24px;
+}
+.in:hover{
+    color: rgb(204, 125, 80)
+}
+.fa:hover{
+    color: rgb(25, 6, 112)
+}
+.gt:hover{
+    color: rgb(10, 3, 0)
+}
+.tw:hover{
+    color: rgb(3, 96, 139)
+}
+.lk:hover{
+    color: rgb(45, 2, 124)
+}
+
+
+.home__image{
+    height: 300px;
+    width: 300px;
+    border-radius: 10%;
+    
+}
+    .home__image > img{
+        width: 100%;
+        height: 100%;
+        border-radius: 5%;
+    }
+  
+@media screen and (max-width: 927px){
+        .home{
+            margin-top: 0;
+            height: calc(100vh - 60px);
+        }
+        .home__buttons{
+            flex-direction: column;
+            align-items: center;
+        }
+        .home__buttons > .to-about{
+            margin-bottom: 15px;
+        }
+        
+}
+
+@media screen and (max-width: 700px){
+    /* .home{
+        margin-top: 0px;
+        height: 100vh;
+    } */
+    .home__container{
+        width: 90%;
+        padding: 0;
+        height: 100%;
+    }
+ 
+    .home__image{
+        display: none;
+    }
+    .home__title{
+        width: 100%;
+        height: 100%;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 0;
+        
+    }
+    .home__title > h1:nth-child(1){
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+    .home__title > p{
+        margin-top: 25px;
+    }
+
+    .home__buttons{
+        margin-top: 60px;
+        width: 90%;
+        flex-direction: row;
+    }
+    .home__buttons > .to-about{
+        margin-bottom: 0px;
+    }
+
+    .social-icons {
+        width: 90%;
+        margin-top: 100px;
+      }
+    
+    .social-icon-link {
+        color: #fff;
+        font-size: 20px;
+      }
+ }

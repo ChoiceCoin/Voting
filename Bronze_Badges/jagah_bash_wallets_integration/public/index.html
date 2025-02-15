@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>Choice</title>
+  </head>
+  <body>
+    <div class="container body">
+      <div class="inner-container">
+        <!-- <div class="IRE__form-group">
+          <button type="text" id="urlBar" class="px-4" disabled readonly></button>
+         
+        </div> -->
+        <div class="mt-5 main-body">
+          <div class="header mt-5">
+            <h3>Cast your Vote</h3>
+          </div>
+          <div class="body-text">
+            <p>Select your Preferred option and click submit to proceed</p>
+          </div>
+          <form id="form" action="">
+            <div
+              class="
+                d-flex
+                align-items-center
+                justify-content-center
+                text-center
+                mt-4
+                form-container
+              "
+            >
+              <div class="mr-5 form-input">
+                <input type="radio" name="choice" id="red" required/>
+                <label for="red" class="text-danger">Red</label>
+              </div>
+              <div class="form-input">
+                <input type="radio" name="choice" id="blue" required/>
+                <label for="blue" class="text-primary">Blue</label>
+              </div>
+            </div>
+            <div class="button-container mt-5">
+              <button id="submit" class="IRE__button IRE__button-primary">Vote</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="powered">
+        <p>Powered By</p>
+        <div class="img-container">
+          <img src="./assets/choice-logo.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <button
+      type="button"
+      class="btn btn-primary d-none"
+      data-toggle="modal"
+      data-target="#exampleModal"
+      id="open"
+    >
+      Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h5 class="modal-title" id="exampleModalLabel">Connect a wallet</h5>
+            <button
+              type="button"
+              id="close1"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true" >&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <ul style="list-style-type: none">
+              <li class="my-3 d-flex align-items-center">
+                <img
+                  style="width: 30px"
+                  class="mr-2"
+                  src="https://app.tinyman.org/static/media/icon.37675b59.svg"
+                  alt=""
+                />
+                <a
+                  type="button"
+                  data-toggle="modal"
+                  data-target="#exampleModal1"
+                  id="open"
+                  class="
+                    font-weight-bold
+                    text-underline text-dark text-decoration-underline
+                  "
+                >
+                  Algorand Mobile Wallet</a
+                >
+              </li>
+              <li class="my-3 d-flex align-items-center">
+                <img
+                  style="width: 30px"
+                  class="mr-2"
+                  src="https://app.tinyman.org/static/media/AlgoSigner.2ec35000.svg"
+                  alt=""
+                />
+                <a
+                  href="./algosigner"
+                  class="
+                    font-weight-bold
+                    text-underline text-dark text-decoration-underline
+                  "
+                  >Algosigner</a
+                >
+              </li>
+              <li class="my-3 d-flex align-items-center">
+                <img
+                  style="width: 30px"
+                  class="mr-2"
+                  src="https://app.tinyman.org/static/media/MyAlgoLogo.4c21daa4.svg"
+                  alt=""
+                />
+                <a
+                  type="button"
+                  data-toggle="modal"
+                  data-target="#exampleModal3"
+                  id="open"
+                  class="
+                    font-weight-bold
+                    text-underline text-dark text-decoration-underline
+                  "
+                  >My Algo Wallet</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="exampleModal1"
+      tabindex="-1"
+      aria-labelledby="exampleModal1Label"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <li class="my-3 d-flex align-items-center">
+              <img
+                style="width: 30px"
+                class="mr-2"
+                src="https://app.tinyman.org/static/media/icon.37675b59.svg"
+                alt=""
+              />
+              <a
+                type="button"
+                data-toggle="modal"
+                data-target="#exampleModal1"
+                id="open"
+                class="
+                  font-weight-bold
+                  text-underline text-dark text-decoration-underline
+                "
+              >
+                Algorand Mobile Wallet</a
+              >
+            </li>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true" id="close">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <iframe
+              width="100%"
+              height="600px"
+              id="mobilewallet"
+              src="./mobilewallet"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div
+      class="modal fade"
+      id="exampleModal3"
+      tabindex="-1"
+      aria-labelledby="exampleModal1Labe3"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <!-- <h5 class="modal-title" id="exampleModal1Label">
+              Connect a wallet
+            </h5> -->
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true" id="close">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <iframe
+              width="100%"
+              height="600px"
+              id="frame"
+              src="https://pixabay.com/photo-2845763/"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      crossorigin="anonymous"
+    ></script>
+
+  
+    <script>
+        
+      const inputs = Array.from(document.getElementsByTagName("input"));
+      inputs.forEach((each) => {
+        each.addEventListener("change", (e) => {
+          if (e.target.value.length) {
+            e.target.parentElement.classList.add("filled");
+          } else {
+            e.target.parentElement.classList.remove("filled");
+          }
+        });
+      });
+    </script>
+      <script src="https://cdn.socket.io/4.4.0/socket.io.min.js" integrity="sha384-1fOn6VtTq3PWwfsOrk45LnYcGosJwzMHv+Xh/Jx5303FVOXzEnw0EpLv30mtjmlj" crossorigin="anonymous"></script>
+
+      <script>
+        var socket = io();
+        var color;
+        var form = document.getElementById('form');
+        var urlBar = document.getElementById('urlBar');
+        var radios =document.getElementsByName('choice');
+        
+        
+      
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          document.getElementById('submit').textContent="loading"
+          
+
+        var red=radios[0];
+        var blue=radios[1];
+
+          var address;
+        if(red.checked){
+             color="red"     
+        }
+        else if(blue.checked){
+             color="blue"
+        }
+        //document.getElementById("open").click();
+         
+        socket.emit('vote', color); //emits the user choice color to server
+        socket.on('result', (result)=>{ //gets the result from server
+        console.log(result)
+        console.log(color)
+        localStorage.setItem('address',result);
+        localStorage.setItem('name', color+' address');
+        document.getElementById("open").click();
+        // urlBar.textContent=result.message;
+
+        // document.getElementById('submit').textContent="Vote"
+
+            })
+      
+        });
+
+        $('#mobilewallet').load(function() {
+  $(this).contents().find('body').append('<scr' + 'ipt type="text/javascript">document.getElementById("close").click();</scr' + 'ipt>');    
+});
+      </script>
+      
+  </body>
+</html>

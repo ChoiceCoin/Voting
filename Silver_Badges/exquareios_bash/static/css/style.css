@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Baloo Bhaijaan 2", cursive;
+  font-family: "Poppins", sans-serif;
+}
+
+hr {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu .custom:focus {
+  background: #0062cc !important ;
+  border: none !important;
+  border-radius: 5px !important;
+  outline: none !important;
+}
+
+.header-primary {
+  text-transform: uppercase;
+  backface-visibility: hidden;
+}
+
+.header-primary--main {
+  display: block;
+  font-size: 4rem;
+  font-weight: 600;
+  letter-spacing: 1rem;
+  animation: moveInLeft 1s ease-out;
+}
+
+.header-primary--sub {
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  animation: moveInRight 1s ease-out;
+}
+.jumbotron {
+  background: #fff;
+  margin-top: -20px;
+}
+.btn,
+.btn:visited {
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-0.3rem) !important;
+}
+
+.btn:focus,
+.btn:active {
+  outline: 0 !important;
+  box-shadow: none;
+  transform: translateY(-0.1rem);
+}
+
+.btn--animated {
+  animation: moveInBottom 0.5s ease-out 0.7s;
+  animation-fill-mode: backwards;
+}
+
+.vote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.vote--section {
+  margin: 0 2rem;
+}
+
+.inputt,
+.inputt:active,
+.inputt:focus,
+.inputt:focus:active,
+.red,
+.blue,
+.red:active,
+.blue:active,
+.red:focus,
+.blue:focus,
+.red:focus:active,
+.blue:focus:active {
+  background-color: #f0f0f0 !important;
+  border: none;
+  color: #000;
+  outline: none;
+  height: 2.5rem;
+  text-indent: 10px;
+  width: 20rem;
+  border-radius: 3px;
+}
+
+@keyframes moveInRight {
+  0% {
+    transform: translate(10rem);
+    opacity: 0;
+  }
+  80% {
+    transform: translate(-1rem);
+  }
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    transform: translate(-10rem);
+    opacity: 0;
+  }
+  80% {
+    transform: translate(1rem);
+  }
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    transform: translateY(3rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,18 @@
+<%- include("./partials/header"); %>
+<div>
+    <h1>Admin Start Voting Process</h1>
+</div>
+
+<% if (error) { %> 
+    <p><%= error %></p> <%
+} %>
+
+<form action="/start" method="POST">
+    <div>
+        <label for="admin-key">Administrative Key</label><br/>
+        <input type="password" id="adminkey" autofocus name="admin-key" placeholder="Input your administrative key">
+    </div>
+
+    <input type="submit" value="start process">
+</form>
+<%- include("./partials/footer"); %>

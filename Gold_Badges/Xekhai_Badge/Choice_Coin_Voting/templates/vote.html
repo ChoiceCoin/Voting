@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>Choice Coin Voting</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Portal - Bootstrap 5 Admin Dashboard Template For Developers">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- FontAwesome JS-->
+    <script defer src="/static/assets/plugins/fontawesome/js/all.min.js"></script>
+    
+    <!-- App CSS -->  
+    <link id="theme-style" rel="stylesheet" href="/static/assets/css/portal.css">
+
+</head> 
+
+<body class="app app-404-page">   	
+   
+    <div class="container mb-5">
+	    <div class="row">
+		    <div class="col-12 col-md-11 col-lg-7 col-xl-6 mx-auto">
+			    <div class="app-branding text-center mb-5">
+		            <a class="app-logo" href="/vote">
+                  <img class="logo-icon me-2" src="/static/cirlogo.png" alt="logo"><span class="logo-text">Choice Coin Voting</span></a>
+	
+		        </div><!--//app-branding-->  
+
+
+			    <div class="app-card p-5 text-center shadow-sm">
+            <center><img src="../static/pet.png"/></center>
+            <br>
+            <br>
+				    <h1 class="page-title mb-4">Choice Coin Voting<br><span class="font-weight-light">Petition to use choice coin for our next presidential election</span></h1>
+            
+            {% if message %}
+				    <h1 class="page-title mb-4">Petition Signed<br><span class="font-weight-light"><a href={{ message }}>Verify</a></span></h1>
+            <hr>
+            <center><img src="../static/chart.png"/></center>
+
+            {% else %}
+            <form class="auth-form login-form" method = "post">         
+              <button type="submit" class="btn app-btn-primary w-100 theme-btn mx-auto">Sign</button>
+            </form>
+            {% endif %}
+			    </div>
+		    </div><!--//col-->
+	    </div><!--//row-->
+    </div><!--//container-->
+   
+    
+    <footer class="app-footer">
+	    <div class="container text-center py-3">
+	         <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+	       
+	    </div>
+    </footer><!--//app-footer-->
+
+    <!-- Javascript -->          
+    <script src="/static/assets/plugins/popper.min.js"></script>
+    <script src="/static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    
+    
+
+    
+    
+    <!-- Charts JS -->
+    <script src="/static/assets/plugins/chart.js/chart.min.js"></script> 
+    <script src="/static/assets/js/charts-custom.js"></script> 
+    
+    <!-- Page Specific JS -->
+    <script src="/static/assets/js/app.js"></script> 
+
+</body>
+</html> 

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="head">
+  <h1>End Voting process</h1>
+</div>
+
+<!--HERO SECTION -->
+<p class="info">End voting here <span  font-weight: bold;">(Administrative Priveleges Required)</span></p>
+
+{% if message %}
+  <div class="result-cont">
+    <p class="closer" onclick="closer()">&times;</p>
+    <h3><p style="color:#222222; font-size: .8em; font-weight:400; ">{{ message }}</p></h3>
+  </div>
+  <div class="img-wrapper">
+    <img src="/static/img/plot.png" width="100%">
+  </div>
+{% else %}
+{% if error %}
+  <div class="result-cont">
+    <p class="closer" onclick="closer()">&times;</p>
+    <p style="color:red">{{ error }}</p>
+  </div>
+{% endif %}
+{% endif %}
+
+  <!-- CONTENT -->
+  <form action="" method = "post">
+    <div class="generic-form">
+      <label for = "main">Administrative Key:</label>
+      <input id = "main" type="password" name="Key" placeholder="Administrative Key"><br>
+    </div>
+    <input class="button" type="submit" value="End Voting">
+  </form>
+
+{% endblock content %}

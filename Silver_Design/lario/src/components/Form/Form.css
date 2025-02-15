@@ -1,0 +1,48 @@
+.poll-form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+.form-div{
+    border: 1px solid aliceblue;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.form-entity{
+    width: 80%;
+}
+.form-entity > p{
+    color: aliceblue;
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+.form-entity > input{
+    width: 100%;
+    border: none;
+    height: 28px;
+    border-radius: 3px;
+    margin-bottom: 6px;
+    outline: none;
+}
+.form-create-poll{
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
+
+@media screen and (max-width: 700px){
+    .form-div{
+        width: 80%;
+    }
+}

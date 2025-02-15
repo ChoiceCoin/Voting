@@ -1,0 +1,58 @@
+<%- include("./partials/header"); %>
+
+<div class="text-center jumbotron">
+
+
+  <h1 class="display-4 text-center text-primary header-primary">  
+    <span class="header-primary--main">Choice Coin Built on</span> 
+    <span class="header-primary--sub"> Algorand</span>
+  </h1>
+
+
+  <p class="lead">
+    Choice Coin is an open source digital asset, which is used to solve the decentralized governance problem.
+    A voting token for autonomous organizations built on the Algorand blockchain as an Algorand Standard Asset.
+</p>
+  <hr class="my-4">
+  <p>
+       Choice Coin solves the decentralized governance problem by providing a mechanism for secure voting using post-quantum cryptography.</p>
+  <p class="lead">
+    <div class="d-flex justify-content-center align-items-center">
+      <a class="btn btn-primary btn-md btn--animated" href="https://choice-coin.com/" target="_blank" role="button">Learn more</a>
+    
+    <div class="dropdown" style="margin-left: 10px;">
+          <button
+            class="btn btn-primary dropdown-toggle btn--animated"
+            type="button"
+            id="dropdownMenu2"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Connect Wallet
+          </button>
+          <div
+            class="dropdown-menu border-0 shadow p-3 mb-5 bg-white rounded"
+            aria-labelledby="dropdownMenu2"
+          >
+            <button
+              class="dropdown-item custom"
+              type="button"
+              onclick="Connect()"
+            >
+              Algo Signer
+            </button>
+            <hr />
+            <button
+              class="dropdown-item custom"
+              type="button"
+              onclick="myAlgoWalletConnect()"
+            >
+              Algorand Mobile Wallet
+            </button>
+          </div>
+        </div>
+    </div>
+    
+  </p>
+</div>

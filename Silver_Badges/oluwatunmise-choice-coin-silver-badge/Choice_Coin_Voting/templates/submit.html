@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="head">
+  <h1>Voting with Choice Coin</h1>
+</div>
+
+<p class="info">Your identity has been validated. Submit your vote here:</p>
+{% if message %}
+<div class="result-cont">
+  <p class="closer" onclick="closer()">&times;</p>
+  <h3>
+    <p style="color:green" style="width:auto;">{{ message }}</p>
+  </h3>
+</div>
+{% else %}
+{% if error %}
+<div class="result-cont">
+  <p class="closer" onclick="closer()">&times;</p>
+  <p style="color:red">{{ error }}</p>
+</div>
+{% endif %}
+{% endif %}
+
+<div class="add-voter-cont">
+  <form action="" method = "post">
+
+    <label class="container">One
+      <input type="radio" value="option1" name="options" id="options1">
+      <span class="checkmark"></span>
+    </label>
+
+    <label class="container">Two
+      <input type="radio" name="options" id="options2" value="option2">
+      <span class="checkmark"></span> 
+    </label>
+    <input class="button" type="submit" value="Submit Ballot">
+  </form>
+</div>
+{% endblock content %}

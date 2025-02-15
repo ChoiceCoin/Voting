@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Create Election Form</h3>
+        </div>
+        <form class="container panel-body" method="post">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Best CryptoCurrency" required>
+            </div>
+            <div class="form-group">
+                <label for="candidate">Candidate(s)</label>
+                <input type="text" class="form-control" id="candidates" name="candidates" placeholder="Me, You, Us" required>
+                <span class="help-block">A list of comma-separated candidates for the election. Minimum of two candidates</span>
+            </div>
+
+            <div class="form-group">
+                <label for="escrow_address">Escrow Address</label>
+                <input type="text" class="form-control" id="escrow_address" name="escrow_address" placeholder="QBOKU324SVMAMQOR4UC4R7LZ34WSQNNAUO5PCF33TKAJI65V6H6IGZROFI" required>
+                <span class="help-block">Please make sure you are already opted in to Choice Coin. Minimum balance of 800CHOICE.</span>
+
+            </div>
+            <div class="form-group">
+                <label for="escrow_mnemonic">Escrow Mnemonics</label>
+                <input type="text" class="form-control" id="escrow_mnemonic" name="escrow_mnemonic" placeholder="book shoe car run fun">
+            </div>
+            <button type="submit" class="btn btn-success">Create Election</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

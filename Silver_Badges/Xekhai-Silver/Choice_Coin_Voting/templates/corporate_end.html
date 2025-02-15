@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Election Voting</title>
+
+    <link rel="stylesheet" href="/static/css/style.css?version=7">
+    <link rel = "stylesheet" href = "/static/css/mystyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style type="text/css">
+
+    </style>
+
+  </head>
+  <body>
+    {% include 'header.html' %}
+    {% if message %}
+        <h3><p style="color:green">{{ message }}</p></h3>
+        <center><img src="/static/img/Figure_2.png"></img></center>
+{% else %}
+    	    {% if error %}
+        <p style="color:red">{{ error }}</p>
+    		{% endif %}
+    <div class="container">
+      <div class="judul">
+        <h1>Voting with Choice Coin</h1>
+      </div>
+
+      <p>End voting here (Administrative Priveleges Required)</p>
+
+<form action="" method = "post">
+  <label for = "main">Administrative Key:</label>
+  <input id = "main" type="password" name="Key" placeholder="SS #"><br>
+  <input class="button" type="submit" value="End Voting">
+</form>
+{% endif %}
+    </div>
+    {% include 'footer.html' %}
+ </body>
+</html>

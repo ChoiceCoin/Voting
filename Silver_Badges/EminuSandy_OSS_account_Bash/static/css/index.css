@@ -1,0 +1,69 @@
+
+body {
+    background: #f4f7fa;
+    min-height: 100vh;
+    min-width: 100%;
+    overflow-x: hidden;
+}
+.wrapper {
+    min-height: 100vh;
+}
+.container-lg {
+    min-height: 80vh;
+}
+.inner_wrapper {
+    position: relative;
+}
+#toast-container {
+    z-index: 2000;
+}
+#connect-wallet .account {
+    font-size: 14px;
+    overflow-wrap: break-word;
+    background: #d7f7e2;
+    padding: 15px;
+    margin: 15px 0px;
+    line-height: 1.4;
+    cursor: pointer;
+}
+#transaction-successful a {
+    font-size: 14px;
+    overflow-wrap: break-word;
+    padding: 15px;
+    margin: 15px 0px;
+}
+.card {
+    position: relative;
+    width: 100%;
+    min-width: 200px;
+    max-width: 800px;
+    border-radius: 20px;
+}
+.card-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0px;
+    margin: 0px;
+}
+.card-body {
+    text-align: center;
+}
+#logo-header {
+    display: flex;
+    align-items: baseline;
+}
+#logo-header span {
+    font-weight: 800;
+    font-size: 30px;
+}
+
+@media (max-width: 800px) {
+    .card {
+        width: 90%;
+        transform: translateY(-10%);
+    }
+    .logo-header span {
+        font-size: 22px;
+    }
+}

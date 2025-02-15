@@ -1,0 +1,32 @@
+<%- include("./header"); %>
+<div class="header">
+    <h1>Participate by Voting</h1>
+</div>
+
+<div id="results">
+    <span id="result"></span>
+</div>
+
+<div class="container">
+  <div class="red">
+    <label class="container" id="ded">RED
+        <input type="radio" value="red" name="input" id="red">
+        <input id="red-input" class="red" type="text" placeholder="Enter Choice Amount">
+    </label>
+    
+  </div> 
+    
+    <div class="blue">
+        <label class="container" id="dud">BLUE
+            <input type="radio"  id="blue" name="input" value="blue">
+            <input id="blue-input" class="blue" type="text" placeholder="Enter Choice Amount">
+        </label>
+       
+    </div>
+    <br/>
+    <div class="wallet">
+     <input type="text" id="wallet" autofocus name="from" placeholder="Enter your wallet address">
+    </div>
+      
+    <button class="button" onclick="myAlgoWalletSign()">Submit</button>
+</div>

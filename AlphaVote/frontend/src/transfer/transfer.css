@@ -1,0 +1,115 @@
+.transfer_cont {
+  width: 100%;
+  height: calc(100vh - var(--sm-nav-height));
+  position: relative;
+  display: flex;
+  color: var(--txt-alt);
+  padding: 15vh 5vw 0vh;
+  flex-direction: column;
+
+  font-weight: 400;
+
+  align-items: center;
+}
+
+.transfer_cont_inn {
+  width: 420px;
+  max-width: 88vw;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+.trans_hd {
+  display: flex;
+  font-size: 15px;
+  color: var(--wht);
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 13px 0px;
+  font-family: "Barlow", sans-serif;
+}
+
+.light_theme .trans_hd {
+  font-weight: 500;
+}
+
+.transf_inps {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  padding-top: 10vh;
+  flex-direction: column;
+}
+
+.big_screen .transfer_cont {
+  padding-top: calc(15vh + var(--sm-hd-height-half));
+}
+.big_screen .transf_inps {
+  padding-top: 5vh;
+}
+
+.transf_input_cover {
+  width: 100%;
+  padding: 10px 0px;
+}
+
+.inpCont_full {
+  width: 100%;
+}
+
+.inpCont_cand {
+  width: 100%;
+}
+
+.transf_input_cover .trsf_amt {
+  font-size: 15px;
+  margin-bottom: 12px;
+  padding-left: 2px;
+  color: var(--wht);
+  opacity: 0.7;
+}
+
+.transf_input_cover input {
+  flex: 1;
+  width: 100%;
+  font-size: 15px;
+  padding: 15px 12px;
+  border-radius: 12px;
+  background: var(--back-1);
+  border: 1px solid var(--bord-dark);
+}
+
+.trsf_max {
+  display: flex;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 12px;
+  margin-left: 20px;
+  border-radius: 8px;
+  white-space: nowrap;
+  flex-direction: row;
+  align-items: center;
+  text-transform: uppercase;
+  background: var(--back-1);
+  border: 1px solid var(--bord-dark);
+}
+.trsf_max button {
+  padding: 14px 20px;
+}
+.trsf_max p {
+  opacity: 0.7;
+  color: var(--wht);
+}
+
+.submitTrsf {
+  width: 100%;
+  font-size: 15px;
+  color: #ffffff;
+  margin-top: 20px;
+  padding: 14px 12px;
+  border-radius: 12px;
+  background: var(--main-col);
+}

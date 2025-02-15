@@ -1,0 +1,49 @@
+/*************************** Theme Colours****************************/
+// Define theme colour scheme
+$theme-color-primary: #15a362;
+
+$theme-text-color-primary: #252930;
+$theme-text-color-secondary: lighten($theme-text-color-primary, 25%);
+$theme-text-color-light: lighten($theme-text-color-primary, 40%);
+$theme-bg-light: #f5f6fe;
+$theme-border-color: lighten($theme-text-color-primary, 75%);
+$theme-color-new: #5ab66e;
+$theme-color-count: #EC776C;
+$theme-error: #EC575B;
+$smoky-white: #f5f5f5;
+
+$theme-success-color: #5cb377;
+$theme-warning-color: #EEBF41;
+$theme-info-color: #5b99ea;
+$theme-danger-color: #d26d69;
+
+
+$theme-color-pdf: #DA2D27;
+$theme-color-word: #66a0fd;
+$theme-color-ppt: #f4b400;
+$theme-color-excel: #0da95f;
+$theme-color-video: #935dc1;
+$theme-color-zip: #252930;
+
+/*************************** Variables Section. *****************************/
+// Create variables to override the default value for variables used in the Bootstrap SCSS files.
+
+
+$theme-colors: (
+  "primary":  $theme-color-primary, 
+  "secondary": $theme-text-color-secondary, 
+  "success": $theme-success-color,
+  "danger": $theme-danger-color,
+  "warning": $theme-warning-color,
+  "info": $theme-info-color,
+);
+
+
+
+/*************************** Import Bootstrap  *****************************/
+@import "bootstrap/scss/bootstrap.scss";
+
+
+/*************************** Theme Styles Section ****************************/
+@import "app/styles.scss";
+

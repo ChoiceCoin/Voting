@@ -1,0 +1,94 @@
+.faq_cont {
+  width: 100%;
+  min-height: 50vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 15vh 8vw 15vh;
+  font-weight: 500;
+  font-family: "Raleway", sans-serif;
+}
+
+/* 
+=================== */
+.faq_hd {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.collap_cov {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.collapsible {
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  font-weight: 550;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.colap_active {
+  color: #3a4be8;
+}
+
+.collapsible:after {
+  content: "\2356";
+  color: #444;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+.colap_active:after {
+  content: "\2212";
+  color: #3a4be8;
+}
+
+.collap_cont {
+  max-height: 0;
+  overflow: hidden;
+  font-weight: 500;
+  font-family: "Raleway", sans-serif;
+
+  transition: max-height 0.2s ease-out;
+  background: rgba(134, 90, 90, 0.02);
+}
+
+.collap_cont p {
+  font-size: 15px;
+  line-height: 142%;
+
+  padding: 20px 18px;
+}
+
+.ask_q_sect {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.ask_que {
+  color: #fff;
+  font-size: 13px;
+  background: #222;
+  padding: 8px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
